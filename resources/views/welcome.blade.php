@@ -22,8 +22,7 @@
     </head>
     <body class="antialiased">
         <div id="app">
-            <div class="text-primary">TEST</div>
-            <example-component></example-component>
+            <home></home>
         </div>
     </body>
     <script src="{{ mix('/js/app.js') }}"></script>
