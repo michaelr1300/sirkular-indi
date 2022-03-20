@@ -34,7 +34,7 @@ Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
 
 Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
 {
-    Route::get('/orders', [OrderController::class, 'index'])->name('index');
+    Route::get('/', [OrderController::class, 'index'])->name('index');
     Route::get('/create', [OrderController::class, 'create'])->name('create');
     Route::post('/', [OrderController::class, 'store'])->name('store');
     Route::put('/{order}', [OrderController::class, 'update'])->name('update');
