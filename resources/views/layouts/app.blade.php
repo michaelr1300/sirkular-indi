@@ -76,8 +76,11 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div id="app">
+                @yield('content')
+            </div>
         </main>
     </div>
+    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>
