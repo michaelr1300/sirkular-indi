@@ -4,9 +4,9 @@
         <div class="row justify-content-center div-content-home">
             <div class="segment segment-1 flex-row row justify-content-center">
                 <div class="col-lg-7">
-                    <h1 class="h1-text">Reproduksi Batikmu</h1>
-                    <h1 class="h1-text">Dengan pewarna alami</h1>
-                    <h1 class="h1-indi">INDI</h1>
+                    <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
+                    <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
+                    <h1 class="h1-indi text-uppercase">INDI</h1>
                     <h3>Mari jalani circular fashion dan re-produksi batikmu</h3>
                     <h3>dengan pewarna alami INDI</h3>
                     <button class="btn-get-start">Pesan sekarang</button>
@@ -110,14 +110,15 @@
                 </div>
             </div>
         </div>
-        <!-- <Footer></Footer> -->
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
     import Header from './elements/Header.vue'
+    import Footer from './elements/Footer.vue'
     export default {
-        components: { Header },
+        components: { Header, Footer },
         mounted() {
             console.log('Component mounted.')
         }

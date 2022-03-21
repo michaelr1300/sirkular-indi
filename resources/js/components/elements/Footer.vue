@@ -1,39 +1,30 @@
 <template>
-<footer class="bg-dark text-center text-white">
-    
-</footer>
-    <!-- <nav class="navbar navbar-expand-lg container-header">
-        <div class="wrapped-header row justify-content-between flex-row w-100">
-            <div class="wrap-left w-auto">
-                <div class="div-logo">
-                    <img src="" alt="logo-indi"/>
-                </div>
+<footer class="mt-5 pt-5 pb-5 footer bg-dark text-white footer-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-xs-12 about-company text-left">
+                <h2>Kantor</h2>
+                <p class="pr-5 pb-1 text-white-50 text-left">Jl. KH. Wahid Hasyim Kel No.10D</p>
+                <p class="pr-5 pb-1 text-white-50 text-left">Jakarta Pusat 10340</p>
+                <p class="pr-5 pb-1 text-white-50 text-left">Indonesia</p>
             </div>
-            <div class="wrap-mid flex-row w-auto">
-                <div class="div-menu flex-row">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
-                        <li class="nav-item active">
-                            <a class="menu-item active-menu" aria-current="page">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="menu-item">Katalog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="menu-item" >Tentang INDI</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="menu-item">Testimoni</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="col-lg-3 col-xs-12 links">
+                <h4 class="mt-lg-0 mt-sm-3">Kontak</h4>
+                <p class="pr-5 pb-1 text-white-50 text-left">team@indiugm.com</p>
+                <p class="pr-5 pb-1 text-white-50 text-left">+62 813 2910 4928</p>
             </div>
-            <div class="wrap-right w-auto">
-                <div class="div-login">
-                    <button class="btn-login">Log in</button>
-                </div>
+            <div class="col-lg-4 col-xs-12 location">
+                <h4 class="mt-lg-0 mt-sm-4">Social media</h4>
+                <p><font-awesome-icon icon="fab fa-facebook-square" /> <font-awesome-icon icon="fab fa-instagram" /> <font-awesome-icon icon="fab fa-youtube" /> <font-awesome-icon icon="fab fa-linkedin" /></p>
             </div>
         </div>
-    </nav> -->
+        <div class="row mt-5">
+            <div class="col copyright">
+                <p class=""><small class="text-white-50">© 2022 INDI UGM. All Rights Reserved.</small></p>
+            </div>
+        </div>
+    </div>
+</footer>
 </template>
 
 <script>
@@ -45,34 +36,8 @@
 </script>
 
 <style scoped>
-    .container-header{
-        height: 60px;
-        padding: 0 20px;
-    }
-
-    .wrapped-header{
-        display: flex;
-    }
-
-    .menu-item{
-        display: block;
-        padding: 0.5rem 1rem;
-        padding-right: 1rem;
-        padding-left: 1rem;
-        color: #000;
-        text-decoration: none;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-    }
-
-    .active-menu{
-        font-weight: 700;
-    }
-
-    .btn-login{
-        background: transparent;
-        border: 3px solid #000;
-        width: 120px;
-        height: 40px;
-        font-weight: 700;
-    }
+    /* .footer-container{
+        background-image: url("paper.gif");
+        background-color: #cccccc;
+    } */
 </style>

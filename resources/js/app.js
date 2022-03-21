@@ -4,6 +4,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faJs, faLinkedin, faFacebookSquare, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import Vue from 'vue';
+
+library.add(faJs, faLinkedin, faFacebookSquare, faInstagram, faYoutube);
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
