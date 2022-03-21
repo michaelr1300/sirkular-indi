@@ -36,7 +36,7 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
-
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -82,6 +82,5 @@
             </div>
         </main>
     </div>
-    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>
