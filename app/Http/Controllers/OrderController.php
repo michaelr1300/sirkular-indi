@@ -37,7 +37,16 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+        ]);
+
+        Order::create([
+            'user_id' => $request->user()->id,
+            'order_status' => 'waiting',
+        ]);
+
+        return redirect()->action([OrderController::class, 'index']);
     }
 
     /**
@@ -48,7 +57,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
