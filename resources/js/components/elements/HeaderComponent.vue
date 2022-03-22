@@ -3,7 +3,7 @@
         <div class="wrapped-header row justify-content-between flex-row w-100">
             <div class="wrap-left w-auto">
                 <div class="div-logo">
-                    <img src="" alt="logo-indi"/>
+                    <img class="img-header-icon" src="images/icon-indi-pair-color.png" alt="logo-indi"/>
                 </div>
             </div>
             <div class="wrap-mid flex-row w-auto">

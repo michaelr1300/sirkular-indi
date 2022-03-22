@@ -3,21 +3,23 @@
         <HeaderComponent></HeaderComponent>
         <div class="row justify-content-center div-content-home">
             <div class="segment segment-1 flex-row row justify-content-center">
-                <div class="col-lg-7 wrap-left-home">
-                    <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
-                    <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
-                    <h1 class="h1-indi text-uppercase">INDI</h1>
-                    <h3>Mari jalani circular fashion dan re-produksi batikmu</h3>
-                    <h3>dengan pewarna alami INDI</h3>
-                    <button class="btn-get-start">Pesan sekarang</button>
+                <div class="col-lg-7 batik-cover-background px-0">
+                    <div class="  wrap-left-home-1">
+                        <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
+                        <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
+                        <h1 class="h1-indi text-uppercase">INDI</h1>
+                        <h3>Mari jalani circular fashion dan re-produksi batikmu</h3>
+                        <h3>dengan pewarna alami INDI</h3>
+                        <button class="btn-get-start">Pesan sekarang</button>
+                    </div>
                 </div>
-                <div class="col-lg-4">
-                    Ini Foto
+                <div class="col-lg-4 wrap-right-home-1">
+                    <!-- <img class="img-person-home" src="images/img-person-home.png" alt="img person"> -->
                 </div>
             </div>
             <div class="segment segment-2 row justify-content-center">
                 <div class="col-lg-8">
-                    Ini Foto
+                    <!-- <img class="img-footer-icon" src="images/icon-indi-pair-white.png" alt="icon-indi"> -->
                 </div>
                 <div class="col-lg-4">
                     <h1 class="h1-text">Tentang Kami</h1>
@@ -135,18 +137,44 @@
         min-height: 100vh;
     }
 
+    .img-person-home{
+        width: 400px;
+    }
+    
+    .batik-cover-background{
+        
+        background-image: url("../../assets/background-home.png");
+    }
+
+    .wrap-left-home-1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #142362;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0.9;
+        background-size: cover;
+    }
+
     .segment-1{
         flex-direction: row;
     }
 
-    .wrap-left-home{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+
+    .wrap-right-home-1{
+        background: #001b34;
+    }
+
+    .h1-text {
+        font-size: 54px;
+        font-weight: 700;
     }
 
     .h1-indi{
         font-size: 120px;
+        font-weight: 900;
     }
     
     .btn-get-start{
