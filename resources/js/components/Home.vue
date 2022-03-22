@@ -3,18 +3,24 @@
         <HeaderComponent></HeaderComponent>
         <div class="row justify-content-center div-content-home">
             <div class="segment segment-1 flex-row row justify-content-center">
-                <div class="col-lg-7 batik-cover-background px-0">
-                    <div class="wrap-left-home-1">
+                <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
+                    <div class="col-lg-7 wrap-left-home-1">
                         <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
                         <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
                         <h1 class="h1-indi text-uppercase">INDI</h1>
-                        <h3>Mari jalani circular fashion dan re-produksi batikmu</h3>
-                        <h3>dengan pewarna alami INDI</h3>
-                        <button class="btn-get-start">Pesan sekarang</button>
+                        <h3 class="h3-sub-text">Mari jalani circular fashion dan re-produksi batikmu</h3>
+                        <h3 class="h3-sub-text">dengan pewarna alami INDI</h3>
+                        <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                     </div>
-                </div>
+                <!-- </div> -->
                 <div class="col-lg-5 wrap-right-home-1">
-                    <img class="img-person-home" src="images/img-person-home.png" alt="img person">
+                    <div class="img-wrapper-1">
+                        <img class="img-person-home" src="images/img-person-home.png" alt="img person">
+                        <div class="">
+                            <!-- <img src="" alt="icon-recycle"/> -->
+                            <p class="p-text-home-1">Mari lestarikan warisan leluhur kita <br/> dengan pewarna alami terbaik dari INDI.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="segment segment-2 row justify-content-center">
@@ -139,52 +145,76 @@
     .segment-1{
         flex-direction: row;
     }
-
-    .img-person-home{
-        width: 400px;
-    }
     
-    .batik-cover-background{
+    /* .batik-cover-background{
         background-image: url("../../assets/background-home.png");
-    }
+    } */
 
     .wrap-left-home-1{
         font-family: 'Mulish', sans-serif;
-        padding: 0 10%;
+        padding: 0 3% 0 9%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         color: #142362;
-        width: 100%;
-        height: 100%;
-        background-color: #fff;
-        opacity: 0.9;
-        background-size: cover;
+        background-image: url("../../assets/background-home.png");
+        background-size: contain;
+        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
     }
-
-
 
     .wrap-right-home-1{
         background: #001b34;
     }
 
+    .img-wrapper-1{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .img-person-home{
+        border-radius: 0 0 200px 200px;
+        width: 500px;
+    }
+
+    .p-text-home-1{
+        color: #fff;
+        font-size: 18px;
+        /* margin-top: 30px; */
+    }
+
     .h1-text {
-        font-size: 72px;
-        font-weight: 700;
+        font-size: 48px;
+        font-weight: 900;
     }
 
     .h1-indi{
-        font-size: 120px;
+        font-size: 200px;
         font-weight: 900;
+        line-height: 175px;
+    }
+
+    .h3-sub-text{
+        color: #00042D;
     }
     
     .btn-get-start{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #000;
         border: 3px solid #000;
-        width: 150px;
-        height: 40px;
+        width: 210px;
+        height: 70px;
+        margin-top: 40px;
         font-weight: 700;
         color: #fff;
+    }
+
+    .icon-arrow-right{
+        margin-left: 25px;
+        width: 25px;
+        height: 25px;
     }
 
     .btn-read-cont{
