@@ -3,23 +3,23 @@
         <div class="wrapped-header row justify-content-between flex-row w-100">
             <div class="wrap-left w-auto">
                 <div class="div-logo">
-                    <img class="img-header-icon" src="images/icon-indi-pair-color.png" alt="logo-indi"/>
+                    <img class="img-header-icon" src="/images/icon-indi-pair-color.svg" alt="logo-indi"/>
                 </div>
             </div>
             <div class="wrap-mid flex-row w-auto">
                 <div class="div-menu flex-row">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
                         <li class="nav-item active">
-                            <a class="menu-item active-menu" aria-current="page">Beranda</a>
+                            <a class="menu-item active-menu" aria-current="page" href="/">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="menu-item">Katalog</a>
+                            <a class="menu-item" href="/catalog">Katalog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="menu-item" >Tentang INDI</a>
+                            <a class="menu-item" href="/about">Tentang INDI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="menu-item">Testimoni</a>
+                            <a class="menu-item" href="/reviews">Testimoni</a>
                         </li>
                     </ul>
                 </div>
@@ -37,7 +37,8 @@
     export default {
         mounted() {
             console.log('Component mou')
-        }
+        },
+
     }
 </script>
 

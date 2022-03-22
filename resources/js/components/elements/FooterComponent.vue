@@ -3,7 +3,7 @@
     <footer class="mt-5 pt-5 pb-5 footer bg-dark text-white div-footer">
         <div class="container">
             <div class="row">
-                <img class="img-footer-icon" src="images/icon-indi-pair-white.png" alt="icon-indi">
+                <img class="img-footer-icon" src="images/icon-indi-pair-white.svg" alt="icon-indi">
             </div>
             <div class="row mt-5">
                 <div class="col-lg-5 col-xs-12 about-company text-left">
