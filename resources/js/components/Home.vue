@@ -1,9 +1,9 @@
 <template>
     <div class="flex-column">
-        <Header></Header>
+        <HeaderComponent></HeaderComponent>
         <div class="row justify-content-center div-content-home">
             <div class="segment segment-1 flex-row row justify-content-center">
-                <div class="col-lg-7">
+                <div class="col-lg-7 wrap-left-home">
                     <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
                     <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
                     <h1 class="h1-indi text-uppercase">INDI</h1>
@@ -110,15 +110,15 @@
                 </div>
             </div>
         </div>
-        <Footer></Footer>
+        <FooterComponent></FooterComponent>
     </div>
 </template>
 
 <script>
-    import Header from './elements/Header.vue'
-    import Footer from './elements/Footer.vue'
+    import HeaderComponent from './elements/HeaderComponent.vue'
+    import FooterComponent from './elements/FooterComponent.vue'
     export default {
-        components: { Header, Footer },
+        components: { HeaderComponent, FooterComponent },
         mounted() {
             console.log('Component mounted.')
         }
@@ -137,6 +137,12 @@
 
     .segment-1{
         flex-direction: row;
+    }
+
+    .wrap-left-home{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .h1-indi{
