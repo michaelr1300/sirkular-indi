@@ -4,7 +4,7 @@
         <div class="row justify-content-center div-content-home">
             <div class="segment segment-1 flex-row row justify-content-center">
                 <div class="col-lg-7 batik-cover-background px-0">
-                    <div class="  wrap-left-home-1">
+                    <div class="wrap-left-home-1">
                         <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
                         <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
                         <h1 class="h1-indi text-uppercase">INDI</h1>
@@ -13,8 +13,8 @@
                         <button class="btn-get-start">Pesan sekarang</button>
                     </div>
                 </div>
-                <div class="col-lg-4 wrap-right-home-1">
-                    <!-- <img class="img-person-home" src="images/img-person-home.png" alt="img person"> -->
+                <div class="col-lg-5 wrap-right-home-1">
+                    <img class="img-person-home" src="images/img-person-home.png" alt="img person">
                 </div>
             </div>
             <div class="segment segment-2 row justify-content-center">
@@ -129,12 +129,15 @@
 
 <style scoped>
     .div-content-home{
-        padding: 0 15%;
         flex-direction: column;
     }
 
     .segment{
         min-height: 100vh;
+    }
+    
+    .segment-1{
+        flex-direction: row;
     }
 
     .img-person-home{
@@ -142,11 +145,12 @@
     }
     
     .batik-cover-background{
-        
         background-image: url("../../assets/background-home.png");
     }
 
     .wrap-left-home-1{
+        font-family: 'Mulish', sans-serif;
+        padding: 0 10%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -158,9 +162,6 @@
         background-size: cover;
     }
 
-    .segment-1{
-        flex-direction: row;
-    }
 
 
     .wrap-right-home-1{
@@ -168,7 +169,7 @@
     }
 
     .h1-text {
-        font-size: 54px;
+        font-size: 72px;
         font-weight: 700;
     }
 

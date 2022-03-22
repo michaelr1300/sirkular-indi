@@ -17683,7 +17683,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_home_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.div-content-home[data-v-f2b6376c]{\n    padding: 0 15%;\n    flex-direction: column;\n}\n.segment[data-v-f2b6376c]{\n    min-height: 100vh;\n}\n.img-person-home[data-v-f2b6376c]{\n    width: 400px;\n}\n.batik-cover-background[data-v-f2b6376c]{\n    \n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n.wrap-left-home-1[data-v-f2b6376c]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    color: #142362;\n    width: 100%;\n    height: 100%;\n    background-color: #fff;\n    opacity: 0.9;\n    background-size: cover;\n}\n.segment-1[data-v-f2b6376c]{\n    flex-direction: row;\n}\n.wrap-right-home-1[data-v-f2b6376c]{\n    background: #001b34;\n}\n.h1-text[data-v-f2b6376c] {\n    font-size: 54px;\n    font-weight: 700;\n}\n.h1-indi[data-v-f2b6376c]{\n    font-size: 120px;\n    font-weight: 900;\n}\n.btn-get-start[data-v-f2b6376c]{\n    background: #000;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 700;\n    color: #fff;\n}\n.btn-read-cont[data-v-f2b6376c]{\n    background: #fff;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 600;\n}\n.btn-bottom-order[data-v-f2b6376c]{\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.div-content-home[data-v-f2b6376c]{\n    flex-direction: column;\n}\n.segment[data-v-f2b6376c]{\n    min-height: 100vh;\n}\n.segment-1[data-v-f2b6376c]{\n    flex-direction: row;\n}\n.img-person-home[data-v-f2b6376c]{\n    width: 400px;\n}\n.batik-cover-background[data-v-f2b6376c]{\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n.wrap-left-home-1[data-v-f2b6376c]{\n    font-family: 'Mulish', sans-serif;\n    padding: 0 10%;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    color: #142362;\n    width: 100%;\n    height: 100%;\n    background-color: #fff;\n    opacity: 0.9;\n    background-size: cover;\n}\n.wrap-right-home-1[data-v-f2b6376c]{\n    background: #001b34;\n}\n.h1-text[data-v-f2b6376c] {\n    font-size: 72px;\n    font-weight: 700;\n}\n.h1-indi[data-v-f2b6376c]{\n    font-size: 120px;\n    font-weight: 900;\n}\n.btn-get-start[data-v-f2b6376c]{\n    background: #000;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 700;\n    color: #fff;\n}\n.btn-read-cont[data-v-f2b6376c]{\n    background: #fff;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 600;\n}\n.btn-bottom-order[data-v-f2b6376c]{\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36130,7 +36130,7 @@ var staticRenderFns = [
           },
           [
             _c("div", { staticClass: "col-lg-7 batik-cover-background px-0" }, [
-              _c("div", { staticClass: "  wrap-left-home-1" }, [
+              _c("div", { staticClass: "wrap-left-home-1" }, [
                 _c("h1", { staticClass: "h1-text text-uppercase" }, [
                   _vm._v("Re-produksi Batikmu"),
                 ]),
@@ -36157,7 +36157,12 @@ var staticRenderFns = [
               ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4 wrap-right-home-1" }),
+            _c("div", { staticClass: "col-lg-5 wrap-right-home-1" }, [
+              _c("img", {
+                staticClass: "img-person-home",
+                attrs: { src: "images/img-person-home.png", alt: "img person" },
+              }),
+            ]),
           ]
         ),
         _vm._v(" "),
@@ -36560,7 +36565,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("img", {
         staticClass: "img-footer-icon",
-        attrs: { src: "images/icon-indi-pair-white.png", alt: "icon-indi" },
+        attrs: { src: "images/icon-indi-pair-white.svg", alt: "icon-indi" },
       }),
     ])
   },
@@ -36658,7 +36663,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "img-header-icon",
                   attrs: {
-                    src: "images/icon-indi-pair-color.png",
+                    src: "/images/icon-indi-pair-color.svg",
                     alt: "logo-indi",
                   },
                 }),
@@ -36676,28 +36681,40 @@ var staticRenderFns = [
                         "a",
                         {
                           staticClass: "menu-item active-menu",
-                          attrs: { "aria-current": "page" },
+                          attrs: { "aria-current": "page", href: "/" },
                         },
                         [_vm._v("Beranda")]
                       ),
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "nav-item" }, [
-                      _c("a", { staticClass: "menu-item" }, [
-                        _vm._v("Katalog"),
-                      ]),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "menu-item",
+                          attrs: { href: "/catalog" },
+                        },
+                        [_vm._v("Katalog")]
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "nav-item" }, [
-                      _c("a", { staticClass: "menu-item" }, [
-                        _vm._v("Tentang INDI"),
-                      ]),
+                      _c(
+                        "a",
+                        { staticClass: "menu-item", attrs: { href: "/about" } },
+                        [_vm._v("Tentang INDI")]
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "nav-item" }, [
-                      _c("a", { staticClass: "menu-item" }, [
-                        _vm._v("Testimoni"),
-                      ]),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "menu-item",
+                          attrs: { href: "/reviews" },
+                        },
+                        [_vm._v("Testimoni")]
+                      ),
                     ]),
                   ]
                 ),
