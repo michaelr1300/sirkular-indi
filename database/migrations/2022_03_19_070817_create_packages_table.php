@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->integer('price')->nullable();
+            $table->string('name');
+            $table->integer('price');
+            $table->string('description')->nullable();
             $table->string('photo_path')->nullable();
             $table->timestamps();
         });
