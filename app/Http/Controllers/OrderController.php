@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Package;
 use App\Models\Order;
+use App\Models\OrderDetail;
+use Illuminate\Validation\Rule;
 
 class OrderController extends Controller
 {
@@ -26,7 +29,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('order.create');
+        $order_options = Package::all();
+        return view('order.create')->with('order_options', $order_options);
     }
 
     /**
@@ -38,13 +42,29 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required',
+            'address' => 'required',
+            'phone_number' => 'required',
+            'package_id' => ['required', Rule::exists('packages', 'id')], //['required', Rule::exists('packages', 'id')]->where('isActive', 1)]
+            'quantity' => 'required',
+            'phone_number' => 'required',
         ]);
 
-        Order::create([
+        $order = Order::create([
             'user_id' => $request->user()->id,
-            'order_status' => 'waiting',
+            'status' => 'waiting',
         ]);
+        for ($index=0; $index < count($request->package_id); $index++) { 
+            if ($request->quantity[$index]) {
+                $price = Package::find($request->package_id[$index])->price;
+                
+                OrderDetail::create([
+                    'order_id' => $order->id,
+                    'package_id' => $request->package_id[$index],
+                    'quantity' => $request->quantity[$index],
+                    'price' => $price,
+                ]);
+            }
+        }
 
         return redirect()->action([OrderController::class, 'index']);
     }
