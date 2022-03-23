@@ -20,7 +20,7 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Mulish', sans-serif;
             }
         </style>
     </head>

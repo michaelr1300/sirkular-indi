@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<catalog></catalog>
+<!-- <div class="container">
+    
     Create Package Form
     <form method="POST" action="{{ route('package.store') }}" enctype="multipart/form-data">
         @csrf
@@ -73,5 +75,5 @@
         </div>
     </div>
     @endforeach
-</div>
+</div> -->
 @endsection

@@ -16,18 +16,18 @@
                 <div class="col-lg-5 wrap-right-home-1">
                     <div class="img-wrapper-1">
                         <img class="img-person-home" src="images/img-person-home.png" alt="img person">
-                        <div class="">
-                            <!-- <img src="" alt="icon-recycle"/> -->
-                            <p class="p-text-home-1">Mari lestarikan warisan leluhur kita <br/> dengan pewarna alami terbaik dari INDI.</p>
+                        <div class="div-subtext-right-1">
+                            <img class="icon-recycle" src="images/recycle-icon.png" alt="icon-recycle"/>
+                            <span class="span-text-home-1">Mari lestarikan warisan leluhur kita <br/> dengan pewarna alami terbaik dari INDI.</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="segment segment-2 row justify-content-center">
-                <div class="col-lg-8">
-                    <!-- <img class="img-footer-icon" src="images/icon-indi-pair-white.png" alt="icon-indi"> -->
+                <div class="col-lg-6">
+                    <img class="img-section-2" src="images/image-home-section-2.png" alt="img-batik-2">
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6 wrap-right-home-2">
                     <h1 class="h1-text">Tentang Kami</h1>
                     <p>
                         Indi merupakan sebuah konsep circular fashion
@@ -36,16 +36,16 @@
                         pewarna alami untuk tekstil dan bahan serat lainnya dari tanaman 
                         <i>Indigofera tinctoria</i>
                     </p>
-                    <button class="btn-read-cont">Baca lebih lanjut</button>
+                    <button class="btn-read-cont">Baca lebih lanjut <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                 </div>
             </div>
             <div class="segment segment-3 row justify-content-center">
                 <div class="col-lg-12">
-                    <div>
+                    <div class="div-section-3">
                         <h1>Keunggulan INDI</h1>
-                        <div>
-                            <div>
-                                Ini img
+                        <div class="">
+                            <div class="">
+                                <img class="" src="" alt=""/>
                                 <h3>Lebih hemat</h3>
                                 <p>
                                     Layanan reparasi INDI lebih terjangkau
@@ -167,6 +167,8 @@
     }
 
     .img-wrapper-1{
+        background-image: url("../../assets/background-ornament.png");
+        background-size: contain;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -174,13 +176,25 @@
     
     .img-person-home{
         border-radius: 0 0 200px 200px;
-        width: 500px;
+        width: 70%;
     }
 
-    .p-text-home-1{
+    .div-subtext-right-1{
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+    }
+
+    .icon-recycle{
+        width: 34px;
+        height: 35px;
+    }
+
+    .span-text-home-1{
         color: #fff;
         font-size: 18px;
-        /* margin-top: 30px; */
+        padding-bottom: 0;
+        margin-left: 10px;
     }
 
     .h1-text {
@@ -205,7 +219,7 @@
         background: #000;
         border: 3px solid #000;
         width: 210px;
-        height: 70px;
+        height: 60px;
         margin-top: 40px;
         font-weight: 700;
         color: #fff;
@@ -217,12 +231,33 @@
         height: 25px;
     }
 
+    .wrap-right-home-2{
+        font-family: 'Mulish', sans-serif;
+        padding: 15% 10%;
+    }
+
     .btn-read-cont{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #fff;
         border: 3px solid #000;
-        width: 150px;
-        height: 40px;
+        width: 210px;
+        height: 60px;
         font-weight: 600;
+        margin-top: 40px;
+        font-weight: 700;
+    }
+
+    .div-section-3{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .div-section-3 h1{
+        font-weight: 900;
     }
 
     .btn-bottom-order{

@@ -44,7 +44,7 @@
 
 <style scoped>
     .container-header{
-        height: 60px;
+        height: 80px;
         padding: 0 20px;
     }
 

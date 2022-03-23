@@ -75,9 +75,9 @@
                 </div>
             </div>
         </nav> --}}
-            <header-component></header-component>
-                @yield('content')
-            <footer-component></footer-component>
+        <!-- <header-component></header-component> -->
+            @yield('content')
+        <!-- <footer-component></footer-component> -->
     </div>
 </body>
 </html>
