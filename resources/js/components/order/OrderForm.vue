@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h3 class="mb-3">Buat Pesanan</h3>
     <ul
       id="order-tab"
       class="nav nav-tabs"
@@ -67,7 +68,7 @@
         aria-labelledby="personal-info-tab"
       >
       <div class="row">
-        <div class="col col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3">
           <label for="name" class="form-label">Nama</label>
           <input 
             id="name" 
@@ -78,7 +79,7 @@
             v-model="form.name"
           >
         </div>
-        <div class="col col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-3">
           <label for="phone_number" class="form-label">Nomor WhatsApp</label>
           <input 
             id="phone_number" 
@@ -89,7 +90,7 @@
             v-model="form.phone_number"
           >
         </div>
-        <div class="col mb-3">
+        <div class="col-12 mb-3">
           <label for="address" class="form-label">Alamat</label>
           <input 
             id="address" 
@@ -101,16 +102,18 @@
           >
           <small>*lengkap dengan kecamatan, kabupaten, dan provinsi Anda</small>
         </div>
-        <div class="form-check">
-          <input 
-            id="flexCheckChecked" 
-            class="form-check-input" 
-            type="checkbox" 
-            v-model="form.save_data"
-            :checked="form.save_data">
-          <label class="form-check-label" for="flexCheckChecked">
-            Simpan data saya
-          </label>
+        <div class="col-12">
+          <div class="form-check">
+            <input 
+              id="flexCheckChecked" 
+              class="form-check-input" 
+              type="checkbox" 
+              v-model="form.save_data"
+              :checked="form.save_data">
+            <label class="form-check-label" for="flexCheckChecked">
+              Simpan data saya
+            </label>
+          </div>
         </div>
       </div>
       </div>
@@ -161,8 +164,15 @@ export default {
       type: Array,
       default: null
     },
+    user: {
+      type: Object,
+      default: null
+    },
   },
   mounted () {
+    this.form.name = this.user.name;
+    this.form.phone_number = this.user.phone_number;
+    this.form.address = this.user.address;
     this.form.package_id = this.packageList.map(val => val.id);
     this.form.quantity = this.packageList.map(val => 0);
   },

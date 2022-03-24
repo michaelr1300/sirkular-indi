@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Package;
 use App\Models\User;
 use App\Models\Order;
@@ -30,8 +31,12 @@ class OrderController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $order_options = Package::all();
-        return view('order.create')->with('order_options', $order_options);
+        return view('order.create')->with([
+            'order_options' => $order_options,
+            'user' => $user,
+        ]);
     }
 
     /**
