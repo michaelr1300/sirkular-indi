@@ -22,7 +22,9 @@ class OrderController extends Controller
     {
         $this->authorize('viewAny', Order::class);
         $orders = Order::all();
-
+        foreach ($orders as $order) {
+            $order->user = User::find($order->user_id);
+        }
         return view('order.index')->with('orders',$orders);
     }
 
@@ -92,7 +94,18 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        
+        $order = Order::find($id);
+        $this->authorize('view', $order);
+
+        $order->user = User::find($order->user_id);
+        $order->detail = OrderDetail::all()->where('order_id', $id);
+
+        foreach ($order->detail as $order_detail) {
+            $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description', 'photo_path');
+        }
+
+        $order = json_encode($order, JSON_PRETTY_PRINT);
+        return view('order.show')->with('order',$order);
     }
 
     /**

@@ -30,6 +30,9 @@ class OrderPolicy
      */
     public function view(User $user, Order $order)
     {
+        if ($user->is_admin) {
+            return true;
+        }
         return $order->user_id == $user->id;
     }
 

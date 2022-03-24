@@ -17,12 +17,12 @@
           :key="item.id"
           class="col mb-3"
         >
-          <td>{{ item.user_id }}</td>
+          <td>{{ item.user.name }}</td>
           <td>Total</td>
           <td>{{ item.status }}</td>
           <td>{{ item.receipt }}</td>
           <td>
-            <button class="btn btn-primary">Detail</button>
+            <a class="btn btn-primary" :href="'/order/' + item.id">Detail</a>
           </td>
         </tr>
       </tbody>
