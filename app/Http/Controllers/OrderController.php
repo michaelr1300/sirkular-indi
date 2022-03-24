@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Package;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Validation\Rule;
@@ -42,13 +43,20 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'address' => 'required',
             'phone_number' => 'required',
             'package_id' => ['required', Rule::exists('packages', 'id')], //['required', Rule::exists('packages', 'id')]->where('isActive', 1)]
             'quantity' => 'required',
             'phone_number' => 'required',
         ]);
-
+        if($request->save_data) {
+            $user = User::find($request->user()->id);
+            $user->name = $request->name;
+            $user->address = $request->address;
+            $user->phone_number = $request->phone_number;
+            $user->save();
+        }
         $order = Order::create([
             'user_id' => $request->user()->id,
             'status' => 'waiting',
