@@ -1,6 +1,6 @@
 <template>
 <div class="footer-bg-container">
-    <footer class="mt-5 pt-5 pb-5 footer bg-dark text-white div-footer">
+    <footer class="pt-5 pb-5 footer bg-dark text-white div-footer">
         <div class="container">
             <div class="row">
                 <img class="img-footer-icon" src="images/icon-indi-pair-white.svg" alt="icon-indi">
