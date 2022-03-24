@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    Order List
+    <order-list :orders='{{ json_encode($orders) }}'></order-list>
 </div>
 @endsection

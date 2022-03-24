@@ -17,8 +17,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
+        $this->authorize('viewAny', Order::class);
         $orders = Order::all();
 
         return view('order.index')->with('orders',$orders);
@@ -111,9 +113,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Order $order, Request $request, $id)
     {
-        //
+        $this->authorize('update', $order);
     }
 
     /**
