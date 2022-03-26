@@ -23683,6 +23683,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -29469,7 +29474,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.div-content-home[data-v-c9165604]{\n    padding: 0 15%;\n    flex-direction: column;\n}\n.segment[data-v-c9165604]{\n    min-height: 100vh;\n}\n.segment-1[data-v-c9165604]{\n    flex-direction: row;\n}\n.h1-indi[data-v-c9165604]{\n    font-size: 120px;\n}\n.btn-get-start[data-v-c9165604]{\n    background: #000;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 700;\n    color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\n    background: #fff;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 600;\n}\n.btn-bottom-order[data-v-c9165604]{\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.div-content-home[data-v-c9165604]{\n    padding: 0 15%;\n    flex-direction: column;\n}\n.segment[data-v-c9165604]{\n    min-height: 100vh;\n}\n.segment-1[data-v-c9165604]{\n    flex-direction: row;\n}\n.h1-indi[data-v-c9165604]{\n    font-size: 120px;\n}\n.btn-get-start[data-v-c9165604]{\n    background: #000;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 700;\n    color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\n    background: #fff;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\n    background-color: #F3F9FE;\n    font-family: 'Mulish', sans-serif;\n    padding: 50px 100px;\n}\n.segment-3 div[data-v-c9165604]{\n    display: flex;\n    align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\n    font-weight: 800;\n}\n.btn-bottom-order[data-v-c9165604]{\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48828,66 +48833,57 @@ var render = function () {
         "div",
         { staticClass: "row justify-content-center div-content-home" },
         [
-          _vm._m(0),
-          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "segment segment-2 row justify-content-center" },
+            {
+              staticClass:
+                "segment segment-1 flex-row row justify-content-center",
+            },
             [
-              _c("div", { staticClass: "col-lg-11" }, [
-                _c("div", [
-                  _c("h1", [_vm._v("Produk kami")]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c("card", [
-                        _vm._v(
-                          "\n                            Ini img\n                            "
-                        ),
-                        _c("h3", [_vm._v("Lebih hemat")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "\n                                Layanan reparasi INDI lebih terjangkau\n                                dibandingkan dengan membeli pakaian baru\n                            "
-                          ),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("card", [
-                        _vm._v(
-                          "\n                            Ini img\n                            "
-                        ),
-                        _c("h3", [_vm._v("Lebih nyaman")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "\n                                Pewarna yang kami gunakan adalah bahan alami,\n                                karenanya Anda tidak perlu khawatir dengan kemungkinan alergi\n                            "
-                          ),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("card", [
-                        _vm._v(
-                          "\n                            Ini img\n                            "
-                        ),
-                        _c("h3", [_vm._v("Lebih Artistik")]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "\n                                Layanan kami tidak hanya memperbaiki\n                                pakaian, namun dikhususkan untuk mempercantik\n                                pakaian Anda\n                            "
-                          ),
-                        ]),
-                      ]),
-                    ],
-                    1
+              _c("div", { staticClass: "col-lg-7 wrap-left-home-1" }, [
+                _c("h1", { staticClass: "h1-text text-uppercase" }, [
+                  _vm._v("Re-produksi Batikmu"),
+                ]),
+                _vm._v(" "),
+                _c("h1", { staticClass: "h1-text text-uppercase" }, [
+                  _vm._v("Dengan pewarna alami"),
+                ]),
+                _vm._v(" "),
+                _c("h1", { staticClass: "h1-indi text-uppercase" }, [
+                  _vm._v("INDI"),
+                ]),
+                _vm._v(" "),
+                _c("h3", { staticClass: "h3-sub-text" }, [
+                  _vm._v(
+                    "Mari jalani circular fashion dan re-produksi batikmu"
                   ),
                 ]),
+                _vm._v(" "),
+                _c("h3", { staticClass: "h3-sub-text" }, [
+                  _vm._v("dengan pewarna alami INDI"),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn-get-start" },
+                  [
+                    _vm._v("Pesan sekarang "),
+                    _c("font-awesome-icon", {
+                      staticClass: "icon-arrow-right",
+                      attrs: { icon: "fa-solid fa-arrow-right" },
+                    }),
+                  ],
+                  1
+                ),
               ]),
+              _vm._v(" "),
+              _vm._m(0),
             ]
           ),
           _vm._v(" "),
           _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
         ]
       ),
       _vm._v(" "),
@@ -48901,33 +48897,73 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "segment segment-1 flex-row row justify-content-center" },
-      [
-        _c("div", { staticClass: "col-lg-7" }, [
-          _c("h1", { staticClass: "h1-text text-uppercase" }, [
-            _vm._v("Katalog"),
-          ]),
+    return _c("div", { staticClass: "col-lg-5 wrap-right-home-1" }, [
+      _c("div", { staticClass: "img-wrapper-1" }, [
+        _c("img", {
+          staticClass: "img-front-catalog",
+          attrs: { src: "images/img-front-catalog.png", alt: "img catalog" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "segment-2 row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("div", { staticClass: "div-section-3" }, [
+          _c("h1", [_vm._v("Keunggulan INDI")]),
           _vm._v(" "),
-          _c("h1", { staticClass: "h1-indi text-uppercase" }, [_vm._v("INDI")]),
-          _vm._v(" "),
-          _c("h3", [
-            _vm._v("Mari jalani circular fashion dan re-produksi batikmu"),
-          ]),
-          _vm._v(" "),
-          _c("h3", [_vm._v("dengan pewarna alami INDI")]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn-get-start" }, [
-            _vm._v("Lihat selengkapnya"),
+          _c("div", { staticClass: "wrapper-points" }, [
+            _c("div", { staticClass: "div-point-indi" }, [
+              _c("img", {
+                staticClass: "icon-point-indi",
+                attrs: { src: "images/ic-points-1.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Lebih hemat")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                                Layanan reparasi INDI lebih terjangkau\n                                dibandingkan dengan membeli pakaian baru\n                            "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "div-point-indi" }, [
+              _c("img", {
+                staticClass: "icon-point-indi",
+                attrs: { src: "images/ic-points-2.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Lebih nyaman")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                                Pewarna yang kami gunakan adalah bahan alami,\n                                karenanya Anda tidak perlu khawatir dengan kemungkinan alergi\n                            "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "div-point-indi" }, [
+              _c("img", {
+                staticClass: "icon-point-indi",
+                attrs: { src: "images/ic-points-3.png", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Lebih Artistik")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                                Layanan kami tidak hanya memperbaiki\n                                pakaian, namun dikhususkan untuk mempercantik\n                                pakaian Anda\n                            "
+                ),
+              ]),
+            ]),
           ]),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _vm._v("\n                Ini Foto\n            "),
-        ]),
-      ]
-    )
+      ]),
+    ])
   },
   function () {
     var _vm = this

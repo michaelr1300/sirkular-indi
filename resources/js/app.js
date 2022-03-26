@@ -6,11 +6,11 @@
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faJs, faLinkedin, faFacebookSquare, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Vue from 'vue';
 
-library.add(faJs, faLinkedin, faFacebookSquare, faInstagram, faYoutube, faArrowRight);
+library.add(faJs, faLinkedin, faFacebookSquare, faInstagram, faYoutube, faArrowRight, faArrowDown);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 require('./bootstrap');
