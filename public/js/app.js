@@ -23688,6 +23688,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -23873,6 +23890,146 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/LoginPage.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/LoginPage.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      form: {
+        email: null,
+        password: null,
+        remember: true
+      },
+      isLoading: false,
+      errors: {}
+    };
+  },
+  methods: {
+    doLogin: function doLogin() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.post("/login", _this.form);
+
+              case 4:
+                response = _context.sent;
+                window.location = "/";
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
+                console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
+
+              case 12:
+                _this.isLoading = false;
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 8]]);
+      }))();
+    }
   }
 });
 
@@ -24363,7 +24520,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faJs, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faLinkedin, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faFacebookSquare, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faInstagram, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faYoutube, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faArrowRight);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faJs, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faLinkedin, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faFacebookSquare, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faInstagram, _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_2__.faYoutube, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faArrowRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faArrowDown);
 vue__WEBPACK_IMPORTED_MODULE_4__["default"].component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon);
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -29470,11 +29627,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/background-catalog.png */ "./resources/assets/background-catalog.png");
 // Imports
 
+
+
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.div-content-home[data-v-c9165604]{\n    padding: 0 15%;\n    flex-direction: column;\n}\n.segment[data-v-c9165604]{\n    min-height: 100vh;\n}\n.segment-1[data-v-c9165604]{\n    flex-direction: row;\n}\n.h1-indi[data-v-c9165604]{\n    font-size: 120px;\n}\n.btn-get-start[data-v-c9165604]{\n    background: #000;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 700;\n    color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\n    background: #fff;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\n    background-color: #F3F9FE;\n    font-family: 'Mulish', sans-serif;\n    padding: 50px 100px;\n}\n.segment-3 div[data-v-c9165604]{\n    display: flex;\n    align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\n    font-weight: 800;\n}\n.btn-bottom-order[data-v-c9165604]{\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.div-content-home[data-v-c9165604]{\n    /* padding: 0 15%; */\n    flex-direction: column;\n}\n.segment[data-v-c9165604]{\n    min-height: 100vh;\n}\n.segment-1[data-v-c9165604]{\n    flex-direction: row;\n}\n.wrap-left-home-1[data-v-c9165604]{\n    font-family: 'Mulish', sans-serif;\n    padding: 8% 3% 0 9%;\n    display: flex;\n    flex-direction: column;\n    color: #142362;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-size: contain;\n    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-home-1 button[data-v-c9165604] {\n    margin-top: 25px;\n}\n.h1-text[data-v-c9165604] {\n    font-size: 120px;\n    font-weight: 900;\n}\n.h1-indi[data-v-c9165604]{\n    font-size: 200px;\n    font-weight: 900;\n    line-height: 175px;\n}\n.btn-get-start[data-v-c9165604]{\n    background: #000;\n    border: 3px solid #000;\n    width: 190px;\n    height: 60px;\n    font-weight: 700;\n    color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\n    margin-left: 10px;\n}\n.segment-2[data-v-c9165604]{\n    background-color: #fff;\n}\n.div-section-3[data-v-c9165604]{\n    padding: 0 50px;\n}\n.div-section-3 h1[data-v-c9165604]{\n    font-family: 'Mulish', sans-serif;\n    margin-top: 40px;\n    font-size: 48px;\n    font-weight: 800;\n}\n.wrapper-products[data-v-c9165604]{\n    display: flex;\n    justify-content: space-around;\n    margin-top: 30px;\n}\n.div-products-indi[data-v-c9165604]{\n    display: flex;\n    flex-direction: column;\n    width: 400px;\n}\n.product-odd[data-v-c9165604]{\n    background-color: #F3F9FE;\n}\n.product-even[data-v-c9165604]{\n    background-color: #F4FAE6;\n}\n.img-product[data-v-c9165604]{\n    height: auto;\n    width: 400px;\n}\n.div-products-info[data-v-c9165604]{\n    font-family: 'Mulish', sans-serif;\n    display: flex;\n    flex-direction: column;\n    padding: 20px 40px;\n    font-weight: 400;\n}\n.products-info-odd p[data-v-c9165604]{\n    font-family: 'Mulish', sans-serif;\n    color: #00042D;\n}\n.products-info-even p[data-v-c9165604]{\n    color: #202D00;\n}\n.div-order-btn[data-v-c9165604]{\n    display: flex;\n    justify-content: center;\n    margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\n    font-family: 'Mulish', sans-serif;\n    border: none;\n    width: 150px;\n    height: 40px;\n    font-weight: 700;\n    color: #fff;\n}\n.order-odd[data-v-c9165604]{\n    background: #345EC9;\n}\n.order-even[data-v-c9165604]{\n    background: #A7C460;\n}\n.btn-read-cont[data-v-c9165604]{\n    background: #fff;\n    border: 3px solid #000;\n    width: 150px;\n    height: 40px;\n    font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\n    background-color: #fff;\n    padding: 50px 100px;\n    height: 300px;\n    font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\n    display: flex;\n    align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\n    font-weight: 800;\n    font-size: 40px;\n    color: #142362;\n}\n.btn-bottom-order[data-v-c9165604]{\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29685,6 +29848,21 @@ module.exports = function (url, options) {
 
   return url;
 };
+
+/***/ }),
+
+/***/ "./resources/assets/background-catalog.png":
+/*!*************************************************!*\
+  !*** ./resources/assets/background-catalog.png ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/background-catalog.png?15cceb098d6ba701d36b0ba1d332a9ea");
 
 /***/ }),
 
@@ -48397,6 +48575,45 @@ component.options.__file = "resources/js/components/Home.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/auth/LoginPage.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/auth/LoginPage.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LoginPage_vue_vue_type_template_id_6c46185c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginPage.vue?vue&type=template&id=6c46185c& */ "./resources/js/components/auth/LoginPage.vue?vue&type=template&id=6c46185c&");
+/* harmony import */ var _LoginPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginPage.vue?vue&type=script&lang=js& */ "./resources/js/components/auth/LoginPage.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LoginPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LoginPage_vue_vue_type_template_id_6c46185c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LoginPage_vue_vue_type_template_id_6c46185c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/auth/LoginPage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/elements/FooterComponent.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/elements/FooterComponent.vue ***!
@@ -48589,6 +48806,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/auth/LoginPage.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/auth/LoginPage.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/LoginPage.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/elements/FooterComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/elements/FooterComponent.vue?vue&type=script&lang=js& ***!
@@ -48739,6 +48972,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/auth/LoginPage.vue?vue&type=template&id=6c46185c&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/auth/LoginPage.vue?vue&type=template&id=6c46185c& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginPage_vue_vue_type_template_id_6c46185c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginPage_vue_vue_type_template_id_6c46185c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginPage_vue_vue_type_template_id_6c46185c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginPage.vue?vue&type=template&id=6c46185c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/LoginPage.vue?vue&type=template&id=6c46185c&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/elements/FooterComponent.vue?vue&type=template&id=227bc2b5&scoped=true&":
 /*!*********************************************************************************************************!*\
   !*** ./resources/js/components/elements/FooterComponent.vue?vue&type=template&id=227bc2b5&scoped=true& ***!
@@ -48842,35 +49092,21 @@ var render = function () {
             [
               _c("div", { staticClass: "col-lg-7 wrap-left-home-1" }, [
                 _c("h1", { staticClass: "h1-text text-uppercase" }, [
-                  _vm._v("Re-produksi Batikmu"),
-                ]),
-                _vm._v(" "),
-                _c("h1", { staticClass: "h1-text text-uppercase" }, [
-                  _vm._v("Dengan pewarna alami"),
+                  _vm._v("Katalog"),
                 ]),
                 _vm._v(" "),
                 _c("h1", { staticClass: "h1-indi text-uppercase" }, [
                   _vm._v("INDI"),
                 ]),
                 _vm._v(" "),
-                _c("h3", { staticClass: "h3-sub-text" }, [
-                  _vm._v(
-                    "Mari jalani circular fashion dan re-produksi batikmu"
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("h3", { staticClass: "h3-sub-text" }, [
-                  _vm._v("dengan pewarna alami INDI"),
-                ]),
-                _vm._v(" "),
                 _c(
                   "button",
                   { staticClass: "btn-get-start" },
                   [
-                    _vm._v("Pesan sekarang "),
+                    _vm._v("Lihat selengkapnya "),
                     _c("font-awesome-icon", {
-                      staticClass: "icon-arrow-right",
-                      attrs: { icon: "fa-solid fa-arrow-right" },
+                      staticClass: "icon-arrow-down",
+                      attrs: { icon: "fa-solid fa-arrow-down" },
                     }),
                   ],
                   1
@@ -48913,51 +49149,93 @@ var staticRenderFns = [
     return _c("div", { staticClass: "segment-2 row justify-content-center" }, [
       _c("div", { staticClass: "col-lg-12" }, [
         _c("div", { staticClass: "div-section-3" }, [
-          _c("h1", [_vm._v("Keunggulan INDI")]),
+          _c("h1", [_vm._v("Produk Indi")]),
           _vm._v(" "),
-          _c("div", { staticClass: "wrapper-points" }, [
-            _c("div", { staticClass: "div-point-indi" }, [
+          _c("div", { staticClass: "wrapper-products" }, [
+            _c("div", { staticClass: "div-products-indi product-odd" }, [
               _c("img", {
-                staticClass: "icon-point-indi",
-                attrs: { src: "images/ic-points-1.png", alt: "" },
+                staticClass: "img-product img-product-1",
+                attrs: { src: "images/img-product-1.png", alt: "" },
               }),
               _vm._v(" "),
-              _c("h3", [_vm._v("Lebih hemat")]),
+              _c(
+                "div",
+                { staticClass: "div-products-info products-info-odd" },
+                [
+                  _c("h3", [_vm._v("Pewarnaan Ulang")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                                    Pewarnaan ulang kain batik yang luntur dimakan zaman\n                                    maupun karena cucian, untuk mengurangi limbah pakaian\n                                    serta menjaga nilai historisnya\n                                "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Mulai Rp 120.000")]),
+                ]
+              ),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                                Layanan reparasi INDI lebih terjangkau\n                                dibandingkan dengan membeli pakaian baru\n                            "
-                ),
+              _c("div", { staticClass: "div-order-btn" }, [
+                _c("button", { staticClass: "btn-order order-odd" }, [
+                  _vm._v("Pesan sekarang"),
+                ]),
               ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "div-point-indi" }, [
+            _c("div", { staticClass: "div-products-indi product-even" }, [
               _c("img", {
-                staticClass: "icon-point-indi",
-                attrs: { src: "images/ic-points-2.png", alt: "" },
+                staticClass: "img-product img-product-2",
+                attrs: { src: "images/img-product-2.png", alt: "" },
               }),
               _vm._v(" "),
-              _c("h3", [_vm._v("Lebih nyaman")]),
+              _c(
+                "div",
+                { staticClass: "div-products-info products-info-even" },
+                [
+                  _c("h3", [_vm._v("Pewarna Alami")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                                    Pewarna alami untuk tekstil dari ekstrak daun \n                                    tanaman indigofera tinctoria, dalam bentuk\n                                    serbuk maupun cairan\n                                "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Mulai Rp 50.000")]),
+                ]
+              ),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                                Pewarna yang kami gunakan adalah bahan alami,\n                                karenanya Anda tidak perlu khawatir dengan kemungkinan alergi\n                            "
-                ),
+              _c("div", { staticClass: "div-order-btn" }, [
+                _c("button", { staticClass: "btn-order order-even" }, [
+                  _vm._v("Pesan sekarang"),
+                ]),
               ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "div-point-indi" }, [
+            _c("div", { staticClass: "div-products-indi product-odd" }, [
               _c("img", {
-                staticClass: "icon-point-indi",
-                attrs: { src: "images/ic-points-3.png", alt: "" },
+                staticClass: "img-product img-product-3",
+                attrs: { src: "images/img-product-3.png", alt: "" },
               }),
               _vm._v(" "),
-              _c("h3", [_vm._v("Lebih Artistik")]),
+              _c(
+                "div",
+                { staticClass: "div-products-info products-info-odd" },
+                [
+                  _c("h3", [_vm._v("Batik Siap Pakai")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                                    Kain dan ready-to-wear batik dengan\n                                    pewarna alami untuk pria, wanita, maupun\n                                    anak-anak\n                                "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Mulai Rp 120.000")]),
+                ]
+              ),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                                Layanan kami tidak hanya memperbaiki\n                                pakaian, namun dikhususkan untuk mempercantik\n                                pakaian Anda\n                            "
-                ),
+              _c("div", { staticClass: "div-order-btn" }, [
+                _c("button", { staticClass: "btn-order order-odd" }, [
+                  _vm._v("Pesan sekarang"),
+                ]),
               ]),
             ]),
           ]),
@@ -48969,21 +49247,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "segment segment-3 row justify-content-center" },
-      [
-        _c("div", { staticClass: "col-lg-10" }, [
-          _c("h2", [_vm._v("Tertarik untuk menggunakan jasa kami?")]),
+    return _c("div", { staticClass: "segment-3 row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-10" }, [
+        _c("h2", [_vm._v("Tertarik untuk menggunakan jasa kami?")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-2" }, [
+        _c("button", { staticClass: "btn-get-start" }, [
+          _vm._v("Pesan sekarang"),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-2" }, [
-          _c("button", { staticClass: "btn-get-start" }, [
-            _vm._v("Pesan sekarang"),
-          ]),
-        ]),
-      ]
-    )
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -49223,107 +49497,91 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "segment segment-4 row justify-content-center" },
-      [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c("div", { staticClass: "div-review-section" }, [
-            _c("div", { staticClass: "review-top-section" }, [
-              _c("h1", [_vm._v("Testimoni dari pelanggan kami")]),
+    return _c("div", { staticClass: "segment-4 row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("div", { staticClass: "div-review-section" }, [
+          _c("div", { staticClass: "review-top-section" }, [
+            _c("h1", [_vm._v("Testimoni dari pelanggan kami")]),
+            _vm._v(" "),
+            _c("a", [_vm._v("Lihat semua")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "wrapper-card" }, [
+            _c("div", { staticClass: "card-review" }, [
+              _c("div", { staticClass: "div-card-left" }, [
+                _c("img", {
+                  attrs: { src: "images/img-review-1.png", alt: "img-review" },
+                }),
+              ]),
               _vm._v(" "),
-              _c("a", [_vm._v("Lihat semua")]),
+              _c("div", { staticClass: "div-card-right" }, [
+                _c("h3", [_vm._v("Lebih hemat")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
+                  ),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "wrapper-card" }, [
-              _c("div", { staticClass: "card-review" }, [
-                _c("div", { staticClass: "div-card-left" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "images/img-review-1.png",
-                      alt: "img-review",
-                    },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "div-card-right" }, [
-                  _c("h3", [_vm._v("Lebih hemat")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
-                    ),
-                  ]),
-                ]),
+            _c("div", { staticClass: "card-review" }, [
+              _c("div", { staticClass: "div-card-left" }, [
+                _c("img", {
+                  attrs: { src: "images/img-review-2.png", alt: "img-review" },
+                }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-review" }, [
-                _c("div", { staticClass: "div-card-left" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "images/img-review-2.png",
-                      alt: "img-review",
-                    },
-                  }),
-                ]),
+              _c("div", { staticClass: "div-card-right" }, [
+                _c("h3", [_vm._v("Lebih hemat")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "div-card-right" }, [
-                  _c("h3", [_vm._v("Lebih hemat")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
-                    ),
-                  ]),
+                _c("p", [
+                  _vm._v(
+                    "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
+                  ),
                 ]),
               ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-review" }, [
-                _c("div", { staticClass: "div-card-left" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "images/img-review-1.png",
-                      alt: "img-review",
-                    },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "div-card-right" }, [
-                  _c("h3", [_vm._v("Lebih hemat")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
-                    ),
-                  ]),
-                ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-review" }, [
+              _c("div", { staticClass: "div-card-left" }, [
+                _c("img", {
+                  attrs: { src: "images/img-review-1.png", alt: "img-review" },
+                }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-review" }, [
-                _c("div", { staticClass: "div-card-left" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "images/img-review-2.png",
-                      alt: "img-review",
-                    },
-                  }),
-                ]),
+              _c("div", { staticClass: "div-card-right" }, [
+                _c("h3", [_vm._v("Lebih hemat")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "div-card-right" }, [
-                  _c("h3", [_vm._v("Lebih hemat")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
-                    ),
-                  ]),
+                _c("p", [
+                  _vm._v(
+                    "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-review" }, [
+              _c("div", { staticClass: "div-card-left" }, [
+                _c("img", {
+                  attrs: { src: "images/img-review-2.png", alt: "img-review" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "div-card-right" }, [
+                _c("h3", [_vm._v("Lebih hemat")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                                    Layanan reparasi INDI lebih terjangkau\n                                    dibandingkan dengan membeli pakaian baru\n                                "
+                  ),
                 ]),
               ]),
             ]),
           ]),
         ]),
-      ]
-    )
+      ]),
+    ])
   },
   function () {
     var _vm = this
@@ -49339,6 +49597,237 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-lg-2 segment-5-right" }, [
         _c("button", { staticClass: "btn-get-start" }, [
           _vm._v("Pesan sekarang"),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/LoginPage.vue?vue&type=template&id=6c46185c&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/LoginPage.vue?vue&type=template&id=6c46185c& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row", staticStyle: { height: "100vh" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column col-12 col-md-7 mt-4" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("h4", { staticClass: "fw-bold" }, [_vm._v("MASUK")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "fw-bold" }, [
+        _vm._v("Masuk kembali ke akun Anda"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-4" }, [
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { staticClass: "form-label", attrs: { for: "email" } }, [
+            _vm._v("Email"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.email,
+                expression: "form.email",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              id: "email",
+              name: "email",
+              type: "email",
+              placeholder: "Email Anda",
+            },
+            domProps: { value: _vm.form.email },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "email", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-3" }, [
+          _c(
+            "label",
+            { staticClass: "form-label", attrs: { for: "password" } },
+            [_vm._v("Password")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.password,
+                expression: "form.password",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              id: "password",
+              name: "password",
+              type: "password",
+              placeholder: "Password Anda",
+            },
+            domProps: { value: _vm.form.password },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "password", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "div",
+            { staticClass: "custom-control custom-checkbox form-check-inline" },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.remember,
+                    expression: "form.remember",
+                  },
+                ],
+                staticClass: "custom-control-input",
+                attrs: { type: "checkbox", id: "remember_me" },
+                domProps: {
+                  checked: Array.isArray(_vm.form.remember)
+                    ? _vm._i(_vm.form.remember, null) > -1
+                    : _vm.form.remember,
+                },
+                on: {
+                  change: function ($event) {
+                    var $$a = _vm.form.remember,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(_vm.form, "remember", $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            _vm.form,
+                            "remember",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
+                    } else {
+                      _vm.$set(_vm.form, "remember", $$c)
+                    }
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label inline-flex items-center",
+                  attrs: { for: "remember_me" },
+                },
+                [_vm._v("Remember me")]
+              ),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-3" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary w-100",
+              on: {
+                click: function ($event) {
+                  return _vm.doLogin()
+                },
+              },
+            },
+            [_vm._v("\n          Login\n        ")]
+          ),
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-none d-md-block col-5 h-100" }, [
+      _c("img", {
+        staticClass: "img img-fluid",
+        attrs: { src: "images/login-page.png", alt: "img-login" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mx-auto" }, [
+      _c("img", {
+        staticClass: "img-header-icon",
+        attrs: { src: "/images/icon-indi-pair-color.svg", alt: "logo-indi" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-center text-muted mt-2" }, [
+      _vm._v("\n            Belum punya akun? Daftar\n            "),
+      _c("span", [
+        _c("a", { attrs: { href: "/register" } }, [_vm._v("di sini.")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-center text-muted mt-2" }, [
+      _c("span", [
+        _c("a", { attrs: { href: "/password/reset" } }, [
+          _vm._v("Lupa Password?"),
         ]),
       ]),
     ])
@@ -62207,6 +62696,7 @@ Vue.compile = compileToFunctions;
 var map = {
 	"./components/Catalog.vue": "./resources/js/components/Catalog.vue",
 	"./components/Home.vue": "./resources/js/components/Home.vue",
+	"./components/auth/LoginPage.vue": "./resources/js/components/auth/LoginPage.vue",
 	"./components/elements/FooterComponent.vue": "./resources/js/components/elements/FooterComponent.vue",
 	"./components/elements/HeaderComponent.vue": "./resources/js/components/elements/HeaderComponent.vue",
 	"./components/order/OrderForm.vue": "./resources/js/components/order/OrderForm.vue",

@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="segment segment-4 row justify-content-center">
+            <div class="segment-4 row justify-content-center">
                 <div class="col-lg-12">
                     <div class="div-review-section">
                         <div class="review-top-section">

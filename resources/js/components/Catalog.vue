@@ -19,38 +19,58 @@
             <div class="segment-2 row justify-content-center">
                 <div class="col-lg-12">
                     <div class="div-section-3">
-                        <h1>Keunggulan INDI</h1>
-                        <div class="wrapper-points">
-                            <div class="div-point-indi">
-                                <img class="img-product-1" src="images/img-product-1.png" alt=""/>
-                                <h3>Lebih hemat</h3>
-                                <p>
-                                    Layanan reparasi INDI lebih terjangkau
-                                    dibandingkan dengan membeli pakaian baru
-                                </p>
+                        <h1>Produk Indi</h1>
+                        <div class="wrapper-products">
+                            <div class="div-products-indi product-odd">
+                                <img class="img-product img-product-1" src="images/img-product-1.png" alt=""/>
+                                <div class="div-products-info products-info-odd">
+                                    <h3>Pewarnaan Ulang</h3>
+                                    <p>
+                                        Pewarnaan ulang kain batik yang luntur dimakan zaman
+                                        maupun karena cucian, untuk mengurangi limbah pakaian
+                                        serta menjaga nilai historisnya
+                                    </p>
+                                    <p>Mulai Rp 120.000</p>
+                                </div>
+                                <div class="div-order-btn">
+                                    <button class="btn-order order-odd">Pesan sekarang</button>
+                                </div>
                             </div>
-                            <div class="div-point-indi">
-                                <img class="img-product-2" src="images/img-product-2.png" alt=""/>
-                                <h3>Lebih nyaman</h3>
-                                <p>
-                                    Pewarna yang kami gunakan adalah bahan alami,
-                                    karenanya Anda tidak perlu khawatir dengan kemungkinan alergi
-                                </p>
+                            <div class="div-products-indi product-even">
+                                <img class="img-product img-product-2" src="images/img-product-2.png" alt=""/>
+                                <div class="div-products-info products-info-even">
+                                    <h3>Pewarna Alami</h3>
+                                    <p>
+                                        Pewarna alami untuk tekstil dari ekstrak daun 
+                                        tanaman indigofera tinctoria, dalam bentuk
+                                        serbuk maupun cairan
+                                    </p>
+                                    <p>Mulai Rp 50.000</p>
+                                </div>
+                                <div class="div-order-btn">
+                                    <button class="btn-order order-even">Pesan sekarang</button>
+                                </div>
                             </div>
-                            <div class="div-point-indi">
-                                <img class="img-product-3" src="images/img-product-3.png" alt=""/>
-                                <h3>Lebih Artistik</h3>
-                                <p>
-                                    Layanan kami tidak hanya memperbaiki
-                                    pakaian, namun dikhususkan untuk mempercantik
-                                    pakaian Anda
-                                </p>
+                            <div class="div-products-indi product-odd">
+                                <img class="img-product img-product-3" src="images/img-product-3.png" alt=""/>
+                                <div class="div-products-info products-info-odd">
+                                    <h3>Batik Siap Pakai</h3>
+                                    <p>
+                                        Kain dan ready-to-wear batik dengan
+                                        pewarna alami untuk pria, wanita, maupun
+                                        anak-anak
+                                    </p>
+                                    <p>Mulai Rp 120.000</p>
+                                </div>
+                                <div class="div-order-btn">
+                                    <button class="btn-order order-odd">Pesan sekarang</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="segment segment-3 row justify-content-center">
+            <div class="segment-3 row justify-content-center">
                 <div class="col-lg-10">
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>
@@ -88,17 +108,123 @@
         flex-direction: row;
     }
 
-    .h1-indi{
+    .wrap-left-home-1{
+        font-family: 'Mulish', sans-serif;
+        padding: 8% 3% 0 9%;
+        display: flex;
+        flex-direction: column;
+        color: #142362;
+        background-image: url("../../assets/background-catalog.png");
+        background-size: contain;
+        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
+    }
+
+    .wrap-left-home-1 button {
+        margin-top: 25px;
+    }
+
+    .h1-text {
         font-size: 120px;
+        font-weight: 900;
+    }
+
+    .h1-indi{
+        font-size: 200px;
+        font-weight: 900;
+        line-height: 175px;
     }
     
     .btn-get-start{
         background: #000;
         border: 3px solid #000;
+        width: 190px;
+        height: 60px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .icon-arrow-down{
+        margin-left: 10px;
+    }
+
+    .segment-2{
+        background-color: #fff;
+    }
+
+    .div-section-3{
+        padding: 0 50px;
+    }
+
+    .div-section-3 h1{
+        font-family: 'Mulish', sans-serif;
+        margin-top: 40px;
+        font-size: 48px;
+        font-weight: 800;
+    }
+
+    .wrapper-products{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+
+    .div-products-indi{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+
+    .product-odd{
+        background-color: #F3F9FE;
+    }
+
+    .product-even{
+        background-color: #F4FAE6;
+    }
+
+    .img-product{
+        height: auto;
+        width: 400px;
+    }
+
+    .div-products-info{
+        font-family: 'Mulish', sans-serif;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 40px;
+        font-weight: 400;
+    }
+
+    .products-info-odd p{
+        font-family: 'Mulish', sans-serif;
+        color: #00042D;
+    }
+
+    .products-info-even p{
+        color: #202D00;
+    }
+
+    .div-order-btn{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .btn-order{
+        font-family: 'Mulish', sans-serif;
+        border: none;
         width: 150px;
         height: 40px;
         font-weight: 700;
         color: #fff;
+    }
+    
+    .order-odd{
+        background: #345EC9;
+    }
+
+    .order-even{
+        background: #A7C460;
     }
 
     .btn-read-cont{
@@ -110,9 +236,10 @@
     }
 
     .segment-3{
-        background-color: #F3F9FE;
-        font-family: 'Mulish', sans-serif;
+        background-color: #fff;
         padding: 50px 100px;
+        height: 300px;
+        font-family: 'Mulish', sans-serif;
     }
 
     .segment-3 div{
@@ -122,6 +249,8 @@
 
     .segment-3 h2 {
         font-weight: 800;
+        font-size: 40px;
+        color: #142362;
     }
 
     .btn-bottom-order{
