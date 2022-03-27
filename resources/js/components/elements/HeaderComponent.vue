@@ -46,6 +46,7 @@
     .container-header{
         height: 80px;
         padding: 0 20px;
+        background-color: #fff;
     }
 
     .wrapped-header{

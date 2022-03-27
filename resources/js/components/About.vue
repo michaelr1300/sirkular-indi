@@ -1,76 +1,47 @@
 <template>
     <div class="flex-column">
         <HeaderComponent></HeaderComponent>
-        <div class="row justify-content-center div-content-home">
+        <div class="row justify-content-center div-content-about">
             <div class="segment segment-1 flex-row row justify-content-center">
                 <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
-                    <div class="col-lg-7 wrap-left-catalog-1">
-                        <h1 class="h1-text text-uppercase">Katalog</h1>
+                    <div class="col-lg-7 wrap-left-about-1">
+                        <h1 class="h1-text text-uppercase">Tentang</h1>
                         <h1 class="h1-indi text-uppercase">INDI</h1>
                         <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
                     </div>
                 <!-- </div> -->
-                <div class="col-lg-5 wrap-right-catalog-1">
+                <div class="col-lg-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
-                        <img class="img-front-catalog" src="images/img-front-catalog.png" alt="img catalog">
+                        <img class="img-front-about" src="images/background-about.png" alt="background about">
                     </div>
                 </div>
             </div>
-            <div class="segment-2 row justify-content-center">
+            <div class="segment segment-2 row justify-content-center">
                 <div class="col-lg-12">
                     <div class="div-section-3">
-                        <h1>Produk Indi</h1>
-                        <div class="wrapper-products">
-                            <div class="div-products-indi product-odd">
-                                <img class="img-product img-product-1" src="images/img-product-1.png" alt=""/>
-                                <div class="div-products-info products-info-odd">
-                                    <h3>Pewarnaan Ulang</h3>
-                                    <p>
-                                        Pewarnaan ulang kain batik yang luntur dimakan zaman
-                                        maupun karena cucian, untuk mengurangi limbah pakaian
-                                        serta menjaga nilai historisnya
-                                    </p>
-                                    <p>Mulai Rp 120.000</p>
-                                </div>
-                                <div class="div-order-btn">
-                                    <button class="btn-order order-odd">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                                </div>
-                            </div>
-                            <div class="div-products-indi product-even">
-                                <img class="img-product img-product-2" src="images/img-product-2.png" alt=""/>
-                                <div class="div-products-info products-info-even">
-                                    <h3>Pewarna Alami</h3>
-                                    <p>
-                                        Pewarna alami untuk tekstil dari ekstrak daun 
-                                        tanaman indigofera tinctoria, dalam bentuk
-                                        serbuk maupun cairan
-                                    </p>
-                                    <p>Mulai Rp 50.000</p>
-                                </div>
-                                <div class="div-order-btn">
-                                    <button class="btn-order order-even">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                                </div>
-                            </div>
-                            <div class="div-products-indi product-odd">
-                                <img class="img-product img-product-3" src="images/img-product-3.png" alt=""/>
-                                <div class="div-products-info products-info-odd">
-                                    <h3>Batik Siap Pakai</h3>
-                                    <p>
-                                        Kain dan ready-to-wear batik dengan
-                                        pewarna alami untuk pria, wanita, maupun
-                                        anak-anak
-                                    </p>
-                                    <p>Mulai Rp 120.000</p>
-                                </div>
-                                <div class="div-order-btn">
-                                    <button class="btn-order order-odd">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="images/img-about-2.png" alt="image about 2">
                     </div>
                 </div>
             </div>
-            <div class="segment-3 row justify-content-center">
+            <div class="segment-3 flex row justify-content-center">
+                <div class="col-lg-5">
+                    <p>
+                        INDI merupakan sebuah konsep <i>circular fashion</i> yang berfokus 
+                        pada perbaikan nilai-nilai pada pakaian batik. Bekerja sama dengan
+                        Gamaindigo, kami menggunakan pewarna alami untuk tekstil dan bahan
+                        serat lainnya dari tumbuhan <i>Indigofera tinctoria</i>.
+                        <br/>
+                        Bahan pewarna ini memiliki keunggulan berupa ramah lingkungan
+                        (karena tidak bersifat karsinogen), tersedia dalam jumlah besar,
+                        berstandar dan berkualitas tinggi namun tetap murah dan praktis
+                        ketika digunakan.
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <img src="images/img-about-par" alt="image about paragraph">
+                </div>
+            </div>
+            <div class="segment-4 row justify-content-center">
                 <div class="col-lg-10">
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>
@@ -95,7 +66,7 @@
 </script>
 
 <style scoped>
-    .div-content-home{
+    .div-content-about{
         /* padding: 0 15%; */
         flex-direction: column;
     }
@@ -108,7 +79,7 @@
         flex-direction: row;
     }
 
-    .wrap-left-catalog-1{
+    .wrap-left-about-1{
         font-family: 'Mulish', sans-serif;
         padding: 8% 3% 0 9%;
         display: flex;
@@ -119,7 +90,7 @@
         box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
     }
 
-    .wrap-left-catalog-1 button {
+    .wrap-left-about-1 button {
         margin-top: 25px;
     }
 
