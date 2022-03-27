@@ -361,6 +361,7 @@
         display: flex;
         flex-direction: row;
         overflow-x: scroll;
+        /* scrollbar-width: none; */
     }
 
     .card-review{

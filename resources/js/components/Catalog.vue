@@ -33,7 +33,7 @@
                                     <p>Mulai Rp 120.000</p>
                                 </div>
                                 <div class="div-order-btn">
-                                    <button class="btn-order order-odd">Pesan sekarang</button>
+                                    <button class="btn-order order-odd">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                                 </div>
                             </div>
                             <div class="div-products-indi product-even">
@@ -48,7 +48,7 @@
                                     <p>Mulai Rp 50.000</p>
                                 </div>
                                 <div class="div-order-btn">
-                                    <button class="btn-order order-even">Pesan sekarang</button>
+                                    <button class="btn-order order-even">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                                 </div>
                             </div>
                             <div class="div-products-indi product-odd">
@@ -63,7 +63,7 @@
                                     <p>Mulai Rp 120.000</p>
                                 </div>
                                 <div class="div-order-btn">
-                                    <button class="btn-order order-odd">Pesan sekarang</button>
+                                    <button class="btn-order order-odd">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>
                 <div class="col-lg-2">
-                    <button class="btn-get-start">Pesan sekarang</button>
+                    <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                 </div>
             </div>
         </div>
@@ -135,6 +135,9 @@
     }
     
     .btn-get-start{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         background: #000;
         border: 3px solid #000;
         width: 190px;
@@ -144,7 +147,13 @@
     }
 
     .icon-arrow-down{
-        margin-left: 10px;
+        font-size: 16px;
+        /* margin-left: 10px; */
+    }
+
+    .icon-arrow-right{
+        font-size: 16px;
+        /* margin-left: 10px; */
     }
 
     .segment-2{
@@ -152,7 +161,7 @@
     }
 
     .div-section-3{
-        padding: 0 50px;
+        padding: 0 6%;
     }
 
     .div-section-3 h1{
@@ -195,6 +204,16 @@
         font-weight: 400;
     }
 
+    .div-products-info p{
+        font-size: 16px;
+    }
+
+    .div-products-info h3{
+        font-size: 24px;
+        margin-bottom: 25px;
+        font-weight: 700;
+    }
+
     .products-info-odd p{
         font-family: 'Mulish', sans-serif;
         color: #00042D;
@@ -204,6 +223,14 @@
         color: #202D00;
     }
 
+    .products-info-even h3{
+        color: #4C6214;
+    }
+
+    .products-info-odd h3{
+        color: #345EC9;
+    }
+
     .div-order-btn{
         display: flex;
         justify-content: center;
@@ -211,10 +238,13 @@
     }
     
     .btn-order{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         font-family: 'Mulish', sans-serif;
         border: none;
-        width: 150px;
-        height: 40px;
+        width: 170px;
+        height: 48px;
         font-weight: 700;
         color: #fff;
     }
