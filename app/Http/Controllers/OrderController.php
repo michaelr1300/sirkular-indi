@@ -68,6 +68,9 @@ class OrderController extends Controller
         }
         $order = Order::create([
             'user_id' => $request->user()->id,
+            'buyer_name' => $request->name,
+            'buyer_address' => $request->address,
+            'buyer_phone_number' => $request->phone_number,
             'status' => 'waiting',
         ]);
         for ($index=0; $index < count($request->package_id); $index++) { 
