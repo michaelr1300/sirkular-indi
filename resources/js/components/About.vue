@@ -12,7 +12,7 @@
                 <!-- </div> -->
                 <div class="col-lg-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
-                        <img class="img-front-about" src="images/background-about.png" alt="background about">
+                        <img class="img-front-about" src="images/image-front-about.png" alt="image front about">
                     </div>
                 </div>
             </div>
@@ -23,8 +23,8 @@
                     </div>
                 </div>
             </div>
-            <div class="segment-3 flex row justify-content-center">
-                <div class="col-lg-5">
+            <div class="segment-3">
+                <div class="left-segment-3">
                     <p>
                         INDI merupakan sebuah konsep <i>circular fashion</i> yang berfokus 
                         pada perbaikan nilai-nilai pada pakaian batik. Bekerja sama dengan
@@ -37,12 +37,12 @@
                         ketika digunakan.
                     </p>
                 </div>
-                <div class="col-lg-5">
-                    <img src="images/img-about-par" alt="image about paragraph">
+                <div class="">
+                    <img src="images/img-about-par.png" alt="image about paragraph">
                 </div>
             </div>
             <div class="segment-4 row justify-content-center">
-                <div class="col-lg-10">
+                <div class="col-lg-10 left-segment-4">
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>
                 <div class="col-lg-2">
@@ -77,6 +77,8 @@
 
     .segment-1{
         flex-direction: row;
+        padding: 0 7%;
+        background-color: #fff;
     }
 
     .wrap-left-about-1{
@@ -92,6 +94,14 @@
 
     .wrap-left-about-1 button {
         margin-top: 25px;
+    }
+
+    .wrap-right-about-1{
+        padding: 0;
+    }
+
+    .img-front-about{
+        width: 100%;
     }
 
     .h1-text {
@@ -237,9 +247,10 @@
     }
 
     .segment-3{
+        display: flex;
+        justify-content: center;
         background-color: #fff;
         padding: 50px 100px;
-        height: 300px;
         font-family: 'Mulish', sans-serif;
     }
 
@@ -248,10 +259,34 @@
         align-items: center;
     }
 
+    .left-segment-3{
+        width: 60%;
+        padding-right: 7%;
+    }
+
+    .left-segment-3 p{
+        text-align: justify;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
     .segment-3 h2 {
         font-weight: 800;
         font-size: 40px;
         color: #142362;
+    }
+
+    .segment-4{
+        display: flex;
+        padding: 2% 7%;
+        height: 300px;
+        background-color: #fff;
+        align-items: center;
+    }
+
+    .left-segment-4 h2{
+        font-size: 40px;
+        font-weight: 800;
     }
 
     .btn-bottom-order{

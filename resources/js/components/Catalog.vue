@@ -1,7 +1,7 @@
 <template>
     <div class="flex-column">
         <HeaderComponent></HeaderComponent>
-        <div class="row justify-content-center div-content-home">
+        <div class="row justify-content-center div-content-catalog">
             <div class="segment segment-1 flex-row row justify-content-center">
                 <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
                     <div class="col-lg-7 wrap-left-catalog-1">
@@ -95,8 +95,8 @@
 </script>
 
 <style scoped>
-    .div-content-home{
-        /* padding: 0 15%; */
+    .div-content-catalog{
+        /* padding: 0 5%; */
         flex-direction: column;
     }
 
@@ -106,6 +106,8 @@
 
     .segment-1{
         flex-direction: row;
+        padding: 0 7%;
+        background-color: #fff;
     }
 
     .wrap-left-catalog-1{
@@ -119,8 +121,16 @@
         box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
     }
 
+    .wrap-right-catalog-1{
+        padding: 0;
+    }
+
     .wrap-left-catalog-1 button {
         margin-top: 25px;
+    }
+
+    .img-front-catalog{
+        width: 100%;
     }
 
     .h1-text {
@@ -161,7 +171,7 @@
     }
 
     .div-section-3{
-        padding: 0 6%;
+        padding: 0 7.5%;
     }
 
     .div-section-3 h1{
