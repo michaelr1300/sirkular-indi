@@ -1,6 +1,5 @@
 <template>
     <div class="flex-column">
-        <HeaderComponent></HeaderComponent>
         <div class="row justify-content-center div-content-about">
             <div class="segment segment-1 flex-row row justify-content-center">
                 <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
@@ -55,10 +54,9 @@
 </template>
 
 <script>
-    import HeaderComponent from './elements/HeaderComponent.vue'
     import FooterComponent from './elements/FooterComponent.vue'
     export default {
-        components: { HeaderComponent, FooterComponent },
+        components: { FooterComponent },
         mounted() {
             console.log('Component mounted')
         }

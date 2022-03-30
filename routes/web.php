@@ -27,7 +27,7 @@ Route::get('/home', function () {
 
 Route::get('/about', function () {
     return view('about');
-})->name('about');
+});
 
 Route::get('/catalog', [PackageController::class, 'index'])->name('catalog');
 Route::post('/catalog', [PackageController::class, 'store'])->middleware('auth')->name('package.store');
