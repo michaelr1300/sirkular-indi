@@ -287,7 +287,7 @@
     }
 
     .segment-3{
-        padding: 7% 0;
+        padding: 0 7%;
     }
 
     .div-section-3{
@@ -361,6 +361,7 @@
         display: flex;
         flex-direction: row;
         overflow-x: scroll;
+        padding: 10px 0;
     }
 
     .card-review{

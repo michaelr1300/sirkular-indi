@@ -294,6 +294,8 @@
 
     .segment-1{
         flex-direction: row;
+        padding: 0 7%;
+        background-color: #fff;
     }
 
     .wrap-left-review-1{
@@ -486,7 +488,7 @@
 
 
 section {
-  background: #F4F4F4;
+  background: #fff;
   padding: 50px 0;
 }
 .container {
