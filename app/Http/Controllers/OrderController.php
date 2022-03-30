@@ -132,6 +132,16 @@ class OrderController extends Controller
     public function update(Order $order, Request $request, $id)
     {
         $this->authorize('update', $order);
+        
+        $order = Order::find($id);
+        $request->validate([
+            'status' => 'required',
+        ]);
+
+        $order->status->update($request->status);
+        $order->save();
+
+        return redirect()->action([OrderController::class, 'index']);
     }
 
     /**
