@@ -1,9 +1,6 @@
 <template>
-  <div class="row" style="height: 100vh">
-    <div class="d-none d-md-block col-5 h-100">
-      <img class="img img-fluid" src="images/login-page.png" alt="img-login">
-    </div>
-    <div class="d-flex flex-column col-12 col-md-7 mt-4">
+  <div class="d-block d-sm-flex flex-row-reverse" style="height: 100vh; overflow: hidden">
+    <div class="col-12 px-3 col-sm-7 mt-4">
       <div class="mx-auto">
         <img class="img-header-icon" src="/images/icon-indi-pair-color.svg" alt="logo-indi"/>
       </div>
@@ -60,6 +57,9 @@
               <span><a href="/password/reset">Lupa Password?</a></span>
           </p>
       </div>
+    </div>
+    <div class="col-12 col-sm-5 h-100">
+      <img class="img img-fluid" src="images/login-page.png" alt="img-login">
     </div>
   </div>
 </template>
