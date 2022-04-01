@@ -7,9 +7,6 @@
       <h4 class="fw-bold">MASUK</h4>
       <div class="fw-bold">Masuk kembali ke akun Anda</div>
       <div class="mt-4">
-        <div v-if="hasError" class="text-danger">
-          Email atau password salah.
-        </div>
         <form @submit.prevent="doLogin">
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -19,9 +16,12 @@
               type="email" 
               class="form-control" 
               placeholder="Email Anda"
-              required
               v-model="form.email"
-            >
+              :class="{ 'is-invalid': hasErrors('email') }"
+            />
+            <div class="invalid-feedback">
+              {{ getErrors("email") }}
+            </div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
@@ -31,9 +31,12 @@
               type="password" 
               class="form-control" 
               placeholder="Password Anda"
-              required
               v-model="form.password"
-            >
+              :class="{ 'is-invalid': hasErrors('password') }"
+            />
+            <div class="invalid-feedback">
+              {{ getErrors("password") }}
+            </div>
           </div>
 
           <div class="form-group">
@@ -81,7 +84,6 @@ export default {
         password: null,
         remember: true,
       },
-      hasError : false,
       isLoading: false,
       errors: {}
     }
@@ -89,21 +91,31 @@ export default {
    methods: {
     async doLogin() {
       this.isLoading = true;
-      this.hasError = false;
 
       try {
         let response = await axios.post("/login", this.form);
         window.location = "/"
       } catch (error) {
-        if (error.response.status == 422) {
-          this.form.password = '';
-          this.hasError = true;
-        }
+        console.log(error)
         this.errors = error.response.data.errors;
+        this.form.password = '';
       } finally {
         this.isLoading = false;
       }
 
+    },
+    
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+      return false;
+    },
+    getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+      return "";
     },
   }
 }

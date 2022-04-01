@@ -16,9 +16,12 @@
               type="text" 
               class="form-control" 
               placeholder="Nama Anda"
-              required
               v-model="form.name"
-            >
+              :class="{ 'is-invalid': hasErrors('name') }"
+            />
+            <div class="invalid-feedback">
+              {{ getErrors("name") }}
+            </div>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -28,9 +31,12 @@
               type="email" 
               class="form-control" 
               placeholder="Email Anda"
-              required
               v-model="form.email"
-            >
+              :class="{ 'is-invalid': hasErrors('email') }"
+            />
+            <div class="invalid-feedback">
+              {{ getErrors("email") }}
+            </div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
@@ -40,9 +46,12 @@
               type="password" 
               class="form-control" 
               placeholder="Password Anda"
-              required
               v-model="form.password"
-            >
+              :class="{ 'is-invalid': hasErrors('password') }"
+            />
+            <div class="invalid-feedback">
+              {{ getErrors("password") }}
+            </div>
           </div>
           <div class="mb-3">
             <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
@@ -52,9 +61,12 @@
               type="password" 
               class="form-control" 
               placeholder="Konfirmasi password Anda"
-              required
               v-model="form.password_confirmation"
-            >
+              :class="{ 'is-invalid': hasErrors('password_confirmation') }"
+            />
+            <div class="invalid-feedback">
+              {{ getErrors("password_confirmation") }}
+            </div>
           </div>
           <div class="mt-3">
             <button  
@@ -88,7 +100,6 @@ export default {
         password: null,
         password_confirmation: null,
       },
-      hasError : false,
       isLoading: false,
       errors: {}
     }
@@ -96,22 +107,30 @@ export default {
    methods: {
     async doLogin() {
       this.isLoading = true;
-      this.hasError = false;
 
       try {
         let response = await axios.post("/register", this.form);
         window.location = "/"
       } catch (error) {
-        if (error.response.status == 422) {
-          this.form.password = '';
-          this.form.password_confirmation = '';
-          this.hasError = true;
-        }
         this.errors = error.response.data.errors;
+        this.form.password = '';
+        this.form.password_confirmation = '';
       } finally {
         this.isLoading = false;
       }
 
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+      return false;
+    },
+    getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+      return "";
     },
   }
 }
