@@ -7,9 +7,9 @@
                         <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
                         <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
                         <h1 class="h1-indi text-uppercase">INDI</h1>
-                        <h3 class="h3-sub-text">Mari jalani circular fashion dan re-produksi batikmu</h3>
-                        <h3 class="h3-sub-text">dengan pewarna alami INDI</h3>
+                        <h3 class="h3-sub-text">Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI</h3>
                         <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
+                        <img class="ornament-home" src="images/ornament-home.png" alt="ornament home"/>
                     </div>
                 <!-- </div> -->
                 <div class="col-lg-5 wrap-right-home-1">
@@ -277,11 +277,20 @@
         font-weight: 700;
     }
 
+    .ornament-home{
+        position: absolute;
+        width: auto;
+        height: auto;
+        left: 700px;
+        top: 800px;
+    }
+
     .ellipse-ornament{
         position: absolute;
         width: 200px;
         height: auto;
         right: 0;
+        z-index: -1;
     }
 
     .segment-3{
@@ -390,7 +399,7 @@
     .segment-5{
         background-color: #F3F9FE;
         font-family: 'Mulish', sans-serif;
-        padding: 50px 100px;
+        padding: 100px;
     }
 
     .segment-5 div{
@@ -407,7 +416,7 @@
     }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 780px){
     .div-content-home{
         flex-direction: column;
     }
@@ -441,6 +450,7 @@
     }
 
     .wrap-right-home-1{
+        display: none;
         background: #001b34;
     }
 
@@ -476,18 +486,19 @@
     }
 
     .h1-text {
-        font-size: 48px;
+        font-size: 28px;
         font-weight: 900;
     }
 
     .h1-indi{
-        font-size: 200px;
+        font-size: 150px;
         font-weight: 900;
         line-height: 175px;
     }
 
     .h3-sub-text{
         color: #00042D;
+        font-size: 20px;
     }
     
     .btn-get-start{
@@ -496,8 +507,8 @@
         justify-content: center;
         background: #000;
         border: 3px solid #000;
-        width: 210px;
-        height: 60px;
+        width: 180px;
+        height: 48px;
         font-weight: 700;
         color: #fff;
     }
@@ -526,34 +537,44 @@
         font-weight: 700;
     }
 
+    .ornament-home{
+        position: absolute;
+        width: auto;
+        height: auto;
+        left: 700px;
+        top: 800px;
+    }
+
     .ellipse-ornament{
         position: absolute;
         width: 200px;
         height: auto;
         right: 0;
+        z-index: -1;
     }
 
     .segment-3{
-        padding: 7% 0;
+        padding: 0 7%;
     }
 
     .div-section-3{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content:flex-start;
         align-items: center;
     }
 
     .wrapper-points{
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        /* justify-content: space-around; */
         padding: 5% 10px;
     }
 
     .div-point-indi{
         display: flex;
         flex-direction: column;
-        width: 20%;
+        width: 90%;
     }
 
     .div-point-indi h3{
@@ -608,8 +629,7 @@
         display: flex;
         flex-direction: row;
         overflow-x: scroll;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        padding: 10px 0;
     }
 
     .card-review{
@@ -640,7 +660,7 @@
     .segment-5{
         background-color: #F3F9FE;
         font-family: 'Mulish', sans-serif;
-        padding: 50px 100px;
+        padding: 0 35px 50px 50px;
     }
 
     .segment-5 div{
@@ -656,6 +676,4 @@
 
     }
 }
-
-    
 </style>
