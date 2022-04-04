@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('buyer_phone_number')->nullable();
             $table->string('status')->nullable();
             $table->string('receipt_number')->nullable();
-            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

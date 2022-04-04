@@ -82,6 +82,7 @@ class OrderController extends Controller
                     'package_id' => $request->package_id[$index],
                     'quantity' => $request->quantity[$index],
                     'price' => $price,
+                    'description' => $request->description[$index],
                 ]);
             }
         }

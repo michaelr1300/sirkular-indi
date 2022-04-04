@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('package_id')->nullable();
             $table->integer('quantity')->nullable();
             $table->integer('price')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
