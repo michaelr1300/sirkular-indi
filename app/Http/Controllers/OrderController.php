@@ -86,7 +86,7 @@ class OrderController extends Controller
             }
         }
 
-        return redirect()->action([OrderController::class, 'index']);
+        return redirect()->action([OrderController::class, 'create']);
     }
 
     /**
@@ -97,9 +97,10 @@ class OrderController extends Controller
      */
     public function show($id)
     {
+        $user = Auth::user();
         $order = Order::find($id);
         $this->authorize('view', $order);
-
+        
         $order->user = User::find($order->user_id);
         $order->detail = OrderDetail::all()->where('order_id', $id);
 
@@ -107,8 +108,11 @@ class OrderController extends Controller
             $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description', 'photo_path');
         }
 
-        $order = json_encode($order, JSON_PRETTY_PRINT);
-        return view('order.show')->with('order',$order);
+        // $order = json_encode($order, JSON_PRETTY_PRINT);
+        return view('order.show')->with([
+            'order' => $order, 
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -142,6 +146,28 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->action([OrderController::class, 'index']);
+    }
+
+    public function updateStatus($id)
+    {
+        $order = Order::find($id);
+
+        $this->authorize('updateStatus', $order);
+
+        if ($order->status == 'waiting') {
+            $new_status = 'confirm';
+        }
+        if ($order->status == 'confirm') {
+            $new_status = 'process';
+        }
+        if ($order->status == 'process') {
+            $new_status = 'finish';
+        }
+
+        $order->status = $new_status;
+        $order->save();
+
+        return redirect()->action([OrderController::class, 'show'], ['order' => $order->id]);
     }
 
     /**

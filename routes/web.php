@@ -48,5 +48,6 @@ Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
     Route::get('/list', [OrderController::class, 'index'])->name('index');
     Route::get('/{order}', [OrderController::class, 'show'])->name('show');
     Route::put('/{order}', [OrderController::class, 'update'])->name('update');
+    Route::post('/{order}/updateStatus', [OrderController::class, 'updateStatus'])->name('updateStatus');
     Route::delete('/{order}', [OrderController::class, 'destroy'])->name('delete');
 });

@@ -59,6 +59,11 @@ class OrderPolicy
         return $user->is_admin;
     }
 
+    public function updateStatus(User $user)
+    {
+        return $user->is_admin;
+    }
+
     /**
      * Determine whether the user can delete the model.
      *
