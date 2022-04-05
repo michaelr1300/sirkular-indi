@@ -59,6 +59,14 @@ class OrderPolicy
         return $user->is_admin;
     }
 
+    public function updatePayment(User $user, Order $order)
+    {
+        if ($user->is_admin) {
+            return true;
+        }
+        return $order->user_id == $user->id;
+    }
+
     public function updateStatus(User $user)
     {
         return $user->is_admin;

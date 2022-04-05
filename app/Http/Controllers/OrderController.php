@@ -20,10 +20,11 @@ class OrderController extends Controller
     
     public function index()
     {
-        $this->authorize('viewAny', Order::class);
-        $orders = Order::all();
-        foreach ($orders as $order) {
-            $order->user = User::find($order->user_id);
+        if (Auth::user()->is_admin) {
+            $orders = Order::all();
+        }
+        else {
+            $orders = Order::where('user_id', Auth::user()->id)->get();
         }
         return view('order.index')->with('orders',$orders);
     }
@@ -134,8 +135,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Order $order, Request $request, $id)
+    public function update(Request $request, $id)
     {
+        $order = Order::find($id);
         $this->authorize('update', $order);
         
         $order = Order::find($id);
@@ -144,6 +146,23 @@ class OrderController extends Controller
         ]);
 
         $order->status->update($request->status);
+        $order->save();
+
+        return redirect()->action([OrderController::class, 'index']);
+    }
+
+    public function updatePayment(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $this->authorize('updatePayment', $order);
+        
+        $request->validate([
+            'payment_photo' => 'required|image',
+        ]);
+
+        $payment_photo = $request->file('payment_photo')->store('payment-photos');
+        
+        $order->payment_photo = $payment_photo;
         $order->save();
 
         return redirect()->action([OrderController::class, 'index']);

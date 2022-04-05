@@ -49,5 +49,6 @@ Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
     Route::get('/{order}', [OrderController::class, 'show'])->name('show');
     Route::put('/{order}', [OrderController::class, 'update'])->name('update');
     Route::post('/{order}/updateStatus', [OrderController::class, 'updateStatus'])->name('updateStatus');
+    Route::post('/{order}/updatePayment', [OrderController::class, 'updatePayment'])->name('updatePayment');
     Route::delete('/{order}', [OrderController::class, 'destroy'])->name('delete');
 });

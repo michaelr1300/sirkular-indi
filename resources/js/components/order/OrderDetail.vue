@@ -8,6 +8,28 @@
     >
       {{ nextStatus }} Pesanan
     </button>
+    <div
+      id="payment"
+      v-if="!order.payment_photo"
+    >
+      <div class="mb-3">
+        <label for="payment_photo" class="form-label">Upload Bukti Bayar</label>
+        <input 
+          id="payment_photo" 
+          name="payment_photo"
+          ref="payment_photo"
+          accept="image/*"
+          class="form-control" 
+          type="file" 
+        >
+      </div>
+      <button  
+        class="btn btn-primary"
+        @click="uploadPayment()"
+      >
+        Upload Bukti Bayar
+      </button>
+    </div>
   </div>
 </template>
 
@@ -41,6 +63,25 @@ export default {
       try {
         let response = await axios.post(`/order/${this.order.id}/updateStatus`);
         return location.reload();
+      } catch (error) {
+        console.log(error.response);
+      }
+    },
+    async uploadPayment() {
+      var payment_photo = this.$refs.payment_photo.files[0];
+      let formData = new FormData();
+      formData.append("payment_photo", payment_photo);
+      try {
+        let response = await axios.post(
+          `/order/${this.order.id}/updatePayment`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        alert("Bukti Transfer Terupload");
       } catch (error) {
         console.log(error.response);
       }

@@ -40,23 +40,6 @@
           Data Pesanan
         </button>
       </li>
-      <li
-        class="nav-item"
-        role="presentation"
-      >
-        <button
-          id="payment-tab"
-          class="nav-link"
-          data-bs-toggle="tab"
-          data-bs-target="#payment"
-          type="button"
-          role="tab"
-          aria-controls="payment"
-          aria-selected="false"
-        >
-          Pembayaran
-        </button>
-      </li>
     </ul>
     <div
       class="tab-content"
@@ -137,21 +120,21 @@
             class="form-control" 
             v-model="form.quantity[index]"
           >
+          <label :for="'description-' + item.id" class="form-label">Keterangan</label>
+          <input 
+            :id="'description-' + item.id" 
+            name="description" 
+            type="text" 
+            class="form-control" 
+            v-model="form.description[index]"
+          >
         </div>
         <button  
           class="btn btn-primary"
-          @click="doSubmit()"
+          @click="createOrder()"
         >
           Submit
         </button>
-      </div>
-      <div
-        id="payment"
-        class="tab-pane fade"
-        role="tabpanel"
-        aria-labelledby="payment-tab"
-      >
-        ...
       </div>
     </div>
   </div>
@@ -185,18 +168,19 @@ export default {
         save_data: true,
         package_id: [],
         quantity: [],
+        description: [],
       }
     }
   },
   methods: {
-    async doSubmit() {
+    async createOrder() {
       try {
         let response = await axios.post("/order", this.form);
         alert("Order Created");
       } catch (error) {
         console.log(error.response);
       }
-    }
+    },
   },
 };
 </script>

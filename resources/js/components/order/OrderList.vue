@@ -17,7 +17,7 @@
           :key="item.id"
           class="col mb-3"
         >
-          <td>{{ item.user.name }}</td>
+          <td>{{ item.buyer_name }}</td>
           <td>Total</td>
           <td>{{ item.status }}</td>
           <td>{{ item.receipt }}</td>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('buyer_name')->nullable();
             $table->string('buyer_address')->nullable();
             $table->string('buyer_phone_number')->nullable();
+            $table->string('payment_photo')->nullable();
             $table->string('status')->nullable();
             $table->string('receipt_number')->nullable();
             $table->timestamps();
