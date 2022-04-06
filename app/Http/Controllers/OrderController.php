@@ -107,7 +107,7 @@ class OrderController extends Controller
         $order->detail = OrderDetail::all()->where('order_id', $id);
 
         foreach ($order->detail as $order_detail) {
-            $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description', 'photo_path');
+            $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description');
         }
 
         // $order = json_encode($order, JSON_PRETTY_PRINT);

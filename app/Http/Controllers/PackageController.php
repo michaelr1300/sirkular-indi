@@ -26,16 +26,15 @@ class PackageController extends Controller
             'price' => 'required|min:0|integer'
         ]);
 
-        $photo_path = '';
-        if($request->file('image')) {
-            $photo_path = $request->file('image')->store('package-photos');
-        }
+        // $photo_path = '';
+        // if($request->file('image')) {
+        //     $photo_path = $request->file('image')->store('package-photos');
+        // }
 
         Package::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'photo_path' => $photo_path,
         ]);
 
         return redirect()->action([PackageController::class, 'index']);

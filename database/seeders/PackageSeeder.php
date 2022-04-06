@@ -19,13 +19,11 @@ class PackageSeeder extends Seeder
             'name' => 'Package 1',
             'price' => 100000,
             'description' => 'Lorem Ipsum dolor sit amet',
-            'photo_path' => '',
         ]);
         Package::create([
             'name' => 'Package 2',
             'price' => 200000,
             'description' => 'Lorem Ipsum dolor sit amet',
-            'photo_path' => '',
         ]);
     }
 }
