@@ -1,6 +1,6 @@
 <template>
     <div class="flex-column">
-        <div class="row justify-content-center div-content-catalog">
+        <div class="row justify-content-center flex-column">
             <div class="segment segment-1 flex-row justify-content-center">
                 <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
                     <div class="col-lg-7 wrap-left-catalog-1">
@@ -83,11 +83,6 @@
 
 <style scoped>
 @media screen and (min-width: 780px) {
-    .div-content-catalog{
-        /* padding: 0 5%; */
-        flex-direction: column;
-    }
-
     .segment{
         min-height: 100vh;
     }

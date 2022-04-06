@@ -1,15 +1,13 @@
 <template>
     <div class="flex-column">
-        <div class="row justify-content-center div-content-about">
-            <div class="segment segment-1 flex-row justify-content-center">
-                <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
-                    <div class="col-lg-7 wrap-left-about-1">
-                        <h1 class="h1-text text-uppercase">Tentang</h1>
-                        <h1 class="h1-indi text-uppercase">INDI</h1>
-                        <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
-                    </div>
-                <!-- </div> -->
-                <div class="col-lg-5 wrap-right-about-1">
+        <div class="d-flex flex-column justify-content-center">
+            <div class="d-md-flex flex-row justify-content-center">
+                <div class="col col-md-7 wrap-left-about-1">
+                    <h1 class="h1-text text-uppercase">Tentang</h1>
+                    <h1 class="h1-indi text-uppercase">INDI</h1>
+                    <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
+                </div>
+                <div class="col col-md-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
                         <img class="img-front-about" src="images/image-front-about.png" alt="image front about">
                     </div>
@@ -22,29 +20,29 @@
                     </div>
                 </div>
             </div> -->
-            <div class="segment-3">
-                <div class="left-segment-3">
-                    <p>
-                        INDI merupakan sebuah konsep <i>circular fashion</i> yang berfokus 
-                        pada perbaikan nilai-nilai pada pakaian batik. Bekerja sama dengan
-                        Gamaindigo, kami menggunakan pewarna alami untuk tekstil dan bahan
-                        serat lainnya dari tumbuhan <i>Indigofera tinctoria</i>.
-                        <br/>
-                        Bahan pewarna ini memiliki keunggulan berupa ramah lingkungan
-                        (karena tidak bersifat karsinogen), tersedia dalam jumlah besar,
-                        berstandar dan berkualitas tinggi namun tetap murah dan praktis
-                        ketika digunakan.
-                    </p>
-                </div>
-                <div class="">
-                    <img src="images/img-about-par.png" alt="image about paragraph">
-                </div>
+            <div class="d-block d-md-flex flex-row-reverse segment-3">
+              <div class="col-12 col-md-7 px-4 left-segment-3">
+                  <p>
+                      INDI merupakan sebuah konsep <i>circular fashion</i> yang berfokus 
+                      pada perbaikan nilai-nilai pada pakaian batik. Bekerja sama dengan
+                      Gamaindigo, kami menggunakan pewarna alami untuk tekstil dan bahan
+                      serat lainnya dari tumbuhan <i>Indigofera tinctoria</i>.
+                      <br/><br/>
+                      Bahan pewarna ini memiliki keunggulan berupa ramah lingkungan
+                      (karena tidak bersifat karsinogen), tersedia dalam jumlah besar,
+                      berstandar dan berkualitas tinggi namun tetap murah dan praktis
+                      ketika digunakan.
+                  </p>
+              </div>
+              <div class="col-12 col-md-5">
+                  <img class="img img-fluid mx-auto" src="images/img-about-par.png" alt="image about paragraph">
+              </div>
             </div>
-            <div class="segment-4 row justify-content-center">
-                <div class="col-lg-10 left-segment-4">
+            <div class="row m-0 segment-4">
+                <div class="col-12 col-md-9 left-segment-4">
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-12 col-md-3 text-center">
                     <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                 </div>
             </div>
@@ -54,15 +52,6 @@
 
 <style scoped>
 @media screen and (min-width: 780px) {
-    .div-content-about{
-        /* padding: 0 15%; */
-        flex-direction: column;
-    }
-
-    .segment{
-        min-height: 100vh;
-    }
-
     .segment-1{
         display: flex;
         flex-direction: row;
@@ -91,17 +80,6 @@
 
     .img-front-about{
         width: 100%;
-    }
-
-    .h1-text {
-        font-size: 120px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 200px;
-        font-weight: 900;
-        line-height: 175px;
     }
     
     .btn-get-start{
@@ -248,11 +226,6 @@
         align-items: center;
     }
 
-    .left-segment-3{
-        width: 60%;
-        padding-right: 7%;
-    }
-
     .left-segment-3 p{
         text-align: justify;
         font-size: 20px;
@@ -277,22 +250,9 @@
         font-size: 40px;
         font-weight: 800;
     }
-
-    .btn-bottom-order{
-
-    }
 }
 
 @media screen and (max-width: 780px) {
-    .div-content-about{
-        /* padding: 0 15%; */
-        flex-direction: column;
-    }
-
-    .segment{
-        min-height: 100vh;
-    }
-
     .segment-1{
         flex-direction: row;
         background-color: #fff;
@@ -319,17 +279,6 @@
 
     .img-front-about{
         width: 100%;
-    }
-
-    .h1-text {
-        font-size: 56px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 130px;
-        font-weight: 900;
-        line-height: 115px;
     }
     
     .btn-get-start{
@@ -478,8 +427,7 @@
     }
 
     .left-segment-3{
-        width: 90%;
-        padding: 20px 2%;
+
     }
 
     .left-segment-3 p{
@@ -506,10 +454,6 @@
     .left-segment-4 h2{
         font-size: 40px;
         font-weight: 800;
-    }
-
-    .btn-bottom-order{
-
     }
 }
 </style>

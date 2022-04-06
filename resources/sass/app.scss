@@ -29,3 +29,34 @@
     height: 40px;
     font-weight: 700;
 }
+
+.segment{
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 780px) {
+    .h1-text {
+        font-size: 8vw;
+        font-weight: 900;
+    }
+
+    .h1-indi{
+        font-size: 20vw;
+        font-weight: 900;
+        line-height: 20vw;
+    }
+}
+
+
+@media screen and (max-width: 780px) {
+    .h1-text {
+        font-size: 10vw;
+        font-weight: 900;
+    }
+
+    .h1-indi{
+        font-size: 35vw;
+        font-weight: 900;
+        line-height: 25vw;
+    }
+}
