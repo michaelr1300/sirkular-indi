@@ -11286,3 +11286,24 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.active-menu {
+  font-weight: 700;
+}
+
+.menu-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-login {
+  background: transparent;
+  border: 3px solid #000;
+  width: 120px;
+  height: 40px;
+  font-weight: 700;
+}
