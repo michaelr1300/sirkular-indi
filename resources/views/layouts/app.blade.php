@@ -84,11 +84,6 @@
                     </div>
                 @endguest
             </div>
-            <div class="menu-toggle">
-                <div class="hamburger">
-                    <font-awesome-icon icon="fa-solid fa-bars" />
-                </div>
-            </div>
         </div>
     </nav>
     <div id="app">
@@ -152,125 +147,36 @@
 </body>
 
 <style>
-    @media screen and (min-width: 768px) {
-        .container-header{
-            height: 80px;
-            padding: 0 20px;
-            background-color: #fff;
-        }
-
-        .wrapped-header{
-            display: flex;
-        }
-
-        .menu-item{
-            display: block;
-            padding: 0.5rem 1rem;
-            padding-right: 1rem;
-            padding-left: 1rem;
-            color: #000;
-            text-decoration: none;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-        }
-
-        .active-menu{
-            font-weight: 700;
-        }
-
-        .btn-login{
-            background: transparent;
-            border: 3px solid #000;
-            width: 120px;
-            height: 40px;
-            font-weight: 700;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
+    .container-header{
+        height: 80px;
+        padding: 0 20px;
+        background-color: #fff;
     }
-    .navbar {
+
+    .wrapped-header{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 8rem;
     }
 
-    .navbar-brand {
-        color: #ffffff;
-        font-family: "Oswald", sans-serif;
-        text-transform: uppercase;
+    .menu-item{
+        display: block;
+        padding: 0.5rem 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        color: #000;
+        text-decoration: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     }
 
-    .nav-list {
-        list-style: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80%;
-        height: 100vh;
-        background-color: #222222;
-        padding: 4.4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        z-index: 1250;
-        text-transform: uppercase;
-        transform: translateX(-100%);
-        transition: transform 0.5s;
-    }
-
-    .nav-link:hover {
-        border-bottom: 3px solid #ffffff;
-    }
-
-    .active {
+    .active-menu{
         font-weight: 700;
-        border-bottom: 3px solid #ffffff;
     }
 
-    .open .nav-list {
-        transform: translateX(0);
-    }
-
-    .menu-toggle {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 3.2rem;
-        height: 3.2rem;
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
-    }
-
-    .hamburger {
-        width: 2.4rem;
-        height: 3px;
-        background-color: #ffffff;
-        border-radius: 2px;
-        border: none;
-        transition: all 0.7s ease-out;
-    }
-
-    .hamburger::before,
-    .hamburger::after {
-        content: "";
-        position: absolute;
-        width: 2.4rem;
-        height: 3px;
-        background-color: #ffffff;
-        border-radius: 2px;
-        border: none;
-    }
-
-    .hamburger::before {
-        transform: translateY(-8px);
-    }
-
-    .hamburger::after {
-        transform: translateY(8px);
+    .btn-login{
+        background: transparent;
+        border: 3px solid #000;
+        width: 120px;
+        height: 40px;
+        font-weight: 700;
     }
 </style>
 </html>
