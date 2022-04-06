@@ -601,7 +601,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 50px 10px 0;
     }
 
     .review-top-section h1{

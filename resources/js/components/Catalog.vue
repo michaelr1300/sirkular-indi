@@ -93,6 +93,7 @@
     }
 
     .segment-1{
+        display: flex;
         flex-direction: row;
         padding: 0 7%;
         background-color: #fff;

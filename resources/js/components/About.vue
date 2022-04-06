@@ -64,6 +64,7 @@
     }
 
     .segment-1{
+        display: flex;
         flex-direction: row;
         padding: 0 7%;
         background-color: #fff;
@@ -478,13 +479,14 @@
 
     .left-segment-3{
         width: 90%;
-        padding-right: 7%;
+        padding: 20px 2%;
     }
 
     .left-segment-3 p{
         text-align: justify;
         font-size: 20px;
         font-weight: 500;
+        margin-top: 20px;
     }
 
     .segment-3 h2 {
