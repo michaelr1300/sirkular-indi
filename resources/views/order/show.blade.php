@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    {{ $order }}
+    {{-- {{ $order }} --}}
     <order-detail :order='{{ json_encode($order) }}' :user='{{ json_encode($user) }}'></order-detail>
 </div>
 @endsection

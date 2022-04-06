@@ -1,6 +1,82 @@
 <template>
   <div>
-    <h3 class="mb-3">Detail Pesanan</h3>
+    <div class="mb-3">
+      <h3>Informasi Pesanan</h3>
+      <table class="table-text">
+        <tbody>
+          <tr style="height:2rem">
+            <td class="font-weight-bold text-nowrap">Nama</td>
+            <td>:</td>
+            <td class="w-100 text-nowrap">{{ order.buyer_name }}</td>
+          </tr>
+          <tr style="height:2rem">
+            <td class="font-weight-bold text-nowrap">Alamat</td>
+            <td>:</td>
+            <td class="w-100 text-nowrap">{{ order.buyer_address }}</td>
+          </tr>
+          <tr style="height:2rem">
+            <td class="font-weight-bold text-nowrap">Nomor Telepon</td>
+            <td>:</td>
+            <td class="w-100 text-nowrap">{{ order.buyer_phone_number }}</td>
+          </tr>
+          <tr/>
+          <tr style="height:2rem">
+            <td class="font-weight-bold text-nowrap">Status</td>
+            <td>:</td>
+            <td class="w-100 text-nowrap">{{ order.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h5>Bukti Bayar</h5>
+      <div
+        id="payment"
+        v-if="!order.payment_photo"
+      >
+        <div class="mb-3">
+          <label for="payment_photo" class="form-label">Upload Bukti Bayar</label>
+          <input 
+            id="payment_photo" 
+            name="payment_photo"
+            ref="payment_photo"
+            accept="image/*"
+            class="form-control" 
+            type="file" 
+          >
+        </div>
+        <button  
+          class="btn btn-primary"
+          @click="uploadPayment()"
+        >
+          Upload Bukti Bayar
+        </button>
+      </div>
+      <div v-if="order.payment_photo">
+        <img :src="'/storage/' + order.payment_photo" alt="payment-proof" style="max-width:200px">
+      </div>
+    </div>
+    <h3 class="mb-3">Daftar Pesanan</h3>
+    <table class="table table-striped">
+      <tbody>
+        <tr style="height:2rem">
+          <td>item 1</td>
+          <td>1 biji</td>
+          <td>harga</td>
+          <td>deskripsi</td>
+        </tr>
+        <tr style="height:2rem">
+          <td class="font-weight-bold text-nowrap">item 2</td>
+          <td>1 biji</td>
+          <td class="w-100 text-nowrap">harga</td>
+          <td class="w-100 text-nowrap">deskripsi</td>
+        </tr>
+        <tr style="height:2rem">
+          <td class="font-weight-bold text-nowrap">item 3</td>
+          <td>1 biji</td>
+          <td class="w-100 text-nowrap">harga</td>
+          <td class="w-100 text-nowrap">deskripsi</td>
+        </tr>
+      </tbody>
+    </table>
     <button  
       v-if="order.status !== 'finish' && user.is_admin"
       class="btn btn-primary"
@@ -8,28 +84,6 @@
     >
       {{ nextStatus }} Pesanan
     </button>
-    <div
-      id="payment"
-      v-if="!order.payment_photo"
-    >
-      <div class="mb-3">
-        <label for="payment_photo" class="form-label">Upload Bukti Bayar</label>
-        <input 
-          id="payment_photo" 
-          name="payment_photo"
-          ref="payment_photo"
-          accept="image/*"
-          class="form-control" 
-          type="file" 
-        >
-      </div>
-      <button  
-        class="btn btn-primary"
-        @click="uploadPayment()"
-      >
-        Upload Bukti Bayar
-      </button>
-    </div>
   </div>
 </template>
 
