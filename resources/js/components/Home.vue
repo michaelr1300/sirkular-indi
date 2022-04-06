@@ -142,19 +142,8 @@
                 </div>
             </div>
         </div>
-        <FooterComponent></FooterComponent>
     </div>
 </template>
-
-<script>
-    import FooterComponent from './elements/FooterComponent.vue'
-    export default {
-        components: { FooterComponent },
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
 
 <style scoped>
 
