@@ -17,14 +17,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet"> 
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav 
-          class="navbar navbar-expand-md bg-white shadow-sm" 
-          style="height: 80px; padding: 0 20px;" 
-        >
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-2">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="img-header-icon" src="/images/icon-indi-pair-color.svg" alt="logo-indi"/>
