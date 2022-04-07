@@ -270,8 +270,8 @@
         position: absolute;
         width: auto;
         height: auto;
-        left: 700px;
-        top: 800px;
+        left: 46%;
+        top: 84%;
     }
 
     .ellipse-ornament{
@@ -527,11 +527,7 @@
     }
 
     .ornament-home{
-        position: absolute;
-        width: auto;
-        height: auto;
-        left: 700px;
-        top: 800px;
+        display: none;
     }
 
     .ellipse-ornament{
@@ -623,7 +619,6 @@
     .card-review{
         position: relative;
         display: flex;
-        min-width: 500px;
         height: 230px;
         background-color: #fff;
         border: none;
@@ -636,6 +631,11 @@
     .div-card-left{
         display: flex;
         width: 40%;
+        overflow: hidden;
+    }
+
+    .div-card-left img{
+        border-radius: 20px 0 0 20px;
     }
 
     .div-card-right{

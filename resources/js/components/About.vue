@@ -1,11 +1,11 @@
 <template>
     <div class="flex-column">
         <div class="d-flex flex-column justify-content-center">
-            <div class="d-md-flex flex-row justify-content-center">
+            <div class="d-md-flex flex-row justify-content-center segment-1">
                 <div class="col col-md-7 wrap-left-about-1">
                     <h1 class="h1-text text-uppercase">Tentang</h1>
                     <h1 class="h1-indi text-uppercase">INDI</h1>
-                    <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
+                    <button class="btn-get-start" @click="scrollToElement">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
                 </div>
                 <div class="col col-md-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
@@ -50,6 +50,17 @@
     </div>
 </template>
 
+<script>
+export default {
+    methods: {
+        scrollToElement() {
+            let element = document.getElementsByClassName("segment-3")[0];
+            element.scrollIntoView({behavior: "smooth", block: "end"});
+        }
+    }
+}
+</script>
+
 <style scoped>
 @media screen and (min-width: 780px) {
     .segment-1{
@@ -68,6 +79,17 @@
         background-image: url("../../assets/background-catalog.png");
         background-size: contain;
         box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
+    }
+
+    .h1-text {
+        font-size: 120px;
+        font-weight: 900;
+    }
+
+    .h1-indi{
+        font-size: 250px;
+        font-weight: 900;
+        line-height: 175px;
     }
 
     .wrap-left-about-1 button {
@@ -260,7 +282,7 @@
 
     .wrap-left-about-1{
         font-family: 'Mulish', sans-serif;
-        padding: 30px 0 80px 20px;
+        padding: 70px 0 100px 20px;
         display: flex;
         flex-direction: column;
         color: #142362;

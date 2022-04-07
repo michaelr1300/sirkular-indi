@@ -6,7 +6,7 @@
                     <div class="col-lg-7 wrap-left-catalog-1">
                         <h1 class="h1-text text-uppercase">Katalog</h1>
                         <h1 class="h1-indi text-uppercase">INDI</h1>
-                        <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
+                        <button class="btn-get-start" @click="scrollToElement">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
                     </div>
                 <!-- </div> -->
                 <div class="col-lg-5 wrap-right-catalog-1">
@@ -35,6 +35,7 @@
                                     <button class="btn-order order-odd">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                                 </div>
                             </div>
+                            <div id="product-indi-scroll"></div>
                             <div class="div-products-indi product-even">
                                 <img class="img-product img-product-2" src="images/img-product-2.png" alt=""/>
                                 <div class="div-products-info products-info-even">
@@ -80,6 +81,17 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        scrollToElement() {
+            let element = document.getElementById("product-indi-scroll");
+            element.scrollIntoView({behavior: "smooth", block: "end"});
+        }
+    }
+}
+</script>
 
 <style scoped>
 @media screen and (min-width: 780px) {
@@ -315,7 +327,7 @@
     .img-wrapper-1{
         overflow: hidden;
         width: 100%;
-        height: 250px;
+        height: 370px;
         position: relative;
     }
 

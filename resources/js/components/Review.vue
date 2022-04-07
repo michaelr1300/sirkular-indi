@@ -695,7 +695,7 @@ section {
 
     .wrap-left-review-1{
         font-family: 'Mulish', sans-serif;
-        padding: 8% 3% 80px 9%;
+        padding: 12% 3% 18% 9%;
         display: flex;
         flex-direction: column;
         color: #142362;
