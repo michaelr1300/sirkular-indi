@@ -11312,6 +11312,11 @@ textarea.form-control-lg {
   min-height: 100vh;
 }
 
+.left-segment-4 h2, .left-segment-4 .h2 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
 @media screen and (min-width: 780px) {
   .h1-text {
     font-size: 8vw;
@@ -11322,6 +11327,14 @@ textarea.form-control-lg {
     font-size: 20vw;
     font-weight: 900;
     line-height: 20vw;
+  }
+
+  .segment-4 {
+    display: flex;
+    padding: 2% 7%;
+    height: 300px;
+    background-color: #fff;
+    align-items: center;
   }
 }
 @media screen and (max-width: 780px) {
@@ -11334,5 +11347,13 @@ textarea.form-control-lg {
     font-size: 35vw;
     font-weight: 900;
     line-height: 25vw;
+  }
+
+  .segment-4 {
+    display: flex;
+    padding: 2% 7%;
+    height: 300px;
+    background-color: #fff;
+    align-items: center;
   }
 }
