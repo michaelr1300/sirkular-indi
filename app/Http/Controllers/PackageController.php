@@ -84,4 +84,10 @@ class PackageController extends Controller
     {
         //
     }
+    public function catalog()
+    {
+        $packages = Package::all();
+
+        return view('catalog.index')->with('packages',$packages);
+    }
 }

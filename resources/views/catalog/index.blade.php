@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <catalog></catalog>
+    <catalog :packages='{{ json_encode($packages) }}'></catalog>
 @endsection

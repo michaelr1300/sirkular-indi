@@ -9,7 +9,7 @@
                 </div>
                 <div class="col col-md-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
-                        <img class="img-front-about" src="images/image-front-about.png" alt="image front about">
+                        <img class="w-100" src="images/image-front-about.png" alt="image front about">
                     </div>
                 </div>
             </div>
@@ -99,11 +99,6 @@ export default {
     .wrap-right-about-1{
         padding: 0;
     }
-
-    .img-front-about{
-        width: 100%;
-    }
-    
     .btn-get-start{
         display: flex;
         align-items: center;
@@ -260,18 +255,7 @@ export default {
         color: #142362;
     }
 
-    .segment-4{
-        display: flex;
-        padding: 2% 7%;
-        height: 300px;
-        background-color: #fff;
-        align-items: center;
-    }
 
-    .left-segment-4 h2{
-        font-size: 40px;
-        font-weight: 800;
-    }
 }
 
 @media screen and (max-width: 780px) {
@@ -297,10 +281,6 @@ export default {
 
     .wrap-right-about-1{
         padding: 0;
-    }
-
-    .img-front-about{
-        width: 100%;
     }
     
     .btn-get-start{
@@ -463,19 +443,6 @@ export default {
         font-weight: 800;
         font-size: 40px;
         color: #142362;
-    }
-
-    .segment-4{
-        display: flex;
-        padding: 2% 7%;
-        height: 300px;
-        background-color: #fff;
-        align-items: center;
-    }
-
-    .left-segment-4 h2{
-        font-size: 40px;
-        font-weight: 800;
     }
 }
 </style>

@@ -29,7 +29,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/catalog', [PackageController::class, 'index'])->name('catalog');
+Route::get('/catalog', [PackageController::class, 'catalog'])->name('catalog');
 Route::post('/catalog', [PackageController::class, 'store'])->middleware('auth')->name('package.store');
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
