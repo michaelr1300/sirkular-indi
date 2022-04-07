@@ -4,7 +4,7 @@
       <div class="mx-auto">
         <img class="img-header-icon" src="/images/icon-indi-pair-color.svg" alt="logo-indi"/>
       </div>
-      <h4 class="fw-bold">DAFTAR</h4>
+      <h4 class="fw-bold mt-4">DAFTAR</h4>
       <div class="fw-bold">Silakan daftar sebagai akun baru</div>
       <div class="mt-4">
         <form @submit.prevent="doLogin">
