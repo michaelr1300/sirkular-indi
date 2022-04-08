@@ -56,17 +56,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row m-0 segment-4">
-                <div class="col-12 col-md-9 left-segment-4">
-                    <h2>Tertarik untuk menggunakan jasa kami?</h2>
+                <div class="row m-0 segment-4">
+                    <div class="col-12 col-md-9 left-segment-4">
+                        <h2>Tertarik untuk menggunakan jasa kami?</h2>
+                    </div>
+                    <div class="col-12 col-md-3 text-center">
+                        <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
+                    </div>
                 </div>
-                <div class="col-12 col-md-3 text-center">
-                    <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script>

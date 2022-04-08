@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    Dashboard Product
+    <dashboard-product :packages='{{ json_encode($packages) }}'></dashboard-product>
 @endsection

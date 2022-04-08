@@ -1,0 +1,53 @@
+<template>
+  <div>
+    <h3 class="mb-3 ms-2">Product Management</h3>
+    <div class="d-flex">
+      <div 
+        v-for="item in packages" :key="item.id" 
+        class="col-12 col-md-4 px-2"
+      >
+        <div class="card rounded">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-4 w-100">
+              <h4 class="my-auto"><b>{{ item.name }}</b></h4>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-product-modal" 
+                @click="editProduct(item)">
+                <span class="mdi mdi-pencil"></span>
+              </button>
+            </div>
+            <p>{{ item.description }}</p>
+            <div>Rp {{ item.price }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <DashboardProductFormEdit :selectedProduct="selectedProduct"></DashboardProductFormEdit>
+  </div>
+</template>
+
+<script>
+import DashboardProductFormEdit from './DashboardProductFormEdit.vue';
+export default {
+  components: { DashboardProductFormEdit },
+  props: {
+    packages: {
+      type: Array,
+      default: null
+    },
+  },
+  data() {
+    return {
+      selectedProduct : {},
+    }
+  },
+  methods: {
+    editProduct(item) {
+      this.selectedProduct = item;
+    },
+  },
+};
+</script>
+
+<style>
+
+</style>

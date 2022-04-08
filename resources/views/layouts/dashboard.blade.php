@@ -147,9 +147,8 @@
             </div>
         </div>
     </div>
-    <div id="app" class="col-12 col-md-10 items-top d-flex flex-column px-3 pt-3">
+    <div id="app" class="col-12 col-md-10 items-top d-flex flex-column px-3 pt-3" style="background-color: #E4E5E6">
         @yield('content')
     </div>
-    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>
