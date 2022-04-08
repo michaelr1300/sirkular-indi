@@ -90,4 +90,10 @@ class PackageController extends Controller
 
         return view('catalog.index')->with('packages',$packages);
     }
+    public function dashboard()
+    {
+        $this->authorize('dashboard', Package::class);
+        $packages = Package::all();
+        return view('dashboard.product')->with('packages',$packages);
+    }
 }

@@ -41,6 +41,14 @@ Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
     Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('delete');
 });
 
+Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function ()
+{
+    Route::redirect('/', 'order');
+    Route::get('/order', [OrderController::class, 'dashboard'])->name('order');
+    Route::get('/product', [PackageController::class, 'dashboard'])->name('product');
+    Route::get('/review', [ReviewController::class, 'dashboard'])->name('review');
+});
+
 Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
 {
     Route::get('/', [OrderController::class, 'create'])->name('create');
