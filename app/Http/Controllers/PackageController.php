@@ -48,7 +48,8 @@ class PackageController extends Controller
      */
     public function show($id)
     {
-        //
+        $package = Package::find($id);
+        var_dump($package);
     }
 
     /**
@@ -71,7 +72,12 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $package = Package::find($id);
+        
+        $package->name = $request->name;
+        $package->price = $request->price;
+        $package->description = $request->description;
+        $package->save();
     }
 
     /**
@@ -89,5 +95,11 @@ class PackageController extends Controller
         $packages = Package::all();
 
         return view('catalog.index')->with('packages',$packages);
+    }
+    public function dashboard()
+    {
+        $this->authorize('dashboard', Package::class);
+        $packages = Package::all();
+        return view('dashboard.product')->with('packages',$packages);
     }
 }

@@ -64,8 +64,6 @@
                     <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                 </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script>

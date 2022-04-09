@@ -99,4 +99,11 @@ class ReviewController extends Controller
     {
         //
     }
+    public function dashboard()
+    {
+        $this->authorize('dashboard', Review::class);
+        $reviews = Review::all();
+
+        return view('dashboard.review')->with('reviews',$reviews);
+    }
 }

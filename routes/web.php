@@ -30,7 +30,6 @@ Route::get('/about', function () {
 });
 
 Route::get('/catalog', [PackageController::class, 'catalog'])->name('catalog');
-Route::post('/catalog', [PackageController::class, 'store'])->middleware('auth')->name('package.store');
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
 Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
@@ -39,6 +38,16 @@ Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
     Route::post('/', [ReviewController::class, 'store'])->name('store');
     Route::put('/{review}', [ReviewController::class, 'update'])->name('update');
     Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('delete');
+});
+
+Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function ()
+{
+    Route::redirect('/', 'order');
+    Route::get('/order', [OrderController::class, 'dashboard'])->name('order');
+    Route::get('/product', [PackageController::class, 'dashboard'])->name('product');
+    Route::post('/product', [PackageController::class, 'store'])->name('product.store');
+    Route::put('/product/{product}', [PackageController::class, 'update'])->name('product.update');
+    Route::get('/review', [ReviewController::class, 'dashboard'])->name('review');
 });
 
 Route::prefix('order')->name('order.')->middleware('auth')->group(function ()

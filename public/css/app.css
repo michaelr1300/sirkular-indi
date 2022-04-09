@@ -11290,6 +11290,21 @@ textarea.form-control-lg {
   font-weight: 700;
 }
 
+.active-sidebar {
+  font-weight: 700;
+  color: #345EC9;
+  background-color: #F3F9FE;
+  border-left: solid 4px #345EC9;
+}
+
+.sidebar-item {
+  border-left: solid 4px transparent;
+}
+
+.sidebar-item:hover {
+  background-color: #F3F9FE;
+}
+
 .menu-item {
   display: block;
   padding: 0.5rem 1rem;
