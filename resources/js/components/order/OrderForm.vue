@@ -11,11 +11,10 @@
       <div class="step-wrapper">
       <div class="div-progress-bar">
           <ul class="progress-bar-order">
-            <li class="active">Step 1</li>
-            <li>Step 2</li>
-            <li>Step 3</li>
-            <li>Step 4</li>
-            <li>Step 5</li>
+            <li class="active">Isi data diri</li>
+            <li>Isi detail pesanan</li>
+            <li>Pembayaran</li>
+            <li>Selesai</li>
           </ul>
         </div>
       </div>
@@ -58,17 +57,10 @@
       </li>
     </ul> -->
       <div> <!-- id="personal-info" class="" aria-labelledby="personal-info-tab">-->
-        <div class="row">
+        <div class="row div-form-order">
           <div class="col-12 col-md-6 mb-3">
             <label for="name" class="form-label">Nama</label>
-            <input 
-              id="name" 
-              name="name" 
-              type="text" 
-              class="form-control" 
-              placeholder="Nama Anda"
-              v-model="form.name"
-            >
+            <input id="name" name="name" type="text" class="form-control" placeholder="Nama Anda" v-model="form.name" />
           </div>
           <div class="col-12 col-md-6 mb-3">
             <label for="phone_number" class="form-label">Nomor WhatsApp</label>
@@ -201,7 +193,7 @@ export default {
   }
 
   .div-progress-bar{
-    width: max-content;
+    width: 1000px;
     position: absolute;
     z-index: 1;
   }
@@ -212,24 +204,32 @@ export default {
   }
 
   .progress-bar-order li{
+    font-family: 'Mulish', sans-serif;
+    font-size: 14;
+    font-weight: 500;
     float: left;
-    width: 20%;
+    width: 25%;
     position: relative;
-    text-align: center;
+    /* text-align: center; */
+  }
+
+  .progress-bar-order li.active{
+    color: #345EC9;
   }
 
   .progress-bar-order li:before{
     content:counter(step);
     counter-increment: step;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #bebebe;
-    display: block;
-    margin: 0 auto 10px auto;
+    width: 50px;
+    height: 50px;
+    padding: 10px 15px;
+    /* border: 2px solid #bebebe; */
+    /* display: block; */
+    margin: 0 10px 10px auto;
     border-radius: 50%;
     line-height: 27px;
-    background: white;
-    color: #bebebe;
+    background: #EBEBEB;
+    color: #81828F;
     text-align: center;
     font-weight: bold;
   }
@@ -237,11 +237,9 @@ export default {
   .progress-bar-order li:after{
     content: '';
     position: absolute;
-    width:100%;
     height: 3px;
     background: #979797;
-    top: 15px;
-    left: -50%;
+    top: 12px;
     z-index: -1;
   }
 
@@ -249,13 +247,38 @@ export default {
     content: none;
   }
 
+  .progress-bar-order li:nth-child(2):after{
+    left: -38%;
+    width: 34%;
+  }
+
+  .progress-bar-order li:nth-child(3):after{
+    left: -22%;
+    width: 19%;
+  }
+
+  .progress-bar-order li:nth-child(4):after{
+    left: -36%;
+    width: 33%;
+  }
+
   .progress-bar-order li.active + li:after{
     background: #3aac5d;
   }
 
-.progress-bar-order li.active + li:before{
-	border-color: #3aac5d;
-	background: #3aac5d;
-	color: white
-}
+  .progress-bar-order li.active + li:before{
+    border-color: #3aac5d;
+    background: #b0e2bf;
+    color: #3aac5d;
+  }
+
+  .progress-bar-order li.active:before{
+    /* border-color: #3aac5d; */
+    background: #345EC9;
+    color: #ffffff;
+  }
+
+  .div-form-order{
+    margin-top: 150px;
+  }
 </style>

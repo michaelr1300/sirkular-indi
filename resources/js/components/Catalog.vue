@@ -56,7 +56,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="row m-0 segment-4">
                 <div class="col-12 col-md-9 left-segment-4">
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>

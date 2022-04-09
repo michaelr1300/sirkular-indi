@@ -23779,14 +23779,264 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  methods: {
-    scrollToElement: function scrollToElement() {
-      var element = document.getElementById("product-indi-scroll");
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "end"
-      });
+  props: {
+    packages: {
+      type: Array,
+      "default": null
     }
   }
 });
@@ -24477,14 +24727,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -29923,7 +30165,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        padding: 0 7%;\r\n        background-color: #fff;\n}\n.wrap-left-about-1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-fb05e49c] {\r\n        font-size: 120px;\r\n        font-weight: 900;\n}\n.h1-indi[data-v-fb05e49c]{\r\n        font-size: 250px;\r\n        font-weight: 900;\r\n        line-height: 175px;\n}\n.wrap-left-about-1 button[data-v-fb05e49c] {\r\n        margin-top: 25px;\n}\n.wrap-right-about-1[data-v-fb05e49c]{\r\n        padding: 0;\n}\n.img-front-about[data-v-fb05e49c]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.segment-2[data-v-fb05e49c]{\r\n        background-color: #fff;\n}\n.div-section-3[data-v-fb05e49c]{\r\n        padding: 0 6%;\n}\n.div-section-3 h1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.wrapper-products[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: space-around;\r\n        margin-top: 30px;\n}\n.div-products-indi[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        width: 400px;\n}\n.product-odd[data-v-fb05e49c]{\r\n        background-color: #F3F9FE;\n}\n.product-even[data-v-fb05e49c]{\r\n        background-color: #F4FAE6;\n}\n.img-product[data-v-fb05e49c]{\r\n        height: auto;\r\n        width: 400px;\n}\n.div-products-info[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-fb05e49c]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-fb05e49c]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.products-info-odd p[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        color: #00042D;\n}\n.products-info-even p[data-v-fb05e49c]{\r\n        color: #202D00;\n}\n.products-info-even h3[data-v-fb05e49c]{\r\n        color: #4C6214;\n}\n.products-info-odd h3[data-v-fb05e49c]{\r\n        color: #345EC9;\n}\n.div-order-btn[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.order-odd[data-v-fb05e49c]{\r\n        background: #345EC9;\n}\n.order-even[data-v-fb05e49c]{\r\n        background: #A7C460;\n}\n.btn-read-cont[data-v-fb05e49c]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: center;\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\n}\n.left-segment-3 p[data-v-fb05e49c]{\r\n        text-align: justify;\r\n        font-size: 20px;\r\n        font-weight: 500;\n}\n.segment-3 h2[data-v-fb05e49c] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n.segment-4[data-v-fb05e49c]{\r\n        display: flex;\r\n        padding: 2% 7%;\r\n        height: 300px;\r\n        background-color: #fff;\r\n        align-items: center;\n}\n.left-segment-4 h2[data-v-fb05e49c]{\r\n        font-size: 40px;\r\n        font-weight: 800;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-fb05e49c]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-about-1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 70px 0 100px 20px;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-about-1 button[data-v-fb05e49c] {\r\n        margin-top: 25px;\n}\n.wrap-right-about-1[data-v-fb05e49c]{\r\n        padding: 0;\n}\n.img-front-about[data-v-fb05e49c]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.segment-2[data-v-fb05e49c]{\r\n        background-color: #fff;\n}\n.div-section-3[data-v-fb05e49c]{\r\n        padding: 0 6%;\n}\n.div-section-3 h1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.wrapper-products[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: space-around;\r\n        margin-top: 30px;\n}\n.div-products-indi[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        width: 400px;\n}\n.product-odd[data-v-fb05e49c]{\r\n        background-color: #F3F9FE;\n}\n.product-even[data-v-fb05e49c]{\r\n        background-color: #F4FAE6;\n}\n.img-product[data-v-fb05e49c]{\r\n        height: auto;\r\n        width: 400px;\n}\n.div-products-info[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-fb05e49c]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-fb05e49c]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.products-info-odd p[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        color: #00042D;\n}\n.products-info-even p[data-v-fb05e49c]{\r\n        color: #202D00;\n}\n.products-info-even h3[data-v-fb05e49c]{\r\n        color: #4C6214;\n}\n.products-info-odd h3[data-v-fb05e49c]{\r\n        color: #345EC9;\n}\n.div-order-btn[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.order-odd[data-v-fb05e49c]{\r\n        background: #345EC9;\n}\n.order-even[data-v-fb05e49c]{\r\n        background: #A7C460;\n}\n.btn-read-cont[data-v-fb05e49c]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\r\n        background-color: #fff;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\n}\n.left-segment-3[data-v-fb05e49c]{\n}\n.left-segment-3 p[data-v-fb05e49c]{\r\n        text-align: justify;\r\n        font-size: 20px;\r\n        font-weight: 500;\r\n        margin-top: 20px;\n}\n.segment-3 h2[data-v-fb05e49c] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n.segment-4[data-v-fb05e49c]{\r\n        display: flex;\r\n        padding: 2% 7%;\r\n        height: 300px;\r\n        background-color: #fff;\r\n        align-items: center;\n}\n.left-segment-4 h2[data-v-fb05e49c]{\r\n        font-size: 40px;\r\n        font-weight: 800;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        padding: 0 7%;\r\n        background-color: #fff;\n}\n.wrap-left-about-1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-fb05e49c] {\r\n        font-size: 120px;\r\n        font-weight: 900;\n}\n.h1-indi[data-v-fb05e49c]{\r\n        font-size: 250px;\r\n        font-weight: 900;\r\n        line-height: 175px;\n}\n.wrap-left-about-1 button[data-v-fb05e49c] {\r\n        margin-top: 25px;\n}\n.wrap-right-about-1[data-v-fb05e49c]{\r\n        padding: 0;\n}\n.btn-get-start[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.segment-2[data-v-fb05e49c]{\r\n        background-color: #fff;\n}\n.div-section-3[data-v-fb05e49c]{\r\n        padding: 0 6%;\n}\n.div-section-3 h1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.wrapper-products[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: space-around;\r\n        margin-top: 30px;\n}\n.div-products-indi[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        width: 400px;\n}\n.product-odd[data-v-fb05e49c]{\r\n        background-color: #F3F9FE;\n}\n.product-even[data-v-fb05e49c]{\r\n        background-color: #F4FAE6;\n}\n.img-product[data-v-fb05e49c]{\r\n        height: auto;\r\n        width: 400px;\n}\n.div-products-info[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-fb05e49c]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-fb05e49c]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.products-info-odd p[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        color: #00042D;\n}\n.products-info-even p[data-v-fb05e49c]{\r\n        color: #202D00;\n}\n.products-info-even h3[data-v-fb05e49c]{\r\n        color: #4C6214;\n}\n.products-info-odd h3[data-v-fb05e49c]{\r\n        color: #345EC9;\n}\n.div-order-btn[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.order-odd[data-v-fb05e49c]{\r\n        background: #345EC9;\n}\n.order-even[data-v-fb05e49c]{\r\n        background: #A7C460;\n}\n.btn-read-cont[data-v-fb05e49c]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: center;\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\n}\n.left-segment-3 p[data-v-fb05e49c]{\r\n        text-align: justify;\r\n        font-size: 20px;\r\n        font-weight: 500;\n}\n.segment-3 h2[data-v-fb05e49c] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-fb05e49c]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-about-1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 70px 0 100px 20px;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-about-1 button[data-v-fb05e49c] {\r\n        margin-top: 25px;\n}\n.wrap-right-about-1[data-v-fb05e49c]{\r\n        padding: 0;\n}\n.btn-get-start[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-fb05e49c]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.segment-2[data-v-fb05e49c]{\r\n        background-color: #fff;\n}\n.div-section-3[data-v-fb05e49c]{\r\n        padding: 0 6%;\n}\n.div-section-3 h1[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.wrapper-products[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: space-around;\r\n        margin-top: 30px;\n}\n.div-products-indi[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        width: 400px;\n}\n.product-odd[data-v-fb05e49c]{\r\n        background-color: #F3F9FE;\n}\n.product-even[data-v-fb05e49c]{\r\n        background-color: #F4FAE6;\n}\n.img-product[data-v-fb05e49c]{\r\n        height: auto;\r\n        width: 400px;\n}\n.div-products-info[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-fb05e49c]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-fb05e49c]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.products-info-odd p[data-v-fb05e49c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        color: #00042D;\n}\n.products-info-even p[data-v-fb05e49c]{\r\n        color: #202D00;\n}\n.products-info-even h3[data-v-fb05e49c]{\r\n        color: #4C6214;\n}\n.products-info-odd h3[data-v-fb05e49c]{\r\n        color: #345EC9;\n}\n.div-order-btn[data-v-fb05e49c]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.order-odd[data-v-fb05e49c]{\r\n        background: #345EC9;\n}\n.order-even[data-v-fb05e49c]{\r\n        background: #A7C460;\n}\n.btn-read-cont[data-v-fb05e49c]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-fb05e49c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\r\n        background-color: #fff;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-fb05e49c]{\r\n        display: flex;\r\n        align-items: center;\n}\n.left-segment-3[data-v-fb05e49c]{\n}\n.left-segment-3 p[data-v-fb05e49c]{\r\n        text-align: justify;\r\n        font-size: 20px;\r\n        font-weight: 500;\r\n        margin-top: 20px;\n}\n.segment-3 h2[data-v-fb05e49c] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29953,7 +30195,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment[data-v-c9165604]{\r\n        min-height: 100vh;\n}\n.segment-1[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        padding: 0 7%;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-right-catalog-1[data-v-c9165604]{\r\n        padding: 0;\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        width: 100%;\n}\n.h1-text[data-v-c9165604] {\r\n        font-size: 120px;\r\n        font-weight: 900;\n}\n.h1-indi[data-v-c9165604]{\r\n        font-size: 200px;\r\n        font-weight: 900;\r\n        line-height: 175px;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.segment-2[data-v-c9165604]{\r\n        background-color: #fff;\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0 7.5%;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.wrapper-products[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: space-around;\r\n        margin-top: 30px;\n}\n.div-products-indi[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        width: 400px;\n}\n.product-odd[data-v-c9165604]{\r\n        background-color: #F3F9FE;\n}\n.product-even[data-v-c9165604]{\r\n        background-color: #F4FAE6;\n}\n.img-product[data-v-c9165604]{\r\n        height: auto;\r\n        width: 400px;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.products-info-odd p[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        color: #00042D;\n}\n.products-info-even p[data-v-c9165604]{\r\n        color: #202D00;\n}\n.products-info-even h3[data-v-c9165604]{\r\n        color: #4C6214;\n}\n.products-info-odd h3[data-v-c9165604]{\r\n        color: #345EC9;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.order-odd[data-v-c9165604]{\r\n        background: #345EC9;\n}\n.order-even[data-v-c9165604]{\r\n        background: #A7C460;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n.btn-bottom-order[data-v-c9165604]{\n}\n}\n@media screen and (max-width: 780px) {\n.div-content-catalog[data-v-c9165604]{\r\n        /* padding: 0 5%; */\r\n        flex-direction: column;\n}\n.segment-1[data-v-c9165604]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 15% 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-right-catalog-1[data-v-c9165604]{\r\n        padding: 0;\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-wrapper-1[data-v-c9165604]{\r\n        overflow: hidden;\r\n        width: 100%;\r\n        height: 370px;\r\n        position: relative;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        background-size: cover;\r\n        left: 0%;\r\n        position: absolute;\r\n        top: -60%;\n}\n.h1-text[data-v-c9165604] {\r\n        font-size: 56px;\r\n        font-weight: 900;\n}\n.h1-indi[data-v-c9165604]{\r\n        font-size: 130px;\r\n        font-weight: 900;\r\n        line-height: 115px;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.segment-2[data-v-c9165604]{\r\n        background-color: #fff;\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-left: 20px;\r\n        margin-top: 40px;\r\n        font-size: 38px;\r\n        font-weight: 800;\n}\n.wrapper-products[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: space-around;\r\n        margin-top: 30px;\n}\n.div-products-indi[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.product-odd[data-v-c9165604]{\r\n        background-color: #F3F9FE;\n}\n.product-even[data-v-c9165604]{\r\n        background-color: #F4FAE6;\n}\n.img-product[data-v-c9165604]{\r\n        height: auto;\r\n        width: 100%;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.products-info-odd p[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        color: #00042D;\n}\n.products-info-even p[data-v-c9165604]{\r\n        color: #202D00;\n}\n.products-info-even h3[data-v-c9165604]{\r\n        color: #4C6214;\n}\n.products-info-odd h3[data-v-c9165604]{\r\n        color: #345EC9;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.order-odd[data-v-c9165604]{\r\n        background: #345EC9;\n}\n.order-even[data-v-c9165604]{\r\n        background: #A7C460;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        margin-bottom: 22px;\r\n        color: #142362;\n}\n.btn-bottom-order[data-v-c9165604]{\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0 7.5%;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 15% 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-wrapper-1[data-v-c9165604]{\r\n        overflow: hidden;\r\n        width: 100%;\r\n        height: 370px;\r\n        position: relative;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        background-size: cover;\r\n        left: 0%;\r\n        position: absolute;\r\n        top: -60%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-left: 20px;\r\n        margin-top: 40px;\r\n        font-size: 38px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        padding: 20px 40px;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        margin-bottom: 22px;\r\n        color: #142362;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30100,7 +30342,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container-order[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\n.segment[data-v-615430d4]{\n    min-height: 80vh;\n}\n.wrap-left-order-1[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    padding: 8% 3% 0 9%;\n    display: flex;\n    flex-direction: column;\n    color: #142362;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-size: contain;\n    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-615430d4] {\n    font-size: 60px;\n    font-weight: 900;\n}\n.h1-indi[data-v-615430d4]{\n    font-size: 120px;\n    font-weight: 900;\n    line-height: 175px;\n}\n.div-progress-bar[data-v-615430d4]{\n    width: -webkit-max-content;\n    width: -moz-max-content;\n    width: max-content;\n    position: absolute;\n    z-index: 1;\n}\n.progress-bar-order[data-v-615430d4]{\n    counter-reset: step;\n    list-style-type: none;\n}\n.progress-bar-order li[data-v-615430d4]{\n    float: left;\n    width: 20%;\n    position: relative;\n    text-align: center;\n}\n.progress-bar-order li[data-v-615430d4]:before{\n    content:counter(step);\n    counter-increment: step;\n    width: 30px;\n    height: 30px;\n    border: 2px solid #bebebe;\n    display: block;\n    margin: 0 auto 10px auto;\n    border-radius: 50%;\n    line-height: 27px;\n    background: white;\n    color: #bebebe;\n    text-align: center;\n    font-weight: bold;\n}\n.progress-bar-order li[data-v-615430d4]:after{\n    content: '';\n    position: absolute;\n    width:100%;\n    height: 3px;\n    background: #979797;\n    top: 15px;\n    left: -50%;\n    z-index: -1;\n}\n.progress-bar-order li[data-v-615430d4]:first-child:after{\n    content: none;\n}\n.progress-bar-order li.active + li[data-v-615430d4]:after{\n    background: #3aac5d;\n}\n.progress-bar-order li.active + li[data-v-615430d4]:before{\n\tborder-color: #3aac5d;\n\tbackground: #3aac5d;\n\tcolor: white\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-order[data-v-615430d4]{\n  display: flex;\n  flex-direction: row;\n}\n.segment[data-v-615430d4]{\n  min-height: 80vh;\n}\n.wrap-left-order-1[data-v-615430d4]{\n  font-family: 'Mulish', sans-serif;\n  padding: 8% 3% 0 9%;\n  display: flex;\n  flex-direction: column;\n  color: #142362;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: contain;\n  box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-615430d4] {\n  font-size: 60px;\n  font-weight: 900;\n}\n.h1-indi[data-v-615430d4]{\n  font-size: 120px;\n  font-weight: 900;\n  line-height: 175px;\n}\n.div-progress-bar[data-v-615430d4]{\n  width: 1000px;\n  position: absolute;\n  z-index: 1;\n}\n.progress-bar-order[data-v-615430d4]{\n  counter-reset: step;\n  list-style-type: none;\n}\n.progress-bar-order li[data-v-615430d4]{\n  font-family: 'Mulish', sans-serif;\n  font-size: 14;\n  font-weight: 500;\n  float: left;\n  width: 25%;\n  position: relative;\n  /* text-align: center; */\n}\n.progress-bar-order li.active[data-v-615430d4]{\n  color: #345EC9;\n}\n.progress-bar-order li[data-v-615430d4]:before{\n  content:counter(step);\n  counter-increment: step;\n  width: 50px;\n  height: 50px;\n  padding: 10px 15px;\n  /* border: 2px solid #bebebe; */\n  /* display: block; */\n  margin: 0 10px 10px auto;\n  border-radius: 50%;\n  line-height: 27px;\n  background: #EBEBEB;\n  color: #81828F;\n  text-align: center;\n  font-weight: bold;\n}\n.progress-bar-order li[data-v-615430d4]:after{\n  content: '';\n  position: absolute;\n  height: 3px;\n  background: #979797;\n  top: 12px;\n  z-index: -1;\n}\n.progress-bar-order li[data-v-615430d4]:first-child:after{\n  content: none;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(2):after{\n  left: -38%;\n  width: 34%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(3):after{\n  left: -22%;\n  width: 19%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(4):after{\n  left: -36%;\n  width: 33%;\n}\n.progress-bar-order li.active + li[data-v-615430d4]:after{\n  background: #3aac5d;\n}\n.progress-bar-order li.active + li[data-v-615430d4]:before{\n  border-color: #3aac5d;\n  background: #b0e2bf;\n  color: #3aac5d;\n}\n.progress-bar-order li.active[data-v-615430d4]:before{\n  /* border-color: #3aac5d; */\n  background: #345EC9;\n  color: #ffffff;\n}\n.div-form-order[data-v-615430d4]{\n  margin-top: 150px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49918,7 +50160,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col col-md-5 wrap-right-about-1" }, [
       _c("div", { staticClass: "img-wrapper-1" }, [
         _c("img", {
-          staticClass: "img-front-about",
+          staticClass: "w-100",
           attrs: {
             src: "images/image-front-about.png",
             alt: "image front about",
@@ -50031,7 +50273,7 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "segment-2 justify-content-center" }, [
+      _c("div", { staticClass: "bg-white justify-content-center" }, [
         _c("div", { staticClass: "col-lg-12" }, [
           _c("div", { staticClass: "div-section-3" }, [
             _c("h1", [_vm._v("Produk Indi")]),
@@ -50074,31 +50316,10 @@ var render = function () {
                 _c("div", { staticClass: "div-order-btn" }, [
                   _c(
                     "button",
-                    { staticClass: "btn-order order-even" },
-                    [
-                      _vm._v("Pesan sekarang "),
-                      _c("font-awesome-icon", {
-                        staticClass: "icon-arrow-right",
-                        attrs: { icon: "fa-solid fa-arrow-right" },
-                      }),
-                    ],
-                    1
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "div-products-indi product-odd" }, [
-                _c("img", {
-                  staticClass: "img-product img-product-3",
-                  attrs: { src: "images/img-product-3.png", alt: "" },
-                }),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _c("div", { staticClass: "div-order-btn" }, [
-                  _c(
-                    "button",
-                    { staticClass: "btn-order order-odd" },
+                    {
+                      staticClass: "btn-order",
+                      staticStyle: { background: "#345EC9" },
+                    },
                     [
                       _vm._v("Pesan sekarang "),
                       _c("font-awesome-icon", {
@@ -50114,24 +50335,24 @@ var render = function () {
           ]),
         ]),
       ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row m-0 segment-4" }, [
+      _vm._m(3),
       _vm._v(" "),
-      _c("div", { staticClass: "segment-3 row justify-content-center" }, [
-        _vm._m(4),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-2" }, [
-          _c(
-            "button",
-            { staticClass: "btn-get-start" },
-            [
-              _vm._v("Pesan sekarang "),
-              _c("font-awesome-icon", {
-                staticClass: "icon-arrow-right",
-                attrs: { icon: "fa-solid fa-arrow-right" },
-              }),
-            ],
-            1
-          ),
-        ]),
+      _c("div", { staticClass: "col-12 col-md-3 text-center" }, [
+        _c(
+          "button",
+          { staticClass: "btn-get-start" },
+          [
+            _vm._v("Pesan sekarang "),
+            _c("font-awesome-icon", {
+              staticClass: "icon-arrow-right",
+              attrs: { icon: "fa-solid fa-arrow-right" },
+            }),
+          ],
+          1
+        ),
       ]),
     ]),
   ])
@@ -50186,23 +50407,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "div-products-info products-info-odd" }, [
-      _c("h3", [_vm._v("Batik Siap Pakai")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n                                    Kain dan ready-to-wear batik dengan\n                                    pewarna alami untuk pria, wanita, maupun\n                                    anak-anak\n                                "
-        ),
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Mulai Rp 120.000")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-10" }, [
+    return _c("div", { staticClass: "col-12 col-md-9 left-segment-4" }, [
       _c("h2", [_vm._v("Tertarik untuk menggunakan jasa kami?")]),
     ])
   },
@@ -50958,7 +51163,7 @@ var render = function () {
       _c("div", { staticClass: "col-12 px-3 col-sm-7 mt-4" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("h4", { staticClass: "fw-bold" }, [_vm._v("MASUK")]),
+        _c("h4", { staticClass: "fw-bold mt-4" }, [_vm._v("MASUK")]),
         _vm._v(" "),
         _c("div", { staticClass: "fw-bold" }, [
           _vm._v("Masuk kembali ke akun Anda"),
@@ -51233,7 +51438,7 @@ var render = function () {
       _c("div", { staticClass: "col-12 px-3 col-sm-7 mt-4" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("h4", { staticClass: "fw-bold" }, [_vm._v("DAFTAR")]),
+        _c("h4", { staticClass: "fw-bold mt-4" }, [_vm._v("DAFTAR")]),
         _vm._v(" "),
         _c("div", { staticClass: "fw-bold" }, [
           _vm._v("Silakan daftar sebagai akun baru"),
@@ -51968,7 +52173,7 @@ var render = function () {
       _vm._m(1),
       _vm._v(" "),
       _c("div", [
-        _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "row div-form-order" }, [
           _c("div", { staticClass: "col-12 col-md-6 mb-3" }, [
             _c("label", { staticClass: "form-label", attrs: { for: "name" } }, [
               _vm._v("Nama"),
@@ -52252,15 +52457,13 @@ var staticRenderFns = [
     return _c("div", { staticClass: "step-wrapper" }, [
       _c("div", { staticClass: "div-progress-bar" }, [
         _c("ul", { staticClass: "progress-bar-order" }, [
-          _c("li", { staticClass: "active" }, [_vm._v("Step 1")]),
+          _c("li", { staticClass: "active" }, [_vm._v("Isi data diri")]),
           _vm._v(" "),
-          _c("li", [_vm._v("Step 2")]),
+          _c("li", [_vm._v("Isi detail pesanan")]),
           _vm._v(" "),
-          _c("li", [_vm._v("Step 3")]),
+          _c("li", [_vm._v("Pembayaran")]),
           _vm._v(" "),
-          _c("li", [_vm._v("Step 4")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Step 5")]),
+          _c("li", [_vm._v("Selesai")]),
         ]),
       ]),
     ])
