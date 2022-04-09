@@ -64,6 +64,7 @@
                     <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
                 </div>
             </div>
+    </div>
 </template>
 
 <script>
@@ -79,12 +80,19 @@ export default {
 
 <style scoped>
 @media screen and (min-width: 780px) {
+    .div-content-catalog{
+        /* padding: 0 5%; */
+        flex-direction: column;
+    }
+    
+    .segment{
+        min-height: 100vh;
+    }
     .segment-1{
-        display: flex;
         flex-direction: row;
+        padding: 0 7%;
         background-color: #fff;
     }
-
     .wrap-left-catalog-1{
         font-family: 'Mulish', sans-serif;
         padding: 8% 3% 0 9%;
@@ -95,13 +103,23 @@ export default {
         background-size: contain;
         box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
     }
-
+    .wrap-right-catalog-1{
+        padding: 0;
+    }
     .wrap-left-catalog-1 button {
         margin-top: 25px;
     }
-
     .img-front-catalog{
         width: 100%;
+    }
+    .h1-text {
+        font-size: 120px;
+        font-weight: 900;
+    }
+    .h1-indi{
+        font-size: 200px;
+        font-weight: 900;
+        line-height: 175px;
     }
     
     .btn-get-start{
@@ -115,45 +133,74 @@ export default {
         font-weight: 700;
         color: #fff;
     }
-
     .icon-arrow-down{
         font-size: 16px;
         /* margin-left: 10px; */
     }
-
     .icon-arrow-right{
         font-size: 16px;
         /* margin-left: 10px; */
     }
-
+    .segment-2{
+        background-color: #fff;
+    }
     .div-section-3{
         padding: 0 7.5%;
     }
-
     .div-section-3 h1{
         font-family: 'Mulish', sans-serif;
         margin-top: 40px;
         font-size: 48px;
         font-weight: 800;
     }
-    
+    .wrapper-products{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+    .div-products-indi{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+    .product-odd{
+        background-color: #F3F9FE;
+    }
+    .product-even{
+        background-color: #F4FAE6;
+    }
+    .img-product{
+        height: auto;
+        width: 400px;
+    }
     .div-products-info{
         font-family: 'Mulish', sans-serif;
         display: flex;
         flex-direction: column;
+        padding: 20px 40px;
         font-weight: 400;
     }
-
     .div-products-info p{
         font-size: 16px;
     }
-
     .div-products-info h3{
         font-size: 24px;
         margin-bottom: 25px;
         font-weight: 700;
     }
-
+    .products-info-odd p{
+        font-family: 'Mulish', sans-serif;
+        color: #00042D;
+    }
+    .products-info-even p{
+        color: #202D00;
+    }
+    .products-info-even h3{
+        color: #4C6214;
+    }
+    .products-info-odd h3{
+        color: #345EC9;
+    }
     .div-order-btn{
         display: flex;
         justify-content: center;
@@ -171,7 +218,13 @@ export default {
         font-weight: 700;
         color: #fff;
     }
-
+    
+    .order-odd{
+        background: #345EC9;
+    }
+    .order-even{
+        background: #A7C460;
+    }
     .btn-read-cont{
         background: #fff;
         border: 3px solid #000;
@@ -179,23 +232,22 @@ export default {
         height: 40px;
         font-weight: 600;
     }
-
     .segment-3{
         background-color: #fff;
         padding: 50px 100px;
         height: 300px;
         font-family: 'Mulish', sans-serif;
     }
-
     .segment-3 div{
         display: flex;
         align-items: center;
     }
-
     .segment-3 h2 {
         font-weight: 800;
         font-size: 40px;
         color: #142362;
+    }
+    .btn-bottom-order{
     }
 }
 

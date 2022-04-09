@@ -9,13 +9,34 @@
     <div class="col-lg-8">
       <h3 class="mb-3">Buat Pesanan</h3>
       <div class="step-wrapper">
-      <div class="div-progress-bar">
+        <div class="div-progress-bar">
           <ul class="progress-bar-order">
             <li class="active">Isi data diri</li>
             <li>Isi detail pesanan</li>
             <li>Pembayaran</li>
             <li>Selesai</li>
           </ul>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <p>Pilih paket yang anda inginkan</p>
+          </div>
+          <div class="div-choose-packages">
+            <div class="each-package">
+              <div class="wrap-each-package">
+                <p>Paket 1</p>
+                <h2>Celup saja</h2>
+                <span>Rp 100.000</span>
+                <p>Warna yang mau dibeli:</p>
+                <div class="div-counter-color">
+                  <p>Merah</p>
+                  <input type="number" name="quantity" pattern="[0-9]+">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <!-- <ul id="order-tab"
@@ -263,13 +284,13 @@ export default {
   }
 
   .progress-bar-order li.active + li:after{
-    background: #3aac5d;
+    background: #345EC9;
   }
 
   .progress-bar-order li.active + li:before{
-    border-color: #3aac5d;
-    background: #b0e2bf;
-    color: #3aac5d;
+    border: 3px solid #345EC9;
+    background: #F3F9FE;
+    color: #345EC9;
   }
 
   .progress-bar-order li.active:before{
