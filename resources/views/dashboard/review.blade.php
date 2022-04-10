@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    Dashboard Review
+    <dashboard-review :reviews='{{ json_encode($reviews) }}'></dashboard-review>
 @endsection

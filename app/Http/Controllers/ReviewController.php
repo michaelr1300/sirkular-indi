@@ -39,20 +39,18 @@ class ReviewController extends Controller
     {
         $request->validate([
             'content' => 'required',
-            'image' => 'image'
+            'photo' => 'image'
         ]);
 
         $photo_path = '';
-        if($request->file('image')) {
-            $photo_path = $request->file('image')->store('review-photos');
+        if($request->file('photo')) {
+            $photo_path = $request->file('photo')->store('review-photos');
         }
 
         Review::create([
             'photo_path' => $photo_path,
             'content' => $request->content,
         ]);
-
-        return redirect()->action([ReviewController::class, 'index']);
     }
 
     /**
