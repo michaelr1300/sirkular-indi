@@ -37,7 +37,7 @@ class PackageController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->action([PackageController::class, 'index']);
+        // return redirect()->action([PackageController::class, 'index']);
     }
 
     /**

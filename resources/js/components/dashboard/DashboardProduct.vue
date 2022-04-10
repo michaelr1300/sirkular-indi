@@ -1,10 +1,13 @@
 <template>
   <div>
-    <h3 class="mb-3 ms-2">Product Management</h3>
-    <div class="d-flex">
+    <div class="d-flex justify-content-between mb-3">
+      <h3>Product Management</h3> 
+      <DashboardProductFormAdd/>
+    </div>
+    <div class="d-flex row">
       <div 
         v-for="item in packages" :key="item.id" 
-        class="col-12 col-md-4 px-2"
+        class="col-12 col-md-4 px-2 my-2"
       >
         <div class="card rounded">
           <div class="card-body">
@@ -26,9 +29,10 @@
 </template>
 
 <script>
+import DashboardProductFormAdd from './DashboardProductFormAdd.vue';
 import DashboardProductFormEdit from './DashboardProductFormEdit.vue';
 export default {
-  components: { DashboardProductFormEdit },
+  components: { DashboardProductFormEdit, DashboardProductFormAdd },
   props: {
     packages: {
       type: Array,
