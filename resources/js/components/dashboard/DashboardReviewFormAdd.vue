@@ -8,7 +8,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Review</h5>
+            <h5 class="modal-title">Tambah Review</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -57,7 +57,7 @@ export default {
       var photo = this.$refs.photo.files[0];
       let formData = new FormData();
       formData.append("photo", photo);
-      formData.append('content', this.form.content);
+      formData.append("content", this.form.content);
       try {
         let response = await axios.post(
           `/reviews`,

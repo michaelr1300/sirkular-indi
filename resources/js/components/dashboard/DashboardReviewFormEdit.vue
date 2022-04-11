@@ -4,39 +4,37 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Produk</h5>
+            <h5 class="modal-title">Edit Review</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-group mt-3" >
-              <label for="name">Nama</label>
-              <input 
-                id="name"
-                name="name"
-                type="text" 
-                class="form-control"
-                v-model="form.name"
-              >
-            </div>
-            <div class="form-group mt-3" >
-              <label for="description">Deskripsi</label>
+              <label for="content">Review</label>
               <textarea 
-                id="description"
-                name="description"
+                id="content"
+                name="content"
                 type="text-area" 
                 class="form-control"
-                v-model="form.description"
+                v-model="form.content"
               ></textarea>
             </div>
-            <div class="form-group mt-3" >
-              <label for="price">Harga</label>
+            <div>
+              <img 
+                v-if="form.photo_path" 
+                class="img img-fluid my-3" 
+                :src="'/storage/' + form.photo_path" 
+                alt="review-image"
+              >
+            </div>
+            <div class="form-group mt-3">
+              <label for="photo" class="form-label">Foto Review</label>
               <input 
-                id="price"
-                name="price"
-                type="number"
-                min=0 
-                class="form-control"
-                v-model="form.price"
+                id="photo" 
+                name="photo"
+                ref="photo"
+                accept="image/*"
+                class="form-control" 
+                type="file" 
               >
             </div>
           </div>
@@ -61,9 +59,8 @@ export default {
     return {
       form: {
         id: null,
-        name: null,
-        price: null,
-        description: null,
+        content: null,
+        photo_path: null,
       },
     }
   },
@@ -74,14 +71,29 @@ export default {
   },
   methods: {
     async doSubmit() {
+      var photo = this.$refs.photo.files[0];
+      let formData = new FormData();
+      formData.append("id", this.form.id);
+      if (photo) {
+        formData.append("photo", photo);
+      }
+      formData.append("content", this.form.content);
+      formData.append("_method", "put");
       try {
-        let response = await axios.put(`/dashboard/review/${this.form.id}`, this.form);
-        alert("Review Updated");
+        let response = await axios.post(
+          `/reviews/${this.form.id}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
         return location.reload();
       } catch (error) {
         console.log(error.response);
       }
-    },
+    }
   },
 };
 </script>
