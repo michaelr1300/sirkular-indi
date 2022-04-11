@@ -9,8 +9,8 @@
         v-for="item in packages" :key="item.id" 
         class="col-12 col-md-4 px-2 my-2"
       >
-        <div class="card rounded">
-          <div class="card-body">
+        <div class="card rounded h-100">
+          <div class="card-body d-flex flex-column justify-content-between">
             <div class="d-flex justify-content-between mb-4 w-100">
               <h4 class="my-auto"><b>{{ item.name }}</b></h4>
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-product-modal" 
