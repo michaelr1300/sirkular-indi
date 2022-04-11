@@ -27,6 +27,15 @@
               >
             </div>
             <div class="form-group mt-3">
+              <input 
+                id="name"
+                name="name"
+                type="hidden" 
+                class="form-control"
+                v-model="form.photo_path"
+              >
+            </div>
+            <div class="form-group mt-3">
               <label for="photo" class="form-label">Foto Review</label>
               <input 
                 id="photo" 

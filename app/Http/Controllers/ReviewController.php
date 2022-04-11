@@ -39,15 +39,18 @@ class ReviewController extends Controller
 
     public function update(Request $request)
     {
-        $photo_path = $request->photo_path;
+        $review = Review::find($request->id);
+
+        $old_photo = $review->photo_path;
+        
         if($request->file('photo')) {
             $photo_path = $request->file('photo')->store('review-photos');
+            $review->photo_path = $photo_path;
+
+            Storage::delete($old_photo);
         }
 
-        $review = Review::find($request->id);
-        
         $review->content = $request->content;
-        $review->photo_path = $photo_path;
         $review->save();
     }
 
