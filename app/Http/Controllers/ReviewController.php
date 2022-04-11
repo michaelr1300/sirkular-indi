@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Review;
 
@@ -53,7 +53,17 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        //
+        $this->authorize('delete', Review::class);
+        
+        $review = Review::find($id);
+
+        if ($review->photo_path) {
+            Storage::delete($review->photo_path);
+        }
+        
+        $review->delete();
+
+
     }
     public function dashboard()
     {

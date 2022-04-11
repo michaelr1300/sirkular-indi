@@ -38,7 +38,8 @@
               >
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" @click="doDelete()">Hapus</button>
             <button type="button" class="btn btn-primary" @click="doSubmit()">Simpan</button>
           </div>
         </div>
@@ -89,6 +90,14 @@ export default {
             },
           }
         );
+        return location.reload();
+      } catch (error) {
+        console.log(error.response);
+      }
+    },
+    async doDelete() {
+      try {
+        let response = await axios.post(`/reviews/${this.form.id}`, {_method: 'delete'});
         return location.reload();
       } catch (error) {
         console.log(error.response);
