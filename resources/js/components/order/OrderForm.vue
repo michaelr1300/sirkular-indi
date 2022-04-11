@@ -18,8 +18,8 @@
           </ul>
         </div>
       </div>
-      <div class="div-personal-info"> <!-- id="personal-info" class="" aria-labelledby="personal-info-tab">-->
-        <div class="row div-form-order">
+      <div id="personal-info" class="div-personal-info" aria-labelledby="personal-info-tab">
+        <form class="row div-form-order">
           <div class="col-12 col-md-6 mb-3">
             <label for="name" class="form-label">Nama</label>
             <input id="name" name="name" type="text" class="form-control" placeholder="Nama Anda" v-model="form.name" />
@@ -60,7 +60,10 @@
               </label>
             </div>
           </div>
-        </div>
+          <button class="btn btn-primary" @click="createOrder()">
+            Submit
+          </button>
+        </form>
       </div>
       <!-- Order Form 2 -->
       <div class="body-order-form">
@@ -77,15 +80,46 @@
                 <p>Warna yang mau dibeli:</p>
                 <div class="div-counter-color">
                   <p>Merah</p>
-                  <input type="number" name="quantity" pattern="[0-9]+">
+                  <!-- <input type="number" v-model="form.quantity[index]" name="quantity" pattern="[0-9]+"> -->
+                  <div class="div-inc-1">
+                    <div class="wrap-minus-sign" @click="onMinusInput('qt1')">   
+                        <button class="btn-minus"><h1> - </h1></button>
+                    </div>
+                    <div class="wrap-input-number">   
+                        <input id="number" class="input-number" v-model="this.qt1" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
+                    </div>
+                    <div class="wrap-plus-sign" @click="onPlusInput('qt1')">
+                        <button class="btn-plus"><h1> + </h1></button>
+                    </div>
+                  </div>
                 </div>
                 <div class="div-counter-color">
                   <p>Kuning</p>
-                  <input type="number" name="quantity" pattern="[0-9]+">
+                  <div class="div-inc-1">
+                    <div class="wrap-minus-sign" @click="onMinusInput('qt2')">   
+                        <button class="btn-minus"><h1> - </h1></button>
+                    </div>
+                    <div class="wrap-input-number">   
+                        <input id="number" class="input-number" v-model="this.qt2" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
+                    </div>
+                    <div class="wrap-plus-sign" @click="onPlusInput('qt2')">
+                        <button class="btn-plus"><h1> + </h1></button>
+                    </div>
+                  </div>
                 </div>
                 <div class="div-counter-color">
                   <p>Hijau</p>
-                  <input type="number" name="quantity" pattern="[0-9]+">
+                  <div class="div-inc-1">
+                    <div class="wrap-minus-sign" @click="onMinusInput('qt3')">   
+                        <button class="btn-minus"><h1> - </h1></button>
+                    </div>
+                    <div class="wrap-input-number">   
+                        <input id="number" class="input-number" v-model="this.qt3" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
+                    </div>
+                    <div class="wrap-plus-sign" @click="onPlusInput('qt3')">
+                        <button class="btn-plus"><h1> + </h1></button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -98,51 +132,14 @@
               name="address" 
               type="text" 
               class="form-control" 
-              placeholder="Alamat Anda"
+              placeholder="Catatan"
               v-model="form.address"
             >
             </div>
           </div>
         </div>
       </div>
-    <!-- <ul id="order-tab"
-      class="nav nav-tabs"
-      role="tablist">
-      <li
-        class="nav-item"
-        role="presentation"
-      >
-        <button
-          id="personal-info-tab"
-          class="nav-link active"
-          data-bs-toggle="tab"
-          data-bs-target="#personal-info"
-          type="button"
-          role="tab"
-          aria-controls="personal-info"
-          aria-selected="true"
-        >
-          Data Diri
-        </button>
-      </li>
-      <li
-        class="nav-item"
-        role="presentation"
-      >
-        <button
-          id="order-detail-tab"
-          class="nav-link"
-          data-bs-toggle="tab"
-          data-bs-target="#order-detail"
-          type="button"
-          role="tab"
-          aria-controls="order-detail"
-          aria-selected="false"
-        >
-          Data Pesanan
-        </button>
-      </li>
-    </ul> -->
+    
       <div> <!--id="order-detail" class="" aria-labelledby="order-detail-tab">-->
         <div v-for="(item, index) in packageList" :key="item.id" class="col mb-3">
           <label :for="'package-' + item.id" class="form-label">{{ item.name }}</label>
@@ -150,9 +147,7 @@
           <label :for="'description-' + item.id" class="form-label">Keterangan</label>
           <input :id="'description-' + item.id" name="description" type="text" class="form-control" v-model="form.description[index]"/>
         </div>
-        <button class="btn btn-primary" @click="createOrder()">
-          Submit
-        </button>
+        
       </div>
     </div>
   </div>
@@ -187,18 +182,41 @@ export default {
         package_id: [],
         quantity: [],
         description: [],
-      }
+      },
+      qt1: 0,
+      qt2: 0,
+      qt3: 0
     }
   },
   methods: {
     async createOrder() {
       try {
         let response = await axios.post("/order", this.form);
+        // openNextForm(evt, cityName);
         alert("Order Created");
       } catch (error) {
         console.log(error.response);
       }
     },
+    openNextForm(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    },
+    onMinusInput(dataVar){
+      ( this[dataVar] === 0 ) ? 0 : this[dataVar] = this[dataVar] - 1;
+    },
+    onPlusInput(dataVar){
+      this[dataVar] = this[dataVar] + 1;
+    }
   },
 };
 </script>
@@ -383,7 +401,7 @@ export default {
   }
 
   input{
-    font-size: 18px;
+    /* font-size: 18px; */
     /* height: 4rem;
     padding: 0 4rem;
     border-radius: 2rem;
@@ -394,6 +412,52 @@ export default {
     text-align: center;
     width: 100%;
     box-sizing: border-box; */
-    font-weight: lighter;
+    /* font-weight: lighter; */
+  }
+
+  .div-inc-1{
+    display: flex;
+    border: 2px solid #142362;
+    border-radius: 12px;
+  }
+  
+  .wrap-minus-sign{
+  }
+  
+  .btn-minus{
+    /* color:#01E66F;
+    border: #01E66F 2px solid; */
+    border: none;
+    background-color: transparent;
+    width: 45px;
+    height: 48px;
+  }
+  
+  .wrap-input-number{
+
+  }
+  
+  .input-number{
+    width: 100px;
+    background-color: transparent;
+    text-align: center;
+    border:transparent;
+    font-size: 24px;
+    height:48px;
+    padding-top: 10px;
+    resize: none;
+  }
+  
+  .wrap-plus-sign{
+
+  }
+  
+  .btn-plus{
+    /* color:#01E66F;
+    border: #01E66F 2px solid; */
+    border: none;
+    background-color: transparent;
+    width: 45px;
+    height: 48px;
   }
 </style>
