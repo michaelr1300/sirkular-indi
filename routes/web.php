@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,15 +32,6 @@ Route::get('/about', function () {
 
 Route::get('/catalog', [PackageController::class, 'catalog'])->name('catalog');
 
-Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
-Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
-{
-    Route::get('/create', [ReviewController::class, 'create'])->name('create');
-    Route::post('/', [ReviewController::class, 'store'])->name('store');
-    Route::put('/{review}', [ReviewController::class, 'update'])->name('update');
-    Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('delete');
-});
-
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function ()
 {
     Route::redirect('/', 'order');
@@ -49,6 +41,17 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::put('/product/{product}', [PackageController::class, 'update'])->name('product.update');
     Route::get('/review', [ReviewController::class, 'dashboard'])->name('review');
 });
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
+Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
+{
+    Route::get('/create', [ReviewController::class, 'create'])->name('create');
+    Route::post('/', [ReviewController::class, 'store'])->name('store');
+    Route::put('/{review}', [ReviewController::class, 'update'])->name('update');
+    Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('delete');
+});
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
 {
