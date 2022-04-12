@@ -6,86 +6,98 @@
     <div class="col-12 col-md-9 mx-4 mt-5">
       <h1 class="text-uppercase font-weight-bold">Informasi Akun</h1>
       <div class="d-flex flex-column my-3">
-        <div class="d-flex">
-          <div class="col-3 text-secondary font-weight-bold">
+        <div class="d-flex mb-3">
+          <div class="col-3 text-secondary my-auto font-weight-bold">
               Nama
           </div>
           <div class="col-6">
-              <span v-show="!isEdit">
+              <div v-show="!isEdit" class="my-auto">
                 {{ user.name }}
-              </span>
+              </div>
               <div class="form-group mb-0">
                   <input
                   type="text"
                   class="form-control"
                   v-show="isEdit"
                   v-model="form.name"
-                  />
-                  <!-- <div class="invalid-feedback">
                   :class="{ 'is-invalid': hasErrors('name') }"
-                      {{ getErrors("name") }}
-                  </div> -->
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("name") }}
+                </div>
               </div>
           </div>
         </div>
-        <div class="d-flex">
-          <div class="col-3 text-secondary font-weight-bold">
+        <div class="d-flex mb-3">
+          <div class="col-3 text-secondary my-auto font-weight-bold">
               Email
           </div>
           <div class="col-6">
-              <span v-show="!isEdit">
+              <div v-show="!isEdit" class="my-auto">
                 {{ user.email }}
-              </span>
+              </div>
               <div class="form-group mb-0">
                   <input
                   type="text"
                   class="form-control"
                   v-show="isEdit"
                   v-model="form.email"
+                  :class="{ 'is-invalid': hasErrors('email') }"
                   />
+                  <div class="invalid-feedback">
+                    {{ getErrors("email") }}
+                  </div>
               </div>
           </div>
         </div>
-        <div class="d-flex"> 
-          <div class="col-3 text-secondary font-weight-bold">
+        <div class="d-flex mb-3"> 
+          <div class="col-3 text-secondary my-auto font-weight-bold">
               Alamat
           </div>
           <div class="col-6">
-              <span v-show="!isEdit">
+              <div v-show="!isEdit" class="my-auto">
                 {{ user.address }}
-              </span>
+              </div>
               <div class="form-group mb-0">
                   <input
                   type="text"
                   class="form-control"
                   v-show="isEdit"
                   v-model="form.address"
-                  />
+                  :class="{ 'is-invalid': hasErrors('address') }"
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("address") }}
+                </div>
               </div>
           </div>
         </div>
-        <div class="d-flex">
-          <div class="col-3 text-secondary font-weight-bold">
+        <div class="d-flex mb-3">
+          <div class="col-3 text-secondary my-auto font-weight-bold">
               Nomor Telepon
           </div>
           <div class="col-6">
-              <span v-show="!isEdit">
+              <div v-show="!isEdit" class="my-auto">
                 {{ user.phone_number }}
-              </span>
+              </div>
               <div class="form-group mb-0">
                   <input
                   type="text"
                   class="form-control"
                   v-show="isEdit"
                   v-model="form.phone_number"
-                  />
+                  :class="{ 'is-invalid': hasErrors('phone_number') }"
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("phone_number") }}
+                </div>
               </div>
           </div>
         </div>
         <div class="d-md-flex">
           <button
               v-show="!isEdit"
-              class="btn btn-primary col-12 col-md-4 mx-3"
+              class="btn btn-primary col-12 col-md-4 me-3"
               @click="isEdit = true"
           >
               EDIT PROFIL
@@ -93,7 +105,7 @@
 
           <button
               v-show="isEdit && !isLoading"
-              class="btn btn-success col-12 col-md-2 mx-3"
+              class="btn btn-success col-12 col-md-2 me-3"
               @click="doSave()"
           >
               SAVE
@@ -145,22 +157,41 @@ export default {
     return {
       isEdit: false,
       form: {...this.user},
+      isLoading: false,
+      errors: {}
     }
   },
   methods: {
     async doSave() {
         this.isLoading = true;
-
         try {
             var url = "/profile/update";
             let response = await axios.put(url, this.form);
             return location.reload();
         } catch (error) {
-            alert(error.response.data.message);
             console.log(error.response);
             this.errors = error.response.data.errors;
         }
         this.isLoading = false;
+    },
+
+    doResetEdit() {
+        this.form = {...this.user}
+        this.isEdit = false;
+        this.isLoading = false;
+    },
+
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+      return false;
+    },
+    getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+      return "";
     },
   },
 };

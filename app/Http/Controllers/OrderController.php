@@ -12,12 +12,6 @@ use Illuminate\Validation\Rule;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    
     public function index()
     {
         if (Auth::user()->is_admin) {
@@ -58,7 +52,6 @@ class OrderController extends Controller
             'phone_number' => 'required',
             'package_id' => ['required', Rule::exists('packages', 'id')], //['required', Rule::exists('packages', 'id')]->where('isActive', 1)]
             'quantity' => 'required',
-            'phone_number' => 'required',
         ]);
         if($request->save_data) {
             $user = User::find($request->user()->id);

@@ -53,6 +53,12 @@ Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
+Route::prefix('profile')->name('profile.')->middleware('auth')->group(function ()
+{
+    Route::get('/', [ProfileController::class, 'index'])->name('index');
+    Route::put('/update', [ProfileController::class, 'update'])->name('update');
+});
+
 Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
 {
     Route::get('/', [OrderController::class, 'create'])->name('create');

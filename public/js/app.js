@@ -26005,6 +26005,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -26015,7 +26027,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       isEdit: false,
-      form: _objectSpread({}, this.user)
+      form: _objectSpread({}, this.user),
+      isLoading: false,
+      errors: {}
     };
   },
   methods: {
@@ -26041,20 +26055,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 9:
                 _context.prev = 9;
                 _context.t0 = _context["catch"](1);
-                alert(_context.t0.response.data.message);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
 
-              case 14:
+              case 13:
                 _this.isLoading = false;
 
-              case 15:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee, null, [[1, 9]]);
       }))();
+    },
+    doResetEdit: function doResetEdit() {
+      this.form = _objectSpread({}, this.user);
+      this.isEdit = false;
+      this.isLoading = false;
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
+    },
+    getErrors: function getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+
+      return "";
     }
   }
 });
@@ -55395,16 +55427,16 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "d-flex flex-column my-3" }, [
-          _c("div", { staticClass: "d-flex" }, [
+          _c("div", { staticClass: "d-flex mb-3" }, [
             _c(
               "div",
-              { staticClass: "col-3 text-secondary font-weight-bold" },
+              { staticClass: "col-3 text-secondary my-auto font-weight-bold" },
               [_vm._v("\n            Nama\n        ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
               _c(
-                "span",
+                "div",
                 {
                   directives: [
                     {
@@ -55414,6 +55446,7 @@ var render = function () {
                       expression: "!isEdit",
                     },
                   ],
+                  staticClass: "my-auto",
                 },
                 [
                   _vm._v(
@@ -55441,6 +55474,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("name") },
                   attrs: { type: "text" },
                   domProps: { value: _vm.form.name },
                   on: {
@@ -55452,20 +55486,28 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.getErrors("name")) +
+                      "\n              "
+                  ),
+                ]),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
+          _c("div", { staticClass: "d-flex mb-3" }, [
             _c(
               "div",
-              { staticClass: "col-3 text-secondary font-weight-bold" },
+              { staticClass: "col-3 text-secondary my-auto font-weight-bold" },
               [_vm._v("\n            Email\n        ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
               _c(
-                "span",
+                "div",
                 {
                   directives: [
                     {
@@ -55475,6 +55517,7 @@ var render = function () {
                       expression: "!isEdit",
                     },
                   ],
+                  staticClass: "my-auto",
                 },
                 [
                   _vm._v(
@@ -55502,6 +55545,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("email") },
                   attrs: { type: "text" },
                   domProps: { value: _vm.form.email },
                   on: {
@@ -55513,20 +55557,28 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(
+                    "\n                  " +
+                      _vm._s(_vm.getErrors("email")) +
+                      "\n                "
+                  ),
+                ]),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
+          _c("div", { staticClass: "d-flex mb-3" }, [
             _c(
               "div",
-              { staticClass: "col-3 text-secondary font-weight-bold" },
+              { staticClass: "col-3 text-secondary my-auto font-weight-bold" },
               [_vm._v("\n            Alamat\n        ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
               _c(
-                "span",
+                "div",
                 {
                   directives: [
                     {
@@ -55536,6 +55588,7 @@ var render = function () {
                       expression: "!isEdit",
                     },
                   ],
+                  staticClass: "my-auto",
                 },
                 [
                   _vm._v(
@@ -55563,6 +55616,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("address") },
                   attrs: { type: "text" },
                   domProps: { value: _vm.form.address },
                   on: {
@@ -55574,20 +55628,28 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.getErrors("address")) +
+                      "\n              "
+                  ),
+                ]),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex" }, [
+          _c("div", { staticClass: "d-flex mb-3" }, [
             _c(
               "div",
-              { staticClass: "col-3 text-secondary font-weight-bold" },
+              { staticClass: "col-3 text-secondary my-auto font-weight-bold" },
               [_vm._v("\n            Nomor Telepon\n        ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-6" }, [
               _c(
-                "span",
+                "div",
                 {
                   directives: [
                     {
@@ -55597,6 +55659,7 @@ var render = function () {
                       expression: "!isEdit",
                     },
                   ],
+                  staticClass: "my-auto",
                 },
                 [
                   _vm._v(
@@ -55624,6 +55687,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("phone_number") },
                   attrs: { type: "text" },
                   domProps: { value: _vm.form.phone_number },
                   on: {
@@ -55635,6 +55699,14 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.getErrors("phone_number")) +
+                      "\n              "
+                  ),
+                ]),
               ]),
             ]),
           ]),
@@ -55651,7 +55723,7 @@ var render = function () {
                     expression: "!isEdit",
                   },
                 ],
-                staticClass: "btn btn-primary col-12 col-md-4 mx-3",
+                staticClass: "btn btn-primary col-12 col-md-4 me-3",
                 on: {
                   click: function ($event) {
                     _vm.isEdit = true
@@ -55672,7 +55744,7 @@ var render = function () {
                     expression: "isEdit && !isLoading",
                   },
                 ],
-                staticClass: "btn btn-success col-12 col-md-2 mx-3",
+                staticClass: "btn btn-success col-12 col-md-2 me-3",
                 on: {
                   click: function ($event) {
                     return _vm.doSave()
