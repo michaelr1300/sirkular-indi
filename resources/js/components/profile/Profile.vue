@@ -100,36 +100,36 @@
               class="btn btn-primary col-12 col-md-4 me-3"
               @click="isEdit = true"
           >
-              EDIT PROFIL
+              Ubah Profil
           </button>
 
           <button
               v-show="isEdit && !isLoading"
               class="btn btn-success col-12 col-md-2 me-3"
-              @click="doSave()"
+              @click="doUpdate()"
           >
-              SAVE
+              Simpan
           </button>
           <button
               v-show="isEdit && isLoading"
               disabled
               class="btn btn-success col-12 col-md-2 mx-3"
           >
-              SAVING
+              Menyimpan
           </button>
           <button
               v-show="isEdit && !isLoading"
               class="btn btn-outline-primary col-12 col-md-2 mx-3"
               @click="doResetEdit()"
           >
-              CANCEL
+              Batal
           </button>
           <button
               v-show="isEdit && isLoading"
               disabled
               class="btn btn-outline-primary col-12 col-md-2 mx-3"
           >
-              CANCEL
+              Batal
           </button>
 
           <button
@@ -137,8 +137,95 @@
               class="btn btn-primary col-12 col-md-4 mx-3"
               @click="isUpdatePassword = true"
           >
-              GANTI PASSWORD
+              Ubah Password
           </button>
+        </div>
+        <div v-show="isUpdatePassword" class="mt-4">
+          <div v-if="!user.has_no_password" class="d-flex my-3">
+              <div class="col-3 my-auto text-secondary font-weight-bold">
+                  Password Lama
+              </div>
+              <div class="col-6">
+                  <div class="form-group mb-0">
+                      <input
+                      type="password"
+                      class="form-control"
+                      :class="{ 'is-invalid': hasErrors('old_password') }"
+                      v-model="form.old_password"
+                      />
+                      <div class="invalid-feedback">
+                          {{ getErrors("old_password") }}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="d-flex my-3">
+              <div class="col-3 my-auto text-secondary font-weight-bold">
+                  Password Baru
+              </div>
+              <div class="col-6">
+                  <div class="form-group mb-0">
+                      <input
+                      type="password"
+                      class="form-control"
+                      :class="{ 'is-invalid': hasErrors('password') }"
+                      v-model="form.password"
+                      />
+                      <div class="invalid-feedback">
+                          {{ getErrors("password") }}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="d-flex my-3">
+              <div class="col-3 my-auto text-secondary font-weight-bold">
+                  Konfirmasi Password
+              </div>
+              <div class="col-6">
+                  <div class="form-group mb-0">
+                      <input
+                      type="password"
+                      class="form-control"
+                      :class="{ 'is-invalid': hasErrors('password_confirmation') }"
+                      v-model="form.password_confirmation"
+                      />
+                      <div class="invalid-feedback">
+                          {{ getErrors("password_confirmation") }}
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="d-md-flex">
+              <button
+                  v-show="isUpdatePassword && !isLoading"
+                  class="btn btn-success col-12 col-md-2 me-3"
+                  @click="doUpdatePassword()"
+              >
+                  Simpan
+              </button>
+              <button
+                  v-show="isUpdatePassword && isLoading"
+                  disabled
+                  class="btn btn-success col-12 col-md-2 me-3"
+              >
+                  Menyimpan
+              </button>
+              <button
+                  v-show="isUpdatePassword && !isLoading"
+                  class="btn btn-outline-primary col-12 col-md-2 mx-3"
+                  @click="doResetUpdatePassword()"
+              >
+                  Batal
+              </button>
+              <button
+                  v-show="isUpdatePassword && isLoading"
+                  disabled
+                  class="btn btn-outline-primary col-12 col-md-2 mx-3"
+              >
+                  Batal
+              </button>
+          </div>
       </div>
       </div>
     </div>
@@ -156,13 +243,14 @@ export default {
   data() {
     return {
       isEdit: false,
+      isUpdatePassword: false,
       form: {...this.user},
       isLoading: false,
       errors: {}
     }
   },
   methods: {
-    async doSave() {
+    async doUpdate() {
         this.isLoading = true;
         try {
             var url = "/profile/update";
@@ -174,10 +262,31 @@ export default {
         }
         this.isLoading = false;
     },
+    
+    async doUpdatePassword() {
+        this.isLoading = true;
+
+        try {
+            var url = "/profile/update-password";
+            let response = await axios.put(url, this.form);
+            return location.reload();
+        } catch (error) {
+            alert(error.response.data.message);
+            console.log(error.response);
+            this.errors = error.response.data.errors;
+        }
+        this.isLoading = false;
+    },
 
     doResetEdit() {
         this.form = {...this.user}
         this.isEdit = false;
+        this.isLoading = false;
+    },
+
+    doResetUpdatePassword() {
+        this.form = {...this.user}
+        this.isUpdatePassword = false;
         this.isLoading = false;
     },
 

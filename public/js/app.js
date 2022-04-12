@@ -26017,6 +26017,93 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -26027,13 +26114,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       isEdit: false,
+      isUpdatePassword: false,
       form: _objectSpread({}, this.user),
       isLoading: false,
       errors: {}
     };
   },
   methods: {
-    doSave: function doSave() {
+    doUpdate: function doUpdate() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -26069,9 +26157,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, null, [[1, 9]]);
       }))();
     },
+    doUpdatePassword: function doUpdatePassword() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var url, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.isLoading = true;
+                _context2.prev = 1;
+                url = "/profile/update-password";
+                _context2.next = 5;
+                return axios.put(url, _this2.form);
+
+              case 5:
+                response = _context2.sent;
+                return _context2.abrupt("return", location.reload());
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](1);
+                alert(_context2.t0.response.data.message);
+                console.log(_context2.t0.response);
+                _this2.errors = _context2.t0.response.data.errors;
+
+              case 14:
+                _this2.isLoading = false;
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[1, 9]]);
+      }))();
+    },
     doResetEdit: function doResetEdit() {
       this.form = _objectSpread({}, this.user);
       this.isEdit = false;
+      this.isLoading = false;
+    },
+    doResetUpdatePassword: function doResetUpdatePassword() {
+      this.form = _objectSpread({}, this.user);
+      this.isUpdatePassword = false;
       this.isLoading = false;
     },
     hasErrors: function hasErrors(key) {
@@ -55730,7 +55860,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            EDIT PROFIL\n        ")]
+              [_vm._v("\n            Ubah Profil\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -55747,11 +55877,11 @@ var render = function () {
                 staticClass: "btn btn-success col-12 col-md-2 me-3",
                 on: {
                   click: function ($event) {
-                    return _vm.doSave()
+                    return _vm.doUpdate()
                   },
                 },
               },
-              [_vm._v("\n            SAVE\n        ")]
+              [_vm._v("\n            Simpan\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -55768,7 +55898,7 @@ var render = function () {
                 staticClass: "btn btn-success col-12 col-md-2 mx-3",
                 attrs: { disabled: "" },
               },
-              [_vm._v("\n            SAVING\n        ")]
+              [_vm._v("\n            Menyimpan\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -55789,7 +55919,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            CANCEL\n        ")]
+              [_vm._v("\n            Batal\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -55806,7 +55936,7 @@ var render = function () {
                 staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
                 attrs: { disabled: "" },
               },
-              [_vm._v("\n            CANCEL\n        ")]
+              [_vm._v("\n            Batal\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -55827,9 +55957,259 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("\n            GANTI PASSWORD\n        ")]
+              [_vm._v("\n            Ubah Password\n        ")]
             ),
           ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.isUpdatePassword,
+                  expression: "isUpdatePassword",
+                },
+              ],
+              staticClass: "mt-4",
+            },
+            [
+              !_vm.user.has_no_password
+                ? _c("div", { staticClass: "d-flex my-3" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-3 my-auto text-secondary font-weight-bold",
+                      },
+                      [_vm._v("\n                Password Lama\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "form-group mb-0" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.old_password,
+                              expression: "form.old_password",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.hasErrors("old_password"),
+                          },
+                          attrs: { type: "password" },
+                          domProps: { value: _vm.form.old_password },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "old_password",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.getErrors("old_password")) +
+                              "\n                    "
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex my-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-3 my-auto text-secondary font-weight-bold",
+                  },
+                  [_vm._v("\n                Password Baru\n            ")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "form-group mb-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.password,
+                          expression: "form.password",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.hasErrors("password") },
+                      attrs: { type: "password" },
+                      domProps: { value: _vm.form.password },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "password", $event.target.value)
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.getErrors("password")) +
+                          "\n                    "
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex my-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-3 my-auto text-secondary font-weight-bold",
+                  },
+                  [
+                    _vm._v(
+                      "\n                Konfirmasi Password\n            "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "form-group mb-0" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.password_confirmation,
+                          expression: "form.password_confirmation",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      class: {
+                        "is-invalid": _vm.hasErrors("password_confirmation"),
+                      },
+                      attrs: { type: "password" },
+                      domProps: { value: _vm.form.password_confirmation },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.form,
+                            "password_confirmation",
+                            $event.target.value
+                          )
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.getErrors("password_confirmation")) +
+                          "\n                    "
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-md-flex" }, [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.isUpdatePassword && !_vm.isLoading,
+                        expression: "isUpdatePassword && !isLoading",
+                      },
+                    ],
+                    staticClass: "btn btn-success col-12 col-md-2 me-3",
+                    on: {
+                      click: function ($event) {
+                        return _vm.doUpdatePassword()
+                      },
+                    },
+                  },
+                  [_vm._v("\n                Simpan\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.isUpdatePassword && _vm.isLoading,
+                        expression: "isUpdatePassword && isLoading",
+                      },
+                    ],
+                    staticClass: "btn btn-success col-12 col-md-2 me-3",
+                    attrs: { disabled: "" },
+                  },
+                  [_vm._v("\n                Menyimpan\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.isUpdatePassword && !_vm.isLoading,
+                        expression: "isUpdatePassword && !isLoading",
+                      },
+                    ],
+                    staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
+                    on: {
+                      click: function ($event) {
+                        return _vm.doResetUpdatePassword()
+                      },
+                    },
+                  },
+                  [_vm._v("\n                Batal\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.isUpdatePassword && _vm.isLoading,
+                        expression: "isUpdatePassword && isLoading",
+                      },
+                    ],
+                    staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
+                    attrs: { disabled: "" },
+                  },
+                  [_vm._v("\n                Batal\n            ")]
+                ),
+              ]),
+            ]
+          ),
         ]),
       ]),
     ]

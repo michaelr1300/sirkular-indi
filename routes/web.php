@@ -57,6 +57,7 @@ Route::prefix('profile')->name('profile.')->middleware('auth')->group(function (
 {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
     Route::put('/update', [ProfileController::class, 'update'])->name('update');
+    Route::put('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
 });
 
 Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
