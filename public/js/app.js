@@ -25637,6 +25637,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packageList: {
@@ -25672,7 +25708,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       qt1: 0,
       qt2: 0,
-      qt3: 0
+      qt3: 0,
+      showUserDetail: true,
+      showOrderDetail: false,
+      showPayment: false,
+      showFinish: false,
+      isActive1: 'active',
+      isActive2: '',
+      isActive3: '',
+      isActive4: ''
     };
   },
   methods: {
@@ -25731,6 +25775,63 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     onPlusInput: function onPlusInput(dataVar) {
       this[dataVar] = this[dataVar] + 1;
+    },
+    backToUserDetail: function backToUserDetail() {
+      this.isActive1 = 'active';
+      this.isActive2 = '';
+      this.isActive3 = '';
+      this.isActive4 = '';
+      this.showOrderDetail = false;
+      this.showPayment = false;
+      this.showFinish = false;
+      this.showUserDetail = true;
+    },
+    backToOrderDetail: function backToOrderDetail() {
+      this.isActive1 = 'done';
+      this.isActive2 = 'active';
+      this.isActive3 = '';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showPayment = false;
+      this.showFinish = false;
+      this.showOrderDetail = true;
+    },
+    backToPayment: function backToPayment() {
+      this.isActive1 = 'done';
+      this.isActive2 = 'done';
+      this.isActive3 = 'active';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showOrderDetail = false;
+      this.showFinish = false;
+      this.showPayment = true;
+    },
+    submitUserDetail: function submitUserDetail() {
+      this.isActive1 = 'done';
+      this.isActive2 = 'active';
+      this.isActive3 = '';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showPayment = false;
+      this.showFinish = false;
+      this.showOrderDetail = true;
+    },
+    nextPagePayment: function nextPagePayment() {
+      this.isActive2 = 'done';
+      this.isActive3 = 'active';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showOrderDetail = false;
+      this.showFinish = false;
+      this.showPayment = true;
+    },
+    nextPageFinish: function nextPageFinish() {
+      this.isActive3 = 'done';
+      this.isActive4 = 'active';
+      this.showUserDetail = false;
+      this.showOrderDetail = false;
+      this.showPayment = false;
+      this.showFinish = true;
     }
   }
 });
@@ -31540,7 +31641,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container-order[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\n.segment[data-v-615430d4]{\n    min-height: 80vh;\n}\n.container-order-form[data-v-615430d4]{\n    padding: 40px 50px;\n}\n.wrap-left-order-1[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    min-height: 100vh;\n    padding: 8% 3% 0 9%;\n    display: flex;\n    flex-direction: column;\n    color: #142362;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-size: contain;\n    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-615430d4] {\n    font-size: 60px;\n    font-weight: 900;\n}\n.h1-indi[data-v-615430d4]{\n    font-size: 120px;\n    font-weight: 900;\n    line-height: 175px;\n}\n.div-progress-bar[data-v-615430d4]{\n    width: 1000px;\n    position: absolute;\n    z-index: 1;\n}\n.progress-bar-order[data-v-615430d4]{\n    counter-reset: step;\n    list-style-type: none;\n}\n.progress-bar-order li[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 14;\n    font-weight: 500;\n    float: left;\n    width: 25%;\n    position: relative;\n    /* text-align: center; */\n}\n.progress-bar-order li.active[data-v-615430d4]{\n    color: #345EC9;\n}\n.progress-bar-order li[data-v-615430d4]:before{\n    content:counter(step);\n    counter-increment: step;\n    width: 50px;\n    height: 50px;\n    padding: 10px 15px;\n    /* border: 2px solid #bebebe; */\n    /* display: block; */\n    margin: 0 10px 10px auto;\n    border-radius: 50%;\n    line-height: 27px;\n    background: #EBEBEB;\n    color: #81828F;\n    text-align: center;\n    font-weight: bold;\n}\n.progress-bar-order li[data-v-615430d4]:after{\n    content: '';\n    position: absolute;\n    height: 3px;\n    background: #979797;\n    top: 12px;\n    z-index: -1;\n}\n.progress-bar-order li[data-v-615430d4]:first-child:after{\n    content: none;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(2):after{\n    left: -38%;\n    width: 34%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(3):after{\n    left: -22%;\n    width: 19%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(4):after{\n    left: -36%;\n    width: 33%;\n}\n.progress-bar-order li.active + li[data-v-615430d4]:after{\n    background: #345EC9;\n}\n.progress-bar-order li.active + li[data-v-615430d4]:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n}\n.progress-bar-order li.active[data-v-615430d4]:before{\n    /* border-color: #3aac5d; */\n    background: #345EC9;\n    color: #ffffff;\n}\n\n  /* ORDER FORM 1 */\n.div-personal-info[data-v-615430d4]{\n    margin-top: 100px;\n}\n.div-form-order[data-v-615430d4]{\n    padding: 10px 30px;\n}\n\n  /* ORDER FORM 2 */\n.body-order-form[data-v-615430d4]{\n    margin-top: 100px;\n    padding: 0 20px 20px 20px;\n}\n.wrapper-order-form[data-v-615430d4]{\n}\n.div-p-title[data-v-615430d4]{\n}\n.div-p-title p[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 16px;\n}\n.div-choose-packages[data-v-615430d4]{\n}\n.each-package[data-v-615430d4]{\n    display: flex;\n    width: 300px;\n    height: 500px;\n    border: 2px solid #142362;\n    border-radius: 20px;\n}\n.wrap-each-package[data-v-615430d4]{\n    padding: 20px;\n}\n.wrap-each-package h2[data-v-615430d4]{\n    font-size: 24px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n}\n.div-counter-color[data-v-615430d4]{\n}\ninput[data-v-615430d4]{\n    /* font-size: 18px; */\n    /* height: 4rem;\n    padding: 0 4rem;\n    border-radius: 2rem;\n    border: 0;\n    background: #fff;\n    color: #222;\n    box-shadow: 0 10px 65px -10px rgba(0,0,0,.25);\n    text-align: center;\n    width: 100%;\n    box-sizing: border-box; */\n    /* font-weight: lighter; */\n}\n.div-inc-1[data-v-615430d4]{\n    display: flex;\n    border: 2px solid #142362;\n    border-radius: 12px;\n}\n.wrap-minus-sign[data-v-615430d4]{\n}\n.btn-minus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n.wrap-input-number[data-v-615430d4]{\n}\n.input-number[data-v-615430d4]{\n    width: 100px;\n    background-color: transparent;\n    text-align: center;\n    border:transparent;\n    font-size: 24px;\n    height:48px;\n    padding-top: 10px;\n    resize: none;\n}\n.wrap-plus-sign[data-v-615430d4]{\n}\n.btn-plus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-order[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\n.segment[data-v-615430d4]{\n    min-height: 80vh;\n}\n.container-order-form[data-v-615430d4]{\n    padding: 40px 50px;\n}\n.wrap-left-order-1[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    min-height: 100vh;\n    padding: 8% 3% 0 9%;\n    display: flex;\n    flex-direction: column;\n    color: #142362;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-size: contain;\n    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-615430d4] {\n    font-size: 60px;\n    font-weight: 900;\n}\n.h1-indi[data-v-615430d4]{\n    font-size: 120px;\n    font-weight: 900;\n    line-height: 175px;\n}\n.div-progress-bar[data-v-615430d4]{\n    width: 1000px;\n    position: absolute;\n    z-index: 1;\n}\n.progress-bar-order[data-v-615430d4]{\n    counter-reset: step;\n    list-style-type: none;\n}\n.progress-bar-order li[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 14;\n    font-weight: 500;\n    float: left;\n    width: 25%;\n    position: relative;\n    /* text-align: center; */\n}\n.progress-bar-order li.active[data-v-615430d4]{\n    color: #345EC9;\n}\n.progress-bar-order li[data-v-615430d4]:before{\n    content:counter(step);\n    counter-increment: step;\n    width: 50px;\n    height: 50px;\n    padding: 10px 15px;\n    /* border: 2px solid #bebebe; */\n    /* display: block; */\n    margin: 0 10px 10px auto;\n    border-radius: 50%;\n    line-height: 27px;\n    background: #EBEBEB;\n    color: #81828F;\n    text-align: center;\n    font-weight: bold;\n}\n.progress-bar-order li[data-v-615430d4]:after{\n    content: '';\n    position: absolute;\n    height: 3px;\n    background: #979797;\n    top: 12px;\n    z-index: -1;\n}\n.progress-bar-order li[data-v-615430d4]:first-child:after{\n    content: none;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(2):after{\n    left: -38%;\n    width: 34%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(3):after{\n    left: -22%;\n    width: 19%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(4):after{\n    left: -36%;\n    width: 33%;\n}\n.progress-bar-order li.done + li[data-v-615430d4]:after{\n    background: #345EC9;\n}\n\n  /* .progress-bar-order li:first-child:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n  } */\n.progress-bar-order li.active[data-v-615430d4]:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n}\n.progress-bar-order li.done[data-v-615430d4]:before{\n    /* border-color: #3aac5d; */\n    background: #345EC9;\n    color: #ffffff;\n}\n\n  /* ORDER FORM 1 */\n.div-personal-info[data-v-615430d4]{\n    margin-top: 100px;\n}\n.div-form-order[data-v-615430d4]{\n    padding: 10px 30px;\n}\n\n  /* ORDER FORM 2 */\n.body-order-form[data-v-615430d4]{\n    margin-top: 100px;\n    padding: 0 20px 20px 20px;\n}\n.wrapper-order-form[data-v-615430d4]{\n}\n.div-p-title[data-v-615430d4]{\n}\n.div-p-title p[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 16px;\n}\n.div-choose-packages[data-v-615430d4]{\n}\n.each-package[data-v-615430d4]{\n    display: flex;\n    justify-content: center;\n    width: 250px;\n    height: 500px;\n    border: 2px solid #142362;\n    border-radius: 20px;\n}\n.wrap-each-package[data-v-615430d4]{\n    padding: 20px;\n}\n.wrap-each-package h2[data-v-615430d4]{\n    font-size: 24px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n}\n.wrap-each-package span[data-v-615430d4]{\n    font-size: 16px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n    color: #345EC9;\n}\n.div-counter-color p[data-v-615430d4]{\n    font-size: 14px;\n    font-weight: 500;\n    font-family: 'Mulish', sans-serif;\n}\n.wrap-note-package[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\ninput[data-v-615430d4]{\n    /* font-size: 18px; */\n    /* height: 4rem;\n    padding: 0 4rem;\n    border-radius: 2rem;\n    border: 0;\n    background: #fff;\n    color: #222;\n    box-shadow: 0 10px 65px -10px rgba(0,0,0,.25);\n    text-align: center;\n    width: 100%;\n    box-sizing: border-box; */\n    /* font-weight: lighter; */\n}\n.div-inc-1[data-v-615430d4]{\n    display: flex;\n    border: 2px solid #142362;\n    border-radius: 12px;\n}\n.wrap-minus-sign[data-v-615430d4]{\n}\n.btn-minus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n.wrap-input-number[data-v-615430d4]{\n}\n.input-number[data-v-615430d4]{\n    width: 100px;\n    background-color: transparent;\n    text-align: center;\n    border:transparent;\n    font-size: 24px;\n    height:48px;\n    padding-top: 10px;\n    resize: none;\n}\n.wrap-plus-sign[data-v-615430d4]{\n}\n.btn-plus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54840,437 +54941,558 @@ var render = function () {
     _c("div", { staticClass: "col-lg-8 container-order-form" }, [
       _c("h3", { staticClass: "mb-3" }, [_vm._v("Buat Pesanan")]),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "div-personal-info",
-          attrs: {
-            id: "personal-info",
-            "aria-labelledby": "personal-info-tab",
-          },
-        },
-        [
-          _c("form", { staticClass: "row div-form-order" }, [
-            _c("div", { staticClass: "col-12 col-md-6 mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "name" } },
-                [_vm._v("Nama")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.name,
-                    expression: "form.name",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "name",
-                  name: "name",
-                  type: "text",
-                  placeholder: "Nama Anda",
-                },
-                domProps: { value: _vm.form.name },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "name", $event.target.value)
-                  },
-                },
-              }),
+      _c("div", { staticClass: "step-wrapper" }, [
+        _c("div", { staticClass: "div-progress-bar" }, [
+          _c("ul", { staticClass: "progress-bar-order" }, [
+            _c("li", { class: [_vm.isActive1] }, [_vm._v("Isi data diri")]),
+            _vm._v(" "),
+            _c("li", { class: [_vm.isActive2] }, [
+              _vm._v("Isi detail pesanan"),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-md-6 mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "phone_number" } },
-                [_vm._v("Nomor WhatsApp")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.phone_number,
-                    expression: "form.phone_number",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "phone_number",
-                  name: "phone_number",
-                  type: "text",
-                  placeholder: "Nomor WhatsApp",
-                },
-                domProps: { value: _vm.form.phone_number },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "phone_number", $event.target.value)
-                  },
-                },
-              }),
-            ]),
+            _c("li", { class: [_vm.isActive3] }, [_vm._v("Pembayaran")]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-12 mb-3" }, [
-              _c(
-                "label",
-                { staticClass: "form-label", attrs: { for: "address" } },
-                [_vm._v("Alamat")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.address,
-                    expression: "form.address",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "address",
-                  name: "address",
-                  type: "text",
-                  placeholder: "Alamat Anda",
-                },
-                domProps: { value: _vm.form.address },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "address", $event.target.value)
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("small", [
-                _vm._v(
-                  "*lengkap dengan kecamatan, kabupaten, dan provinsi Anda"
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "form-check" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.save_data,
-                      expression: "form.save_data",
-                    },
-                  ],
-                  staticClass: "form-check-input",
-                  attrs: { id: "flexCheckChecked", type: "checkbox" },
-                  domProps: {
-                    checked: _vm.form.save_data,
-                    checked: Array.isArray(_vm.form.save_data)
-                      ? _vm._i(_vm.form.save_data, null) > -1
-                      : _vm.form.save_data,
-                  },
-                  on: {
-                    change: function ($event) {
-                      var $$a = _vm.form.save_data,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = null,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 &&
-                            _vm.$set(_vm.form, "save_data", $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            _vm.$set(
-                              _vm.form,
-                              "save_data",
-                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                            )
-                        }
-                      } else {
-                        _vm.$set(_vm.form, "save_data", $$c)
-                      }
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "form-check-label",
-                    attrs: { for: "flexCheckChecked" },
-                  },
-                  [_vm._v("\n              Simpan data saya\n            ")]
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function ($event) {
-                    return _vm.createOrder()
-                  },
-                },
-              },
-              [_vm._v("\n          Submit\n        ")]
-            ),
-          ]),
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "body-order-form" }, [
-        _c("div", { staticClass: "wrapper-order-form" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "div-choose-packages" }, [
-            _c("div", { staticClass: "each-package" }, [
-              _c("div", { staticClass: "wrap-each-package" }, [
-                _c("p", [_vm._v("Paket 1")]),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Celup saja")]),
-                _vm._v(" "),
-                _c("span", [_vm._v("Rp 100.000")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Warna yang mau dibeli:")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "div-counter-color" }, [
-                  _c("p", [_vm._v("Merah")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "div-inc-1" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "wrap-minus-sign",
-                        on: {
-                          click: function ($event) {
-                            return _vm.onMinusInput("qt1")
-                          },
-                        },
-                      },
-                      [_vm._m(3)]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "wrap-input-number" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: this.qt1,
-                            expression: "this.qt1",
-                          },
-                        ],
-                        staticClass: "input-number",
-                        attrs: {
-                          id: "number",
-                          readonly: "",
-                          onblur:
-                            "(parseInt(this.value) > 20) ? 20 : this.value",
-                        },
-                        domProps: { value: this.qt1 },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(this, "qt1", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "wrap-plus-sign",
-                        on: {
-                          click: function ($event) {
-                            return _vm.onPlusInput("qt1")
-                          },
-                        },
-                      },
-                      [_vm._m(4)]
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "div-counter-color" }, [
-                  _c("p", [_vm._v("Kuning")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "div-inc-1" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "wrap-minus-sign",
-                        on: {
-                          click: function ($event) {
-                            return _vm.onMinusInput("qt2")
-                          },
-                        },
-                      },
-                      [_vm._m(5)]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "wrap-input-number" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: this.qt2,
-                            expression: "this.qt2",
-                          },
-                        ],
-                        staticClass: "input-number",
-                        attrs: {
-                          id: "number",
-                          readonly: "",
-                          onblur:
-                            "(parseInt(this.value) > 20) ? 20 : this.value",
-                        },
-                        domProps: { value: this.qt2 },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(this, "qt2", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "wrap-plus-sign",
-                        on: {
-                          click: function ($event) {
-                            return _vm.onPlusInput("qt2")
-                          },
-                        },
-                      },
-                      [_vm._m(6)]
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "div-counter-color" }, [
-                  _c("p", [_vm._v("Hijau")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "div-inc-1" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "wrap-minus-sign",
-                        on: {
-                          click: function ($event) {
-                            return _vm.onMinusInput("qt3")
-                          },
-                        },
-                      },
-                      [_vm._m(7)]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "wrap-input-number" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: this.qt3,
-                            expression: "this.qt3",
-                          },
-                        ],
-                        staticClass: "input-number",
-                        attrs: {
-                          id: "number",
-                          readonly: "",
-                          onblur:
-                            "(parseInt(this.value) > 20) ? 20 : this.value",
-                        },
-                        domProps: { value: this.qt3 },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(this, "qt3", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "wrap-plus-sign",
-                        on: {
-                          click: function ($event) {
-                            return _vm.onPlusInput("qt3")
-                          },
-                        },
-                      },
-                      [_vm._m(8)]
-                    ),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "note-package-1" }, [
-            _c("p", [_vm._v("Catatan")]),
-            _vm._v(" "),
-            _c("div", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.address,
-                    expression: "form.address",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "address",
-                  name: "address",
-                  type: "text",
-                  placeholder: "Catatan",
-                },
-                domProps: { value: _vm.form.address },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "address", $event.target.value)
-                  },
-                },
-              }),
-            ]),
+            _c("li", { class: [_vm.isActive4] }, [_vm._v("Selesai")]),
           ]),
         ]),
       ]),
+      _vm._v(" "),
+      _vm.showUserDetail
+        ? _c(
+            "div",
+            {
+              staticClass: "div-personal-info",
+              attrs: {
+                id: "personal-info",
+                "aria-labelledby": "personal-info-tab",
+              },
+            },
+            [
+              _c("form", { staticClass: "row div-form-order" }, [
+                _c("div", { staticClass: "col-12 col-md-6 mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "name" } },
+                    [_vm._v("Nama")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.name,
+                        expression: "form.name",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "name",
+                      name: "name",
+                      type: "text",
+                      placeholder: "Nama Anda",
+                    },
+                    domProps: { value: _vm.form.name },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "name", $event.target.value)
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 col-md-6 mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "phone_number" },
+                    },
+                    [_vm._v("Nomor WhatsApp")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.phone_number,
+                        expression: "form.phone_number",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "phone_number",
+                      name: "phone_number",
+                      type: "text",
+                      placeholder: "Nomor WhatsApp",
+                    },
+                    domProps: { value: _vm.form.phone_number },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "phone_number", $event.target.value)
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "address" } },
+                    [_vm._v("Alamat")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.address,
+                        expression: "form.address",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "address",
+                      name: "address",
+                      type: "text",
+                      placeholder: "Alamat Anda",
+                    },
+                    domProps: { value: _vm.form.address },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "address", $event.target.value)
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("small", [
+                    _vm._v(
+                      "*lengkap dengan kecamatan, kabupaten, dan provinsi Anda"
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "form-check" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.save_data,
+                          expression: "form.save_data",
+                        },
+                      ],
+                      staticClass: "form-check-input",
+                      attrs: { id: "flexCheckChecked", type: "checkbox" },
+                      domProps: {
+                        checked: _vm.form.save_data,
+                        checked: Array.isArray(_vm.form.save_data)
+                          ? _vm._i(_vm.form.save_data, null) > -1
+                          : _vm.form.save_data,
+                      },
+                      on: {
+                        change: function ($event) {
+                          var $$a = _vm.form.save_data,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(
+                                  _vm.form,
+                                  "save_data",
+                                  $$a.concat([$$v])
+                                )
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  _vm.form,
+                                  "save_data",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
+                          } else {
+                            _vm.$set(_vm.form, "save_data", $$c)
+                          }
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-check-label",
+                        attrs: { for: "flexCheckChecked" },
+                      },
+                      [_vm._v("\n              Simpan data saya\n            ")]
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function ($event) {
+                        return _vm.submitUserDetail()
+                      },
+                    },
+                  },
+                  [_vm._v("\n          Submit\n        ")]
+                ),
+              ]),
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.showOrderDetail
+        ? _c("div", { staticClass: "body-order-form" }, [
+            _c("div", { staticClass: "wrapper-order-form" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "div-choose-packages" }, [
+                _c("div", { staticClass: "each-package" }, [
+                  _c("div", { staticClass: "wrap-each-package" }, [
+                    _c("p", [_vm._v("Paket 1")]),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v("Celup saja")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Rp 100.000")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Warna yang mau dibeli:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "div-counter-color" }, [
+                      _c("p", [_vm._v("Merah")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "div-inc-1" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "wrap-minus-sign",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onMinusInput("qt1")
+                              },
+                            },
+                          },
+                          [_vm._m(2)]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "wrap-input-number" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: this.qt1,
+                                expression: "this.qt1",
+                              },
+                            ],
+                            staticClass: "input-number",
+                            attrs: {
+                              id: "number",
+                              readonly: "",
+                              onblur:
+                                "(parseInt(this.value) > 20) ? 20 : this.value",
+                            },
+                            domProps: { value: this.qt1 },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(this, "qt1", $event.target.value)
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "wrap-plus-sign",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onPlusInput("qt1")
+                              },
+                            },
+                          },
+                          [_vm._m(3)]
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "div-counter-color" }, [
+                      _c("p", [_vm._v("Kuning")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "div-inc-1" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "wrap-minus-sign",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onMinusInput("qt2")
+                              },
+                            },
+                          },
+                          [_vm._m(4)]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "wrap-input-number" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: this.qt2,
+                                expression: "this.qt2",
+                              },
+                            ],
+                            staticClass: "input-number",
+                            attrs: {
+                              id: "number",
+                              readonly: "",
+                              onblur:
+                                "(parseInt(this.value) > 20) ? 20 : this.value",
+                            },
+                            domProps: { value: this.qt2 },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(this, "qt2", $event.target.value)
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "wrap-plus-sign",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onPlusInput("qt2")
+                              },
+                            },
+                          },
+                          [_vm._m(5)]
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "div-counter-color" }, [
+                      _c("p", [_vm._v("Hijau")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "div-inc-1" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "wrap-minus-sign",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onMinusInput("qt3")
+                              },
+                            },
+                          },
+                          [_vm._m(6)]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "wrap-input-number" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: this.qt3,
+                                expression: "this.qt3",
+                              },
+                            ],
+                            staticClass: "input-number",
+                            attrs: {
+                              id: "number",
+                              readonly: "",
+                              onblur:
+                                "(parseInt(this.value) > 20) ? 20 : this.value",
+                            },
+                            domProps: { value: this.qt3 },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(this, "qt3", $event.target.value)
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "wrap-plus-sign",
+                            on: {
+                              click: function ($event) {
+                                return _vm.onPlusInput("qt3")
+                              },
+                            },
+                          },
+                          [_vm._m(7)]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "wrap-note-package" }, [
+                _c("div", { staticClass: "note-package-1" }, [
+                  _c("p", [_vm._v("Catatan")]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.address,
+                          expression: "form.address",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "address",
+                        name: "address",
+                        type: "text",
+                        placeholder: "Catatan",
+                      },
+                      domProps: { value: _vm.form.address },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "address", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "note-package-1" }, [
+                  _c("p", [_vm._v("Catatan")]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.address,
+                          expression: "form.address",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "address",
+                        name: "address",
+                        type: "text",
+                        placeholder: "Catatan",
+                      },
+                      domProps: { value: _vm.form.address },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "address", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "note-package-1" }, [
+                  _c("p", [_vm._v("Catatan")]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.address,
+                          expression: "form.address",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "address",
+                        name: "address",
+                        type: "text",
+                        placeholder: "Catatan",
+                      },
+                      domProps: { value: _vm.form.address },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "address", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "div-button" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function ($event) {
+                        return _vm.backToUserDetail()
+                      },
+                    },
+                  },
+                  [_vm._v("\n            Kembali\n          ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function ($event) {
+                        return _vm.nextPagePayment()
+                      },
+                    },
+                  },
+                  [_vm._v("\n            Selanjutnya\n          ")]
+                ),
+              ]),
+            ]),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
@@ -55364,24 +55586,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("h1", { staticClass: "h1-text text-uppercase" }, [
           _vm._v("Pesanan"),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "step-wrapper" }, [
-      _c("div", { staticClass: "div-progress-bar" }, [
-        _c("ul", { staticClass: "progress-bar-order" }, [
-          _c("li", { staticClass: "active" }, [_vm._v("Isi data diri")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Isi detail pesanan")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Pembayaran")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Selesai")]),
         ]),
       ]),
     ])

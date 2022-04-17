@@ -11,14 +11,14 @@
       <div class="step-wrapper">
         <div class="div-progress-bar">
           <ul class="progress-bar-order">
-            <li class="active">Isi data diri</li>
-            <li>Isi detail pesanan</li>
-            <li>Pembayaran</li>
-            <li>Selesai</li>
+            <li :class="[ isActive1 ]">Isi data diri</li>
+            <li :class="[ isActive2 ]">Isi detail pesanan</li>
+            <li :class="[ isActive3 ]">Pembayaran</li>
+            <li :class="[ isActive4 ]">Selesai</li>
           </ul>
         </div>
       </div>
-      <div id="personal-info" class="div-personal-info" aria-labelledby="personal-info-tab">
+      <div id="personal-info" class="div-personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
         <form class="row div-form-order">
           <div class="col-12 col-md-6 mb-3">
             <label for="name" class="form-label">Nama</label>
@@ -60,13 +60,13 @@
               </label>
             </div>
           </div>
-          <button class="btn btn-primary" @click="createOrder()">
+          <button class="btn btn-primary" @click="submitUserDetail()">
             Submit
           </button>
         </form>
       </div>
       <!-- Order Form 2 -->
-      <div class="body-order-form">
+      <div class="body-order-form" v-if="showOrderDetail">
         <div class="wrapper-order-form">
           <div class="div-p-title">
             <p>Pilih paket yang anda inginkan</p>
@@ -124,18 +124,54 @@
               </div>
             </div>
           </div>
-          <div class="note-package-1">
-            <p>Catatan</p>
-            <div>
-              <input 
-              id="address" 
-              name="address" 
-              type="text" 
-              class="form-control" 
-              placeholder="Catatan"
-              v-model="form.address"
-            >
+          <div class="wrap-note-package">
+            <div class="note-package-1">
+              <p>Catatan</p>
+              <div>
+                <input 
+                id="address" 
+                name="address" 
+                type="text" 
+                class="form-control" 
+                placeholder="Catatan"
+                v-model="form.address"
+                />
+              </div>
             </div>
+            <div class="note-package-1">
+              <p>Catatan</p>
+              <div>
+                <input 
+                id="address" 
+                name="address" 
+                type="text" 
+                class="form-control" 
+                placeholder="Catatan"
+                v-model="form.address"
+                />
+              </div>
+            </div>
+            <div class="note-package-1">
+              <p>Catatan</p>
+              <div>
+                <input 
+                id="address" 
+                name="address" 
+                type="text" 
+                class="form-control" 
+                placeholder="Catatan"
+                v-model="form.address"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="div-button">
+            <button class="btn btn-primary" @click="backToUserDetail()">
+              Kembali
+            </button>
+            <button class="btn btn-primary" @click="nextPagePayment()">
+              Selanjutnya
+            </button>
           </div>
         </div>
       </div>
@@ -185,7 +221,15 @@ export default {
       },
       qt1: 0,
       qt2: 0,
-      qt3: 0
+      qt3: 0,
+      showUserDetail: true,
+      showOrderDetail: false,
+      showPayment: false,
+      showFinish: false,
+      isActive1: 'active',
+      isActive2: '',
+      isActive3: '',
+      isActive4: '',
     }
   },
   methods: {
@@ -216,6 +260,63 @@ export default {
     },
     onPlusInput(dataVar){
       this[dataVar] = this[dataVar] + 1;
+    },
+    backToUserDetail(){
+      this.isActive1 = 'active';
+      this.isActive2 = '';
+      this.isActive3 = '';
+      this.isActive4 = '';
+      this.showOrderDetail = false;
+      this.showPayment = false;
+      this.showFinish = false;
+      this.showUserDetail = true;
+    },
+    backToOrderDetail(){
+      this.isActive1 = 'done';
+      this.isActive2 = 'active';
+      this.isActive3 = '';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showPayment = false;
+      this.showFinish = false;
+      this.showOrderDetail = true;
+    },
+    backToPayment(){
+      this.isActive1 = 'done';
+      this.isActive2 = 'done';
+      this.isActive3 = 'active';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showOrderDetail = false;
+      this.showFinish = false;
+      this.showPayment = true;
+    },
+    submitUserDetail(){
+      this.isActive1 = 'done';
+      this.isActive2 = 'active';
+      this.isActive3 = '';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showPayment = false;
+      this.showFinish = false;
+      this.showOrderDetail = true;
+    },
+    nextPagePayment(){
+      this.isActive2 = 'done';
+      this.isActive3 = 'active';
+      this.isActive4 = '';
+      this.showUserDetail = false;
+      this.showOrderDetail = false;
+      this.showFinish = false;
+      this.showPayment = true;
+    },
+    nextPageFinish(){
+      this.isActive3 = 'done';
+      this.isActive4 = 'active';
+      this.showUserDetail = false;
+      this.showOrderDetail = false;
+      this.showPayment = false;
+      this.showFinish = true;
     }
   },
 };
@@ -328,17 +429,23 @@ export default {
     width: 33%;
   }
 
-  .progress-bar-order li.active + li:after{
+  .progress-bar-order li.done + li:after{
     background: #345EC9;
   }
 
-  .progress-bar-order li.active + li:before{
+  /* .progress-bar-order li:first-child:before{
+    border: 3px solid #345EC9;
+    background: #F3F9FE;
+    color: #345EC9;
+  } */
+
+  .progress-bar-order li.active:before{
     border: 3px solid #345EC9;
     background: #F3F9FE;
     color: #345EC9;
   }
 
-  .progress-bar-order li.active:before{
+  .progress-bar-order li.done:before{
     /* border-color: #3aac5d; */
     background: #345EC9;
     color: #ffffff;
@@ -380,7 +487,8 @@ export default {
 
   .each-package{
     display: flex;
-    width: 300px;
+    justify-content: center;
+    width: 250px;
     height: 500px;
     border: 2px solid #142362;
     border-radius: 20px;
@@ -395,9 +503,23 @@ export default {
     font-weight: 700;
     font-family: 'Mulish', sans-serif;
   }
-  
-  .div-counter-color{
 
+  .wrap-each-package span{
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Mulish', sans-serif;
+    color: #345EC9;
+  }
+  
+  .div-counter-color p{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Mulish', sans-serif;
+  }
+
+  .wrap-note-package{
+    display: flex;
+    flex-direction: row;
   }
 
   input{
