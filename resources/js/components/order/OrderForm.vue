@@ -74,10 +74,10 @@
           <div class="div-choose-packages">
             <div class="each-package">
               <div class="wrap-each-package">
-                <p>Paket 1</p>
+                <p class="packet-name">Paket 1</p>
                 <h2>Celup saja</h2>
-                <span>Rp 100.000</span>
-                <p>Warna yang mau dibeli:</p>
+                <span class="packet-price">Rp 100.000</span>
+                <p class="p-text-bold">Warna yang mau dibeli:</p>
                 <div class="div-counter-color">
                   <p>Merah</p>
                   <!-- <input type="number" v-model="form.quantity[index]" name="quantity" pattern="[0-9]+"> -->
@@ -171,6 +171,67 @@
             </button>
             <button class="btn btn-primary" @click="nextPagePayment()">
               Selanjutnya
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Payment Form -->
+      <div class="body-payment-form" v-if="showPayment">
+        <div class="wrapper-payment-form">
+          <div>
+            <p>Silahkan melakukan pembayaran melalui:</p>
+          </div>
+          <div>
+            <div>
+              <p>Rekening pembayaran 1</p>
+              <div>
+                <div>
+                  <img class="img-bca" src="images/bca.png" alt="bca account">
+                </div>
+                <div>
+                  <span>1039494950</span>
+                  <span>an. PT. indigo Indonesia</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>Rekening pembayaran 2</p>
+              <div>
+                <div>
+                  <img class="img-mandiri" src="images/mandiri.png" alt="mandiri account">
+                </div>
+                <div>
+                  <span>1039494950</span>
+                  <span>an. PT. indigo Indonesia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p>Unggah bukti pembayaran disini</p>
+            <button>Add new file</button>
+          </div>
+          <div class="div-button">
+            <button class="btn btn-primary" @click="backToOrderDetail()">
+              Kembali
+            </button>
+            <button class="btn btn-primary" @click="nextPageFinish()">
+              Selanjutnya
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Finish Form -->
+      <div class="body-finish-form" v-if="showFinish">
+        <div class="wrapper-finish-form">
+          <img src="" alt="">
+          <h2>Selamat!</h2>
+          <p>Pesanan anda sedang kami proses. Admin kami akan segera menghubungi anda.</p>
+
+          <div class="div-button">
+            <button class="btn btn-primary" @click="nextToHome()">
+              ke Beranda
             </button>
           </div>
         </div>
@@ -281,16 +342,6 @@ export default {
       this.showFinish = false;
       this.showOrderDetail = true;
     },
-    backToPayment(){
-      this.isActive1 = 'done';
-      this.isActive2 = 'done';
-      this.isActive3 = 'active';
-      this.isActive4 = '';
-      this.showUserDetail = false;
-      this.showOrderDetail = false;
-      this.showFinish = false;
-      this.showPayment = true;
-    },
     submitUserDetail(){
       this.isActive1 = 'done';
       this.isActive2 = 'active';
@@ -317,6 +368,9 @@ export default {
       this.showOrderDetail = false;
       this.showPayment = false;
       this.showFinish = true;
+    },
+    nextToHome(){
+      window.location.href = "/";
     }
   },
 };
@@ -489,13 +543,19 @@ export default {
     display: flex;
     justify-content: center;
     width: 250px;
-    height: 500px;
     border: 2px solid #142362;
     border-radius: 20px;
   }
 
   .wrap-each-package{
     padding: 20px;
+  }
+
+  .packet-name{
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Mulish', sans-serif;
+    margin-bottom: 5px;
   }
 
   .wrap-each-package h2{
@@ -510,11 +570,24 @@ export default {
     font-family: 'Mulish', sans-serif;
     color: #345EC9;
   }
+
+  .p-text-bold{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Mulish', sans-serif;
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+
+  .div-counter-color{
+    margin-top: 5px;
+  }
   
   .div-counter-color p{
     font-size: 14px;
     font-weight: 500;
     font-family: 'Mulish', sans-serif;
+    margin-bottom: 10px;
   }
 
   .wrap-note-package{
@@ -581,5 +654,19 @@ export default {
     background-color: transparent;
     width: 45px;
     height: 48px;
+  }
+
+  /* Payment Form */
+
+  .body-payment-form{
+    margin-top: 100px;
+    padding: 0 20px 20px 20px;
+  }
+
+  /* Finish Form */
+
+  .body-finish-form{
+    margin-top: 100px;
+    padding: 0 20px 20px 20px;
   }
 </style>
