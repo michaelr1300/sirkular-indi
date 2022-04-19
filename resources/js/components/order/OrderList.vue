@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3 class="mb-3">List Pesanan</h3>
     <table class="table table-responsive table-striped">
       <thead>
         <tr>

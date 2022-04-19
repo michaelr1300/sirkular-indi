@@ -228,15 +228,26 @@
           </div>
       </div>
       </div>
+      <hr class="my-4">
+      <div class="mt-4">
+        <h1 class="text-uppercase font-weight-bold">Daftar Pesanan</h1>
+        <order-list :orders="orders"></order-list>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import OrderList from '../order/OrderList.vue';
 export default {
+  components: { OrderList },
   props: {
     user: {
       type: Object,
+      default: null, 
+    },
+    orders: {
+      type: Array,
       default: null, 
     },
   },
