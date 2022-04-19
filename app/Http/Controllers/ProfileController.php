@@ -14,6 +14,10 @@ class ProfileController extends Controller
     public function index()
     {
         $orders = Order::where('user_id', Auth::user()->id)->get();
+        
+        foreach ($orders as $order) {
+            $order->total = 0;
+        }
         return view('profile')->with('orders',$orders);
     }
 

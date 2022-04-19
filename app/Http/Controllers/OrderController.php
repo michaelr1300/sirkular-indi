@@ -16,9 +16,15 @@ class OrderController extends Controller
     {
         if (Auth::user()->is_admin) {
             $orders = Order::all();
+            foreach ($orders as $order) {
+                $order->total = 0;
+            }
         }
         else {
             $orders = Order::where('user_id', Auth::user()->id)->get();
+            foreach ($orders as $order) {
+                $order->total = 0;
+            }
         }
         return view('order.index')->with('orders',$orders);
     }

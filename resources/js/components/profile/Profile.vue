@@ -229,9 +229,9 @@
       </div>
       </div>
       <hr class="my-4">
-      <div class="mt-4">
+      <div class="mt-4 me-4">
         <h1 class="text-uppercase font-weight-bold">Daftar Pesanan</h1>
-        <order-list :orders="orders"></order-list>
+        <order-list :orders="orders" :user="user"></order-list>
       </div>
     </div>
   </div>
