@@ -63,13 +63,6 @@ export default {
 
 <style scoped>
 @media screen and (min-width: 780px) {
-    .segment-1{
-        display: flex;
-        flex-direction: row;
-        padding: 0 7%;
-        background-color: #fff;
-    }
-
     .wrap-left-about-1{
         font-family: 'Mulish', sans-serif;
         padding: 8% 3% 0 9%;
@@ -248,11 +241,6 @@ export default {
 }
 
 @media screen and (max-width: 780px) {
-    .segment-1{
-        flex-direction: row;
-        background-color: #fff;
-    }
-
     .wrap-left-about-1{
         font-family: 'Mulish', sans-serif;
         padding: 30px 0 80px 20px;
