@@ -1,109 +1,19 @@
 <template>
     <div class="flex-column">
-        <div class="row justify-content-center div-content-review">
-            <div class="segment segment-1 flex-row justify-content-center">
-                    <div class="col-lg-7 wrap-left-review-1">
-                        <h1 class="h1-text text-uppercase">Testimoni</h1>
-                        <h1 class="h1-text text-uppercase">Pelanggan</h1>
-                        <h1 class="h1-indi text-uppercase">INDI</h1>
-                        <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
-                    </div>
-                <div class="col-lg-5 wrap-right-review-1">
-                    <div class="img-wrapper-1">
-                        <img class="img-front-review" src="images/image-front-review.png" alt="image front review">
-                    </div>
-                </div>
+        <div class="d-flex justify-content-center div-content-review">
+            <div class="d-flex segment flex-row justify-content-center">
+              <div class="col-lg-7 wrap-left-review-1">
+                  <h1 class="h1-text text-uppercase">Testimoni</h1>
+                  <h1 class="h1-text text-uppercase">Pelanggan</h1>
+                  <h1 class="h1-indi text-uppercase">INDI</h1>
+                  <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
+              </div>
+              <div class="col-lg-5 wrap-right-review-1">
+                  <div class="img-wrapper-1">
+                      <img class="img-front-review" src="images/image-front-review.png" alt="image front review">
+                  </div>
+              </div>
             </div>
-            <!-- <div class="segment segment-2 row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="div-section-2">
-                        <h1>Testimoni pelanggan</h1>
-                        <div class="wrapper-reviews">
-
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="div-reviews-indi">
-                                            <div class="div-img-bfaf">
-                                                <img class="img-review-before" src="images/img-product-1.png" alt=""/>
-                                                <img class="img-review-after" src="images/img-product-2.png" alt="">
-                                            </div>
-                                            <div class="div-reviews-detail">
-                                                <h3>Diana Maharani</h3>
-                                                <p class="">Ibu rumah tangga, 32 th</p>
-                                                <p class="">
-                                                    Adminnya super ramah, baik, sabar dlm melayani saya, 
-                                                    bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                    Harga murah, kualitas terbaik
-                                                </p>
-                                                <p>Mulai Rp 120.000</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="div-reviews-indi">
-                                            <div class="div-img-bfaf">
-                                                <img class="img-review-before" src="images/img-product-1.png" alt=""/>
-                                                <img class="img-review-after" src="images/img-product-2.png" alt="">
-                                            </div>
-                                            <div class="div-reviews-detail">
-                                                <h3>Diana Maharani</h3>
-                                                <p class="">Ibu rumah tangga, 32 th</p>
-                                                <p class="">
-                                                    Adminnya super ramah, baik, sabar dlm melayani saya, 
-                                                    bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                    Harga murah, kualitas terbaik
-                                                </p>
-                                                <p>Mulai Rp 120.000</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="div-reviews-indi">
-                                            <div class="div-img-bfaf">
-                                                <img class="img-review-before" src="images/img-product-1.png" alt=""/>
-                                                <img class="img-review-after" src="images/img-product-2.png" alt="">
-                                            </div>
-                                            <div class="div-reviews-detail">
-                                                <h3>Diana Maharani</h3>
-                                                <p class="">Ibu rumah tangga, 32 th</p>
-                                                <p class="">
-                                                    Adminnya super ramah, baik, sabar dlm melayani saya, 
-                                                    bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                    Harga murah, kualitas terbaik
-                                                </p>
-                                                <p>Mulai Rp 120.000</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                            <div class="div-slider-reviews">
-                                <div class="wrapper-img-reviews">
-                                    <img class="img-review-before" src="images/img-product-1.png" alt=""/>
-                                </div>
-                                <div class="wrapper-img-reviews">
-                                    <img class="img-review-after" src="images/img-product-2.png" alt="">
-                                </div>
-                                <div class="wrapper-img-reviews">
-                                    <img class="img-review-before" src="images/img-product-1.png" alt=""/>
-                                </div>
-                                <div class="wrapper-img-reviews">
-                                    <img class="img-review-after" src="images/img-product-2.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <section>
                 <div class="container">
                     <div class="carousel">
@@ -695,7 +605,7 @@ section {
 
     .wrap-left-review-1{
         font-family: 'Mulish', sans-serif;
-        padding: 12% 3% 18% 9%;
+        padding: 8% 3% 80px 9%;
         display: flex;
         flex-direction: column;
         color: #142362;

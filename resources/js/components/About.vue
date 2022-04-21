@@ -1,12 +1,11 @@
 <template>
     <div class="flex-column">
         <div class="d-flex flex-column justify-content-center">
-            <div class="d-md-flex flex-row justify-content-center segment-1">
+            <div class="d-md-flex flex-row justify-content-center">
                 <div class="col col-md-7 wrap-left-about-1">
                     <h1 class="h1-text text-uppercase">Tentang</h1>
                     <h1 class="h1-indi text-uppercase">INDI</h1>
-                    <button class="btn-get-start" @click="scrollToElement">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
-                </div>
+                    <button class="btn-get-start" @click="scrollToElement">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button></div>
                 <div class="col col-md-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
                         <img class="w-100" src="images/image-front-about.png" alt="image front about">
@@ -61,6 +60,7 @@ export default {
 }
 </script>
 
+
 <style scoped>
 @media screen and (min-width: 780px) {
     .segment-1{
@@ -79,17 +79,6 @@ export default {
         background-image: url("../../assets/background-catalog.png");
         background-size: contain;
         box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
-    }
-
-    .h1-text {
-        font-size: 120px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 250px;
-        font-weight: 900;
-        line-height: 175px;
     }
 
     .wrap-left-about-1 button {
@@ -266,7 +255,7 @@ export default {
 
     .wrap-left-about-1{
         font-family: 'Mulish', sans-serif;
-        padding: 70px 0 100px 20px;
+        padding: 30px 0 80px 20px;
         display: flex;
         flex-direction: column;
         color: #142362;
