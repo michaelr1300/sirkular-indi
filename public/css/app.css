@@ -69,7 +69,6 @@
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
 }
 
@@ -11287,6 +11286,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  overflow-x: hidden;
+}
+
 .active-menu {
   font-weight: 700;
 }
@@ -11344,14 +11347,6 @@ textarea.form-control-lg {
     font-weight: 900;
     line-height: 20vw;
   }
-
-  .segment-4 {
-    display: flex;
-    padding: 2% 7%;
-    height: 300px;
-    background-color: #fff;
-    align-items: center;
-  }
 }
 @media screen and (max-width: 780px) {
   .h1-text {
@@ -11363,13 +11358,5 @@ textarea.form-control-lg {
     font-size: 35vw;
     font-weight: 900;
     line-height: 25vw;
-  }
-
-  .segment-4 {
-    display: flex;
-    padding: 2% 7%;
-    height: 300px;
-    background-color: #fff;
-    align-items: center;
   }
 }

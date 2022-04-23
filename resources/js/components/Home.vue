@@ -291,12 +291,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 5% 0;
     }
 
     .wrapper-points{
         display: flex;
         justify-content: space-around;
-        padding: 5% 10px;
+        padding: 5% 10px 0 10px;
     }
 
     .div-point-indi{

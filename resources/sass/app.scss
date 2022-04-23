@@ -7,6 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    overflow-x: hidden;
+}
 
 .active-menu{
     font-weight: 700;
@@ -66,13 +69,6 @@
         line-height: 20vw;
     }
 
-    .segment-4{
-        display: flex;
-        padding: 2% 7%;
-        height: 300px;
-        background-color: #fff;
-        align-items: center;
-    }
 }
 
 
@@ -86,13 +82,5 @@
         font-size: 35vw;
         font-weight: 900;
         line-height: 25vw;
-    }
-
-    .segment-4{
-        display: flex;
-        padding: 2% 7%;
-        height: 300px;
-        background-color: #fff;
-        align-items: center;
     }
 }

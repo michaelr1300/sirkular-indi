@@ -20,7 +20,8 @@
                     <div class="div-section-3">
                         <h1>Produk Indi</h1>
                         <div class="row w-100">
-                          <div 
+                            <div id="product-indi-scroll"></div>
+                          <div
                             v-for="(item, index) in packages" 
                             :key="index"
                             class="col-12 col-md-4 div-products-info"
@@ -40,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row m-0 segment-4">
+            <div class="row m-0 segment-3">
                 <div class="col-12 col-md-9 left-segment-4">
                     <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>

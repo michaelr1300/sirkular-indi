@@ -237,6 +237,14 @@ export default {
         color: #142362;
     }
 
+    .segment-4{
+        background-color: #fff;
+        padding: 50px 100px;
+        height: 300px;
+        font-family: 'Mulish', sans-serif;
+        display: flex;
+        align-items: center;
+    }
 
 }
 
@@ -420,6 +428,18 @@ export default {
         font-weight: 800;
         font-size: 40px;
         color: #142362;
+    }
+
+    .segment-4{
+        background-color: #fff;
+        padding: 70px 20px;
+        font-family: 'Mulish', sans-serif;
+        display: flex;
+        align-items: center;
+    }
+
+    .left-segment-4 h2{
+        padding: 20px 0;
     }
 }
 </style>
