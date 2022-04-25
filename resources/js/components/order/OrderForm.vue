@@ -1,28 +1,33 @@
 <template>
   <div class="container-order segment">
-    <div class="col-lg-4">
+    <div class="d-none d-lg-block col-lg-4">
       <div class="wrap-left-order-1">
         <h1 class="h1-indi text-uppercase">Buat</h1>
         <h1 class="h1-text text-uppercase">Pesanan</h1>
       </div>
     </div>
-    <div class="col-lg-8 container-order-form">
-      <h3 class="mb-3">Buat Pesanan</h3>
-      <div class="step-wrapper">
-        <div class="div-progress-bar">
-          <ul class="progress-bar-order">
-            <li :class="[ isActive1 ]">Isi data diri</li>
-            <li :class="[ isActive2 ]">Isi detail pesanan</li>
-            <li :class="[ isActive3 ]">Pembayaran</li>
-            <li :class="[ isActive4 ]">Selesai</li>
-          </ul>
-        </div>
+    <div class="col-12 col-lg-8 px-0 px-md-2 container-order-form">
+      <h1 class="d-flex d-lg-none mx-1 px-4 mb-3 text-uppercase">Buat Pesanan</h1>
+      <div class="div-progress-bar d-none d-md-block" style="height: 50px">
+        <ul class="progress-bar-order">
+          <li :class="[ isActive1 ]">Isi data diri</li>
+          <li :class="[ isActive2 ]">Isi detail pesanan</li>
+          <li :class="[ isActive3 ]">Pembayaran</li>
+        </ul>
       </div>
-      <div id="personal-info" class="div-personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
-        <form class="row div-form-order">
+      <div id="personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
+        <form class="row div-form-order" @submit.prevent="submitUserDetail()">
           <div class="col-12 col-md-6 mb-3">
             <label for="name" class="form-label">Nama</label>
-            <input id="name" name="name" type="text" class="form-control" placeholder="Nama Anda" v-model="form.name" />
+            <input 
+              id="name" 
+              name="name" 
+              type="text" 
+              class="form-control"
+              placeholder="Nama Anda" 
+              required
+              v-model="form.name" 
+            />
           </div>
           <div class="col-12 col-md-6 mb-3">
             <label for="phone_number" class="form-label">Nomor WhatsApp</label>
@@ -32,6 +37,7 @@
               type="text" 
               class="form-control" 
               placeholder="Nomor WhatsApp"
+              required
               v-model="form.phone_number"
             >
           </div>
@@ -43,6 +49,7 @@
               type="text" 
               class="form-control" 
               placeholder="Alamat Anda"
+              required
               v-model="form.address"
             >
             <small>*lengkap dengan kecamatan, kabupaten, dan provinsi Anda</small>
@@ -60,191 +67,150 @@
               </label>
             </div>
           </div>
-          <button class="btn btn-primary" @click="submitUserDetail()">
-            Submit
-          </button>
+          <div class="col-12 mt-3">
+            <button 
+              type="submit"
+              class="btn btn-primary"
+            >
+              Selanjutnya
+            </button>
+          </div>
         </form>
       </div>
       <!-- Order Form 2 -->
       <div class="body-order-form" v-if="showOrderDetail">
-        <div class="wrapper-order-form">
+        <div class="px-2">
           <div class="div-p-title">
-            <p>Pilih paket yang anda inginkan</p>
+            <p>Pilih paket yang Anda inginkan</p>
           </div>
-          <div class="div-choose-packages">
-            <div class="each-package">
-              <div class="wrap-each-package">
-                <p class="packet-name">Paket 1</p>
-                <h2>Celup saja</h2>
-                <span class="packet-price">Rp 100.000</span>
-                <p class="p-text-bold">Warna yang mau dibeli:</p>
-                <div class="div-counter-color">
-                  <p>Merah</p>
-                  <!-- <input type="number" v-model="form.quantity[index]" name="quantity" pattern="[0-9]+"> -->
-                  <div class="div-inc-1">
-                    <div class="wrap-minus-sign" @click="onMinusInput('qt1')">   
-                        <button class="btn-minus"><h1> - </h1></button>
-                    </div>
-                    <div class="wrap-input-number">   
-                        <input id="number" class="input-number" v-model="this.qt1" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                    </div>
-                    <div class="wrap-plus-sign" @click="onPlusInput('qt1')">
-                        <button class="btn-plus"><h1> + </h1></button>
+          <div class="row mx-0">
+            <div 
+              v-for="(item, index) in packageList" 
+              :key="item.id" 
+              class="col-12 col-md-4 ps-0 pe-0 pe-md-4 mb-3"
+            >
+              <div class="each-package">
+                <div class="wrap-each-package w-100">
+                  <p class="packet-name">Paket {{ index + 1 }}</p>
+                  <h2>{{ item.name }}</h2>
+                  <div class="package-price mb-2">Rp {{ item.price }}</div>
+                  <div class="form-group mt-3" >
+                    <label :for="'package-' + item.id" class="form-label">Jumlah</label>
+                    <input 
+                      :id="'package-' + item.id" 
+                      name="quantity" 
+                      type="number" 
+                      min="0" 
+                      class="form-control" 
+                      v-model="form.quantity[index]"
+                      oninput="(validity.valid && value) || (value = 0)"
+                    />
+                  </div>    
+                  <div class="form-group mt-3" >
+                    <label :for="'description-' + item.id" class="form-label">Catatan</label>
+                    <textarea :id="'description-' + item.id" name="description" type="text" class="form-control" v-model="form.description[index]"></textarea>
+                  </div>
+                  <!-- <p class="p-text-bold">Warna yang mau dibeli:</p>
+                  <div class="div-counter-color">
+                    <p>Merah</p>
+                    <div class="div-inc-1">
+                      <div class="wrap-minus-sign" @click="onMinusInput('qt1')">   
+                          <button class="btn-minus"><h1> - </h1></button>
+                      </div>
+                      <div class="wrap-input-number">   
+                          <input id="number" class="input-number" v-model="qt1" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
+                      </div>
+                      <div class="wrap-plus-sign" @click="onPlusInput('qt1')">
+                          <button class="btn-plus"><h1> + </h1></button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="div-counter-color">
-                  <p>Kuning</p>
-                  <div class="div-inc-1">
-                    <div class="wrap-minus-sign" @click="onMinusInput('qt2')">   
-                        <button class="btn-minus"><h1> - </h1></button>
-                    </div>
-                    <div class="wrap-input-number">   
-                        <input id="number" class="input-number" v-model="this.qt2" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                    </div>
-                    <div class="wrap-plus-sign" @click="onPlusInput('qt2')">
-                        <button class="btn-plus"><h1> + </h1></button>
-                    </div>
-                  </div>
-                </div>
-                <div class="div-counter-color">
-                  <p>Hijau</p>
-                  <div class="div-inc-1">
-                    <div class="wrap-minus-sign" @click="onMinusInput('qt3')">   
-                        <button class="btn-minus"><h1> - </h1></button>
-                    </div>
-                    <div class="wrap-input-number">   
-                        <input id="number" class="input-number" v-model="this.qt3" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                    </div>
-                    <div class="wrap-plus-sign" @click="onPlusInput('qt3')">
-                        <button class="btn-plus"><h1> + </h1></button>
+                  <div class="div-counter-color">
+                    <p>Kuning</p>
+                    <div class="div-inc-1">
+                      <div class="wrap-minus-sign" @click="onMinusInput('qt2')">   
+                          <button class="btn-minus"><h1> - </h1></button>
+                      </div>
+                      <div class="wrap-input-number">   
+                          <input id="number" class="input-number" v-model="qt2" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
+                      </div>
+                      <div class="wrap-plus-sign" @click="onPlusInput('qt2')">
+                          <button class="btn-plus"><h1> + </h1></button>
+                      </div>
                     </div>
                   </div>
+                  <div class="div-counter-color">
+                    <p>Hijau</p>
+                    <div class="div-inc-1">
+                      <div class="wrap-minus-sign" @click="onMinusInput('qt3')">   
+                          <button class="btn-minus"><h1> - </h1></button>
+                      </div>
+                      <div class="wrap-input-number">   
+                          <input id="number" class="input-number" v-model="qt3" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
+                      </div>
+                      <div class="wrap-plus-sign" @click="onPlusInput('qt3')">
+                          <button class="btn-plus"><h1> + </h1></button>
+                      </div>
+                    </div>
+                  </div> -->
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="wrap-note-package">
-            <div class="note-package-1">
-              <p>Catatan</p>
-              <div>
-                <input 
-                id="address" 
-                name="address" 
-                type="text" 
-                class="form-control" 
-                placeholder="Catatan"
-                v-model="form.address"
-                />
-              </div>
-            </div>
-            <div class="note-package-1">
-              <p>Catatan</p>
-              <div>
-                <input 
-                id="address" 
-                name="address" 
-                type="text" 
-                class="form-control" 
-                placeholder="Catatan"
-                v-model="form.address"
-                />
-              </div>
-            </div>
-            <div class="note-package-1">
-              <p>Catatan</p>
-              <div>
-                <input 
-                id="address" 
-                name="address" 
-                type="text" 
-                class="form-control" 
-                placeholder="Catatan"
-                v-model="form.address"
-                />
               </div>
             </div>
           </div>
-          <div class="div-button">
+          <div class="col-12 mt-3 package-price">
+            Total: Rp {{ totalPrice }}
+          </div>
+          <div class="col-12 mt-3">
             <button class="btn btn-primary" @click="backToUserDetail()">
               Kembali
             </button>
-            <button class="btn btn-primary" @click="nextPagePayment()">
-              Selanjutnya
+            <button class="btn btn-primary" @click="createOrder()">
+              Buat Pesanan
             </button>
           </div>
         </div>
       </div>
       <!-- Payment Form -->
       <div class="body-payment-form" v-if="showPayment">
-        <div class="wrapper-payment-form">
+        <div class="wrapper-payment-form px-2">
           <div>
-            <p>Silahkan melakukan pembayaran melalui:</p>
+            <p>Silahkan melakukan pembayaran sebesar</p>
+            <h2 class="package-price" style="font-size: 24px !important">Rp {{ totalPrice }}</h2>
           </div>
-          <div>
+          <div class="mt-4">
             <div>
-              <p>Rekening pembayaran 1</p>
               <div>
-                <div>
-                  <img class="img-bca" src="images/bca.png" alt="bca account">
-                </div>
-                <div>
-                  <span>1039494950</span>
-                  <span>an. PT. indigo Indonesia</span>
-                </div>
+                <img class="img-bca" src="images/bca.png" alt="bca account">
               </div>
-            </div>
-            <div>
-              <p>Rekening pembayaran 2</p>
-              <div>
-                <div>
-                  <img class="img-mandiri" src="images/mandiri.png" alt="mandiri account">
-                </div>
-                <div>
-                  <span>1039494950</span>
-                  <span>an. PT. indigo Indonesia</span>
-                </div>
+              <div class="mt-2">
+                <div><b>103 949 4950</b></div>
+                <div>an. PT. indigo Indonesia</div>
               </div>
             </div>
           </div>
-          <div>
-            <p>Unggah bukti pembayaran disini</p>
-            <button>Add new file</button>
-          </div>
-          <div class="div-button">
-            <button class="btn btn-primary" @click="backToOrderDetail()">
-              Kembali
-            </button>
-            <button class="btn btn-primary" @click="nextPageFinish()">
-              Selanjutnya
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finish Form -->
-      <div class="body-finish-form" v-if="showFinish">
-        <div class="wrapper-finish-form">
-          <img src="" alt="">
-          <h2>Selamat!</h2>
-          <p>Pesanan anda sedang kami proses. Admin kami akan segera menghubungi anda.</p>
-
-          <div class="div-button">
-            <button class="btn btn-primary" @click="nextToHome()">
-              ke Beranda
+          <div class="col-12 col-md-4 mt-4">
+            <div class="mb-3">
+              <label  
+                class="btn btn-primary w-100"
+              >
+                <input 
+                  id="payment_photo" 
+                  name="payment_photo"
+                  ref="payment_photo"
+                  accept="image/*"
+                  class="form-control" 
+                  style="display: none"
+                  type="file" 
+                  @change="uploadPayment()"
+                >
+                Upload Bukti Bayar
+              </label>
+            </div>
+            <button class="btn btn-outline-primary w-100" onclick="window.location.href = '/'">
+              Kembali ke Beranda
             </button>
           </div>
         </div>
-      </div>
-    
-      <div> <!--id="order-detail" class="" aria-labelledby="order-detail-tab">-->
-        <div v-for="(item, index) in packageList" :key="item.id" class="col mb-3">
-          <label :for="'package-' + item.id" class="form-label">{{ item.name }}</label>
-          <input :id="'package-' + item.id" name="quantity" type="number" min="0" class="form-control" v-model="form.quantity[index]"/>
-          <label :for="'description-' + item.id" class="form-label">Keterangan</label>
-          <input :id="'description-' + item.id" name="description" type="text" class="form-control" v-model="form.description[index]"/>
-        </div>
-        
       </div>
     </div>
   </div>
@@ -268,6 +234,20 @@ export default {
     this.form.address = this.user.address;
     this.form.package_id = this.packageList.map(val => val.id);
     this.form.quantity = this.packageList.map(val => 0);
+    this.form.description = this.packageList.map(val => '');
+  },
+  computed: {
+    totalItem() {
+      return this.form.quantity.reduce((sum, n) => sum + parseInt(n), 0);
+    },
+    totalPrice() {
+      let totalPrice = 0;
+      const price = this.form.package_id.map((id) => this.packageList.filter((item) => item.id == id)[0].price ?? 0);
+      this.form.quantity
+        .forEach((qty, index) => totalPrice += qty * price[index]
+      )
+      return totalPrice; 
+    }
   },
   data() {
     return {
@@ -280,9 +260,8 @@ export default {
         quantity: [],
         description: [],
       },
-      qt1: 0,
-      qt2: 0,
-      qt3: 0,
+      errors: {},
+      orderId: null,
       showUserDetail: true,
       showOrderDetail: false,
       showPayment: false,
@@ -295,13 +274,30 @@ export default {
   },
   methods: {
     async createOrder() {
-      try {
-        let response = await axios.post("/order", this.form);
-        // openNextForm(evt, cityName);
-        alert("Order Created");
-      } catch (error) {
-        console.log(error.response);
+      if (this.totalItem < 1) {
+        alert('Silakan pilih minimal 1 item!')
       }
+      else {
+        try {
+          let response = await axios.post("/order", this.form);
+          this.nextPagePayment();
+          this.orderId = response.data.order_id;
+        } catch (error) {
+          console.log(error.response);
+        }
+      }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+      return false;
+    },
+    getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+      return "";
     },
     openNextForm(evt, cityName) {
       var i, tabcontent, tablinks;
@@ -332,16 +328,6 @@ export default {
       this.showFinish = false;
       this.showUserDetail = true;
     },
-    backToOrderDetail(){
-      this.isActive1 = 'done';
-      this.isActive2 = 'active';
-      this.isActive3 = '';
-      this.isActive4 = '';
-      this.showUserDetail = false;
-      this.showPayment = false;
-      this.showFinish = false;
-      this.showOrderDetail = true;
-    },
     submitUserDetail(){
       this.isActive1 = 'done';
       this.isActive2 = 'active';
@@ -361,16 +347,24 @@ export default {
       this.showFinish = false;
       this.showPayment = true;
     },
-    nextPageFinish(){
-      this.isActive3 = 'done';
-      this.isActive4 = 'active';
-      this.showUserDetail = false;
-      this.showOrderDetail = false;
-      this.showPayment = false;
-      this.showFinish = true;
-    },
-    nextToHome(){
-      window.location.href = "/";
+    async uploadPayment() {
+      var payment_photo = this.$refs.payment_photo.files[0];
+      let formData = new FormData();
+      formData.append("payment_photo", payment_photo);
+      try {
+        let response = await axios.post(
+          `/order/${this.orderId}/updatePayment`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        alert("Bukti Transfer Terupload");
+      } catch (error) {
+        console.log(error.response);
+      }
     }
   },
 };
@@ -413,11 +407,11 @@ export default {
     line-height: 175px;
   }
 
-  .div-progress-bar{
+  /* .div-progress-bar{
     width: 1000px;
     position: absolute;
     z-index: 1;
-  }
+  } */
 
   .progress-bar-order{
     counter-reset: step;
@@ -506,11 +500,6 @@ export default {
   }
 
   /* ORDER FORM 1 */
-
-  .div-personal-info{
-    margin-top: 100px;
-  }
-
   .div-form-order{
     padding: 10px 30px;
   }
@@ -518,31 +507,17 @@ export default {
   /* ORDER FORM 2 */
 
   .body-order-form{
-    margin-top: 100px;
     padding: 0 20px 20px 20px;
 }
   
-  .wrapper-order-form{
-
-  }
-  
-  .div-p-title{
-
-  }
-
   .div-p-title p{
     font-family: 'Mulish', sans-serif;
     font-size: 16px;
   }
 
-  .div-choose-packages{
-    
-  }
-
   .each-package{
     display: flex;
     justify-content: center;
-    width: 250px;
     border: 2px solid #142362;
     border-radius: 20px;
   }
@@ -564,7 +539,7 @@ export default {
     font-family: 'Mulish', sans-serif;
   }
 
-  .wrap-each-package span{
+  .package-price {
     font-size: 16px;
     font-weight: 700;
     font-family: 'Mulish', sans-serif;
@@ -628,10 +603,6 @@ export default {
     height: 48px;
   }
   
-  .wrap-input-number{
-
-  }
-  
   .input-number{
     width: 100px;
     background-color: transparent;
@@ -641,10 +612,6 @@ export default {
     height:48px;
     padding-top: 10px;
     resize: none;
-  }
-  
-  .wrap-plus-sign{
-
   }
   
   .btn-plus{
@@ -659,14 +626,6 @@ export default {
   /* Payment Form */
 
   .body-payment-form{
-    margin-top: 100px;
-    padding: 0 20px 20px 20px;
-  }
-
-  /* Finish Form */
-
-  .body-finish-form{
-    margin-top: 100px;
     padding: 0 20px 20px 20px;
   }
 </style>

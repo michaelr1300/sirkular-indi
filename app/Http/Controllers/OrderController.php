@@ -73,12 +73,14 @@ class OrderController extends Controller
             'buyer_phone_number' => $request->phone_number,
             'status' => 'waiting',
         ]);
+        $order_id = $order->id;
+
         for ($index=0; $index < count($request->package_id); $index++) { 
             if ($request->quantity[$index]) {
                 $price = Package::find($request->package_id[$index])->price;
                 
                 OrderDetail::create([
-                    'order_id' => $order->id,
+                    'order_id' => $order_id,
                     'package_id' => $request->package_id[$index],
                     'quantity' => $request->quantity[$index],
                     'price' => $price,
@@ -86,8 +88,9 @@ class OrderController extends Controller
                 ]);
             }
         }
-
-        return redirect()->action([OrderController::class, 'create']);
+        return response()->json([
+            'order_id' => $order_id,
+        ]);
     }
 
     /**
