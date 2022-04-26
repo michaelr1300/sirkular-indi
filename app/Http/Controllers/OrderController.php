@@ -78,10 +78,12 @@ class OrderController extends Controller
         for ($index=0; $index < count($request->package_id); $index++) { 
             if ($request->quantity[$index]) {
                 $price = Package::find($request->package_id[$index])->price;
-                
+                $name = Package::find($request->package_id[$index])->name;
+
                 OrderDetail::create([
                     'order_id' => $order_id,
                     'package_id' => $request->package_id[$index],
+                    'package_name' => $name,
                     'quantity' => $request->quantity[$index],
                     'price' => $price,
                     'description' => $request->description[$index],

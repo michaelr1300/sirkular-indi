@@ -7,8 +7,8 @@
       </div>
     </div>
     <div class="col-12 col-md-9">
-      <div class="mt-4 me-4">
-        <h1 class="text-uppercase font-weight-bold ps-4">Daftar Pesanan</h1>
+      <div class="mt-4 px-2 px-md-4">
+        <h1 class="text-uppercase font-weight-bold">Daftar Pesanan</h1>
         <order-list :orders="orders" :user="user"></order-list>
       </div>
     </div>

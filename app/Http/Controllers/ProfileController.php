@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
+use App\Models\OrderDetail;
 
 class ProfileController extends Controller
 {
@@ -67,6 +68,7 @@ class ProfileController extends Controller
         
         foreach ($orders as $order) {
             $order->total = 0;
+            $order->items = OrderDetail::where('order_id', $order->id)->get();
         }
         return view('purchase_history')->with('orders',$orders);
     }

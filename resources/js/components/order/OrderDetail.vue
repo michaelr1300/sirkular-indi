@@ -1,89 +1,201 @@
 <template>
-  <div>
-    <div class="mb-3">
-      <h3>Informasi Pesanan</h3>
-      <table class="table-text">
-        <tbody>
-          <tr style="height:2rem">
-            <td class="font-weight-bold text-nowrap">Nama</td>
-            <td>:</td>
-            <td class="w-100 text-nowrap">{{ order.buyer_name }}</td>
-          </tr>
-          <tr style="height:2rem">
-            <td class="font-weight-bold text-nowrap">Alamat</td>
-            <td>:</td>
-            <td class="w-100 text-nowrap">{{ order.buyer_address }}</td>
-          </tr>
-          <tr style="height:2rem">
-            <td class="font-weight-bold text-nowrap">Nomor Telepon</td>
-            <td>:</td>
-            <td class="w-100 text-nowrap">{{ order.buyer_phone_number }}</td>
-          </tr>
-          <tr/>
-          <tr style="height:2rem">
-            <td class="font-weight-bold text-nowrap">Status</td>
-            <td>:</td>
-            <td class="w-100 text-nowrap">{{ order.status }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <h5>Bukti Bayar</h5>
-      <div
-        id="payment"
-        v-if="!order.payment_photo"
+  <div class="accordion-item">
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        :data-bs-target="'#order-'+order.id"
       >
-        <div class="mb-3">
-          <label for="payment_photo" class="form-label">Upload Bukti Bayar</label>
-          <input 
-            id="payment_photo" 
-            name="payment_photo"
-            ref="payment_photo"
-            accept="image/*"
-            class="form-control" 
-            type="file" 
-          >
+        <div class="col-6">
+          <b>{{ order.buyer_name }}</b>
         </div>
-        <button  
+        <div class="col-3">
+          {{ order.status }}
+        </div>
+        <div class="col-2">
+          Rp {{ totalPrice }}
+        </div>
+      </button>
+    </h2>
+    <div
+      :id="'order-'+order.id"
+      class="accordion-collapse collapse"
+    >
+      <div class="accordion-body">
+        <div class="d-md-flex flex-row-reverse">
+          <div class="col-12 col-md-6">
+            <div
+              v-if="!order.payment_photo"
+              id="payment"
+            >
+              <div>
+                Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
+                <br>
+                Silakan lakukan pembayaran ke rekening
+              </div>
+              <div class="my-1">
+                <div class="img img-fluid">
+                  <img
+                    class="img-bca"
+                    src="images/bca.png"
+                    alt="bca account"
+                  >
+                </div>
+                <div class="mt-2">
+                  <div><b>103 949 4950</b></div>
+                  <div>an. PT. indigo Indonesia</div>
+                </div>
+              </div>
+              <div class="d-flex mt-2 col-12 col-md-8">
+                <label
+                  class="btn btn-primary w-100 mx-auto"
+                >
+                  <input
+                    id="payment_photo"
+                    ref="payment_photo"
+                    name="payment_photo"
+                    accept="image/*"
+                    class="form-control"
+                    style="display: none"
+                    type="file"
+                    @change="uploadPayment()"
+                  >
+                  Upload Bukti Bayar
+                </label>
+              </div>
+            </div>
+            <div v-if="order.payment_photo">
+              <img
+                :src="'/storage/' + order.payment_photo"
+                alt="payment-proof"
+                style="max-width:200px"
+              >
+            </div>
+          </div>
+          <hr class="d-block d-sm-none">
+          <div class="col-12 col-md-6 mb-3 table-responsive">
+            <table class="table-text">
+              <tbody>
+                <tr style="height:2rem">
+                  <td class="font-weight-bold text-nowrap">
+                    Status
+                  </td>
+                  <td>
+                    <div class="mx-2">
+                      :
+                    </div>
+                  </td>
+                  <td class="w-100 text-nowrap">
+                    {{ order.status }}
+                  </td>
+                </tr>
+                <tr style="height:2rem">
+                  <td class="font-weight-bold text-nowrap">
+                    Nama
+                  </td>
+                  <td>
+                    <div class="mx-2">
+                      :
+                    </div>
+                  </td>
+                  <td class="w-100 text-nowrap">
+                    {{ order.buyer_name }}
+                  </td>
+                </tr>
+                <tr style="height:2rem">
+                  <td class="font-weight-bold text-nowrap">
+                    Nomor Telepon
+                  </td>
+                  <td>
+                    <div class="mx-2">
+                      :
+                    </div>
+                  </td>
+                  <td class="w-100 text-nowrap">
+                    {{ order.buyer_phone_number }}
+                  </td>
+                </tr>
+                <tr style="height:2rem">
+                  <td class="font-weight-bold text-nowrap">
+                    Alamat
+                  </td>
+                  <td>
+                    <div class="mx-2">
+                      :
+                    </div>
+                  </td>
+                  <td class="w-100 text-nowrap">
+                    {{ order.buyer_address }}
+                  </td>
+                </tr>
+                <tr />
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h3 class="text-header mt-3 mb-2">
+          Detail Produk
+        </h3>
+        <table class="table table-striped">
+          <thead style="font-size: 18px">
+            <tr>
+              <th scope="col">
+                Produk
+              </th>
+              <th scope="col">
+                Harga
+              </th>
+              <th scope="col">
+                Jumlah
+              </th>
+              <th scope="col">
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(item, index) in order.items"
+              :key="index"
+              style="height:2rem"
+            >
+              <td>
+                <div style="font-size: 16px">
+                  <b>{{ item.package_name }}</b>
+                </div>
+                <div>
+                  {{ item.description }}
+                </div>
+              </td>
+              <td>Rp {{ item.price }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>Rp {{ item.price * item.quantity }}</td>
+            </tr>
+            <tr>
+              <td
+                colspan="3"
+                class="text-end font-weight-bold"
+              >
+                Total
+              </td>
+              <td class="font-weight-bold">
+                Rp {{ totalPrice }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button
+          v-if="order.status !== 'finish' && user.is_admin"
           class="btn btn-primary"
-          @click="uploadPayment()"
+          @click="updateStatus()"
         >
-          Upload Bukti Bayar
+          {{ nextStatus }} Pesanan
         </button>
       </div>
-      <div v-if="order.payment_photo">
-        <img :src="'/storage/' + order.payment_photo" alt="payment-proof" style="max-width:200px">
-      </div>
     </div>
-    <h3 class="mb-3">Daftar Pesanan</h3>
-    <table class="table table-striped">
-      <tbody>
-        <tr style="height:2rem">
-          <td>item 1</td>
-          <td>1 biji</td>
-          <td>harga</td>
-          <td>deskripsi</td>
-        </tr>
-        <tr style="height:2rem">
-          <td class="font-weight-bold text-nowrap">item 2</td>
-          <td>1 biji</td>
-          <td class="w-100 text-nowrap">harga</td>
-          <td class="w-100 text-nowrap">deskripsi</td>
-        </tr>
-        <tr style="height:2rem">
-          <td class="font-weight-bold text-nowrap">item 3</td>
-          <td>1 biji</td>
-          <td class="w-100 text-nowrap">harga</td>
-          <td class="w-100 text-nowrap">deskripsi</td>
-        </tr>
-      </tbody>
-    </table>
-    <button  
-      v-if="order.status !== 'finish' && user.is_admin"
-      class="btn btn-primary"
-      @click="updateStatus()"
-    >
-      {{ nextStatus }} Pesanan
-    </button>
   </div>
 </template>
 
@@ -92,58 +204,59 @@ export default {
   props: {
     user: {
       type: Object,
-      default: null
+      default: null,
     },
     order: {
       type: Object,
-      default: null
+      default: null,
     },
   },
   computed: {
     nextStatus() {
       if (this.order.status == 'waiting') {
-          return 'Konfirmasi';
+        return 'Konfirmasi';
       }
       if (this.order.status == 'confirm') {
-          return 'Proses';
+        return 'Proses';
       }
       if (this.order.status == 'process') {
-          return 'Selesaikan';
+        return 'Selesaikan';
       }
-    }
+    },
+    totalPrice() {
+      let totalPrice = 0;
+      this.order.items.forEach((item) => totalPrice += item.price * item.quantity);
+      return totalPrice;
+    },
   },
   methods: {
     async updateStatus() {
       try {
-        let response = await axios.post(`/order/${this.order.id}/updateStatus`);
+        const response = await axios.post(`/order/${this.order.id}/updateStatus`);
         return location.reload();
       } catch (error) {
         console.log(error.response);
       }
     },
     async uploadPayment() {
-      var payment_photo = this.$refs.payment_photo.files[0];
-      let formData = new FormData();
-      formData.append("payment_photo", payment_photo);
+      const payment_photo = this.$refs.payment_photo.files[0];
+      const formData = new FormData();
+      formData.append('payment_photo', payment_photo);
       try {
-        let response = await axios.post(
+        const response = await axios.post(
           `/order/${this.order.id}/updatePayment`,
           formData,
           {
             headers: {
-              "Content-Type": "multipart/form-data",
+              'Content-Type': 'multipart/form-data',
             },
-          }
+          },
         );
-        alert("Bukti Transfer Terupload");
+        alert('Bukti Transfer Terupload');
       } catch (error) {
         console.log(error.response);
       }
-    }
+    },
   },
 };
 </script>
-
-<style>
-
-</style>
