@@ -72,6 +72,9 @@
                                     <a class="dropdown-item" href="{{ route('profile.index') }}">
                                         Profil
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('purchase_history') }}">
+                                        Riwayat Transaksi
+                                    </a>
                                     @if (Auth::user()->is_admin)
                                     <a class="dropdown-item" href="{{ route('dashboard.order') }}">
                                        Dashboard

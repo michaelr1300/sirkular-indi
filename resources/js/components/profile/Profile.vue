@@ -1,9 +1,9 @@
 <template>
   <div class="d-md-flex flex-row justify-content-center" style="min-height: 100vh">
     <div class="d-none d-md-block col-md-3 profile-side" style="height: inherit">
-      <h1 class="text-uppercase mt-5 ms-5" style="font-size: 5vw; font-weight: 900;">Profil</h1>
+      <h1 class="text-uppercase mt-4 ms-5" style="font-size: 5vw; font-weight: 900;">Profil</h1>
     </div>
-    <div class="col-12 col-md-9 mx-4 mt-5">
+    <div class="col-12 col-md-9 mx-4 mt-3">
       <h1 class="text-uppercase font-weight-bold">Informasi Akun</h1>
       <div class="d-flex flex-column my-3">
         <div class="d-flex mb-3">
@@ -228,26 +228,15 @@
           </div>
       </div>
       </div>
-      <hr class="my-4">
-      <div class="mt-4 me-4">
-        <h1 class="text-uppercase font-weight-bold">Daftar Pesanan</h1>
-        <order-list :orders="orders" :user="user"></order-list>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import OrderList from '../order/OrderList.vue';
 export default {
-  components: { OrderList },
   props: {
     user: {
       type: Object,
-      default: null, 
-    },
-    orders: {
-      type: Array,
       default: null, 
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-4">
     <table class="table table-responsive">
       <thead>
         <tr>
@@ -7,7 +7,7 @@
           <th scope="col">Total Harga</th>
           <th scope="col">Status</th>
           <th scope="col">Bukti Transfer</th>
-          <th scope="col">Detail</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -22,9 +22,7 @@
             <td>{{ item.total }}</td>
             <td>{{ item.status }}</td>
             <td>{{ item.receipt }}</td>
-            <td>
-              <a class="btn btn-primary" :href="'/order/' + item.id">Detail</a>
-            </td>
+            <td><font-awesome-icon class="icon-footer" icon="fab fa-chevron-down"/></td>
           </tr>
           <tr :key="'detail-'+item.id">
             <td colspan="5" class="py-0">

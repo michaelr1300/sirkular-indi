@@ -60,4 +60,14 @@ class ProfileController extends Controller
             'success' => true
         ]);
     }
+    
+    public function purchaseHistory()
+    {
+        $orders = Order::where('user_id', Auth::user()->id)->get();
+        
+        foreach ($orders as $order) {
+            $order->total = 0;
+        }
+        return view('purchase_history')->with('orders',$orders);
+    }
 }
