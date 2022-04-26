@@ -1,21 +1,21 @@
 <template>
-  <div class="accordion-item">
+  <div class="card mb-3">
     <h2
       class="accordion-header"
     >
       <button
-        class="accordion-button collapsed"
+        class="accordion-button collapsed px-2 px-md-3"
         type="button"
         data-bs-toggle="collapse"
         :data-bs-target="'#order-'+order.id"
       >
-        <div class="col-6">
+        <div class="col-4">
           <b>{{ order.buyer_name }}</b>
         </div>
-        <div class="col-3">
-          {{ order.status }}
+        <div class="col-4">
+          <order-status-badge :status="order.status" />
         </div>
-        <div class="col-2">
+        <div class="col-3">
           Rp {{ totalPrice }}
         </div>
       </button>
@@ -24,74 +24,77 @@
       :id="'order-'+order.id"
       class="accordion-collapse collapse"
     >
-      <div class="accordion-body">
+      <div class="accordion-body px-2 px-md-3">
+        <div
+          v-if="!order.payment_photo"
+          class="mb-3 text-center"
+        >
+          <div>
+            Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
+            <br>
+            Silakan lakukan pembayaran ke rekening
+          </div>
+          <div class="my-1">
+            <div class="img img-fluid">
+              <img
+                class="img-bca"
+                src="images/bca.png"
+                alt="bca account"
+              >
+            </div>
+            <div class="mt-2">
+              <div><b>103 949 4950</b></div>
+              <div>an. PT. indigo Indonesia</div>
+            </div>
+          </div>
+          <div class="d-flex mt-2">
+            <label
+              class="btn btn-primary w-50 mx-auto"
+            >
+              <input
+                id="payment_photo"
+                ref="payment_photo"
+                name="payment_photo"
+                accept="image/*"
+                class="form-control"
+                style="display: none"
+                type="file"
+                @change="uploadPayment()"
+              >
+              Upload Bukti Bayar
+            </label>
+          </div>
+          <hr>
+        </div>
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
-            <div
-              v-if="!order.payment_photo"
-              id="payment"
-            >
-              <div>
-                Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
-                <br>
-                Silakan lakukan pembayaran ke rekening
-              </div>
-              <div class="my-1">
-                <div class="img img-fluid">
-                  <img
-                    class="img-bca"
-                    src="images/bca.png"
-                    alt="bca account"
-                  >
-                </div>
-                <div class="mt-2">
-                  <div><b>103 949 4950</b></div>
-                  <div>an. PT. indigo Indonesia</div>
-                </div>
-              </div>
-              <div class="d-flex mt-2 col-12 col-md-8">
-                <label
-                  class="btn btn-primary w-100 mx-auto"
-                >
-                  <input
-                    id="payment_photo"
-                    ref="payment_photo"
-                    name="payment_photo"
-                    accept="image/*"
-                    class="form-control"
-                    style="display: none"
-                    type="file"
-                    @change="uploadPayment()"
-                  >
-                  Upload Bukti Bayar
-                </label>
-              </div>
-            </div>
-            <div v-if="order.payment_photo">
-              <img
-                :src="'/storage/' + order.payment_photo"
-                alt="payment-proof"
-                style="max-width:200px"
+            <div class="d-flex justify-content-between justify-content-md-end">
+              <order-detail-payment
+                v-if="order.payment_photo"
+                :id="order.id"
+                :photo-path="order.payment_photo"
+                class="me-3"
+              />
+              <button
+                v-else
+                class="btn btn-primary me-3"
+                disabled
               >
+                Lihat Bukti Bayar
+              </button>
+              <button
+                v-if="order.status !== 'finish' && user.is_admin"
+                class="btn btn-primary"
+                @click="updateStatus()"
+              >
+                {{ nextStatus }} Pesanan
+              </button>
             </div>
           </div>
           <hr class="d-block d-sm-none">
           <div class="col-12 col-md-6 mb-3 table-responsive">
             <table class="table-text">
               <tbody>
-                <tr style="height:2rem">
-                  <td class="font-weight-bold text-nowrap">
-                    Status
-                  </td>
-                  <td>
-                    <div class="mx-2">
-                      :
-                    </div>
-                  </td>
-                  <td class="w-100 text-nowrap">
-                    {{ order.status }}
-                  </td>
-                </tr>
                 <tr style="height:2rem">
                   <td class="font-weight-bold text-nowrap">
                     Nama
@@ -187,20 +190,17 @@
             </tr>
           </tbody>
         </table>
-        <button
-          v-if="order.status !== 'finish' && user.is_admin"
-          class="btn btn-primary"
-          @click="updateStatus()"
-        >
-          {{ nextStatus }} Pesanan
-        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import OrderDetailPayment from './OrderDetailPayment.vue';
+import OrderStatusBadge from './OrderStatusBadge.vue';
+
 export default {
+  components: { OrderStatusBadge, OrderDetailPayment },
   props: {
     user: {
       type: Object,
@@ -256,6 +256,9 @@ export default {
       } catch (error) {
         console.log(error.response);
       }
+    },
+    showPayment(photoPath) {
+
     },
   },
 };

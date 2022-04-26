@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="accordion">
+    <div>
       <order-detail 
         v-for="item in orders"
         :key="item.id"
