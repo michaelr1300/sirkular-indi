@@ -52727,7 +52727,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-5 p-0" }, [
       _c("div", { staticClass: "img-wrapper-1" }, [
         _c("img", {
-          staticClass: "img-front-catalog",
+          staticClass: "img-front-catalog w-100",
           attrs: { src: "images/img-front-catalog.png", alt: "img catalog" },
         }),
       ]),

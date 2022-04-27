@@ -22,7 +22,7 @@
         <div class="col-lg-5 p-0">
           <div class="img-wrapper-1">
             <img
-              class="img-front-catalog"
+              class="img-front-catalog w-100"
               src="images/img-front-catalog.png"
               alt="img catalog"
             >
