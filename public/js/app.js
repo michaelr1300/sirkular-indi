@@ -23669,6 +23669,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     scrollToElement: function scrollToElement() {
@@ -52473,21 +52483,30 @@ var render = function () {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("div", { staticClass: "row m-0 segment-4" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-3 text-center" }, [
+      _c("div", { staticClass: "div-section-3" }, [
+        _c("div", { staticClass: "d-md-flex my-5" }, [
+          _vm._m(2),
+          _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "btn-get-start" },
+            "div",
+            { staticClass: "col-12 col-md-3 mt-3 mt-md-0 text-center" },
             [
-              _vm._v("Pesan sekarang "),
-              _c("font-awesome-icon", {
-                staticClass: "icon-arrow-right",
-                attrs: { icon: "fa-solid fa-arrow-right" },
-              }),
-            ],
-            1
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-get-start my-auto",
+                  attrs: { href: "/order" },
+                },
+                [
+                  _vm._v("\n                Pesan sekarang "),
+                  _c("font-awesome-icon", {
+                    staticClass: "icon-arrow-right",
+                    attrs: { icon: "fa-solid fa-arrow-right" },
+                  }),
+                ],
+                1
+              ),
+            ]
           ),
         ]),
       ]),

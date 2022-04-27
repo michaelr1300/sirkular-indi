@@ -37,13 +37,23 @@
                   <img class="img img-fluid mx-auto" src="images/img-about-par.png" alt="image about paragraph">
               </div>
             </div>
-            <div class="row m-0 segment-4">
+            <div class="div-section-3">
+              <div class="d-md-flex my-5">
                 <div class="col-12 col-md-9 left-segment-4">
-                    <h2>Tertarik untuk menggunakan jasa kami?</h2>
+                  <h2>Tertarik untuk menggunakan jasa kami?</h2>
                 </div>
-                <div class="col-12 col-md-3 text-center">
-                    <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
+                <div class="col-12 col-md-3 mt-3 mt-md-0 text-center">
+                  <a
+                    class="btn btn-get-start my-auto"
+                    href="/order"
+                  >
+                    Pesan sekarang <font-awesome-icon
+                      class="icon-arrow-right"
+                      icon="fa-solid fa-arrow-right"
+                    />
+                  </a>
                 </div>
+              </div>
             </div>
         </div>
     </div>
