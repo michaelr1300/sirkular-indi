@@ -1,18 +1,15 @@
 <template>
     <div class="flex-column">
-        <div class="row justify-content-center div-content-home">
-            <div class="segment segment-1 flex-row row justify-content-center">
-                <!-- <div class="col-lg-7 batik-cover-background px-0"> -->
-                    <div class="col-lg-7 wrap-left-home-1">
-                        <h1 class="h1-text text-uppercase">Re-produksi Batikmu</h1>
-                        <h1 class="h1-text text-uppercase">Dengan pewarna alami</h1>
-                        <h1 class="h1-indi text-uppercase">INDI</h1>
-                        <h3 class="h3-sub-text">Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI</h3>
-                        <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                        <img class="ornament-home" src="images/ornament-home.png" alt="ornament home"/>
-                    </div>
-                <!-- </div> -->
-                <div class="col-lg-5 wrap-right-home-1">
+        <div class="justify-content-center">
+            <div class="d-md-flex segment-1 flex-row justify-content-center px-0">
+                <div class="col-lg-7 wrap-left-home-1 py-5">
+                    <h1 class="h1-text text-uppercase" style="font-size: 5vw">Re-produksi Batikmu</h1>
+                    <h1 class="h1-text text-uppercase" style="font-size: 5vw">Dengan pewarna alami</h1>
+                    <h1 class="h1-indi text-uppercase" style="font-size: 17vw; line-height: 14vw">INDI</h1>
+                    <h3 class="h3-sub-text">Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI</h3>
+                    <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
+                </div>
+                <div class="col-lg-5 wrap-right-home-1 px-2">
                     <div class="img-wrapper-1">
                         <img class="img-person-home" src="images/img-person-home.png" alt="img person">
                         <div class="div-subtext-right-1">
@@ -22,46 +19,51 @@
                     </div>
                 </div>
             </div>
-            <div class="segment segment-2 row justify-content-center">
-                <div class="col-lg-6">
-                    <img class="img-section-2" src="images/image-home-section-2.png" alt="img-batik-2">
+            <div class="d-md-flex justify-content-center">
+                <div class="col-12 col-md-6">
+                    <img class="img img-fluid " src="images/image-home-section-2.png" alt="img-batik-2" >
                 </div>
-                <div class="col-lg-6 wrap-right-home-2">
-                    <h1 class="h1-text">Tentang Kami</h1>
-                    <p>
-                        Indi merupakan sebuah konsep circular fashion
-                        yang berfokus pada perbaikan nilai-nilai pakaian batik.
-                        Kami bekerja sama dengan GamaIndigo, dimana kami menggunakan 
-                        pewarna alami untuk tekstil dan bahan serat lainnya dari tanaman 
-                        <i>Indigofera tinctoria</i>
-                    </p>
-                    <button class="btn-read-cont">Baca lebih lanjut <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
+                <div class="d-md-flex flex-column col-12 col-md-6 px-3 mt-4">
+                  <div class="mx-3">
+                    <div class="my-auto">
+                      <h1 style="font-weight: 800;">Tentang Kami</h1>
+                      <p class="text-justify" style="font-size: 20px;">
+                          Indi merupakan sebuah konsep circular fashion
+                          yang berfokus pada perbaikan nilai-nilai pakaian batik.
+                          Kami bekerja sama dengan <b>GamaIndigo</b>, di mana kami menggunakan 
+                          pewarna alami untuk tekstil dan bahan serat lainnya dari tanaman 
+                          <i>Indigofera tinctoria</i>
+                      </p>
+                      <a href="/about" class="btn btn-read-cont">Baca lebih lanjut <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></a>
+                    </div>
+                  </div>
                 </div>
             </div>
-            <img class="ellipse-ornament" src="images/ellipse-half.png" alt="ellipse"/>
-            <div class="segment-3 row justify-content-center">
+            <!-- <img class="img img-fluid ellipse-ornament" src="images/ellipse-half.png" alt="ellipse"/> -->
+            <div class="justify-content-center mx-3 mt-4 mt-md-2 p-3">
+              <hr>
                 <div class="col-lg-12">
-                    <div class="div-section-3">
-                        <h1>Keunggulan INDI</h1>
-                        <div class="wrapper-points">
-                            <div class="div-point-indi">
-                                <img class="icon-point-indi" src="images/ic-points-1.png" alt=""/>
+                    <div class="div-section-3 px-3">
+                        <h1 class="mb-4">Keunggulan INDI</h1>
+                        <div class="d-md-flex mt-4">
+                            <div class="div-point-indi px-3 col-12 col-md-4 text-center mb-2">
+                                <img class="img img-fluid mx-auto icon-point-indi" src="images/ic-points-1.png" alt=""/>
                                 <h3>Lebih hemat</h3>
                                 <p>
                                     Layanan reparasi INDI lebih terjangkau
                                     dibandingkan dengan membeli pakaian baru
                                 </p>
                             </div>
-                            <div class="div-point-indi">
-                                <img class="icon-point-indi" src="images/ic-points-2.png" alt=""/>
+                            <div class="div-point-indi px-3 col-12 col-md-4 text-center mb-2">
+                                <img class="img img-fluid mx-auto icon-point-indi" src="images/ic-points-2.png" alt=""/>
                                 <h3>Lebih nyaman</h3>
                                 <p>
                                     Pewarna yang kami gunakan adalah bahan alami,
                                     karenanya Anda tidak perlu khawatir dengan kemungkinan alergi
                                 </p>
                             </div>
-                            <div class="div-point-indi">
-                                <img class="icon-point-indi" src="images/ic-points-3.png" alt=""/>
+                            <div class="div-point-indi px-3 col-12 col-md-4 text-center mb-2">
+                                <img class="img img-fluid mx-auto icon-point-indi" src="images/ic-points-3.png" alt=""/>
                                 <h3>Lebih Artistik</h3>
                                 <p>
                                     Layanan kami tidak hanya memperbaiki
@@ -72,8 +74,9 @@
                         </div>
                     </div>
                 </div>
+              <hr>
             </div>
-            <div class="segment-4 row justify-content-center">
+            <div class="segment-4 justify-content-center">
                 <div class="col-lg-12">
                     <div class="div-review-section">
                         <div class="review-top-section">
@@ -133,13 +136,20 @@
                     </div>
                 </div>
             </div>
-            <div class="segment-5 row justify-content-center">
-                <div class="col-lg-9 segment-5-left">
-                    <h2>Daftar sekarang untuk investasi pakaian yang berkelanjutan</h2>
+            <div class="segment-5 justify-content-center mx-3 mt-4 mt-md-2 p-3">
+              <div class="d-md-flex my-5">
+                <div class="col-12 col-md-9 left-segment-4">
+                  <h2>Daftar sekarang untuk investasi pakaian yang berkelanjutan</h2>
                 </div>
-                <div class="col-lg-2 segment-5-right">
-                    <button class="btn-get-start">Pesan sekarang</button>
+                <div class="col-12 col-md-3 mt-3 mt-md-0 text-center">
+                  <a
+                    class="btn btn-get-start my-auto"
+                    href="/order"
+                  >
+                    Pesan sekarang
+                  </a>
                 </div>
+              </div>
             </div>
         </div>
     </div>
@@ -150,10 +160,6 @@
 @media screen and (min-width: 780px) {
     .div-content-home{
         flex-direction: column;
-    }
-
-    .segment{
-        min-height: 100vh;
     }
     
     .segment-1{
@@ -169,7 +175,6 @@
         padding: 0 3% 0 9%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         color: #142362;
         background-image: url("../../assets/background-home.png");
         background-size: contain;
@@ -215,17 +220,6 @@
         margin-left: 10px;
     }
 
-    .h1-text {
-        font-size: 48px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 200px;
-        font-weight: 900;
-        line-height: 175px;
-    }
-
     .h3-sub-text{
         color: #00042D;
     }
@@ -246,11 +240,6 @@
         margin-left: 25px;
         width: 25px;
         height: 25px;
-    }
-
-    .wrap-right-home-2{
-        font-family: 'Mulish', sans-serif;
-        padding: 15% 10%;
     }
 
     .btn-read-cont{
@@ -282,28 +271,21 @@
         z-index: -1;
     }
 
-    .segment-3{
-        padding: 0 7%;
-    }
-
     .div-section-3{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 5% 0;
     }
 
     .wrapper-points{
         display: flex;
         justify-content: space-around;
-        padding: 5% 10px 0 10px;
     }
 
     .div-point-indi{
         display: flex;
         flex-direction: column;
-        width: 20%;
     }
 
     .div-point-indi h3{
@@ -389,20 +371,10 @@
     .segment-5{
         background-color: #F3F9FE;
         font-family: 'Mulish', sans-serif;
-        padding: 100px;
-    }
-
-    .segment-5 div{
-        display: flex;
-        align-items: center;
     }
 
     .segment-5 h2 {
         font-weight: 800;
-    }
-
-    .btn-bottom-order{
-
     }
 }
 
@@ -428,7 +400,6 @@
         padding: 0 3% 0 9%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         color: #142362;
         background-image: url("../../assets/background-home.png");
         background-size: contain;
@@ -474,18 +445,7 @@
         padding-bottom: 0;
         margin-left: 10px;
     }
-
-    .h1-text {
-        font-size: 28px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 150px;
-        font-weight: 900;
-        line-height: 175px;
-    }
-
+    
     .h3-sub-text{
         color: #00042D;
         font-size: 20px;
@@ -507,11 +467,6 @@
         margin-left: 25px;
         width: 25px;
         height: 25px;
-    }
-
-    .wrap-right-home-2{
-        font-family: 'Mulish', sans-serif;
-        padding: 15% 10%;
     }
 
     .btn-read-cont{
@@ -543,10 +498,6 @@
         z-index: -1;
     }
 
-    .segment-3{
-        padding: 0 7%;
-    }
-
     .div-section-3{
         display: flex;
         flex-direction: column;
@@ -564,7 +515,6 @@
     .div-point-indi{
         display: flex;
         flex-direction: column;
-        width: 90%;
     }
 
     .div-point-indi h3{
@@ -649,20 +599,11 @@
     .segment-5{
         background-color: #F3F9FE;
         font-family: 'Mulish', sans-serif;
-        padding: 0 35px 50px 50px;
-    }
-
-    .segment-5 div{
-        display: flex;
-        align-items: center;
     }
 
     .segment-5 h2 {
         font-weight: 800;
     }
 
-    .btn-bottom-order{
-
-    }
 }
 </style>

@@ -12,13 +12,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="segment segment-2 row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="div-section-3">
-                        <img src="images/img-about-2.png" alt="image about 2">
-                    </div>
-                </div>
-            </div> -->
             <div class="d-block d-md-flex flex-row-reverse segment-3">
               <div class="col-12 col-md-7 px-4 left-segment-3">
                   <p>
