@@ -147,7 +147,6 @@ export default {
         font-family: 'Mulish', sans-serif;
         display: flex;
         flex-direction: column;
-        padding: 20px 40px;
         font-weight: 400;
     }
 
@@ -334,7 +333,6 @@ export default {
         font-family: 'Mulish', sans-serif;
         display: flex;
         flex-direction: column;
-        padding: 20px 40px;
         font-weight: 400;
     }
 

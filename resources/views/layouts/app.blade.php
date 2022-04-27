@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="font-family: 'Mulish', sans-serif">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-2">
             <div class="container">

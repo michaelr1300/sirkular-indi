@@ -1,67 +1,112 @@
 <template>
-    <div class="flex-column">
-        <div class="d-flex justify-content-center flex-column">
-            <div class="segment-1 flex-row justify-content-center">
-                <div class="col-lg-7 wrap-left-catalog-1">
-                    <h1 class="h1-text text-uppercase">Katalog</h1>
-                    <h1 class="h1-indi text-uppercase">INDI</h1>
-                    <button class="btn-get-start" @click="scrollToElement">
-                      Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/>
-                    </button>
-                </div>
-                <div class="col-lg-5 p-0">
-                    <div class="img-wrapper-1">
-                        <img class="img-front-catalog" src="images/img-front-catalog.png" alt="img catalog">
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white justify-content-center">
-                <div class="col-lg-12">
-                    <div class="div-section-3">
-                        <h1>Produk Indi</h1>
-                        <div class="row w-100">
-                            <div id="product-indi-scroll"></div>
-                          <div
-                            v-for="(item, index) in packages" 
-                            :key="index"
-                            class="col-12 col-md-4 div-products-info"
-                          >
-                            <div class="card">
-                              <div class="card-body">
-                                <h3 class="card-title">{{ item.name }}</h3>
-                                <p class="card-text">{{ item.description }}</p>
-                                <p class="card-text">Rp {{ item.price }}</p>
-                                <div class="div-order-btn">
-                                  <button class="btn-order" style="background: #345EC9;">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row m-0 segment-3">
-                <div class="col-12 col-md-9 left-segment-4">
-                    <h2>Tertarik untuk menggunakan jasa kami?</h2>
-                </div>
-                <div class="col-12 col-md-3 text-center">
-                    <button class="btn-get-start">Pesan sekarang <font-awesome-icon class="icon-arrow-right" icon="fa-solid fa-arrow-right"/></button>
-                </div>
-            </div>
+  <div class="flex-column">
+    <div class="d-flex justify-content-center flex-column">
+      <div class="segment-1 flex-row justify-content-center">
+        <div class="col-lg-7 wrap-left-catalog-1">
+          <h1 class="h1-text text-uppercase">
+            Katalog
+          </h1>
+          <h1 class="h1-indi text-uppercase">
+            INDI
+          </h1>
+          <button
+            class="btn-get-start"
+            @click="scrollToElement"
+          >
+            Lihat selengkapnya <font-awesome-icon
+              class="icon-arrow-down"
+              icon="fa-solid fa-arrow-down"
+            />
+          </button>
         </div>
+        <div class="col-lg-5 p-0">
+          <div class="img-wrapper-1">
+            <img
+              class="img-front-catalog"
+              src="images/img-front-catalog.png"
+              alt="img catalog"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="bg-white justify-content-center">
+        <div class="col-12">
+          <div class="div-section-3">
+            <h1 class="px-0 px-md-3">Produk Indi</h1>
+            <div class="row w-100 mx-0">
+              <div
+                v-for="(item, index) in packages"
+                :key="index"
+                class="col-12 col-md-4 px-3 mb-3 div-products-info"
+              >
+                <div class="card product-card">
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      {{ item.name }}
+                    </h3>
+                    <p class="card-text">
+                      {{ item.description }}
+                    </p>
+                    <p class="card-text">
+                      Rp {{ item.price }}
+                    </p>
+                    <div class="div-order-btn">
+                      <a
+                        class="btn btn-order"
+                        style="background: #345EC9;"
+                        href="/order"
+                      >
+                        Pesan sekarang <font-awesome-icon
+                          class="icon-arrow-right"
+                          icon="fa-solid fa-arrow-right"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="product-indi-scroll" />
+            </div>
+          </div>
+          <div class="div-section-3">
+            <div class="d-md-flex my-5 px-3">
+              <div class="col-12 col-md-9 left-segment-4">
+                <h2>Tertarik untuk menggunakan jasa kami?</h2>
+              </div>
+              <div class="col-12 col-md-3 mt-3 mt-md-0 text-center">
+                <a
+                  class="btn btn-get-start my-auto"
+                  href="/order"
+                >
+                  Pesan sekarang <font-awesome-icon
+                    class="icon-arrow-right"
+                    icon="fa-solid fa-arrow-right"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        scrollToElement() {
-            let element = document.getElementById("product-indi-scroll");
-            element.scrollIntoView({behavior: "smooth", block: "end"});
-        }
-    }
-}
+  props: {
+    packages: {
+      type: Array,
+      default: null,
+    },
+  },
+  methods: {
+    scrollToElement() {
+      const element = document.getElementById('product-indi-scroll');
+      element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -90,7 +135,7 @@ export default {
     .img-front-catalog{
         width: 100%;
     }
-    
+
     .btn-get-start{
         display: flex;
         align-items: center;
@@ -123,7 +168,7 @@ export default {
         font-size: 48px;
         font-weight: 800;
     }
-    
+
     .div-products-info{
         font-family: 'Mulish', sans-serif;
         display: flex;
@@ -146,7 +191,7 @@ export default {
         justify-content: center;
         margin-bottom: 20px;
     }
-    
+
     .btn-order{
         display: flex;
         align-items: center;
@@ -220,7 +265,7 @@ export default {
         position: absolute;
         top: -60%;
     }
-    
+
     .btn-get-start{
         display: flex;
         align-items: center;
@@ -259,7 +304,6 @@ export default {
         font-family: 'Mulish', sans-serif;
         display: flex;
         flex-direction: column;
-        padding: 20px 40px;
         font-weight: 400;
     }
 
@@ -278,7 +322,7 @@ export default {
         justify-content: center;
         margin-bottom: 20px;
     }
-    
+
     .btn-order{
         display: flex;
         align-items: center;
@@ -290,7 +334,7 @@ export default {
         font-weight: 700;
         color: #fff;
     }
-    
+
     .btn-read-cont{
         background: #fff;
         border: 3px solid #000;
@@ -319,14 +363,3 @@ export default {
     }
 }
 </style>
-
-<script>
-export default {
-  props: {
-    packages: {
-      type: Array,
-      default: null 
-    },
-  },
-}
-</script>

@@ -89,7 +89,7 @@
               :key="item.id" 
               class="col-12 col-md-4 ps-0 pe-0 pe-md-4 mb-3"
             >
-              <div class="each-package">
+              <div class="product-card">
                 <div class="wrap-each-package w-100">
                   <p class="packet-name">Paket {{ index + 1 }}</p>
                   <h2>{{ item.name }}</h2>
@@ -513,13 +513,6 @@ export default {
   .div-p-title p{
     font-family: 'Mulish', sans-serif;
     font-size: 16px;
-  }
-
-  .each-package{
-    display: flex;
-    justify-content: center;
-    border: 2px solid #142362;
-    border-radius: 20px;
   }
 
   .wrap-each-package{

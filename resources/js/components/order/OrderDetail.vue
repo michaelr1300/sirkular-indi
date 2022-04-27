@@ -257,9 +257,6 @@ export default {
         console.log(error.response);
       }
     },
-    showPayment(photoPath) {
-
-    },
   },
 };
 </script>

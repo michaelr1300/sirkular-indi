@@ -57,6 +57,13 @@ body{
     font-weight: 800;
 }
 
+.product-card{
+    display: flex;
+    justify-content: center;
+    border: 2px solid #142362;
+    border-radius: 20px;
+  }
+  
 .text-header {
     font-weight: 700;
     color: #142362;
