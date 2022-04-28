@@ -20,7 +20,10 @@
         >
           INDI
         </h1>
-        <button class="btn-get-start">
+        <button
+          class="btn-get-start"
+          @click="scrollToElement"
+        >
           Lihat selengkapnya <font-awesome-icon
             class="icon-arrow-down"
             icon="fa-solid fa-arrow-down"
@@ -109,6 +112,7 @@
         <hr>
       </div>
       <div class="row mt-4 mx-5">
+        <div id="product-indi-scroll" />
         <h1 class="text-center my-3" style="font-weight: 900;">
           Testimoni Pelanggan
         </h1>
@@ -149,6 +153,12 @@ export default {
   computed: {
     carouselItems() {
       return this.reviews.slice(0, 5);
+    },
+  },
+  methods: {
+    scrollToElement() {
+      const element = document.getElementById('product-indi-scroll');
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
   },
 };

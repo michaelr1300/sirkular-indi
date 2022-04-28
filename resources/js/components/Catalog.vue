@@ -32,6 +32,7 @@
       <div class="bg-white justify-content-center">
         <div class="col-12">
           <div class="div-section-3">
+            <div id="product-indi-scroll" />
             <h1 class="px-0 px-md-3">Produk Indi</h1>
             <div class="row w-100 mx-0">
               <div
@@ -65,7 +66,6 @@
                   </div>
                 </div>
               </div>
-              <div id="product-indi-scroll" />
             </div>
           </div>
           <div class="div-section-3">
@@ -103,7 +103,7 @@ export default {
   methods: {
     scrollToElement() {
       const element = document.getElementById('product-indi-scroll');
-      element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
   },
 };
