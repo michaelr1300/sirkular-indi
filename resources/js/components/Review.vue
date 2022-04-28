@@ -62,13 +62,12 @@
             :aria-label="'Slide ' + index "
           />
         </div>
-        <div class="carousel-inner" style="height: 60vh;">
+        <div class="carousel-inner h-md-60-vh">
           <div
             v-for="(item, index) in carouselItems"
             :key="item.id"
             class="carousel-item text-center"
             :class="!index ? 'active' : ' '"
-            style="max-height: 60vh;"
           >
             <div class="d-flex align-items-start">
               <img
@@ -78,7 +77,7 @@
                 style="object-fit: contain;"
               >
               <div class="col-4 text-start d-none d-md-block ms-4">
-                <p>{{ item.content }}</p>
+                <p style="font-size: 18px">{{ item.content }}</p>
               </div>
             </div>
           </div>
@@ -111,7 +110,7 @@
         </button> -->
         <hr>
       </div>
-      <div class="row my-4 mx-5">
+      <div class="row my-4 mx-0 mx-md-5">
         <div id="product-indi-scroll" />
         <h1 class="text-center my-3" style="font-weight: 900;">
           Testimoni Pelanggan

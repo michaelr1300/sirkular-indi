@@ -11364,6 +11364,10 @@ body {
   .w-md-75 {
     width: 75%;
   }
+
+  .h-md-60-vh {
+    height: 60vh;
+  }
 }
 @media screen and (max-width: 780px) {
   .h1-text {
@@ -11375,5 +11379,9 @@ body {
     font-size: 35vw;
     font-weight: 900;
     line-height: 25vw;
+  }
+
+  .h-md-60-vh {
+    height: 40vh;
   }
 }
