@@ -11,8 +11,7 @@ class StaticPageController extends Controller
 
     public function home()
     {
-        $reviews = Review::all()->sortByDesc('id')->take(3);
-
+        $reviews = Review::latest()->take(3)->get();
         return view('home')->with('reviews',$reviews);
     }
     public function catalog()
