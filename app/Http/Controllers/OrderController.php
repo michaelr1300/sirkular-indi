@@ -187,6 +187,10 @@ class OrderController extends Controller
     {
         $this->authorize('dashboard', Order::class);
         $orders = Order::all();
+        foreach ($orders as $order) {
+            $order->total = 0;
+            $order->items = OrderDetail::where('order_id', $order->id)->get();
+        }
         return view('dashboard.order')->with('orders',$orders);
     }
 }
