@@ -4,6 +4,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,19 +19,13 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function () {
-    return view('welcome');
-});
-
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/catalog', [PackageController::class, 'catalog'])->name('catalog');
+Route::get('/', [StaticPageController::class, 'home'])->name('home');
+Route::get('/home', [StaticPageController::class, 'home'])->name('home');
+Route::get('/catalog', [StaticPageController::class, 'catalog'])->name('catalog');
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function ()
 {

@@ -40,36 +40,6 @@ class PackageController extends Controller
         // return redirect()->action([PackageController::class, 'index']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $package = Package::find($id);
-        var_dump($package);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $package = Package::find($id);
@@ -80,22 +50,6 @@ class PackageController extends Controller
         $package->save();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-    public function catalog()
-    {
-        $packages = Package::all();
-
-        return view('catalog.index')->with('packages',$packages);
-    }
     public function dashboard()
     {
         $this->authorize('dashboard', Package::class);
