@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background-color: #F3F9FE;">
     <div class="d-flex flex-row justify-content-center">
       <div class="col-12 col-lg-7 wrap-left-review-1">
         <h1
@@ -40,137 +40,115 @@
         </div>
       </div>
     </div>
-    <div id="review-carousel" class="carousel slide col-12 mt-4" data-bs-ride="carousel" 
-      style="padding: 1.5em 10vw">
-      <div class="carousel-indicators">
-        <button 
-          v-for="(item, index) in carouselItems"
-          :key="item.id" type="button" data-bs-target="#review-carousel" :data-bs-slide-to="index" :class="!index ? 'active' : ''" :aria-current="!index ? true : false" :aria-label="'Slide ' + index ">
-          </button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/storage/review-photos/2UXRpvNhDyJFEkalAelOihRqnJUwTxvvegEvERnR.jpg" class="d-block w-100" alt="">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="/storage/review-photos/2UXRpvNhDyJFEkalAelOihRqnJUwTxvvegEvERnR.jpg" class="d-block w-100" alt="">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="/storage/review-photos/2UXRpvNhDyJFEkalAelOihRqnJUwTxvvegEvERnR.jpg" class="d-block w-100" alt="">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#review-carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#review-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <!-- <div
-      id="review-carousel"
-      class="carousel slide"
-      data-ride="carousel"
-    >
-      <ol class="carousel-indicators">
-        <li
-          v-for="(item, index) in carouselItems"
-          :key="item.id"
-          bs-data-target="#review-carousel"
-          :data-slide-to="index"
-        ></li>
-      </ol>
-      <div class="carousel-inner">
-        <div
-          class="carousel-item bg-dark rounded"
-          :class="{ active: index == 0 }"
-          v-for="(item, index) in carouselItems"
-          :key="item.id"
-        >
-          <img 
-            class="img img-fluid" 
-            :src="'/storage/' + item.photo_path" 
-            alt="review-image"
-          >
-        </div>
-      </div>
-      <a
-        class="carousel-control-prev"
-        href="#review-carousel"
-        role="button"
-        data-slide="prev"
+    <div style="min-height: 100vh">
+      <div
+        id="review-carousel"
+        class="carousel slide col-12 w-md-75 mx-auto mt-5"
+        data-bs-ride="carousel"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#review-carousel"
-        role="button"
-        data-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div> -->
-    <!-- <section>
-      <div class="container">
-        <div class="carousel">
-          <input v-for="(item,  index) in carouselItems" :key="index"
-            :id="'slide-' + index"
-            type="radio"
-            name="slides"
+        <div class="carousel-indicators">
+          <button
+            v-for="(item, index) in carouselItems"
+            :key="item.id"
+            type="button"
+            class="bg-primary"
+            data-bs-target="#review-carousel"
+            :data-bs-slide-to="index"
+            :class="!index ? 'active' : ''"
+            :aria-current="!index ? true : false"
+            :aria-label="'Slide ' + index "
+          />
+        </div>
+        <div class="carousel-inner" style="height: 60vh;">
+          <div
+            v-for="(item, index) in carouselItems"
+            :key="item.id"
+            class="carousel-item text-center"
+            :class="!index ? 'active' : ' '"
+            style="max-height: 60vh;"
           >
-          <ul class="carousel__slides">
-            <li v-for="(item,  index) in carouselItems" :key="index" class="carousel__slide d-md-flex" style="min-height: 200px">
-              <img 
-                class="img img-fluid" 
-                :src="'/storage/' + item.photo_path" 
-                alt="review-image"
-              >
-              <div class="div-reviews-detail">
-                {{ item.content }}
-              </div>
-            </li>
-          </ul>
-          <ul class="carousel__thumbnails">
-            <li v-for="(item,  index) in carouselItems" :key="index"> 
-              <label :for="'slide-' + index"><img
-                    :src="'/storage/' + item.photo_path" 
+            <div class="d-flex align-items-start">
+              <img
+                :src="'/storage/' + item.photo_path"
+                class="col-md-8 img img-fluid"
                 alt=""
-              ></label>
-            </li>
-          </ul>
+                style="object-fit: contain;"
+              >
+              <div class="col-4 text-start d-none d-md-block ms-4">
+                <p>{{ item.content }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#review-carousel"
+          data-bs-slide="prev"
+          style="color: #142362"
+        >
+          <span
+            class="carousel-control-prev-icon"
+            aria-hidden="true"
+          />
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#review-carousel"
+          data-bs-slide="next"
+          style="color: #142362"
+        >
+          <span
+            class="carousel-control-next-icon"
+            aria-hidden="true"
+          />
+          <span class="visually-hidden">Next</span>
+        </button> -->
+        <hr>
+      </div>
+      <div class="row mt-4 mx-5">
+        <h1 class="text-center my-3" style="font-weight: 900;">
+          Testimoni Pelanggan
+        </h1>
+        <div
+          v-for="(item, index) in reviews"
+          :key="index"
+          class="col-12 col-md-4 px-3 mb-3 div-products-info h-100"
+        >
+          <div class="card product-card shadow border-0  p-3">
+            <div class="d-flex">
+              <img
+                :src="'/storage/' + item.photo_path"
+                class="img img-fluid mx-auto"
+                alt=""
+                style="object-fit: contain; border-radius: 15px; max-height: 200px"
+              >
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                {{ item.content }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </section> -->
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    carouselItems() {
-      return this.reviews.slice(0, 5);
-    }
-  },
   props: {
     reviews: {
       type: Array,
       default() { return []; },
+    },
+  },
+  computed: {
+    carouselItems() {
+      return this.reviews.slice(0, 5);
     },
   },
 };
@@ -285,199 +263,11 @@ export default {
         display: flex;
     }
 
-.container {
-  max-width: 1044px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.carousel {
-  display: block;
-  text-align: left;
-  position: relative;
-  margin-bottom: 22px;
-}
-.carousel > input {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
-.carousel > input:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -500%;
-}
-.carousel > input:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -400%;
-}
-.carousel > input:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -300%;
-}
-.carousel > input:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -200%;
-}
-.carousel > input:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -100%;
-}
-.carousel > input:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: 0%;
-}
-.carousel > input:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel__slides {
-  position: relative;
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  display: flex;
-}
-.carousel__slide {
-  position: relative;
-  display: block;
-  flex: 1 0 100%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: all 300ms ease-out;
-  vertical-align: top;
-  box-sizing: border-box;
-  white-space: normal;
-}
-.carousel__slide figure {
-  display: flex;
-  margin: 0;
-}
-.carousel__slide div {
-  position: relative;
-  width: 100%;
-}
-.carousel__slide div > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-.carousel__slide img {
-  display: block;
-  flex: 1 1 auto;
-  object-fit: cover;
-}
-.carousel__slide figcaption {
-  flex: 0 0 auto;
-  width: 25%;
-}
-.carousel__slide .credit {
-  margin-top: 1rem;
-  color: rgba(0, 0, 0, 0.5);
-  display: block;
-}
-.carousel__slide.scrollable {
-  overflow-y: scroll;
-}
-.carousel__thumbnails {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  margin: 0 -10px;
-  overflow-x: scroll;
-}
-.carousel__slides + .carousel__thumbnails {
-  margin-top: 20px;
-}
-.carousel__thumbnails li {
-  flex: 1 1 auto;
-  /* max-width: calc((100% / 6) - 20px); */
-  margin: 0 10px;
-  transition: all 300ms ease-in-out;
-}
-.carousel__thumbnails label {
-  display: block;
-  position: relative;
-}
-.carousel__thumbnails label:before {
-  display: block;
-  content: "";
-  width: 100%;
-  padding-top: 100%;
-}
-.carousel__thumbnails label > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-.carousel__thumbnails label:hover, .carousel__thumbnails label:focus {
-  cursor: pointer;
-}
-.carousel__thumbnails label:hover img, .carousel__thumbnails label:focus img {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
-  transition: all 300ms ease-in-out;
-}
-.carousel__thumbnails img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.actions {
-    font-size: 1.5em;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #585858;
-}
-
-.actions > span {
-    cursor: pointer;
-    transition: all 250ms;
-}
-
-.actions > span.prev {
-    margin-left: 5px;
-}
-
-.actions > span.next {
-    margin-right: 5px;
-}
-
-.actions > span:hover {
-    color: #eee;
-}
+    .container {
+      max-width: 1044px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -673,194 +463,10 @@ export default {
         color: #142362;
     }
 
-.container {
-  max-width: 1044px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.carousel {
-  display: block;
-  text-align: left;
-  position: relative;
-  margin-bottom: 22px;
-}
-.carousel > input {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
-.carousel > input:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -500%;
-}
-.carousel > input:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -400%;
-}
-.carousel > input:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -300%;
-}
-.carousel > input:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -200%;
-}
-.carousel > input:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: -100%;
-}
-.carousel > input:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type {
-  margin-left: 0%;
-}
-.carousel > input:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel > input:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
-  box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-}
-.carousel__slides {
-  position: relative;
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  display: flex;
-}
-.carousel__slide {
-  position: relative;
-  display: block;
-  flex: 1 0 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: all 300ms ease-out;
-  box-sizing: border-box;
-  white-space: normal;
-}
-.carousel__slide figure {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-.carousel__slide div {
-  position: relative;
-}
-.carousel__slide div > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.carousel__slide img {
-  display: block;
-  flex: 1 1 auto;
-  object-fit: cover;
-}
-.carousel__slide figcaption {
-    display: flex;
-  /* align-self: flex-end;
-  padding: 20px 20px 0 20px;
-  flex: 0 0 auto;
-  width: 25%;
-  min-width: 150px; */
-}
-.carousel__slide .credit {
-  margin-top: 1rem;
-  color: rgba(0, 0, 0, 0.5);
-  display: block;
-}
-.carousel__slide.scrollable {
-  overflow-y: scroll;
-}
-.carousel__thumbnails {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  margin: 0 -10px;
-  overflow-x: scroll;
-}
-.carousel__slides + .carousel__thumbnails {
-  margin-top: 20px;
-}
-.carousel__thumbnails li {
-  flex: 1 1 auto;
-  /* max-width: calc((100% / 6) - 20px); */
-  margin: 0 10px;
-  transition: all 300ms ease-in-out;
-}
-.carousel__thumbnails label {
-  display: block;
-  position: relative;
-}
-.carousel__thumbnails label:before {
-  display: block;
-  content: "";
-}
-.carousel__thumbnails label > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.carousel__thumbnails label:hover, .carousel__thumbnails label:focus {
-  cursor: pointer;
-}
-.carousel__thumbnails label:hover img, .carousel__thumbnails label:focus img {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
-  transition: all 300ms ease-in-out;
-}
-.carousel__thumbnails img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.actions {
-    font-size: 1.5em;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #585858;
-}
-
-.actions > span {
-    cursor: pointer;
-    transition: all 250ms;
-}
-
-.actions > span.prev {
-    margin-left: 5px;
-}
-
-.actions > span.next {
-    margin-right: 5px;
-}
-
-.actions > span:hover {
-    color: #eee;
-}
+    .container {
+      max-width: 1044px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 }
 </style>

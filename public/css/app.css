@@ -11360,6 +11360,10 @@ body {
     font-weight: 900;
     line-height: 20vw;
   }
+
+  .w-md-75 {
+    width: 75%;
+  }
 }
 @media screen and (max-width: 780px) {
   .h1-text {
