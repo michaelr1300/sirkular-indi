@@ -1,183 +1,180 @@
 <template>
-    <div class="flex-column">
-        <div class="d-flex justify-content-center div-content-review">
-            <div class="d-flex segment flex-row justify-content-center">
-              <div class="col-lg-7 wrap-left-review-1">
-                  <h1 class="h1-text text-uppercase">Testimoni</h1>
-                  <h1 class="h1-text text-uppercase">Pelanggan</h1>
-                  <h1 class="h1-indi text-uppercase">INDI</h1>
-                  <button class="btn-get-start">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button>
-              </div>
-              <div class="col-lg-5 wrap-right-review-1">
-                  <div class="img-wrapper-1">
-                      <img class="img-front-review" src="images/image-front-review.png" alt="image front review">
-                  </div>
-              </div>
-            </div>
-            <section>
-                <div class="container">
-                    <div class="carousel">
-                        <input type="radio" name="slides" checked="checked" id="slide-1">
-                        <input type="radio" name="slides" id="slide-2">
-                        <input type="radio" name="slides" id="slide-3">
-                        <input type="radio" name="slides" id="slide-4">
-                        <input type="radio" name="slides" id="slide-5">
-                        <input type="radio" name="slides" id="slide-6">
-                        <ul class="carousel__slides">
-                            <li class="carousel__slide">
-                                <figure>
-                                    <div>
-                                        <img src="https://picsum.photos/id/1041/800/450" alt="">
-                                    </div>
-                                    <figcaption>
-                                        <div class="div-reviews-detail">
-                                            <h3>Diana Maharani</h3>
-                                            <p class="">Ibu rumah tangga, 32 th</p>
-                                            <p class="">
-                                                Adminnya super ramah, baik, sabar dlm melayani saya, 
-                                                bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                Harga murah, kualitas terbaik
-                                            </p>
-                                            <p>Mulai Rp 120.000</p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="carousel__slide">
-                                <figure>
-                                    <div>
-                                        <img src="https://picsum.photos/id/1043/800/450" alt="">
-                                    </div>
-                                    <figcaption>
-                                        <div class="div-reviews-detail">
-                                            <h3>Diane Aharani</h3>
-                                            <p class="">Ibu rumah tangga, 22 th</p>
-                                            <p class="">
-                                                Adminnya super, 
-                                                bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                Harga murah, kualitas terbaik
-                                            </p>
-                                            <p>Mulai Rp 110.000</p>
-                                        </div>                            
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="carousel__slide">
-                                <figure>
-                                    <div>
-                                        <img src="https://picsum.photos/id/1044/800/450" alt="">
-                                    </div>
-                                    <figcaption>
-                                        <div class="div-reviews-detail">
-                                            <h3>Piane Laharani</h3>
-                                            <p class="">Karyawan Swasta, 23 th</p>
-                                            <p class="">
-                                                Adminnya super Lihai bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                Harga murah, kualitas terbaik
-                                            </p>
-                                            <p>Mulai Rp 114.000</p>
-                                        </div>                         
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="carousel__slide">
-                                <figure>
-                                    <div>
-                                        <img src="https://picsum.photos/id/1045/800/450" alt="">
-                                    </div>
-                                    <figcaption>
-                                        <div class="div-reviews-detail">
-                                            <h3>Jine Rani</h3>
-                                            <p class="">Ibu rumah tangga, 21 th</p>
-                                            <p class="">
-                                                Adminnya super, 
-                                                bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                Harga murah, kualitas terbaik
-                                            </p>
-                                            <p>Mulai Rp 108.000</p>
-                                        </div>                            
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="carousel__slide">
-                                <figure>
-                                    <div>
-                                        <img src="https://picsum.photos/id/1049/800/450" alt="">
-                                    </div>
-                                    <figcaption>
-                                        <div class="div-reviews-detail">
-                                            <h3>Ane Lopi</h3>
-                                            <p class="">Ibu rumah tangga, 28 th</p>
-                                            <p class="">
-                                                Adminnya super, 
-                                                bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                Harga murah, kualitas terbaik
-                                            </p>
-                                            <p>Mulai Rp 112.000</p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="carousel__slide">
-                                <figure>
-                                    <div>
-                                        <img src="https://picsum.photos/id/1052/800/450" alt="">
-                                    </div>
-                                    <figcaption>
-                                        <div class="div-reviews-detail">
-                                            <h3>Pohan Lipal</h3>
-                                            <p class="">Ibu rumah tangga, 29 th</p>
-                                            <p class="">
-                                                Adminnya super, 
-                                                bahkan mau menjelaskan layanan yang sekiranya cocok untuk pakaian saya.
-                                                Harga murah, kualitas terbaik
-                                            </p>
-                                            <p>Mulai Rp 128.000</p>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- <div class="actions">
-                                <span class="prev">
-                                    <font-awesome-icon style="width: 22px; height:auto;" icon="fa-solid fa-chevron-left" />
-                                </span>
-                                <span class="next">
-                                    <font-awesome-icon for="slide-2" style="width: 22px; height:auto;" icon="fa-solid fa-chevron-right" />
-                                </span>
-                            </div> -->
-                        </ul>
-                        <ul class="carousel__thumbnails">
-                            <li>
-                                <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
-                            </li>
-                            <li>
-                                <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+  <div>
+    <div class="d-flex flex-row justify-content-center">
+      <div class="col-12 col-lg-7 wrap-left-review-1">
+        <h1
+          class="h1-text text-uppercase"
+          style="font-size: 6vw"
+        >
+          Testimoni Pelanggan
+        </h1>
+        <h1
+          class="d-none d-md-block h1-indi text-uppercase"
+          style="font-size: 17vw; line-height: 14vw"
+        >
+          INDI
+        </h1>
+        <h1
+          class="d-block d-md-none h1-indi text-uppercase mb-4"
+          style="font-size: 35vw; line-height: 24vw"
+        >
+          INDI
+        </h1>
+        <button class="btn-get-start">
+          Lihat selengkapnya <font-awesome-icon
+            class="icon-arrow-down"
+            icon="fa-solid fa-arrow-down"
+          />
+        </button>
+      </div>
+      <div
+        class="col-lg-5 wrap-right-review-1"
+      >
+        <div class="img-wrapper-1">
+          <img
+            class="d-none d-md-block img-front-review w-100 img img-fluid"
+            src="images/image-front-review.png"
+            alt="image front review"
+            style="object-fit: cover; height:inherit"
+          >
         </div>
+      </div>
     </div>
+    <div id="review-carousel" class="carousel slide col-12 mt-4" data-bs-ride="carousel" 
+      style="padding: 1.5em 10vw">
+      <div class="carousel-indicators">
+        <button 
+          v-for="(item, index) in carouselItems"
+          :key="item.id" type="button" data-bs-target="#review-carousel" :data-bs-slide-to="index" :class="!index ? 'active' : ''" :aria-current="!index ? true : false" :aria-label="'Slide ' + index ">
+          </button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/storage/review-photos/2UXRpvNhDyJFEkalAelOihRqnJUwTxvvegEvERnR.jpg" class="d-block w-100" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/storage/review-photos/2UXRpvNhDyJFEkalAelOihRqnJUwTxvvegEvERnR.jpg" class="d-block w-100" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/storage/review-photos/2UXRpvNhDyJFEkalAelOihRqnJUwTxvvegEvERnR.jpg" class="d-block w-100" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#review-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#review-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- <div
+      id="review-carousel"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <ol class="carousel-indicators">
+        <li
+          v-for="(item, index) in carouselItems"
+          :key="item.id"
+          bs-data-target="#review-carousel"
+          :data-slide-to="index"
+        ></li>
+      </ol>
+      <div class="carousel-inner">
+        <div
+          class="carousel-item bg-dark rounded"
+          :class="{ active: index == 0 }"
+          v-for="(item, index) in carouselItems"
+          :key="item.id"
+        >
+          <img 
+            class="img img-fluid" 
+            :src="'/storage/' + item.photo_path" 
+            alt="review-image"
+          >
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#review-carousel"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#review-carousel"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> -->
+    <!-- <section>
+      <div class="container">
+        <div class="carousel">
+          <input v-for="(item,  index) in carouselItems" :key="index"
+            :id="'slide-' + index"
+            type="radio"
+            name="slides"
+          >
+          <ul class="carousel__slides">
+            <li v-for="(item,  index) in carouselItems" :key="index" class="carousel__slide d-md-flex" style="min-height: 200px">
+              <img 
+                class="img img-fluid" 
+                :src="'/storage/' + item.photo_path" 
+                alt="review-image"
+              >
+              <div class="div-reviews-detail">
+                {{ item.content }}
+              </div>
+            </li>
+          </ul>
+          <ul class="carousel__thumbnails">
+            <li v-for="(item,  index) in carouselItems" :key="index"> 
+              <label :for="'slide-' + index"><img
+                    :src="'/storage/' + item.photo_path" 
+                alt=""
+              ></label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section> -->
+  </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    carouselItems() {
+      return this.reviews.slice(0, 5);
+    }
+  },
+  props: {
+    reviews: {
+      type: Array,
+      default() { return []; },
+    },
+  },
+};
+</script>
 <style scoped>
 @media screen and (min-width: 780px) {
     .div-content-review{
@@ -220,7 +217,7 @@
         font-weight: 900;
         line-height: 175px;
     }
-    
+
     .btn-get-start{
         display: flex;
         align-items: center;
@@ -274,14 +271,6 @@
         width: 920px;
     }
 
-    .product-odd{
-        background-color: #F3F9FE;
-    }
-
-    .product-even{
-        background-color: #F4FAE6;
-    }
-
     .img-product{
         height: auto;
         width: 400px;
@@ -289,105 +278,13 @@
 
     .div-reviews-detail{
         font-family: 'Mulish', sans-serif;
-        display: flex;
-        flex-direction: column;
         /* padding: 20px 40px; */
         font-weight: 400;
     }
-
-    .div-reviews-detail p{
-        font-size: 16px;
-    }
-
-    .div-reviews-detail h3{
-        font-size: 24px;
-        margin-bottom: 25px;
-        font-weight: 700;
-    }
-
     .div-slider-reviews{
         display: flex;
-
     }
 
-    .products-info-odd p{
-        font-family: 'Mulish', sans-serif;
-        color: #00042D;
-    }
-
-    .products-info-even p{
-        color: #202D00;
-    }
-
-    .products-info-even h3{
-        color: #4C6214;
-    }
-
-    .products-info-odd h3{
-        color: #345EC9;
-    }
-
-    .div-order-btn{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    
-    .btn-order{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        font-family: 'Mulish', sans-serif;
-        border: none;
-        width: 170px;
-        height: 48px;
-        font-weight: 700;
-        color: #fff;
-    }
-    
-    .order-odd{
-        background: #345EC9;
-    }
-
-    .order-even{
-        background: #A7C460;
-    }
-
-    .btn-read-cont{
-        background: #fff;
-        border: 3px solid #000;
-        width: 150px;
-        height: 40px;
-        font-weight: 600;
-    }
-
-    .segment-3{
-        background-color: #fff;
-        padding: 50px 100px;
-        height: 300px;
-        font-family: 'Mulish', sans-serif;
-    }
-
-    .segment-3 div{
-        display: flex;
-        align-items: center;
-    }
-
-    .segment-3 h2 {
-        font-weight: 800;
-        font-size: 40px;
-        color: #142362;
-    }
-
-    .btn-bottom-order{
-
-    }
-
-
-section {
-  background: #fff;
-  padding: 50px 0;
-}
 .container {
   max-width: 1044px;
   margin: 0 auto;
@@ -475,12 +372,6 @@ section {
   position: relative;
   width: 100%;
 }
-.carousel__slide div:before {
-  display: block;
-  content: "";
-  width: 100%;
-  padding-top: 66.6666666667%;
-}
 .carousel__slide div > img {
   position: absolute;
   top: 0;
@@ -496,11 +387,8 @@ section {
   object-fit: cover;
 }
 .carousel__slide figcaption {
-  align-self: flex-end;
-  padding: 20px 20px 0 20px;
   flex: 0 0 auto;
   width: 25%;
-  min-width: 150px;
 }
 .carousel__slide .credit {
   margin-top: 1rem;
@@ -605,7 +493,7 @@ section {
 
     .wrap-left-review-1{
         font-family: 'Mulish', sans-serif;
-        padding: 8% 3% 80px 9%;
+        padding: 8% 3% 10% 9%;
         display: flex;
         flex-direction: column;
         color: #142362;
@@ -628,7 +516,7 @@ section {
         font-weight: 900;
         line-height: 115px;
     }
-    
+
     .btn-get-start{
         display: flex;
         align-items: center;
@@ -654,15 +542,11 @@ section {
     .img-wrapper-1{
         overflow: hidden;
         width: 100%;
-        height: 250px;
         position: relative;
     }
 
     .img-front-review{
         background-size: cover;
-        left: -5%;
-        position: absolute;
-        top: -25%;
     }
 
     .segment-2{
@@ -711,20 +595,8 @@ section {
 
     .div-reviews-detail{
         font-family: 'Mulish', sans-serif;
-        display: flex;
-        flex-direction: column;
         /* padding: 20px 40px; */
         font-weight: 400;
-    }
-
-    .div-reviews-detail p{
-        font-size: 16px;
-    }
-
-    .div-reviews-detail h3{
-        font-size: 24px;
-        margin-bottom: 25px;
-        font-weight: 700;
     }
 
     .div-slider-reviews{
@@ -754,7 +626,7 @@ section {
         justify-content: center;
         margin-bottom: 20px;
     }
-    
+
     .btn-order{
         display: flex;
         align-items: center;
@@ -766,7 +638,7 @@ section {
         font-weight: 700;
         color: #fff;
     }
-    
+
     .order-odd{
         background: #345EC9;
     }
@@ -801,15 +673,6 @@ section {
         color: #142362;
     }
 
-    .btn-bottom-order{
-
-    }
-
-
-section {
-  background: #fff;
-  padding: 50px 0;
-}
 .container {
   max-width: 1044px;
   margin: 0 auto;
@@ -881,11 +744,9 @@ section {
   position: relative;
   display: block;
   flex: 1 0 100%;
-  width: 100%;
   height: 100%;
   overflow: hidden;
   transition: all 300ms ease-out;
-  vertical-align: top;
   box-sizing: border-box;
   white-space: normal;
 }
@@ -896,13 +757,6 @@ section {
 }
 .carousel__slide div {
   position: relative;
-  width: 100%;
-}
-.carousel__slide div:before {
-  display: block;
-  content: "";
-  width: 100%;
-  padding-top: 66.6666666667%;
 }
 .carousel__slide div > img {
   position: absolute;
@@ -957,8 +811,6 @@ section {
 .carousel__thumbnails label:before {
   display: block;
   content: "";
-  width: 100%;
-  padding-top: 100%;
 }
 .carousel__thumbnails label > img {
   position: absolute;
@@ -966,8 +818,6 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
 }
 .carousel__thumbnails label:hover, .carousel__thumbnails label:focus {
   cursor: pointer;

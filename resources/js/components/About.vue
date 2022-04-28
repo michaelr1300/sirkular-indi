@@ -106,10 +106,6 @@ export default {
         /* margin-left: 10px; */
     }
 
-    .segment-2{
-        background-color: #fff;
-    }
-
     .div-section-3{
         padding: 0 6%;
     }
@@ -133,19 +129,6 @@ export default {
         width: 400px;
     }
 
-    .product-odd{
-        background-color: #F3F9FE;
-    }
-
-    .product-even{
-        background-color: #F4FAE6;
-    }
-
-    .img-product{
-        height: auto;
-        width: 400px;
-    }
-
     .div-products-info{
         font-family: 'Mulish', sans-serif;
         display: flex;
@@ -161,23 +144,6 @@ export default {
         font-size: 24px;
         margin-bottom: 25px;
         font-weight: 700;
-    }
-
-    .products-info-odd p{
-        font-family: 'Mulish', sans-serif;
-        color: #00042D;
-    }
-
-    .products-info-even p{
-        color: #202D00;
-    }
-
-    .products-info-even h3{
-        color: #4C6214;
-    }
-
-    .products-info-odd h3{
-        color: #345EC9;
     }
 
     .div-order-btn{
@@ -198,13 +164,6 @@ export default {
         color: #fff;
     }
     
-    .order-odd{
-        background: #345EC9;
-    }
-
-    .order-even{
-        background: #A7C460;
-    }
 
     .btn-read-cont{
         background: #fff;
@@ -217,7 +176,6 @@ export default {
     .segment-3{
         display: flex;
         justify-content: center;
-        background-color: #fff;
         padding: 50px 100px;
         font-family: 'Mulish', sans-serif;
     }
@@ -240,7 +198,6 @@ export default {
     }
 
     .segment-4{
-        background-color: #fff;
         padding: 50px 100px;
         height: 300px;
         font-family: 'Mulish', sans-serif;
@@ -292,10 +249,6 @@ export default {
         /* margin-left: 10px; */
     }
 
-    .segment-2{
-        background-color: #fff;
-    }
-
     .div-section-3{
         padding: 0 6%;
     }
@@ -317,14 +270,6 @@ export default {
         display: flex;
         flex-direction: column;
         width: 400px;
-    }
-
-    .product-odd{
-        background-color: #F3F9FE;
-    }
-
-    .product-even{
-        background-color: #F4FAE6;
     }
 
     .img-product{
@@ -349,23 +294,6 @@ export default {
         font-weight: 700;
     }
 
-    .products-info-odd p{
-        font-family: 'Mulish', sans-serif;
-        color: #00042D;
-    }
-
-    .products-info-even p{
-        color: #202D00;
-    }
-
-    .products-info-even h3{
-        color: #4C6214;
-    }
-
-    .products-info-odd h3{
-        color: #345EC9;
-    }
-
     .div-order-btn{
         display: flex;
         justify-content: center;
@@ -384,13 +312,6 @@ export default {
         color: #fff;
     }
     
-    .order-odd{
-        background: #345EC9;
-    }
-
-    .order-even{
-        background: #A7C460;
-    }
 
     .btn-read-cont{
         background: #fff;
@@ -405,7 +326,6 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #fff;
         font-family: 'Mulish', sans-serif;
     }
 
