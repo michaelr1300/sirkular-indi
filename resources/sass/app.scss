@@ -70,6 +70,10 @@ body{
     font-family: 'Mulish', sans-serif;
 }
 
+.text-area {
+    white-space: pre-line;
+}
+
 @media screen and (min-width: 780px) {
     .h1-text {
         font-size: 8vw;

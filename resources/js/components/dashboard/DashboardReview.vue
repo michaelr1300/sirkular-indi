@@ -25,7 +25,7 @@
             </div>
             <div>
               <hr>
-              <p>{{ item.content }}</p>
+              <p class="text-area">{{ item.content }}</p>
             </div>
           </div>
         </div>

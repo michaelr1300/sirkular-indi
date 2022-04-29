@@ -77,7 +77,7 @@
                 style="object-fit: contain;"
               >
               <div class="col-4 text-start d-none d-md-block ms-4">
-                <p style="font-size: 18px">{{ item.content }}</p>
+                <p class="text-area" style="font-size: 18px">{{ item.content }}</p>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@
               >
             </div>
             <div class="card-body">
-              <p class="card-text">
+              <p class="card-text text-area">
                 {{ item.content }}
               </p>
             </div>

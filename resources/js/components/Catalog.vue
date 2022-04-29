@@ -45,7 +45,7 @@
                     <h3 class="card-title">
                       {{ item.name }}
                     </h3>
-                    <p class="card-text">
+                    <p class="card-text text-area">
                       {{ item.description }}
                     </p>
                     <p class="card-text">

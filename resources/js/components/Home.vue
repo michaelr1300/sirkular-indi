@@ -175,7 +175,7 @@
             <div class="d-md-flex row">
               <div v-for="item in reviews" :key="item.id" class="col-12 col-md-4 px-0 px-md-3 mb-3">
                 <div class="card-review flex-column px-3 pb-4 h-100">
-                  <div class="img-fluid text-center" style="height: 200px">
+                  <div class="img-fluid text-center">
                     <img 
                       class="img img-fluid my-3" 
                       :src="'/storage/' + item.photo_path" 
@@ -183,7 +183,7 @@
                       style="max-height: 200px; border-radius: 5px"
                     >
                   </div>
-                  <div>
+                  <div class="text-area mt-2">
                     {{ item.content }}
                   </div>
                 </div>

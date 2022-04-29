@@ -18,7 +18,7 @@
                 <span class="mdi mdi-pencil"></span>
               </button>
             </div>
-            <p>{{ item.description }}</p>
+            <p class="text-area">{{ item.description }}</p>
             <div>Rp {{ item.price }}</div>
           </div>
         </div>
