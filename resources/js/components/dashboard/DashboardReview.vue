@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex justify-content-between mb-3">
-      <h3>Review Management</h3> 
+      <h3 class="text-header">Review Management</h3> 
       <DashboardReviewFormAdd/>
     </div>
     <div class="d-flex row">
