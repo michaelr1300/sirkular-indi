@@ -15,7 +15,7 @@ class OrderController extends Controller
     public function index()
     {
         if (Auth::user()->is_admin) {
-            $orders = Order::all();
+            $orders = Order::latest()->get();
             foreach ($orders as $order) {
                 $order->total = 0;
             }
@@ -158,7 +158,7 @@ class OrderController extends Controller
         $order->payment_photo = $payment_photo;
         $order->save();
 
-        return redirect()->action([OrderController::class, 'index']);
+        // return redirect()->action([OrderController::class, 'index']);
     }
 
     public function updateStatus($id)
@@ -186,7 +186,7 @@ class OrderController extends Controller
     public function dashboard()
     {
         $this->authorize('dashboard', Order::class);
-        $orders = Order::all();
+        $orders = Order::latest()->get();
         foreach ($orders as $order) {
             $order->total = 0;
             $order->items = OrderDetail::where('order_id', $order->id)->get();

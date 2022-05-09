@@ -51,15 +51,13 @@
           </div>
         </div>
         <div class="d-flex mb-3"> 
-          <div class="col-3 text-secondary my-auto font-weight-bold">
+          <div class="col-3 text-secondary font-weight-bold" style="vertical-align: text-top;">
               Alamat
           </div>
           <div class="col-6">
-              <div v-show="!isEdit" class="my-auto">
-                {{ user.address }}
-              </div>
+              <div v-show="!isEdit" class="text-area my-auto">{{ user.address }}</div>
               <div class="form-group mb-0">
-                  <input
+                <textarea
                   type="text"
                   class="form-control"
                   v-show="isEdit"

@@ -11,6 +11,8 @@
       >
         <div class="col-4">
           <b>{{ order.buyer_name }}</b>
+          <br>
+          <div>{{ orderDate }}</div>
         </div>
         <div class="col-4">
           <order-status-badge :status="order.status" />
@@ -38,7 +40,7 @@
             <div class="img img-fluid">
               <img
                 class="img-bca"
-                src="images/bca.png"
+                src="/images/bca.png"
                 alt="bca account"
               >
             </div>
@@ -121,7 +123,7 @@
                     {{ order.buyer_phone_number }}
                   </td>
                 </tr>
-                <tr style="height:2rem">
+                <tr style="height:2rem; vertical-align: text-top;">
                   <td class="font-weight-bold text-nowrap">
                     Alamat
                   </td>
@@ -130,9 +132,7 @@
                       :
                     </div>
                   </td>
-                  <td class="w-100 text-nowrap">
-                    {{ order.buyer_address }}
-                  </td>
+                  <td style="vertical-align: text-top;" class="w-100 text-area">{{ order.buyer_address }}</td>
                 </tr>
                 <tr />
               </tbody>
@@ -198,6 +198,7 @@
 <script>
 import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
+import { format } from 'date-fns'
 
 export default {
   components: { OrderStatusBadge, OrderDetailPayment },
@@ -222,6 +223,9 @@ export default {
       if (this.order.status == 'process') {
         return 'Selesaikan';
       }
+    },
+    orderDate() {
+      return format(new Date(this.order.created_at), 'dd MMM yyyy')
     },
     totalPrice() {
       let totalPrice = 0;
@@ -253,7 +257,9 @@ export default {
           },
         );
         alert('Bukti Transfer Terupload');
+        this.location.reload();
       } catch (error) {
+        alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
         console.log(error.response);
       }
     },

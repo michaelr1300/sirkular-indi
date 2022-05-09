@@ -64,7 +64,7 @@ class ProfileController extends Controller
     
     public function purchaseHistory()
     {
-        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $orders = Order::where('user_id', Auth::user()->id)->latest()->get();
         
         foreach ($orders as $order) {
             $order->total = 0;

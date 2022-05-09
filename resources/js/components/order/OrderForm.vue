@@ -43,7 +43,7 @@
           </div>
           <div class="col-12 mb-3">
             <label for="address" class="form-label">Alamat</label>
-            <input 
+            <textarea 
               id="address" 
               name="address" 
               type="text" 
@@ -51,7 +51,7 @@
               placeholder="Alamat Anda"
               required
               v-model="form.address"
-            >
+            />
             <small>*lengkap dengan kecamatan, kabupaten, dan provinsi Anda</small>
           </div>
           <div class="col-12">
@@ -107,7 +107,13 @@
                     />
                   </div>    
                   <div class="form-group mt-3" >
-                    <label :for="'description-' + item.id" class="form-label">Catatan</label>
+                    <label :for="'description-' + item.id" class="form-label">
+                      Catatan
+                      <br>
+                      <small>
+                        Warna, pola, atau keterangan lain untuk memudahkan pengerjaan.
+                      </small>
+                    </label>
                     <textarea :id="'description-' + item.id" name="description" type="text" class="form-control" v-model="form.description[index]"></textarea>
                   </div>
                   <!-- <p class="p-text-bold">Warna yang mau dibeli:</p>
