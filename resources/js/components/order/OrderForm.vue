@@ -49,6 +49,7 @@
               type="text" 
               class="form-control" 
               placeholder="Alamat Anda"
+              rows="5"
               required
               v-model="form.address"
             />

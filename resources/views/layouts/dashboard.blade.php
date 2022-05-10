@@ -118,8 +118,17 @@
                                   class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.review') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
                                   href="{{ route('dashboard.review') }}"
                                 >
-                                    <i class="mdi mdi-chat-processing-outline" style="font-size: 18px"></i>
+                                    <i class="mdi mdi-star" style="font-size: 18px"></i>
                                     <div class="ms-2 my-auto">Review</div>
+                                </a>
+                            </li>
+                            <li class="nav-item text-start p-0">
+                                <a
+                                  class="d-flex nav-link ps-3 pe-2 sidebar-item text-secondary"
+                                  href="{{ route('dashboard.review') }}"
+                                >
+                                    <i class="mdi mdi-chat-processing-outline" style="font-size: 18px"></i>
+                                    <div class="ms-2 my-auto">Chat</div>
                                 </a>
                             </li>
                         </ul>

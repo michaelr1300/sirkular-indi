@@ -4,7 +4,7 @@
       <h1 class="text-uppercase mt-4 ms-5" style="font-size: 5vw; font-weight: 900;">Profil</h1>
     </div>
     <div class="col-12 col-md-9 mx-4 mt-3">
-      <h1 class="text-uppercase font-weight-bold">Informasi Akun</h1>
+      <h1 class="text-uppercase font-weight-bold text-header">Informasi Akun</h1>
       <div class="d-flex flex-column my-3">
         <div class="d-flex mb-3">
           <div class="col-3 text-secondary my-auto font-weight-bold">
