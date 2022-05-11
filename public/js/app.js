@@ -23791,6 +23791,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packages: {
@@ -24057,32 +24066,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -32286,7 +32269,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container-order[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\n.segment[data-v-615430d4]{\n    min-height: 80vh;\n}\n.container-order-form[data-v-615430d4]{\n    padding: 40px 50px;\n}\n.wrap-left-order-1[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    min-height: 100vh;\n    padding: 8% 3% 0 9%;\n    display: flex;\n    flex-direction: column;\n    color: #142362;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-size: contain;\n    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-615430d4] {\n    font-size: 60px;\n    font-weight: 900;\n}\n.h1-indi[data-v-615430d4]{\n    font-size: 120px;\n    font-weight: 900;\n    line-height: 175px;\n}\n\n  /* .div-progress-bar{\n    width: 1000px;\n    position: absolute;\n    z-index: 1;\n  } */\n.progress-bar-order[data-v-615430d4]{\n    counter-reset: step;\n    list-style-type: none;\n}\n.progress-bar-order li[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 14;\n    font-weight: 500;\n    float: left;\n    width: 25%;\n    position: relative;\n    /* text-align: center; */\n}\n.progress-bar-order li.active[data-v-615430d4]{\n    color: #345EC9;\n}\n.progress-bar-order li[data-v-615430d4]:before{\n    content:counter(step);\n    counter-increment: step;\n    width: 50px;\n    height: 50px;\n    padding: 10px 15px;\n    /* border: 2px solid #bebebe; */\n    /* display: block; */\n    margin: 0 10px 10px auto;\n    border-radius: 50%;\n    line-height: 27px;\n    background: #EBEBEB;\n    color: #81828F;\n    text-align: center;\n    font-weight: bold;\n}\n.progress-bar-order li[data-v-615430d4]:after{\n    content: '';\n    position: absolute;\n    height: 3px;\n    background: #979797;\n    top: 12px;\n    z-index: -1;\n}\n.progress-bar-order li[data-v-615430d4]:first-child:after{\n    content: none;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(2):after{\n    left: -38%;\n    width: 34%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(3):after{\n    left: -22%;\n    width: 19%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(4):after{\n    left: -36%;\n    width: 33%;\n}\n.progress-bar-order li.done + li[data-v-615430d4]:after{\n    background: #345EC9;\n}\n\n  /* .progress-bar-order li:first-child:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n  } */\n.progress-bar-order li.active[data-v-615430d4]:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n}\n.progress-bar-order li.done[data-v-615430d4]:before{\n    /* border-color: #3aac5d; */\n    background: #345EC9;\n    color: #ffffff;\n}\n\n  /* ORDER FORM 1 */\n.div-form-order[data-v-615430d4]{\n    padding: 10px 30px;\n}\n\n  /* ORDER FORM 2 */\n.body-order-form[data-v-615430d4]{\n    padding: 0 20px 20px 20px;\n}\n.div-p-title p[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 16px;\n}\n.wrap-each-package[data-v-615430d4]{\n    padding: 20px;\n}\n.packet-name[data-v-615430d4]{\n    font-size: 12px;\n    font-weight: 400;\n    font-family: 'Mulish', sans-serif;\n    margin-bottom: 5px;\n}\n.wrap-each-package h2[data-v-615430d4]{\n    font-size: 24px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n}\n.package-price[data-v-615430d4] {\n    font-size: 16px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n    color: #345EC9;\n}\n.p-text-bold[data-v-615430d4]{\n    font-size: 14px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n    margin-top: 8px;\n    margin-bottom: 5px;\n}\n.div-counter-color[data-v-615430d4]{\n    margin-top: 5px;\n}\n.div-counter-color p[data-v-615430d4]{\n    font-size: 14px;\n    font-weight: 500;\n    font-family: 'Mulish', sans-serif;\n    margin-bottom: 10px;\n}\n.wrap-note-package[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\ninput[data-v-615430d4]{\n    /* font-size: 18px; */\n    /* height: 4rem;\n    padding: 0 4rem;\n    border-radius: 2rem;\n    border: 0;\n    background: #fff;\n    color: #222;\n    box-shadow: 0 10px 65px -10px rgba(0,0,0,.25);\n    text-align: center;\n    width: 100%;\n    box-sizing: border-box; */\n    /* font-weight: lighter; */\n}\n.div-inc-1[data-v-615430d4]{\n    display: flex;\n    border: 2px solid #142362;\n    border-radius: 12px;\n}\n.wrap-minus-sign[data-v-615430d4]{\n}\n.btn-minus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n.input-number[data-v-615430d4]{\n    width: 100px;\n    background-color: transparent;\n    text-align: center;\n    border:transparent;\n    font-size: 24px;\n    height:48px;\n    padding-top: 10px;\n    resize: none;\n}\n.btn-plus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n\n  /* Payment Form */\n.body-payment-form[data-v-615430d4]{\n    padding: 0 20px 20px 20px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-order[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\n.segment[data-v-615430d4]{\n    min-height: 80vh;\n}\n.container-order-form[data-v-615430d4]{\n    padding: 40px 50px;\n}\n.wrap-left-order-1[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    min-height: 100vh;\n    padding: 8% 3% 0 9%;\n    display: flex;\n    flex-direction: column;\n    color: #142362;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-size: contain;\n    box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.h1-text[data-v-615430d4] {\n    font-size: 60px;\n    font-weight: 900;\n}\n.h1-indi[data-v-615430d4]{\n    font-size: 120px;\n    font-weight: 900;\n    line-height: 175px;\n}\n\n  /* .div-progress-bar{\n    width: 1000px;\n    position: absolute;\n    z-index: 1;\n  } */\n.progress-bar-order[data-v-615430d4]{\n    counter-reset: step;\n    list-style-type: none;\n}\n.progress-bar-order li[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 14;\n    font-weight: 500;\n    float: left;\n    width: 25%;\n    position: relative;\n    /* text-align: center; */\n}\n.progress-bar-order li.active[data-v-615430d4]{\n    color: #345EC9;\n}\n.progress-bar-order li[data-v-615430d4]:before{\n    content:counter(step);\n    counter-increment: step;\n    width: 50px;\n    height: 50px;\n    padding: 10px 15px;\n    /* border: 2px solid #bebebe; */\n    /* display: block; */\n    margin: 0 10px 10px auto;\n    border-radius: 50%;\n    line-height: 27px;\n    background: #EBEBEB;\n    color: #81828F;\n    text-align: center;\n    font-weight: bold;\n}\n.progress-bar-order li[data-v-615430d4]:after{\n    content: '';\n    position: absolute;\n    height: 3px;\n    background: #979797;\n    top: 12px;\n    z-index: -1;\n}\n.progress-bar-order li[data-v-615430d4]:first-child:after{\n    content: none;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(2):after{\n    left: -38%;\n    width: 34%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(3):after{\n    left: -22%;\n    width: 19%;\n}\n.progress-bar-order li[data-v-615430d4]:nth-child(4):after{\n    left: -36%;\n    width: 33%;\n}\n.progress-bar-order li.done + li[data-v-615430d4]:after{\n    background: #345EC9;\n}\n\n  /* .progress-bar-order li:first-child:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n  } */\n.progress-bar-order li.active[data-v-615430d4]:before{\n    border: 3px solid #345EC9;\n    background: #F3F9FE;\n    color: #345EC9;\n}\n.progress-bar-order li.done[data-v-615430d4]:before{\n    /* border-color: #3aac5d; */\n    background: #345EC9;\n    color: #ffffff;\n}\n\n  /* ORDER FORM 1 */\n.div-form-order[data-v-615430d4]{\n    padding: 10px 30px;\n}\n\n  /* ORDER FORM 2 */\n.body-order-form[data-v-615430d4]{\n    padding: 0 20px 20px 20px;\n}\n.div-p-title p[data-v-615430d4]{\n    font-family: 'Mulish', sans-serif;\n    font-size: 16px;\n}\n.wrap-each-package[data-v-615430d4]{\n    padding: 20px;\n}\n.packet-name[data-v-615430d4]{\n    font-size: 12px;\n    font-weight: 400;\n    font-family: 'Mulish', sans-serif;\n    margin-bottom: 5px;\n}\n.wrap-each-package h2[data-v-615430d4]{\n    font-size: 24px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n}\n.p-text-bold[data-v-615430d4]{\n    font-size: 14px;\n    font-weight: 700;\n    font-family: 'Mulish', sans-serif;\n    margin-top: 8px;\n    margin-bottom: 5px;\n}\n.div-counter-color[data-v-615430d4]{\n    margin-top: 5px;\n}\n.div-counter-color p[data-v-615430d4]{\n    font-size: 14px;\n    font-weight: 500;\n    font-family: 'Mulish', sans-serif;\n    margin-bottom: 10px;\n}\n.wrap-note-package[data-v-615430d4]{\n    display: flex;\n    flex-direction: row;\n}\ninput[data-v-615430d4]{\n    /* font-size: 18px; */\n    /* height: 4rem;\n    padding: 0 4rem;\n    border-radius: 2rem;\n    border: 0;\n    background: #fff;\n    color: #222;\n    box-shadow: 0 10px 65px -10px rgba(0,0,0,.25);\n    text-align: center;\n    width: 100%;\n    box-sizing: border-box; */\n    /* font-weight: lighter; */\n}\n.div-inc-1[data-v-615430d4]{\n    display: flex;\n    border: 2px solid #142362;\n    border-radius: 12px;\n}\n.wrap-minus-sign[data-v-615430d4]{\n}\n.btn-minus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n.input-number[data-v-615430d4]{\n    width: 100px;\n    background-color: transparent;\n    text-align: center;\n    border:transparent;\n    font-size: 24px;\n    height:48px;\n    padding-top: 10px;\n    resize: none;\n}\n.btn-plus[data-v-615430d4]{\n    /* color:#01E66F;\n    border: #01E66F 2px solid; */\n    border: none;\n    background-color: transparent;\n    width: 45px;\n    height: 48px;\n}\n\n  /* Payment Form */\n.body-payment-form[data-v-615430d4]{\n    padding: 0 20px 20px 20px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56194,70 +56177,94 @@ var render = function () {
             _c(
               "div",
               { staticClass: "row w-100 mx-0" },
-              _vm._l(_vm.packages, function (item, index) {
-                return _c(
-                  "div",
-                  {
-                    key: index,
-                    staticClass: "col-12 col-md-4 px-3 mb-3 div-products-info",
-                  },
-                  [
-                    _c("div", { staticClass: "card product-card" }, [
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h3", { staticClass: "card-title" }, [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(item.name) +
-                              "\n                  "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text text-area" }, [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(item.description) +
-                              "\n                  "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "\n                    Rp " +
-                              _vm._s(item.price) +
-                              "\n                  "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "div-order-btn" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-order",
-                              staticStyle: { background: "#345EC9" },
-                              attrs: { href: "/order" },
-                            },
-                            [
-                              _vm._v("\n                      Pesan sekarang "),
-                              _c("font-awesome-icon", {
-                                staticClass: "icon-arrow-right",
-                                attrs: { icon: "fa-solid fa-arrow-right" },
-                              }),
-                            ],
-                            1
-                          ),
-                        ]),
+              [
+                _vm._l(_vm.packages, function (item, index) {
+                  return _c(
+                    "div",
+                    {
+                      key: index,
+                      staticClass:
+                        "col-12 col-md-4 px-3 mb-3 div-products-info",
+                    },
+                    [
+                      _c("div", { staticClass: "card product-card h-100" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "d-flex flex-column card-body justify-content-between",
+                          },
+                          [
+                            _c("div", { staticClass: "mb-2" }, [
+                              _c(
+                                "h2",
+                                { staticClass: "card-title text-header mb-2" },
+                                [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(item.name) +
+                                      "\n                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "h4",
+                                { staticClass: "card-text package-price mb-3" },
+                                [
+                                  _vm._v(
+                                    "\n                      Rp " +
+                                      _vm._s(item.price) +
+                                      "\n                    "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "card-text text-area" }, [
+                                _vm._v(_vm._s(item.description)),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _c("div", { staticClass: "div-order-btn" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-order",
+                                    staticStyle: { background: "#345EC9" },
+                                    attrs: { href: "/order" },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                        Pesan sekarang "
+                                    ),
+                                    _c("font-awesome-icon", {
+                                      staticClass: "icon-arrow-right",
+                                      attrs: {
+                                        icon: "fa-solid fa-arrow-right",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ]),
+                            ]),
+                          ]
+                        ),
                       ]),
-                    ]),
-                  ]
-                )
-              }),
-              0
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _vm._m(1),
+              ],
+              2
             ),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "div-section-3" }, [
             _c("div", { staticClass: "d-md-flex my-5 px-3" }, [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "div",
@@ -56299,6 +56306,24 @@ var staticRenderFns = [
           attrs: { src: "images/img-front-catalog.png", alt: "img catalog" },
         }),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-secondary text-center" }, [
+      _vm._v(
+        "\n              Indi menggunakan pewarna dari bahan alami sehingga warna yang muncul tidak seperti pewarna kimia.\n              "
+      ),
+      _c("br"),
+      _vm._v(
+        "\n              Pewarna alami Indi akan terlihat bagus pada pakaian yang berwarna cerah khususnya pakaian putih.\n              "
+      ),
+      _c("br"),
+      _vm._v(
+        "\n              Silakan menghubungi admin jika memiliki pertanyaan seputar produk Indi. \n            "
+      ),
     ])
   },
   function () {
@@ -56433,9 +56458,14 @@ var render = function () {
             [
               _c("div", { staticClass: "mx-3" }, [
                 _c("div", { staticClass: "my-auto" }, [
-                  _c("h1", { staticStyle: { "font-weight": "900" } }, [
-                    _vm._v("\n              Tentang Kami\n            "),
-                  ]),
+                  _c(
+                    "h1",
+                    {
+                      staticClass: "mt-4",
+                      staticStyle: { "font-weight": "900" },
+                    },
+                    [_vm._v("\n              Tentang Kami\n            ")]
+                  ),
                   _vm._v(" "),
                   _vm._m(2),
                   _vm._v(" "),
@@ -56462,7 +56492,7 @@ var render = function () {
         _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
-        _vm.reviews
+        _vm.reviews.length
           ? _c(
               "div",
               { staticClass: "justify-content-center mx-3 mt-md-2 p-3" },
@@ -57619,7 +57649,7 @@ var render = function () {
     [
       _c(
         "div",
-        { staticClass: "d-flex justify-content-between mb-3" },
+        { staticClass: "d-md-flex justify-content-between mb-3" },
         [
           _c("h3", { staticClass: "text-header" }, [
             _vm._v("Product Management"),
@@ -57650,7 +57680,7 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "d-flex justify-content-between mb-4 w-100",
+                          "d-flex justify-content-between mb-2 w-100",
                       },
                       [
                         _c("h4", { staticClass: "my-auto" }, [
@@ -57677,11 +57707,13 @@ var render = function () {
                       ]
                     ),
                     _vm._v(" "),
+                    _c("div", { staticClass: "product-price mb-3" }, [
+                      _vm._v("Rp " + _vm._s(item.price)),
+                    ]),
+                    _vm._v(" "),
                     _c("p", { staticClass: "text-area" }, [
                       _vm._v(_vm._s(item.description)),
                     ]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v("Rp " + _vm._s(item.price))]),
                   ]
                 ),
               ]),
@@ -57736,7 +57768,7 @@ var render = function () {
         },
       },
       [
-        _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
             _vm._m(1),
             _vm._v(" "),
@@ -57926,7 +57958,7 @@ var render = function () {
         },
       },
       [
-        _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
             _vm._m(0),
             _vm._v(" "),
@@ -58088,7 +58120,7 @@ var render = function () {
     [
       _c(
         "div",
-        { staticClass: "d-flex justify-content-between mb-3" },
+        { staticClass: "d-md-flex justify-content-between mb-3" },
         [
           _c("h3", { staticClass: "text-header" }, [
             _vm._v("Review Management"),
@@ -58206,7 +58238,7 @@ var render = function () {
         },
       },
       [
-        _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
             _vm._m(1),
             _vm._v(" "),
@@ -58352,7 +58384,7 @@ var render = function () {
         },
       },
       [
-        _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
             _vm._m(0),
             _vm._v(" "),
@@ -59184,7 +59216,7 @@ var render = function () {
         },
       },
       [
-        _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
             _vm._m(0),
             _vm._v(" "),

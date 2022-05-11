@@ -40,31 +40,40 @@
                 :key="index"
                 class="col-12 col-md-4 px-3 mb-3 div-products-info"
               >
-                <div class="card product-card">
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      {{ item.name }}
-                    </h3>
-                    <p class="card-text text-area">
-                      {{ item.description }}
-                    </p>
-                    <p class="card-text">
-                      Rp {{ item.price }}
-                    </p>
-                    <div class="div-order-btn">
-                      <a
-                        class="btn btn-order"
-                        style="background: #345EC9;"
-                        href="/order"
-                      >
-                        Pesan sekarang <font-awesome-icon
-                          class="icon-arrow-right"
-                          icon="fa-solid fa-arrow-right"
-                        />
-                      </a>
+                <div class="card product-card h-100">
+                  <div class="d-flex flex-column card-body justify-content-between">
+                    <div class="mb-2">
+                      <h2 class="card-title text-header mb-2">
+                        {{ item.name }}
+                      </h2>
+                      <h4 class="card-text package-price mb-3">
+                        Rp {{ item.price }}
+                      </h4>
+                      <p class="card-text text-area">{{ item.description }}</p>
+                    </div>
+                    <div>
+                      <div class="div-order-btn">
+                        <a
+                          class="btn btn-order"
+                          style="background: #345EC9;"
+                          href="/order"
+                        >
+                          Pesan sekarang <font-awesome-icon
+                            class="icon-arrow-right"
+                            icon="fa-solid fa-arrow-right"
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="text-secondary text-center">
+                Indi menggunakan pewarna dari bahan alami sehingga warna yang muncul tidak seperti pewarna kimia.
+                <br>
+                Pewarna alami Indi akan terlihat bagus pada pakaian yang berwarna cerah khususnya pakaian putih.
+                <br>
+                Silakan menghubungi admin jika memiliki pertanyaan seputar produk Indi. 
               </div>
             </div>
           </div>

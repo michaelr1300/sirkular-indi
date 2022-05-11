@@ -82,32 +82,6 @@
             </div>
           </div>
         </div>
-        <!-- <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#review-carousel"
-          data-bs-slide="prev"
-          style="color: #142362"
-        >
-          <span
-            class="carousel-control-prev-icon"
-            aria-hidden="true"
-          />
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#review-carousel"
-          data-bs-slide="next"
-          style="color: #142362"
-        >
-          <span
-            class="carousel-control-next-icon"
-            aria-hidden="true"
-          />
-          <span class="visually-hidden">Next</span>
-        </button> -->
         <hr>
       </div>
       <div class="row my-4 mx-0 mx-md-5">
