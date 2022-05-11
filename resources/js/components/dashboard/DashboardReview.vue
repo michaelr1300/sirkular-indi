@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex justify-content-between mb-3">
+    <div class="d-md-flex justify-content-between mb-3">
       <h3 class="text-header">Review Management</h3> 
       <DashboardReviewFormAdd/>
     </div>

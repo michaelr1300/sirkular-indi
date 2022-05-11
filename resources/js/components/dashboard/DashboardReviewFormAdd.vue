@@ -5,7 +5,7 @@
       <span class="mdi mdi-plus"></span>
     </button>
     <div class="modal fade" id="add-review-modal" tabindex="-1" aria-labelledby="add-review-modal" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Tambah Review</h5>
