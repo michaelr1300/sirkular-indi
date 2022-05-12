@@ -16,14 +16,19 @@ class PackageSeeder extends Seeder
     public function run()
     {
         Package::create([
-            'name' => 'Package 1',
-            'price' => 100000,
-            'description' => 'Lorem Ipsum dolor sit amet',
+            'name' => 'Celup',
+            'price' => 75000,
+            'description' => 'Celup pakaian dengan pewarna alami dari Indi. Cocok untuk pakaian berwarna cerah. Warna yang tersedia: Biru, Merah, Hijau.',
         ]);
         Package::create([
-            'name' => 'Package 2',
-            'price' => 200000,
-            'description' => 'Lorem Ipsum dolor sit amet',
+            'name' => 'Ikat',
+            'price' => 100000,
+            'description' => 'Pakaian diikat kemudian dicelup dengan pewarna alami. Memunculkan pola-pola batik ikat yang indah.',
+        ]);
+        Package::create([
+            'name' => 'Batik Ulang',
+            'price' => 250000,
+            'description' => 'Pakaian dibatik ulang menggunakan pewarna alami Indi. Tuliskan pola/motif dan warna yang diinginkan pada kolom keterangan saat memesan.',
         ]);
     }
 }

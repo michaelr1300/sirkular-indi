@@ -539,13 +539,6 @@ export default {
     font-family: 'Mulish', sans-serif;
   }
 
-  .package-price {
-    font-size: 16px;
-    font-weight: 700;
-    font-family: 'Mulish', sans-serif;
-    color: #345EC9;
-  }
-
   .p-text-bold{
     font-size: 14px;
     font-weight: 700;

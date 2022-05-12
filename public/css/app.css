@@ -11353,6 +11353,13 @@ body {
   white-space: pre-line;
 }
 
+.package-price {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Mulish", sans-serif;
+  color: #345EC9;
+}
+
 @media screen and (min-width: 780px) {
   .h1-text {
     font-size: 8vw;

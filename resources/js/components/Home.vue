@@ -69,7 +69,7 @@
         <div class="d-md-flex flex-column col-12 col-md-6 px-3 my-auto">
           <div class="mx-3">
             <div class="my-auto">
-              <h1 style="font-weight: 900;">
+              <h1 class="mt-4" style="font-weight: 900;">
                 Tentang Kami
               </h1>
               <p
@@ -144,7 +144,7 @@
         </div>
         <hr>
       </div>
-      <div v-if="reviews" class="justify-content-center mx-3 mt-md-2 p-3">
+      <div v-if="reviews.length" class="justify-content-center mx-3 mt-md-2 p-3">
         <div class="col-lg-12">
           <div class="div-review-section">
             <div class="d-flex justify-content-between mb-3">

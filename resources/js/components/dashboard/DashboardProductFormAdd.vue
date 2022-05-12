@@ -5,7 +5,7 @@
       <span class="mdi mdi-plus"></span>
     </button>
     <div class="modal fade" id="add-product-modal" tabindex="-1" aria-labelledby="add-product-modal" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Tambah Produk</h5>
