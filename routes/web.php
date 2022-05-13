@@ -63,5 +63,6 @@ Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
     Route::put('/{order}', [OrderController::class, 'update'])->name('update');
     Route::post('/{order}/updateStatus', [OrderController::class, 'updateStatus'])->name('updateStatus');
     Route::post('/{order}/updatePayment', [OrderController::class, 'updatePayment'])->name('updatePayment');
+    Route::post('/{order}/updateReceipt', [OrderController::class, 'updateReceipt'])->name('updateReceipt');
     Route::delete('/{order}', [OrderController::class, 'destroy'])->name('delete');
 });

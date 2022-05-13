@@ -161,6 +161,17 @@ class OrderController extends Controller
         // return redirect()->action([OrderController::class, 'index']);
     }
 
+    public function updateReceipt(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $this->authorize('updateStatus', $order);
+        
+        $order->receipt_number = $request->receipt;
+        $order->save();
+
+        // return redirect()->action([OrderController::class, 'index']);
+    }
+
     public function updateStatus($id)
     {
         $order = Order::find($id);

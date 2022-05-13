@@ -25083,7 +25083,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 photo = _this.$refs.photo.files[0];
                 formData = new FormData();
-                formData.append("photo", photo);
+
+                if (photo) {
+                  formData.append("photo", photo);
+                }
+
                 formData.append("content", _this.form.content);
                 _context.prev = 4;
                 _context.next = 7;
@@ -25625,6 +25629,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -25642,6 +25693,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       type: Object,
       "default": null
     }
+  },
+  data: function data() {
+    return {
+      form: {
+        receipt: null
+      }
+    };
   },
   computed: {
     nextStatus: function nextStatus() {
@@ -25740,6 +25798,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee2, null, [[3, 11]]);
+      }))();
+    },
+    inputReceipt: function inputReceipt() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return axios.post("/order/".concat(_this3.order.id, "/updateReceipt"), _this3.form);
+
+              case 3:
+                response = _context3.sent;
+                return _context3.abrupt("return", location.reload());
+
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0.response);
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 7]]);
       }))();
     }
   }
@@ -58922,6 +59010,105 @@ var render = function () {
                         ]
                       )
                     : _vm._e(),
+                  _vm._v(" "),
+                  _vm.order.status == "finish" &&
+                  _vm.user.is_admin &&
+                  !_vm.order.receipt_number
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: {
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#input-receipt-modal",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n              Masukkan Nomor Resi\n            "
+                          ),
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "input-receipt-modal",
+                        tabindex: "-1",
+                        "aria-labelledby": "input-receipt-modal",
+                        "aria-hidden": "true",
+                      },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "modal-dialog modal-dialog-centered" },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("div", { staticClass: "form-group mt-3" }, [
+                                _c("label", { attrs: { for: "receipt" } }, [
+                                  _vm._v("Review"),
+                                ]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.receipt,
+                                      expression: "form.receipt",
+                                    },
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    id: "receipt",
+                                    name: "receipt",
+                                    type: "text",
+                                    required: "",
+                                  },
+                                  domProps: { value: _vm.form.receipt },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.form,
+                                        "receipt",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.inputReceipt()
+                                    },
+                                  },
+                                },
+                                [_vm._v("Simpan")]
+                              ),
+                            ]),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  ),
                 ],
                 1
               ),
@@ -58935,6 +59122,18 @@ var render = function () {
               [
                 _c("table", { staticClass: "table-text" }, [
                   _c("tbody", [
+                    _vm.order.receipt_number
+                      ? _c("tr", { staticStyle: { height: "2rem" } }, [
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "w-100 text-nowrap" }, [
+                            _c("b", [_vm._v(_vm._s(_vm.order.receipt_number))]),
+                          ]),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c("tr", { staticStyle: { height: "2rem" } }, [
                       _c(
                         "td",
@@ -58942,7 +59141,7 @@ var render = function () {
                         [_vm._v("\n                  Nama\n                ")]
                       ),
                       _vm._v(" "),
-                      _vm._m(2),
+                      _vm._m(5),
                       _vm._v(" "),
                       _c("td", { staticClass: "w-100 text-nowrap" }, [
                         _vm._v(
@@ -58964,7 +59163,7 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(3),
+                      _vm._m(6),
                       _vm._v(" "),
                       _c("td", { staticClass: "w-100 text-nowrap" }, [
                         _vm._v(
@@ -58994,7 +59193,7 @@ var render = function () {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(4),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -59019,7 +59218,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(5),
+            _vm._m(8),
             _vm._v(" "),
             _c(
               "tbody",
@@ -59111,6 +59310,39 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", [_vm._v("an. PT. indigo Indonesia")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Masukkan Nomor Resi")]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "font-weight-bold text-nowrap" }, [
+      _c("b", [_vm._v("Nomor Resi")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("div", { staticClass: "mx-2" }, [_c("b", [_vm._v(":")])]),
     ])
   },
   function () {
