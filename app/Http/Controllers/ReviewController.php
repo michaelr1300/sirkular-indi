@@ -23,7 +23,7 @@ class ReviewController extends Controller
     {
         $request->validate([
             'content' => 'required',
-            'photo' => 'image'
+            'photo' => 'nullable|image'
         ]);
 
         $photo_path = '';

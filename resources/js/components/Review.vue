@@ -44,7 +44,7 @@
       </div>
     </div>
     <div style="min-height: 100vh">
-      <div
+      <!-- <div
         id="review-carousel"
         class="carousel slide col-12 w-md-75 mx-auto mt-5"
         data-bs-ride="carousel"
@@ -68,13 +68,14 @@
             :key="item.id"
             class="carousel-item text-center"
             :class="!index ? 'active' : ' '"
+            style="object-fit: cover;"
           >
-            <div class="d-flex align-items-start">
+            <div class="d-flex align-items-start" 
+            style="object-fit: cover;">
               <img
                 :src="'/storage/' + item.photo_path"
                 class="col-md-8 img img-fluid"
                 alt=""
-                style="object-fit: contain;"
               >
               <div class="col-4 text-start d-none d-md-block ms-4">
                 <p class="text-area" style="font-size: 18px">{{ item.content }}</p>
@@ -83,7 +84,7 @@
           </div>
         </div>
         <hr>
-      </div>
+      </div> -->
       <div class="row my-4 mx-0 mx-md-5">
         <div id="product-indi-scroll" />
         <h1 class="text-center my-3" style="font-weight: 900;">
@@ -100,7 +101,7 @@
                 :src="'/storage/' + item.photo_path"
                 class="img img-fluid mx-auto"
                 alt=""
-                style="object-fit: contain; border-radius: 15px; max-height: 200px"
+                style="object-fit: cover; border-radius: 5px; max-height: 200px"
               >
             </div>
             <div class="card-body">

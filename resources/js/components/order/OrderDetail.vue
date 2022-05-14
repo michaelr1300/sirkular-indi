@@ -71,6 +71,15 @@
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
             <div class="d-flex justify-content-between justify-content-md-end">
+              <!-- <button
+                v-if="order.status == 'finish' && (user.id == order.user_id || user.is_admin)"
+                data-bs-toggle="modal" 
+                data-bs-target="#write-review"
+                class="btn btn-primary me-3"
+              >
+                Tulis Review
+              </button>
+              <order-review-add :selectedOrder="order"></order-review-add> -->
               <order-detail-payment
                 v-if="order.payment_photo"
                 :id="order.id"
@@ -108,7 +117,7 @@
                     </div>
                     <div class="modal-body">
                       <div class="form-group mt-3" >
-                        <label for="receipt">Review</label>
+                        <label for="receipt">Nomor Resi</label>
                         <input 
                           id="receipt"
                           name="receipt"
@@ -246,9 +255,10 @@
 import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
 import { format } from 'date-fns'
+import OrderReviewAdd from './OrderReviewAdd.vue';
 
 export default {
-  components: { OrderStatusBadge, OrderDetailPayment },
+  components: { OrderStatusBadge, OrderDetailPayment, OrderReviewAdd },
   props: {
     user: {
       type: Object,

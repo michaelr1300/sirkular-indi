@@ -1,14 +1,10 @@
 <template>
   <div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-review-modal">
-      Tambah Review
-      <span class="mdi mdi-plus"></span>
-    </button>
-    <div class="modal fade" id="add-review-modal" tabindex="-1" aria-labelledby="add-review-modal" aria-hidden="true">
+    <div class="modal fade" id="write-review-modal" tabindex="-1" aria-labelledby="write-review-modal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Tambah Review</h5>
+            <h5 class="modal-title">Tulis Review</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -34,8 +30,8 @@
               >
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="doSubmit()">Simpan</button>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-primary" @click="doSubmit()">Tulis Review</button>
           </div>
         </div>
       </div>
@@ -45,24 +41,42 @@
 
 <script>
 export default {
+  props: {
+    selectedOrder: {
+      type: Object,
+      default: null
+    },
+  },
   data() {
     return {
       form: {
         content: null,
+        photo_path: null,
+        order_id: null,
+        reviewer_id: null,
       },
+    }
+  },
+  watch: {
+    selectedOrder() {
+      this.form.order_id == this.selectedOrder.id;
+      this.form.reviewer_id == this.selectedOrder.user_id;  
     }
   },
   methods: {
     async doSubmit() {
       var photo = this.$refs.photo.files[0];
       let formData = new FormData();
-      if(photo) {
+      formData.append("order_id", this.form.order_id);
+      formData.append("reviewer_id", this.form.reviewer_id);
+      if (photo) {
         formData.append("photo", photo);
       }
       formData.append("content", this.form.content);
+      formData.append("_method", "put");
       try {
         let response = await axios.post(
-          `/reviews`,
+          `/order/${this.form.order_id}/writeReview`,
           formData,
           {
             headers: {
@@ -74,11 +88,7 @@ export default {
       } catch (error) {
         console.log(error.response);
       }
-    }
+    },
   },
 };
 </script>
-
-<style>
-
-</style>
