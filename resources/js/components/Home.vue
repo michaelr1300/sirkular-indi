@@ -18,19 +18,35 @@
           >
             Dengan pewarna alami
           </h1>
-          <h1
-            class="d-none d-md-block h1-indi text-uppercase"
-            style="font-size: 17vw; line-height: 14vw"
-          >
-            INDI
-          </h1>
-          <h1
-            class="d-block d-md-none h1-indi text-uppercase text-center mb-4"
-            style="font-size: 35vw; line-height: 24vw"
-          >
-            INDI
-          </h1>
-          <h3 class="h3-sub-text text-center text-md-start">
+          <div class="d-none d-md-block">
+            <h1
+              class="h1-indi text-uppercase"
+              style="font-size: 17vw; line-height: 14vw"
+            >
+              INDI
+            </h1>
+            <h1
+              class="h1-text text-uppercase text-center text-md-start"
+              style="font-size: 2vw"
+            >
+              (Indonesia Natural Dye Institute)
+            </h1>
+          </div>
+          <div class="d-block d-md-none">
+            <h1
+              class="d-block d-md-none h1-indi text-uppercase text-center mb-4"
+              style="font-size: 35vw; line-height: 24vw"
+            >
+              INDI
+            </h1>
+            <h1
+              class="h1-text text-uppercase text-center text-md-start"
+              style="font-size: 4vw"
+            >
+              (Indonesia Natural Dye Institute)
+            </h1>
+          </div>
+          <h3 class="h3-sub-text text-center text-md-start mt-3">
             Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI
           </h3>
           <button class="btn-get-start mx-auto mx-md-0">

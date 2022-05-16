@@ -24050,6 +24050,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reviews: {
@@ -56726,28 +56742,13 @@ var render = function () {
                   [_vm._v("\n          Dengan pewarna alami\n        ")]
                 ),
                 _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass: "d-none d-md-block h1-indi text-uppercase",
-                    staticStyle: { "font-size": "17vw", "line-height": "14vw" },
-                  },
-                  [_vm._v("\n          INDI\n        ")]
-                ),
+                _vm._m(0),
                 _vm._v(" "),
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "d-block d-md-none h1-indi text-uppercase text-center mb-4",
-                    staticStyle: { "font-size": "35vw", "line-height": "24vw" },
-                  },
-                  [_vm._v("\n          INDI\n        ")]
-                ),
+                _vm._m(1),
                 _vm._v(" "),
                 _c(
                   "h3",
-                  { staticClass: "h3-sub-text text-center text-md-start" },
+                  { staticClass: "h3-sub-text text-center text-md-start mt-3" },
                   [
                     _vm._v(
                       "\n          Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI\n        "
@@ -56770,12 +56771,12 @@ var render = function () {
               ]
             ),
             _vm._v(" "),
-            _vm._m(0),
+            _vm._m(2),
           ]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "d-md-flex justify-content-center" }, [
-          _vm._m(1),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "div",
@@ -56794,7 +56795,7 @@ var render = function () {
                     [_vm._v("\n              Tentang Kami\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm._m(2),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c(
                     "a",
@@ -56817,7 +56818,7 @@ var render = function () {
           ),
         ]),
         _vm._v(" "),
-        _vm._m(3),
+        _vm._m(5),
         _vm._v(" "),
         _vm.reviews.length
           ? _c(
@@ -56931,12 +56932,61 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(6),
       ]
     ),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-none d-md-block" }, [
+      _c(
+        "h1",
+        {
+          staticClass: "h1-indi text-uppercase",
+          staticStyle: { "font-size": "17vw", "line-height": "14vw" },
+        },
+        [_vm._v("\n            INDI\n          ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h1",
+        {
+          staticClass: "h1-text text-uppercase text-center text-md-start",
+          staticStyle: { "font-size": "2vw" },
+        },
+        [_vm._v("\n            (Indonesia Natural Dye Institute)\n          ")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-block d-md-none" }, [
+      _c(
+        "h1",
+        {
+          staticClass:
+            "d-block d-md-none h1-indi text-uppercase text-center mb-4",
+          staticStyle: { "font-size": "35vw", "line-height": "24vw" },
+        },
+        [_vm._v("\n            INDI\n          ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h1",
+        {
+          staticClass: "h1-text text-uppercase text-center text-md-start",
+          staticStyle: { "font-size": "4vw" },
+        },
+        [_vm._v("\n            (Indonesia Natural Dye Institute)\n          ")]
+      ),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
