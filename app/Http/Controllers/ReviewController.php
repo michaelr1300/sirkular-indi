@@ -34,6 +34,7 @@ class ReviewController extends Controller
         Review::create([
             'photo_path' => $photo_path,
             'content' => $request->content,
+            'reviewer_name' => $request->reviewer_name,
         ]);
     }
 
@@ -51,6 +52,7 @@ class ReviewController extends Controller
         }
 
         $review->content = $request->content;
+        $review->reviewer_name = $request->reviewer_name;
         $review->save();
     }
 

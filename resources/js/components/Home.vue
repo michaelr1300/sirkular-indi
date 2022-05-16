@@ -199,6 +199,9 @@
                       style="max-height: 200px; border-radius: 5px"
                     >
                   </div>
+                  <div class="mt-2">
+                    {{ item.reviewer_name }}
+                  </div>
                   <div class="text-area mt-2">
                     {{ item.content }}
                   </div>

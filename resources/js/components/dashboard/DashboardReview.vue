@@ -25,6 +25,9 @@
             </div>
             <div>
               <hr>
+              <div class="my-2">
+                {{ item.reviewer_name }}
+              </div>
               <p class="text-area">{{ item.content }}</p>
             </div>
           </div>

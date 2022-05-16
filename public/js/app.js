@@ -24066,6 +24066,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reviews: {
@@ -24088,6 +24091,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -24994,6 +25000,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -25085,10 +25094,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       form: {
+        reviewer_name: null,
         content: null
       }
     };
@@ -25105,35 +25125,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 photo = _this.$refs.photo.files[0];
                 formData = new FormData();
-
-                if (photo) {
-                  formData.append("photo", photo);
-                }
-
+                formData.append("photo", photo);
                 formData.append("content", _this.form.content);
-                _context.prev = 4;
-                _context.next = 7;
+                formData.append("reviewer_name", _this.form.reviewer_name);
+                _context.prev = 5;
+                _context.next = 8;
                 return axios.post("/reviews", formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 7:
+              case 8:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 11:
-                _context.prev = 11;
-                _context.t0 = _context["catch"](4);
+              case 12:
+                _context.prev = 12;
+                _context.t0 = _context["catch"](5);
                 console.log(_context.t0.response);
 
-              case 14:
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[4, 11]]);
+        }, _callee, null, [[5, 12]]);
       }))();
     }
   }
@@ -25225,6 +25242,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedReview: {
@@ -25237,6 +25264,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form: {
         id: null,
         content: null,
+        reviewer_name: null,
         photo_path: null
       }
     };
@@ -25265,30 +25293,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 }
 
                 formData.append("content", _this.form.content);
+                formData.append("reviewer_name", _this.form.reviewer_name);
                 formData.append("_method", "put");
-                _context.prev = 6;
-                _context.next = 9;
+                _context.prev = 7;
+                _context.next = 10;
                 return axios.post("/reviews/".concat(_this.form.id), formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 9:
+              case 10:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 13:
-                _context.prev = 13;
-                _context.t0 = _context["catch"](6);
+              case 14:
+                _context.prev = 14;
+                _context.t0 = _context["catch"](7);
                 console.log(_context.t0.response);
 
-              case 16:
+              case 17:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[6, 13]]);
+        }, _callee, null, [[7, 14]]);
       }))();
     },
     doDelete: function doDelete() {
@@ -56691,6 +56720,14 @@ var render = function () {
                                   ]
                                 ),
                                 _vm._v(" "),
+                                _c("div", { staticClass: "mt-2" }, [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(item.reviewer_name) +
+                                      "\n                "
+                                  ),
+                                ]),
+                                _vm._v(" "),
                                 _c("div", { staticClass: "text-area mt-2" }, [
                                   _vm._v(
                                     "\n                  " +
@@ -57132,6 +57169,14 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "my-2" }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(item.reviewer_name) +
+                            "\n            "
+                        ),
+                      ]),
+                      _vm._v(" "),
                       _c("p", { staticClass: "card-text text-area" }, [
                         _vm._v(
                           "\n              " +
@@ -58336,6 +58381,14 @@ var render = function () {
                     _c("div", [
                       _c("hr"),
                       _vm._v(" "),
+                      _c("div", { staticClass: "my-2" }, [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(item.reviewer_name) +
+                            "\n            "
+                        ),
+                      ]),
+                      _vm._v(" "),
                       _c("p", { staticClass: "text-area" }, [
                         _vm._v(_vm._s(item.content)),
                       ]),
@@ -58399,6 +58452,38 @@ var render = function () {
             _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group mt-3" }, [
+                _c("label", { attrs: { for: "reviewer_name" } }, [
+                  _vm._v("Nama Pelanggan"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.reviewer_name,
+                      expression: "form.reviewer_name",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "reviewer_name",
+                    name: "reviewer_name",
+                    type: "text-area",
+                  },
+                  domProps: { value: _vm.form.reviewer_name },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "reviewer_name", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "content" } }, [_vm._v("Review")]),
                 _vm._v(" "),
@@ -58545,6 +58630,38 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group mt-3" }, [
+                _c("label", { attrs: { for: "reviewer_name" } }, [
+                  _vm._v("Nama Pelanggan"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.reviewer_name,
+                      expression: "form.reviewer_name",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "reviewer_name",
+                    name: "reviewer_name",
+                    type: "text-area",
+                  },
+                  domProps: { value: _vm.form.reviewer_name },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "reviewer_name", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "content" } }, [_vm._v("Review")]),
                 _vm._v(" "),

@@ -104,6 +104,9 @@
               >
             </div>
             <div class="card-body">
+              <div class="my-2">
+                {{ item.reviewer_name }}
+              </div>
               <p class="card-text text-area">
                 {{ item.content }}
               </p>
