@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('payment_photo')->nullable();
             $table->string('status')->nullable();
             $table->string('receipt_number')->nullable();
-            $table->integer('is_reviewed')->default(0);
             $table->timestamps();
         });
     }

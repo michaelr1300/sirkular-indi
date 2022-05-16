@@ -56,9 +56,7 @@ export default {
     async doSubmit() {
       var photo = this.$refs.photo.files[0];
       let formData = new FormData();
-      if(photo) {
-        formData.append("photo", photo);
-      }
+      formData.append("photo", photo);
       formData.append("content", this.form.content);
       try {
         let response = await axios.post(

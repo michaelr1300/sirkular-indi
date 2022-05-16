@@ -8,7 +8,6 @@ use App\Models\Package;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\Review;
 use Illuminate\Validation\Rule;
 
 class OrderController extends Controller
@@ -169,32 +168,8 @@ class OrderController extends Controller
         
         $order->receipt_number = $request->receipt;
         $order->save();
-    }
 
-    public function writeReview(Request $request, $id)
-    {
-        $order = Order::find($id);
-        $this->authorize('updatePayment', $order);
-        
-        $request->validate([
-            'content' => 'required',
-            'photo' => 'nullable|image'
-        ]);
-
-        $photo_path = '';
-        if($request->file('photo')) {
-            $photo_path = $request->file('photo')->store('review-photos');
-        }
-
-        Review::create([
-            'photo_path' => $photo_path,
-            'content' => $request->content,
-            'reviewer_id' => $request->reviewer_id,
-            'order_id' => $request->order_id,
-        ]);
-
-        $order->is_reviewed = 1;
-        $order->save();
+        // return redirect()->action([OrderController::class, 'index']);
     }
 
     public function updateStatus($id)
