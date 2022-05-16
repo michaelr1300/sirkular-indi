@@ -4,7 +4,7 @@
       <div class="segment-1 flex-row justify-content-center">
         <div class="col-lg-7 wrap-left-catalog-1">
           <h1 class="h1-text text-uppercase">
-            Katalog
+            Layanan
           </h1>
           <h1 class="h1-indi text-uppercase">
             INDI
@@ -33,37 +33,43 @@
         <div class="col-12">
           <div class="div-section-3">
             <div id="product-indi-scroll" />
-            <h1 class="px-0 px-md-3">Produk Indi</h1>
-            <div class="row w-100 mx-0">
+            <h1 class="px-0 px-md-3">Jasa Reproduksi</h1>
+            <div class="d-flex flex-column px-3 w-100 mx-0">
               <div
                 v-for="(item, index) in packages"
                 :key="index"
-                class="col-12 col-md-4 px-3 mb-3 div-products-info"
+                class="d-md-flex flex-row col-12 mb-3 div-products-info product-card"
               >
-                <div class="card product-card h-100">
-                  <div class="d-flex flex-column card-body justify-content-between">
-                    <div class="mb-2">
-                      <h2 class="card-title text-header mb-2">
-                        {{ item.name }}
-                      </h2>
-                      <h4 class="card-text package-price mb-3">
-                        Rp {{ item.price }}
-                      </h4>
-                      <p class="card-text text-area">{{ item.description }}</p>
-                    </div>
-                    <div>
-                      <div class="div-order-btn">
-                        <a
-                          class="btn btn-order"
-                          style="background: #345EC9;"
-                          href="/order"
-                        >
-                          Pesan sekarang <font-awesome-icon
-                            class="icon-arrow-right"
-                            icon="fa-solid fa-arrow-right"
-                          />
-                        </a>
-                      </div>
+                <div class="col-md-5 px-0">
+                  <img
+                    class="w-100"
+                    style="max-height: 300px; object-fit: cover;"
+                    :src="'images/product-photo-' + index + '.png'"
+                    alt="product image"
+                  >
+                </div>
+                <div class="d-flex flex-column col-md-7 card-body justify-content-between">
+                  <div class="mb-2">
+                    <h2 class="card-title text-header mb-2">
+                      {{ item.name }}
+                    </h2>
+                    <h4 class="card-text package-price mb-3">
+                      Mulai dari Rp {{ item.price }} per helai
+                    </h4>
+                    <p class="card-text text-area">{{ item.description }}</p>
+                  </div>
+                  <div>
+                    <div class="div-order-btn">
+                      <a
+                        class="btn btn-order"
+                        style="background: #345EC9;"
+                        href="/order"
+                      >
+                        Pesan sekarang <font-awesome-icon
+                          class="icon-arrow-right"
+                          icon="fa-solid fa-arrow-right"
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -172,7 +178,6 @@ export default {
     }
 
     .div-section-3 h1{
-        font-family: 'Mulish', sans-serif;
         margin-top: 40px;
         font-size: 48px;
         font-weight: 800;
@@ -180,8 +185,6 @@ export default {
 
     .div-products-info{
         font-family: 'Mulish', sans-serif;
-        display: flex;
-        flex-direction: column;
         font-weight: 400;
     }
 
@@ -302,7 +305,6 @@ export default {
     }
 
     .div-section-3 h1{
-        font-family: 'Mulish', sans-serif;
         margin-left: 20px;
         margin-top: 40px;
         font-size: 38px;
@@ -311,8 +313,6 @@ export default {
 
     .div-products-info{
         font-family: 'Mulish', sans-serif;
-        display: flex;
-        flex-direction: column;
         font-weight: 400;
     }
 

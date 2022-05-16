@@ -23800,6 +23800,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packages: {
@@ -32359,7 +32365,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0 7.5%;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 15% 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-wrapper-1[data-v-c9165604]{\r\n        overflow: hidden;\r\n        width: 100%;\r\n        height: 250px;\r\n        position: relative;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        background-size: cover;\r\n        left: 0%;\r\n        position: absolute;\r\n        top: -60%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        margin-left: 20px;\r\n        margin-top: 40px;\r\n        font-size: 38px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        margin-bottom: 22px;\r\n        color: #142362;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0 7.5%;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 15% 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-wrapper-1[data-v-c9165604]{\r\n        overflow: hidden;\r\n        width: 100%;\r\n        height: 250px;\r\n        position: relative;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        background-size: cover;\r\n        left: 0%;\r\n        position: absolute;\r\n        top: -60%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        margin-left: 20px;\r\n        margin-top: 40px;\r\n        font-size: 38px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        margin-bottom: 22px;\r\n        color: #142362;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56449,7 +56455,7 @@ var render = function () {
       _c("div", { staticClass: "segment-1 flex-row justify-content-center" }, [
         _c("div", { staticClass: "col-lg-7 wrap-left-catalog-1" }, [
           _c("h1", { staticClass: "h1-text text-uppercase" }, [
-            _vm._v("\n          Katalog\n        "),
+            _vm._v("\n          Layanan\n        "),
           ]),
           _vm._v(" "),
           _c("h1", { staticClass: "h1-indi text-uppercase" }, [
@@ -56481,11 +56487,13 @@ var render = function () {
           _c("div", { staticClass: "div-section-3" }, [
             _c("div", { attrs: { id: "product-indi-scroll" } }),
             _vm._v(" "),
-            _c("h1", { staticClass: "px-0 px-md-3" }, [_vm._v("Produk Indi")]),
+            _c("h1", { staticClass: "px-0 px-md-3" }, [
+              _vm._v("Jasa Reproduksi"),
+            ]),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "row w-100 mx-0" },
+              { staticClass: "d-flex flex-column px-3 w-100 mx-0" },
               [
                 _vm._l(_vm.packages, function (item, index) {
                   return _c(
@@ -56493,74 +56501,84 @@ var render = function () {
                     {
                       key: index,
                       staticClass:
-                        "col-12 col-md-4 px-3 mb-3 div-products-info",
+                        "d-md-flex flex-row col-12 mb-3 div-products-info product-card",
                     },
                     [
-                      _c("div", { staticClass: "card product-card h-100" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "d-flex flex-column card-body justify-content-between",
+                      _c("div", { staticClass: "col-md-5 px-0" }, [
+                        _c("img", {
+                          staticClass: "w-100",
+                          staticStyle: {
+                            "max-height": "300px",
+                            "object-fit": "cover",
                           },
-                          [
-                            _c("div", { staticClass: "mb-2" }, [
-                              _c(
-                                "h2",
-                                { staticClass: "card-title text-header mb-2" },
-                                [
-                                  _vm._v(
-                                    "\n                      " +
-                                      _vm._s(item.name) +
-                                      "\n                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "h4",
-                                { staticClass: "card-text package-price mb-3" },
-                                [
-                                  _vm._v(
-                                    "\n                      Rp " +
-                                      _vm._s(item.price) +
-                                      "\n                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticClass: "card-text text-area" }, [
-                                _vm._v(_vm._s(item.description)),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", [
-                              _c("div", { staticClass: "div-order-btn" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn btn-order",
-                                    staticStyle: { background: "#345EC9" },
-                                    attrs: { href: "/order" },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                        Pesan sekarang "
-                                    ),
-                                    _c("font-awesome-icon", {
-                                      staticClass: "icon-arrow-right",
-                                      attrs: {
-                                        icon: "fa-solid fa-arrow-right",
-                                      },
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ]),
-                            ]),
-                          ]
-                        ),
+                          attrs: {
+                            src: "images/product-photo-" + index + ".png",
+                            alt: "product image",
+                          },
+                        }),
                       ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex flex-column col-md-7 card-body justify-content-between",
+                        },
+                        [
+                          _c("div", { staticClass: "mb-2" }, [
+                            _c(
+                              "h2",
+                              { staticClass: "card-title text-header mb-2" },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(item.name) +
+                                    "\n                  "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "h4",
+                              { staticClass: "card-text package-price mb-3" },
+                              [
+                                _vm._v(
+                                  "\n                    Mulai dari Rp " +
+                                    _vm._s(item.price) +
+                                    " per helai\n                  "
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text text-area" }, [
+                              _vm._v(_vm._s(item.description)),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c("div", { staticClass: "div-order-btn" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-order",
+                                  staticStyle: { background: "#345EC9" },
+                                  attrs: { href: "/order" },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Pesan sekarang "
+                                  ),
+                                  _c("font-awesome-icon", {
+                                    staticClass: "icon-arrow-right",
+                                    attrs: { icon: "fa-solid fa-arrow-right" },
+                                  }),
+                                ],
+                                1
+                              ),
+                            ]),
+                          ]),
+                        ]
+                      ),
                     ]
                   )
                 }),

@@ -58,10 +58,10 @@ body{
 }
 
 .product-card{
-    display: flex;
     justify-content: center;
     border: 2px solid #142362;
     border-radius: 20px;
+    overflow: hidden;
   }
   
 .text-header {
@@ -94,6 +94,10 @@ body{
         line-height: 20vw;
     }
 
+    .w-md-30 {
+        width: 30%;
+    }
+
     .w-md-75 {
         width: 75%;
     }
@@ -118,5 +122,9 @@ body{
 
     .h-md-60-vh {
         height: 40vh;
+    }
+
+    .w-md-30 {
+        width: 100%;
     }
 }

@@ -78,7 +78,7 @@
                             <a class="menu-item {{ request()->is('/') ? 'active-menu' : ''}}" aria-current="page" href="/">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="menu-item {{ request()->is('catalog') ? 'active-menu' : ''}}" href="/catalog">Katalog</a>
+                            <a class="menu-item {{ request()->is('catalog') ? 'active-menu' : ''}}" href="/catalog">Layanan</a>
                         </li>
                         <li class="nav-item">
                             <a class="menu-item {{ request()->is('about') ? 'active-menu' : ''}}" href="/about">Tentang INDI</a>
