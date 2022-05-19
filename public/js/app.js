@@ -25727,6 +25727,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -25748,7 +25785,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       form: {
-        receipt: null
+        receipt: null,
+        price: null
       }
     };
   },
@@ -25851,7 +25889,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, null, [[3, 11]]);
       }))();
     },
-    inputReceipt: function inputReceipt() {
+    inputPrice: function inputPrice() {
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
@@ -25862,7 +25900,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.prev = 0;
                 _context3.next = 3;
-                return axios.post("/order/".concat(_this3.order.id, "/updateReceipt"), _this3.form);
+                return axios.post("/order/".concat(_this3.order.id, "/updatePrice"), _this3.form);
 
               case 3:
                 response = _context3.sent;
@@ -25879,6 +25917,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee3, null, [[0, 7]]);
+      }))();
+    },
+    inputReceipt: function inputReceipt() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                _context4.next = 3;
+                return axios.post("/order/".concat(_this4.order.id, "/updateReceipt"), _this4.form);
+
+              case 3:
+                response = _context4.sent;
+                return _context4.abrupt("return", location.reload());
+
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
+                console.log(_context4.t0.response);
+
+              case 10:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 7]]);
       }))();
     }
   }
@@ -59062,9 +59130,11 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _vm._v("\n        Rp " + _vm._s(_vm.totalPrice) + "\n      "),
-          ]),
+          _vm.order.price
+            ? _c("div", { staticClass: "col-3" }, [
+                _vm._v("\n        Rp " + _vm._s(_vm.order.price) + "\n      "),
+              ])
+            : _vm._e(),
         ]
       ),
     ]),
@@ -59077,11 +59147,27 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "accordion-body px-2 px-md-3" }, [
-          !_vm.order.payment_photo
+          !_vm.order.payment_photo && _vm.order.price
             ? _c("div", { staticClass: "mb-3 text-center" }, [
-                _vm._m(0),
+                _c("div", [
+                  _vm._v(
+                    "\n          Anda belum mengirimkan bukti pembayaran untuk transaksi ini.\n          "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n          Silahkan melakukan pembayaran sebesar\n          "
+                  ),
+                  _c(
+                    "h2",
+                    {
+                      staticClass: "package-price",
+                      staticStyle: { "font-size": "24px !important" },
+                    },
+                    [_vm._v("Rp " + _vm._s(_vm.order.price))]
+                  ),
+                ]),
                 _vm._v(" "),
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c("div", { staticClass: "d-flex mt-2" }, [
                   _c("label", { staticClass: "btn btn-primary w-50 mx-auto" }, [
@@ -59126,7 +59212,8 @@ var render = function () {
                           "photo-path": _vm.order.payment_photo,
                         },
                       })
-                    : _c(
+                    : _vm.order.price
+                    ? _c(
                         "button",
                         {
                           staticClass: "btn btn-primary me-3",
@@ -59137,9 +59224,107 @@ var render = function () {
                             "\n              Lihat Bukti Bayar\n            "
                           ),
                         ]
-                      ),
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
-                  _vm.order.status !== "finish" && _vm.user.is_admin
+                  !_vm.order.price && _vm.user.is_admin
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: {
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#input-price-modal",
+                          },
+                        },
+                        [_vm._v("\n              Masukkan Harga\n            ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "input-price-modal",
+                        tabindex: "-1",
+                        "aria-labelledby": "input-price-modal",
+                        "aria-hidden": "true",
+                      },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "modal-dialog modal-dialog-centered" },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _vm._m(1),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("div", { staticClass: "form-group mt-3" }, [
+                                _c("label", { attrs: { for: "price" } }, [
+                                  _vm._v("Harga (Rp)"),
+                                ]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.price,
+                                      expression: "form.price",
+                                    },
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    id: "price",
+                                    name: "price",
+                                    type: "number",
+                                    min: "0",
+                                    step: "1",
+                                    required: "",
+                                  },
+                                  domProps: { value: _vm.form.price },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.form,
+                                        "price",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.inputPrice()
+                                    },
+                                  },
+                                },
+                                [_vm._v("Simpan")]
+                              ),
+                            ]),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.order.price &&
+                  _vm.order.status !== "finish" &&
+                  _vm.user.is_admin
                     ? _c(
                         "button",
                         {
@@ -59415,7 +59600,7 @@ var render = function () {
                   _c("td", { staticClass: "font-weight-bold" }, [
                     _vm._v(
                       "\n              Rp " +
-                        _vm._s(_vm.totalPrice) +
+                        _vm._s(_vm.order.price) +
                         "\n            "
                     ),
                   ]),
@@ -59434,18 +59619,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _vm._v(
-        "\n          Anda belum mengirimkan bukti pembayaran untuk transaksi ini.\n          "
-      ),
-      _c("br"),
-      _vm._v("\n          Silakan lakukan pembayaran ke rekening\n        "),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "my-1" }, [
       _c("div", { staticClass: "img img-fluid" }, [
         _c("img", {
@@ -59459,6 +59632,25 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", [_vm._v("an. PT. indigo Indonesia")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _vm._v("Masukkan Harga Pesanan"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
     ])
   },
   function () {
@@ -59678,13 +59870,17 @@ var render = function () {
           },
           [
             _c("ul", { staticClass: "progress-bar-order" }, [
-              _c("li", { class: [_vm.isActive1] }, [_vm._v("Isi data diri")]),
+              _c("li", { staticClass: "me-3", class: [_vm.isActive1] }, [
+                _vm._v("Isi data diri"),
+              ]),
               _vm._v(" "),
-              _c("li", { class: [_vm.isActive2] }, [
+              _c("li", { staticClass: "me-3", class: [_vm.isActive2] }, [
                 _vm._v("Isi detail pesanan"),
               ]),
               _vm._v(" "),
-              _c("li", { class: [_vm.isActive3] }, [_vm._v("Selesai")]),
+              _c("li", { staticClass: "me-3", class: [_vm.isActive3] }, [
+                _vm._v("Selesai"),
+              ]),
             ]),
           ]
         ),

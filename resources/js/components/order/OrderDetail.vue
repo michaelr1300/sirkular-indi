@@ -17,8 +17,8 @@
         <div class="col-4">
           <order-status-badge :status="order.status" />
         </div>
-        <div class="col-3">
-          Rp {{ totalPrice }}
+        <div v-if="order.price" class="col-3">
+          Rp {{ order.price }}
         </div>
       </button>
     </h2>
@@ -28,13 +28,14 @@
     >
       <div class="accordion-body px-2 px-md-3">
         <div
-          v-if="!order.payment_photo"
+          v-if="!order.payment_photo && order.price"
           class="mb-3 text-center"
         >
           <div>
             Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
             <br>
-            Silakan lakukan pembayaran ke rekening
+            Silahkan melakukan pembayaran sebesar
+            <h2 class="package-price" style="font-size: 24px !important">Rp {{ order.price }}</h2>
           </div>
           <div class="my-1">
             <div class="img img-fluid">
@@ -78,14 +79,50 @@
                 class="me-3"
               />
               <button
-                v-else
+                v-else-if="order.price"
                 class="btn btn-primary me-3"
                 disabled
               >
                 Lihat Bukti Bayar
               </button>
               <button
-                v-if="order.status !== 'finish' && user.is_admin"
+                v-if="!order.price && user.is_admin"
+                data-bs-toggle="modal" 
+                data-bs-target="#input-price-modal"
+                class="btn btn-primary"
+              >
+                Masukkan Harga
+              </button>
+              <div class="modal fade" id="input-price-modal" tabindex="-1" aria-labelledby="input-price-modal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Masukkan Harga Pesanan</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group mt-3" >
+                        <label for="price">Harga (Rp)</label>
+                        <input 
+                          id="price"
+                          name="price"
+                          type="number"
+                          min=0
+                          step="1" 
+                          required
+                          class="form-control"
+                          v-model="form.price"
+                        />
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" @click="inputPrice()">Simpan</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                v-if="order.price && order.status !== 'finish' && user.is_admin"
                 class="btn btn-primary"
                 @click="updateStatus()"
               >
@@ -232,7 +269,7 @@
                 Total
               </td>
               <td class="font-weight-bold">
-                Rp {{ totalPrice }}
+                Rp {{ order.price }}
               </td>
             </tr>
           </tbody>
@@ -263,6 +300,7 @@ export default {
     return {
       form: {
         receipt: null,
+        price: null,
       },
     }
   },
@@ -314,6 +352,17 @@ export default {
         this.location.reload();
       } catch (error) {
         alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
+        console.log(error.response);
+      }
+    },
+    async inputPrice() {
+      try {
+        let response = await axios.post(
+          `/order/${this.order.id}/updatePrice`,
+          this.form,
+        );
+        return location.reload();
+      } catch (error) {
         console.log(error.response);
       }
     },

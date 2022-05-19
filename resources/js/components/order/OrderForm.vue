@@ -10,9 +10,9 @@
       <h1 class="d-flex d-lg-none mx-1 px-4 mb-3 text-uppercase">Buat Pesanan</h1>
       <div class="div-progress-bar d-none d-md-block" style="height: 50px">
         <ul class="progress-bar-order">
-          <li :class="[ isActive1 ]">Isi data diri</li>
-          <li :class="[ isActive2 ]">Isi detail pesanan</li>
-          <li :class="[ isActive3 ]">Selesai</li>
+          <li class="me-3" :class="[ isActive1 ]">Isi data diri</li>
+          <li class="me-3" :class="[ isActive2 ]">Isi detail pesanan</li>
+          <li class="me-3" :class="[ isActive3 ]">Selesai</li>
         </ul>
       </div>
       <div id="personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
