@@ -72,55 +72,14 @@
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
             <div class="d-flex justify-content-between justify-content-md-end">
-              <order-detail-payment
-                v-if="order.payment_photo"
-                :id="order.id"
-                :photo-path="order.payment_photo"
+              <OrderDetailPayment
+                :order="order"
                 class="me-3"
               />
-              <button
-                v-else-if="order.price"
-                class="btn btn-primary me-3"
-                disabled
-              >
-                Lihat Bukti Bayar
-              </button>
-              <button
-                v-if="!order.price && user.is_admin"
-                data-bs-toggle="modal" 
-                data-bs-target="#input-price-modal"
-                class="btn btn-primary"
-              >
-                Masukkan Harga
-              </button>
-              <div class="modal fade" id="input-price-modal" tabindex="-1" aria-labelledby="input-price-modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Masukkan Harga Pesanan</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-group mt-3" >
-                        <label for="price">Harga (Rp)</label>
-                        <input 
-                          id="price"
-                          name="price"
-                          type="number"
-                          min=0
-                          step="1" 
-                          required
-                          class="form-control"
-                          v-model="form.price"
-                        />
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" @click="inputPrice()">Simpan</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <OrderDetailInputPrice 
+                v-if="!order.price && user.is_admin" 
+                :order="order"
+              />
               <button
                 v-if="order.price && order.status !== 'finish' && user.is_admin"
                 class="btn btn-primary"
@@ -128,40 +87,10 @@
               >
                 {{ nextStatus }} Pesanan
               </button>
-              <button
-                v-if="order.status == 'finish' && user.is_admin && !order.receipt_number"
-                data-bs-toggle="modal" 
-                data-bs-target="#input-receipt-modal"
-                class="btn btn-primary"
-              >
-                Masukkan Nomor Resi
-              </button>
-              <div class="modal fade" id="input-receipt-modal" tabindex="-1" aria-labelledby="input-receipt-modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Masukkan Nomor Resi</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-group mt-3" >
-                        <label for="receipt">Review</label>
-                        <input 
-                          id="receipt"
-                          name="receipt"
-                          type="text" 
-                          required
-                          class="form-control"
-                          v-model="form.receipt"
-                        />
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" @click="inputReceipt()">Simpan</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <OrderDetailInputReceipt
+                v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
+                :order="order"
+              />
             </div>
           </div>
           <hr class="d-block d-sm-none">
@@ -255,7 +184,7 @@
                 </button>
               </td>
             </tr>
-            <tr>
+            <tr v-if="order.price">
               <td
                 colspan="2"
                 class="text-end font-weight-bold"
@@ -278,9 +207,11 @@ import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
 import { format } from 'date-fns'
 import OrderListImagePreviewModal from './OrderListImagePreviewModal.vue';
+import OrderDetailInputPrice from './OrderDetailInputPrice.vue';
+import OrderDetailInputReceipt from './OrderDetailInputReceipt.vue';
 
 export default {
-  components: { OrderStatusBadge, OrderDetailPayment, OrderListImagePreviewModal },
+  components: { OrderStatusBadge, OrderDetailPayment, OrderListImagePreviewModal, OrderDetailInputPrice, OrderDetailInputReceipt },
   props: {
     user: {
       type: Object,
@@ -348,31 +279,8 @@ export default {
           },
         );
         alert('Bukti Transfer Terupload');
-        this.location.reload();
       } catch (error) {
         alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
-        console.log(error.response);
-      }
-    },
-    async inputPrice() {
-      try {
-        let response = await axios.post(
-          `/order/${this.order.id}/updatePrice`,
-          this.form,
-        );
-        return location.reload();
-      } catch (error) {
-        console.log(error.response);
-      }
-    },
-    async inputReceipt() {
-      try {
-        let response = await axios.post(
-          `/order/${this.order.id}/updateReceipt`,
-          this.form,
-        );
-        return location.reload();
-      } catch (error) {
         console.log(error.response);
       }
     },

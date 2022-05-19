@@ -25476,8 +25476,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _OrderDetailPayment_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderDetailPayment.vue */ "./resources/js/components/order/OrderDetailPayment.vue");
 /* harmony import */ var _OrderStatusBadge_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OrderStatusBadge.vue */ "./resources/js/components/order/OrderStatusBadge.vue");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 /* harmony import */ var _OrderListImagePreviewModal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OrderListImagePreviewModal.vue */ "./resources/js/components/order/OrderListImagePreviewModal.vue");
+/* harmony import */ var _OrderDetailInputPrice_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./OrderDetailInputPrice.vue */ "./resources/js/components/order/OrderDetailInputPrice.vue");
+/* harmony import */ var _OrderDetailInputReceipt_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./OrderDetailInputReceipt.vue */ "./resources/js/components/order/OrderDetailInputReceipt.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -25688,77 +25690,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -25767,7 +25700,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     OrderStatusBadge: _OrderStatusBadge_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     OrderDetailPayment: _OrderDetailPayment_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    OrderListImagePreviewModal: _OrderListImagePreviewModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    OrderListImagePreviewModal: _OrderListImagePreviewModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    OrderDetailInputPrice: _OrderDetailInputPrice_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    OrderDetailInputReceipt: _OrderDetailInputReceipt_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
     user: {
@@ -25806,7 +25741,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     orderDate: function orderDate() {
-      return (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(this.order.created_at), 'dd MMM yyyy');
+      return (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(this.order.created_at), 'dd MMM yyyy');
     },
     totalPrice: function totalPrice() {
       var totalPrice = 0;
@@ -25870,84 +25805,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 6:
                 response = _context2.sent;
                 alert('Bukti Transfer Terupload');
-
-                _this2.location.reload();
-
-                _context2.next = 15;
+                _context2.next = 14;
                 break;
 
-              case 11:
-                _context2.prev = 11;
+              case 10:
+                _context2.prev = 10;
                 _context2.t0 = _context2["catch"](3);
                 alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
                 console.log(_context2.t0.response);
 
-              case 15:
+              case 14:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[3, 11]]);
-      }))();
-    },
-    inputPrice: function inputPrice() {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                _context3.next = 3;
-                return axios.post("/order/".concat(_this3.order.id, "/updatePrice"), _this3.form);
-
-              case 3:
-                response = _context3.sent;
-                return _context3.abrupt("return", location.reload());
-
-              case 7:
-                _context3.prev = 7;
-                _context3.t0 = _context3["catch"](0);
-                console.log(_context3.t0.response);
-
-              case 10:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, null, [[0, 7]]);
-      }))();
-    },
-    inputReceipt: function inputReceipt() {
-      var _this4 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        var response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _context4.prev = 0;
-                _context4.next = 3;
-                return axios.post("/order/".concat(_this4.order.id, "/updateReceipt"), _this4.form);
-
-              case 3:
-                response = _context4.sent;
-                return _context4.abrupt("return", location.reload());
-
-              case 7:
-                _context4.prev = 7;
-                _context4.t0 = _context4["catch"](0);
-                console.log(_context4.t0.response);
-
-              case 10:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4, null, [[0, 7]]);
+        }, _callee2, null, [[3, 10]]);
       }))();
     },
     getPackageName: function getPackageName(id) {
@@ -25958,6 +25830,220 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
       return ((_result$ = result[0]) === null || _result$ === void 0 ? void 0 : _result$.name) || '';
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    order: {
+      type: Object
+    }
+  },
+  methods: {
+    inputPrice: function inputPrice() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios.post("/order/".concat(_this.order.id, "/updatePrice"), _this.form);
+
+              case 3:
+                response = _context.sent;
+                return _context.abrupt("return", location.reload());
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0.response);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }))();
+    }
+  },
+  data: function data() {
+    return {
+      form: {
+        price: null
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    order: {
+      type: Object
+    }
+  },
+  methods: {
+    inputReceipt: function inputReceipt() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios.post("/order/".concat(_this.order.id, "/updateReceipt"), _this.form);
+
+              case 3:
+                response = _context.sent;
+                return _context.abrupt("return", location.reload());
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0.response);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }))();
+    }
+  },
+  data: function data() {
+    return {
+      form: {
+        receipt: null
+      }
+    };
   }
 });
 
@@ -26000,15 +26086,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    id: {
-      type: Number,
-      "default": null
-    },
-    photoPath: {
-      type: String,
-      "default": ''
+    order: {
+      type: Object
     }
   }
 });
@@ -55172,6 +55265,84 @@ component.options.__file = "resources/js/components/order/OrderDetail.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/order/OrderDetailInputPrice.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/order/OrderDetailInputPrice.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _OrderDetailInputPrice_vue_vue_type_template_id_7b75a8a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2& */ "./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2&");
+/* harmony import */ var _OrderDetailInputPrice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderDetailInputPrice.vue?vue&type=script&lang=js& */ "./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OrderDetailInputPrice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OrderDetailInputPrice_vue_vue_type_template_id_7b75a8a2___WEBPACK_IMPORTED_MODULE_0__.render,
+  _OrderDetailInputPrice_vue_vue_type_template_id_7b75a8a2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/order/OrderDetailInputPrice.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderDetailInputReceipt.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/order/OrderDetailInputReceipt.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _OrderDetailInputReceipt_vue_vue_type_template_id_5e3de45e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e& */ "./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e&");
+/* harmony import */ var _OrderDetailInputReceipt_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderDetailInputReceipt.vue?vue&type=script&lang=js& */ "./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OrderDetailInputReceipt_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OrderDetailInputReceipt_vue_vue_type_template_id_5e3de45e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _OrderDetailInputReceipt_vue_vue_type_template_id_5e3de45e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/order/OrderDetailInputReceipt.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/order/OrderDetailPayment.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/order/OrderDetailPayment.vue ***!
@@ -55707,6 +55878,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputPrice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderDetailInputPrice.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputPrice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputReceipt_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderDetailInputReceipt.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputReceipt_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/order/OrderDetailPayment.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/order/OrderDetailPayment.vue?vue&type=script&lang=js& ***!
@@ -56204,6 +56407,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetail_vue_vue_type_template_id_5733be23___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetail_vue_vue_type_template_id_5733be23___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderDetail.vue?vue&type=template&id=5733be23& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetail.vue?vue&type=template&id=5733be23&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputPrice_vue_vue_type_template_id_7b75a8a2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputPrice_vue_vue_type_template_id_7b75a8a2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputPrice_vue_vue_type_template_id_7b75a8a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputReceipt_vue_vue_type_template_id_5e3de45e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputReceipt_vue_vue_type_template_id_5e3de45e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderDetailInputReceipt_vue_vue_type_template_id_5e3de45e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e&");
 
 
 /***/ }),
@@ -59388,123 +59625,16 @@ var render = function () {
                     "d-flex justify-content-between justify-content-md-end",
                 },
                 [
-                  _vm.order.payment_photo
-                    ? _c("order-detail-payment", {
-                        staticClass: "me-3",
-                        attrs: {
-                          id: _vm.order.id,
-                          "photo-path": _vm.order.payment_photo,
-                        },
-                      })
-                    : _vm.order.price
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary me-3",
-                          attrs: { disabled: "" },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Lihat Bukti Bayar\n            "
-                          ),
-                        ]
-                      )
-                    : _vm._e(),
+                  _c("OrderDetailPayment", {
+                    staticClass: "me-3",
+                    attrs: { order: _vm.order },
+                  }),
                   _vm._v(" "),
                   !_vm.order.price && _vm.user.is_admin
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: {
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#input-price-modal",
-                          },
-                        },
-                        [_vm._v("\n              Masukkan Harga\n            ")]
-                      )
+                    ? _c("OrderDetailInputPrice", {
+                        attrs: { order: _vm.order },
+                      })
                     : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "modal fade",
-                      attrs: {
-                        id: "input-price-modal",
-                        tabindex: "-1",
-                        "aria-labelledby": "input-price-modal",
-                        "aria-hidden": "true",
-                      },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "modal-dialog modal-dialog-centered" },
-                        [
-                          _c("div", { staticClass: "modal-content" }, [
-                            _vm._m(1),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "modal-body" }, [
-                              _c("div", { staticClass: "form-group mt-3" }, [
-                                _c("label", { attrs: { for: "price" } }, [
-                                  _vm._v("Harga (Rp)"),
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.price,
-                                      expression: "form.price",
-                                    },
-                                  ],
-                                  staticClass: "form-control",
-                                  attrs: {
-                                    id: "price",
-                                    name: "price",
-                                    type: "number",
-                                    min: "0",
-                                    step: "1",
-                                    required: "",
-                                  },
-                                  domProps: { value: _vm.form.price },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "price",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "modal-footer" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-primary",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.inputPrice()
-                                    },
-                                  },
-                                },
-                                [_vm._v("Simpan")]
-                              ),
-                            ]),
-                          ]),
-                        ]
-                      ),
-                    ]
-                  ),
                   _vm._v(" "),
                   _vm.order.price &&
                   _vm.order.status !== "finish" &&
@@ -59532,101 +59662,10 @@ var render = function () {
                   _vm.order.status == "finish" &&
                   _vm.user.is_admin &&
                   !_vm.order.receipt_number
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: {
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#input-receipt-modal",
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Masukkan Nomor Resi\n            "
-                          ),
-                        ]
-                      )
+                    ? _c("OrderDetailInputReceipt", {
+                        attrs: { order: _vm.order },
+                      })
                     : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "modal fade",
-                      attrs: {
-                        id: "input-receipt-modal",
-                        tabindex: "-1",
-                        "aria-labelledby": "input-receipt-modal",
-                        "aria-hidden": "true",
-                      },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "modal-dialog modal-dialog-centered" },
-                        [
-                          _c("div", { staticClass: "modal-content" }, [
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "modal-body" }, [
-                              _c("div", { staticClass: "form-group mt-3" }, [
-                                _c("label", { attrs: { for: "receipt" } }, [
-                                  _vm._v("Review"),
-                                ]),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.receipt,
-                                      expression: "form.receipt",
-                                    },
-                                  ],
-                                  staticClass: "form-control",
-                                  attrs: {
-                                    id: "receipt",
-                                    name: "receipt",
-                                    type: "text",
-                                    required: "",
-                                  },
-                                  domProps: { value: _vm.form.receipt },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "receipt",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "modal-footer" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-primary",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.inputReceipt()
-                                    },
-                                  },
-                                },
-                                [_vm._v("Simpan")]
-                              ),
-                            ]),
-                          ]),
-                        ]
-                      ),
-                    ]
-                  ),
                 ],
                 1
               ),
@@ -59642,9 +59681,9 @@ var render = function () {
                   _c("tbody", [
                     _vm.order.receipt_number
                       ? _c("tr", { staticStyle: { height: "2rem" } }, [
-                          _vm._m(3),
+                          _vm._m(1),
                           _vm._v(" "),
-                          _vm._m(4),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c("td", { staticClass: "w-100 text-nowrap" }, [
                             _c("b", [_vm._v(_vm._s(_vm.order.receipt_number))]),
@@ -59659,7 +59698,7 @@ var render = function () {
                         [_vm._v("\n                  Nama\n                ")]
                       ),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _vm._m(3),
                       _vm._v(" "),
                       _c("td", { staticClass: "w-100 text-nowrap" }, [
                         _vm._v(
@@ -59681,7 +59720,7 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(6),
+                      _vm._m(4),
                       _vm._v(" "),
                       _c("td", { staticClass: "w-100 text-nowrap" }, [
                         _vm._v(
@@ -59711,7 +59750,7 @@ var render = function () {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(7),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -59736,7 +59775,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(8),
+            _vm._m(6),
             _vm._v(" "),
             _c(
               "tbody",
@@ -59779,13 +59818,15 @@ var render = function () {
                   )
                 }),
                 _vm._v(" "),
-                _c("tr", [
-                  _vm._m(9),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "font-weight-bold" }, [
-                    _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
-                  ]),
-                ]),
+                _vm.order.price
+                  ? _c("tr", [
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "font-weight-bold" }, [
+                        _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
+                      ]),
+                    ])
+                  : _vm._e(),
               ],
               2
             ),
@@ -59813,42 +59854,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", [_vm._v("an. PT. indigo Indonesia")]),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title" }, [
-        _vm._v("Masukkan Harga Pesanan"),
-      ]),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title" }, [_vm._v("Masukkan Nomor Resi")]),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
     ])
   },
   function () {
@@ -59934,10 +59939,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailPayment.vue?vue&type=template&id=0c07e8da&":
-/*!************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailPayment.vue?vue&type=template&id=0c07e8da& ***!
-  \************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputPrice.vue?vue&type=template&id=7b75a8a2& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -59956,12 +59961,11 @@ var render = function () {
       {
         staticClass: "btn btn-primary",
         attrs: {
-          type: "button",
           "data-bs-toggle": "modal",
-          "data-bs-target": "#payment-proof-modal-" + _vm.id,
+          "data-bs-target": "#input-price-modal-" + _vm.order.id,
         },
       },
-      [_vm._v("\n    Lihat Bukti Bayar\n  ")]
+      [_vm._v("\n    Masukkan Harga\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -59969,9 +59973,272 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "payment-proof-modal-" + _vm.id,
+          id: "input-price-modal-" + _vm.order.id,
           tabindex: "-1",
-          "aria-labelledby": "payment-proof-modal-",
+          "aria-labelledby": "input-price-modal-" + _vm.order.id,
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group mt-3" }, [
+                _c("label", { attrs: { for: "price" } }, [
+                  _vm._v("Harga (Rp)"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.price,
+                      expression: "form.price",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "price",
+                    name: "price",
+                    type: "number",
+                    min: "0",
+                    step: "1",
+                    required: "",
+                  },
+                  domProps: { value: _vm.form.price },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "price", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.inputPrice()
+                    },
+                  },
+                },
+                [_vm._v("Simpan")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _vm._v("Masukkan Harga Pesanan"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailInputReceipt.vue?vue&type=template&id=5e3de45e& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        attrs: {
+          "data-bs-toggle": "modal",
+          "data-bs-target": "#input-receipt-modal-" + _vm.order.id,
+        },
+      },
+      [_vm._v("\n    Masukkan Nomor Resi\n  ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "input-receipt-modal-" + _vm.order.id,
+          tabindex: "-1",
+          "aria-labelledby": "input-receipt-modal-" + _vm.order.id,
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group mt-3" }, [
+                _c("label", { attrs: { for: "receipt" } }, [_vm._v("Review")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.receipt,
+                      expression: "form.receipt",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "receipt",
+                    name: "receipt",
+                    type: "text",
+                    required: "",
+                  },
+                  domProps: { value: _vm.form.receipt },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "receipt", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.inputReceipt()
+                    },
+                  },
+                },
+                [_vm._v("Simpan")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Masukkan Nomor Resi")]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailPayment.vue?vue&type=template&id=0c07e8da&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderDetailPayment.vue?vue&type=template&id=0c07e8da& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.order.payment_photo
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#payment-proof-modal-" + _vm.order.id,
+            },
+          },
+          [_vm._v("\n    Lihat Bukti Bayar\n  ")]
+        )
+      : _vm.order.price
+      ? _c(
+          "button",
+          { staticClass: "btn btn-primary me-3", attrs: { disabled: "" } },
+          [_vm._v("\n    Lihat Bukti Bayar\n  ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "payment-proof-modal-" + _vm.order.id,
+          tabindex: "-1",
+          "aria-labelledby": "payment-proof-modal-" + _vm.order.id,
           "aria-hidden": "true",
         },
       },
@@ -59984,7 +60251,7 @@ var render = function () {
               _c("img", {
                 staticClass: "img img-fluid",
                 attrs: {
-                  src: "/storage/" + _vm.photoPath,
+                  src: "/storage/" + _vm.order.payment_photo,
                   alt: "payment-proof",
                 },
               }),
@@ -73786,6 +74053,8 @@ var map = {
 	"./components/elements/FooterComponent.vue": "./resources/js/components/elements/FooterComponent.vue",
 	"./components/elements/HeaderComponent.vue": "./resources/js/components/elements/HeaderComponent.vue",
 	"./components/order/OrderDetail.vue": "./resources/js/components/order/OrderDetail.vue",
+	"./components/order/OrderDetailInputPrice.vue": "./resources/js/components/order/OrderDetailInputPrice.vue",
+	"./components/order/OrderDetailInputReceipt.vue": "./resources/js/components/order/OrderDetailInputReceipt.vue",
 	"./components/order/OrderDetailPayment.vue": "./resources/js/components/order/OrderDetailPayment.vue",
 	"./components/order/OrderForm.vue": "./resources/js/components/order/OrderForm.vue",
 	"./components/order/OrderList.vue": "./resources/js/components/order/OrderList.vue",
