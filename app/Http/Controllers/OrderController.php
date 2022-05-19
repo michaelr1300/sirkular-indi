@@ -108,20 +108,12 @@ class OrderController extends Controller
             $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description');
         }
 
-        // $order = json_encode($order, JSON_PRETTY_PRINT);
         return view('order.show')->with([
             'order' => $order, 
             'user' => $user,
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $order = Order::find($id);
@@ -197,11 +189,12 @@ class OrderController extends Controller
     public function dashboard()
     {
         $this->authorize('dashboard', Order::class);
+        $packages = Package::all();
         $orders = Order::latest()->get();
         foreach ($orders as $order) {
             $order->total = 0;
             $order->items = OrderDetail::where('order_id', $order->id)->get();
         }
-        return view('dashboard.order')->with('orders',$orders);
+        return view('dashboard.order')->with(['orders' => $orders, 'packages' => $packages]);
     }
 }

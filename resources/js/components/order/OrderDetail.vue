@@ -224,22 +224,19 @@
           </div>
         </div>
         <h3 class="text-header mt-3 mb-2">
-          Detail Produk
+          Detail Pesanan
         </h3>
         <table class="table table-striped">
           <thead style="font-size: 18px">
             <tr>
               <th scope="col">
-                Produk
+                Layanan
               </th>
               <th scope="col">
-                Harga
+                Keterangan
               </th>
               <th scope="col">
-                Jumlah
-              </th>
-              <th scope="col">
-                Total
+                Foto
               </th>
             </tr>
           </thead>
@@ -249,27 +246,24 @@
               :key="index"
               style="height:2rem"
             >
+              <td>{{ getPackageName(item.package_id) }}</td>
+              <td>{{ item.description }}</td>
               <td>
-                <div style="font-size: 16px">
-                  <b>{{ item.package_name }}</b>
-                </div>
-                <div>
-                  {{ item.description }}
-                </div>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
+                  @click="$emit('select-order', item);">
+                  Lihat Foto
+                </button>
               </td>
-              <td>Rp {{ item.price }}</td>
-              <td>{{ item.quantity }}</td>
-              <td>Rp {{ item.price * item.quantity }}</td>
             </tr>
             <tr>
               <td
-                colspan="3"
+                colspan="2"
                 class="text-end font-weight-bold"
               >
-                Total
+                <b>Total</b>
               </td>
               <td class="font-weight-bold">
-                Rp {{ order.price }}
+                <b>Rp {{ order.price }}</b>
               </td>
             </tr>
           </tbody>
@@ -283,9 +277,10 @@
 import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
 import { format } from 'date-fns'
+import OrderListImagePreviewModal from './OrderListImagePreviewModal.vue';
 
 export default {
-  components: { OrderStatusBadge, OrderDetailPayment },
+  components: { OrderStatusBadge, OrderDetailPayment, OrderListImagePreviewModal },
   props: {
     user: {
       type: Object,
@@ -295,6 +290,9 @@ export default {
       type: Object,
       default: null,
     },
+    packages: {
+      type: Array,
+    }
   },
   data() {
     return {
@@ -302,6 +300,7 @@ export default {
         receipt: null,
         price: null,
       },
+      selectedOrder: {},
     }
   },
   computed: {
@@ -377,6 +376,10 @@ export default {
         console.log(error.response);
       }
     },
+    getPackageName(id) {
+      const result = this.packages.filter((item) => item.id == id);
+      return result[0]?.name || '';
+    }
   },
 };
 </script>

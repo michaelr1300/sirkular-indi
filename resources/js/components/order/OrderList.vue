@@ -1,11 +1,14 @@
 <template>
   <div>
     <div>
+      <order-list-image-preview-modal :selectedItem="selectedOrder"/>
       <order-detail 
         v-for="item in orders"
         :key="item.id"
         :order="item"
         :user="user"
+        :packages="packages"
+        @select-order="updateSelectedItem"
       />
     </div>
   </div>
@@ -23,6 +26,28 @@ export default {
     orders: {
       type: Array,
     },
+  },
+  data() {
+    return {
+      packages: [],
+      selectedOrder: {}
+    }
+  },
+  mounted () {
+    this.getPackageList();
+  },
+  methods: {
+    async getPackageList() {
+      try {
+        let response = await axios.get(`/api/getAllPackages`);
+        this.packages = response.data;
+      } catch (error) {
+        console.log(error.response);
+      }
+    },
+    updateSelectedItem(item) {
+      this.selectedOrder = item;
+    }
   },
 };
 </script>

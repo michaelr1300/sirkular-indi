@@ -67,3 +67,9 @@ Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
     Route::post('/{order}/updatePrice', [OrderController::class, 'updatePrice'])->name('updatePrice');
     Route::delete('/{order}', [OrderController::class, 'destroy'])->name('delete');
 });
+
+Route::prefix('api')->name('api.')->middleware('auth')->group(function ()
+{
+    Route::get('/getAllPackages', [PackageController::class, 'getAllPackages'])->name('getAllPackages');
+});
+
