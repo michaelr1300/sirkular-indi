@@ -56,8 +56,6 @@ class OrderController extends Controller
             'name' => 'required',
             'address' => 'required',
             'phone_number' => 'required',
-            'package_id' => ['required', Rule::exists('packages', 'id')], //['required', Rule::exists('packages', 'id')]->where('isActive', 1)]
-            'quantity' => 'required',
         ]);
         if($request->save_data) {
             $user = User::find($request->user()->id);
@@ -74,25 +72,21 @@ class OrderController extends Controller
             'status' => 'waiting',
         ]);
         $order_id = $order->id;
+        $order_item = json_decode($request->order_item);
 
-        for ($index=0; $index < count($request->package_id); $index++) { 
-            if ($request->quantity[$index]) {
-                $price = Package::find($request->package_id[$index])->price;
-                $name = Package::find($request->package_id[$index])->name;
-
-                OrderDetail::create([
-                    'order_id' => $order_id,
-                    'package_id' => $request->package_id[$index],
-                    'package_name' => $name,
-                    'quantity' => $request->quantity[$index],
-                    'price' => $price,
-                    'description' => $request->description[$index],
-                ]);
-            }
+        for ($index=0; $index < count($order_item); $index++) { 
+            $package = Package::find($order_item[$index]->package_id);
+            
+            OrderDetail::create([
+                'order_id' => $order_id,
+                'package_id' => $package->id,
+                'photo_path' => $request->file('photo_' . $index)->store('order-photos'),
+                'description' => $order_item[$index]->description,
+            ]);
         }
-        return response()->json([
-            'order_id' => $order_id,
-        ]);
+        // return response()->json([
+        //     'order_id' => $order_id,
+        // ]);
     }
 
     /**

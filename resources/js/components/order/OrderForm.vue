@@ -12,7 +12,7 @@
         <ul class="progress-bar-order">
           <li :class="[ isActive1 ]">Isi data diri</li>
           <li :class="[ isActive2 ]">Isi detail pesanan</li>
-          <li :class="[ isActive3 ]">Pembayaran</li>
+          <li :class="[ isActive3 ]">Selesai</li>
         </ul>
       </div>
       <div id="personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
@@ -42,7 +42,7 @@
             >
           </div>
           <div class="col-12 mb-3">
-            <label for="address" class="form-label">Alamat</label>
+            <label for="address" class="form-label">Alamat Pengiriman</label>
             <textarea 
               id="address" 
               name="address" 
@@ -82,92 +82,68 @@
       <div class="body-order-form" v-if="showOrderDetail">
         <div class="px-2">
           <div class="div-p-title">
-            <p>Pilih paket yang Anda inginkan</p>
+            Pilih layanan yang Anda inginkan
           </div>
           <div class="row mx-0">
-            <div 
-              v-for="(item, index) in packageList" 
-              :key="item.id" 
-              class="col-12 col-md-4 ps-0 pe-0 pe-md-4 mb-3"
-            >
-              <div class="product-card">
-                <div class="wrap-each-package w-100">
-                  <p class="packet-name">Paket {{ index + 1 }}</p>
-                  <h2>{{ item.name }}</h2>
-                  <div class="package-price mb-2">Rp {{ item.price }}</div>
-                  <div class="form-group mt-3" >
-                    <label :for="'package-' + item.id" class="form-label">Jumlah</label>
-                    <input 
-                      :id="'package-' + item.id" 
-                      name="quantity" 
-                      type="number" 
-                      min="0" 
-                      class="form-control" 
-                      v-model="form.quantity[index]"
-                      oninput="(validity.valid && value) || (value = 0)"
-                    />
-                  </div>    
-                  <div class="form-group mt-3" >
-                    <label :for="'description-' + item.id" class="form-label">
-                      Catatan
-                      <br>
-                      <small>
-                        Warna, pola, atau keterangan lain untuk memudahkan pengerjaan.
-                      </small>
+            <div class="px-0" v-for="(item, index) in orderItems">
+              <div class="d-md-flex">
+                <div class="form-group my-2 me-3 col-12 col-md-3" >
+                  <label for="reviewer_name">Jenis Layanan</label>
+                  <select 
+                    name="package_id" 
+                    class="form-select" 
+                    v-model="orderItems[index].package_id"
+                  >
+                    <option selected :value='null' disabled>Pilih jenis layanan</option>
+                    <option 
+                      v-for="(item) in packageList"
+                      :key="item.id"
+                      :value="item.id"
+                    >{{ item.name }}</option>
+                  </select>
+                </div>
+                <div class="form-group my-2 me-3 col-12 col-md-3" >
+                  <label for="reviewer_name">Foto Pakaian</label>
+                  <div>
+                    <label
+                      class="btn btn-primary w-100 mx-auto"
+                    >
+                      <input
+                        ref="photo"
+                        name="photo_path"
+                        accept="image/*"
+                        class="form-control"
+                        style="display: none"
+                        type="file"
+                        @change="getFileName($event, index)"
+                      >
+                      Pilih File
                     </label>
-                    <textarea :id="'description-' + item.id" name="description" type="text" class="form-control" v-model="form.description[index]"></textarea>
+                    {{ orderItems[index].file_name }}
                   </div>
-                  <!-- <p class="p-text-bold">Warna yang mau dibeli:</p>
-                  <div class="div-counter-color">
-                    <p>Merah</p>
-                    <div class="div-inc-1">
-                      <div class="wrap-minus-sign" @click="onMinusInput('qt1')">   
-                          <button class="btn-minus"><h1> - </h1></button>
-                      </div>
-                      <div class="wrap-input-number">   
-                          <input id="number" class="input-number" v-model="qt1" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                      </div>
-                      <div class="wrap-plus-sign" @click="onPlusInput('qt1')">
-                          <button class="btn-plus"><h1> + </h1></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="div-counter-color">
-                    <p>Kuning</p>
-                    <div class="div-inc-1">
-                      <div class="wrap-minus-sign" @click="onMinusInput('qt2')">   
-                          <button class="btn-minus"><h1> - </h1></button>
-                      </div>
-                      <div class="wrap-input-number">   
-                          <input id="number" class="input-number" v-model="qt2" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                      </div>
-                      <div class="wrap-plus-sign" @click="onPlusInput('qt2')">
-                          <button class="btn-plus"><h1> + </h1></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="div-counter-color">
-                    <p>Hijau</p>
-                    <div class="div-inc-1">
-                      <div class="wrap-minus-sign" @click="onMinusInput('qt3')">   
-                          <button class="btn-minus"><h1> - </h1></button>
-                      </div>
-                      <div class="wrap-input-number">   
-                          <input id="number" class="input-number" v-model="qt3" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                      </div>
-                      <div class="wrap-plus-sign" @click="onPlusInput('qt3')">
-                          <button class="btn-plus"><h1> + </h1></button>
-                      </div>
-                    </div>
-                  </div> -->
+                </div>
+                <div class="form-group my-2 me-3 col-12 col-md-4" >
+                  <label for="description">Keterangan</label>
+                  <textarea 
+                    v-model="orderItems[index].description"
+                    name="description"
+                    class="form-control"
+                    type="text-area" 
+                  ></textarea>
+                </div>
+                <div v-if="index" class="form-group my-2 col-12 col-md-2" >
+                  <button @click="removeItem(index)" type="button" class="btn btn-danger mt-4">
+                    <b>X</b>
+                  </button>
                 </div>
               </div>
+              <hr>
+            </div>
+            <div class="form-group px-0 mt-2 text-end">
+              <button @click="addItem" type="button" class="btn btn-primary">Tambah barang</button>
             </div>
           </div>
-          <div class="col-12 mt-3 package-price">
-            Total: Rp {{ totalPrice }}
-          </div>
-          <div class="col-12 mt-3">
+          <div class="col-12 mt-4">
             <button class="btn btn-primary" @click="backToUserDetail()">
               Kembali
             </button>
@@ -177,43 +153,22 @@
           </div>
         </div>
       </div>
-      <!-- Payment Form -->
-      <div class="body-payment-form" v-if="showPayment">
+      <!-- Finish Form -->
+      <div class="body-payment-form" v-if="finishPage">
         <div class="wrapper-payment-form px-2">
-          <div>
-            <p>Silahkan melakukan pembayaran sebesar</p>
-            <h2 class="package-price" style="font-size: 24px !important">Rp {{ totalPrice }}</h2>
-          </div>
           <div class="mt-4">
             <div>
-              <div>
-                <img class="img-bca" src="images/bca.png" alt="bca account">
+              <div class="d-flex">
+                <img class="img-bca mx-auto" src="images/success.png" alt="success">
               </div>
               <div class="mt-2">
-                <div><b>103 949 4950</b></div>
-                <div>an. PT. indigo Indonesia</div>
+                <h2 class="text-primary package-price text-center" style="font-size: 24px !important">Selamat!</h2>
+                <div class="text-center">Pesanan Anda telah kami terima. Kami akan segera menghubungi Anda.</div>
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-4 mt-4">
-            <div class="mb-3">
-              <label  
-                class="btn btn-primary w-100"
-              >
-                <input 
-                  id="payment_photo" 
-                  name="payment_photo"
-                  ref="payment_photo"
-                  accept="image/*"
-                  class="form-control" 
-                  style="display: none"
-                  type="file" 
-                  @change="uploadPayment()"
-                >
-                Upload Bukti Bayar
-              </label>
-            </div>
-            <button class="btn btn-outline-primary w-100" onclick="window.location.href = '/'">
+          <div class="col-12 col-md-4 mt-4 w-100 text-center">
+            <button class="btn btn-outline-primary" onclick="window.location.href = '/'">
               Kembali ke Beranda
             </button>
           </div>
@@ -255,6 +210,7 @@ export default {
       )
       return totalPrice; 
     }
+    
   },
   data() {
     return {
@@ -263,15 +219,18 @@ export default {
         phone_number: null,
         address: null,
         save_data: true,
-        package_id: [],
-        quantity: [],
-        description: [],
       },
+      orderItems: [{
+        package_id: null,
+        photo_path: null,
+        description: null,
+        file_name: null,
+      }],
       errors: {},
       orderId: null,
       showUserDetail: true,
       showOrderDetail: false,
-      showPayment: false,
+      finishPage: false,
       showFinish: false,
       isActive1: 'active',
       isActive2: '',
@@ -281,17 +240,36 @@ export default {
   },
   methods: {
     async createOrder() {
-      if (this.totalItem < 1) {
-        alert('Silakan pilih minimal 1 item!')
+      var photoArr = this.$refs.photo;
+      var photos = photoArr.map((item) => item.files[0])
+
+      let formData = new FormData();
+
+      formData.append("name", this.form.name);
+      formData.append("phone_number", this.form.phone_number);
+      formData.append("address", this.form.address);
+      formData.append("save_data", this.form.save_data);
+
+      formData.append("order_item", JSON.stringify(this.orderItems));
+
+      for (let index = 0; index < photos.length; index++) {
+        formData.append("photo_" + index, photos[index]);
       }
-      else {
-        try {
-          let response = await axios.post("/order", this.form);
-          this.nextPagePayment();
-          this.orderId = response.data.order_id;
-        } catch (error) {
-          console.log(error.response);
-        }
+
+      try {
+        let response = await axios.post(
+          `/order`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(response);
+        this.nextPageFinish();
+      } catch (error) {
+        console.log(error.response);
       }
     },
     hasErrors(key) {
@@ -306,24 +284,13 @@ export default {
       }
       return "";
     },
-    openNextForm(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    },
-    onMinusInput(dataVar){
-      ( this[dataVar] === 0 ) ? 0 : this[dataVar] = this[dataVar] - 1;
-    },
-    onPlusInput(dataVar){
-      this[dataVar] = this[dataVar] + 1;
+    getFileName(event, index){
+      var fileData =  event.target.files[0];
+      this.orderItems[index].file_name = fileData.name;
+      this.addItem();
+      setTimeout(() => {
+       this.removeItem(index + 1);
+      }, 1);
     },
     backToUserDetail(){
       this.isActive1 = 'active';
@@ -331,7 +298,7 @@ export default {
       this.isActive3 = '';
       this.isActive4 = '';
       this.showOrderDetail = false;
-      this.showPayment = false;
+      this.finishPage = false;
       this.showFinish = false;
       this.showUserDetail = true;
     },
@@ -341,18 +308,28 @@ export default {
       this.isActive3 = '';
       this.isActive4 = '';
       this.showUserDetail = false;
-      this.showPayment = false;
+      this.finishPage = false;
       this.showFinish = false;
       this.showOrderDetail = true;
     },
-    nextPagePayment(){
+    nextPageFinish(){
       this.isActive2 = 'done';
       this.isActive3 = 'active';
       this.isActive4 = '';
       this.showUserDetail = false;
       this.showOrderDetail = false;
       this.showFinish = false;
-      this.showPayment = true;
+      this.finishPage = true;
+    },
+    addItem() {
+      this.orderItems.push({
+        package_id: null,
+        photo_path: null,
+        description: null,
+      })
+    },
+    removeItem(index) {
+      this.orderItems.splice(index, 1);
     },
     async uploadPayment() {
       var payment_photo = this.$refs.payment_photo.files[0];

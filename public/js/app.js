@@ -26137,51 +26137,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packageList: {
@@ -26236,16 +26191,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         name: null,
         phone_number: null,
         address: null,
-        save_data: true,
-        package_id: [],
-        quantity: [],
-        description: []
+        save_data: true
       },
+      orderItems: [{
+        package_id: null,
+        photo_path: null,
+        description: null,
+        file_name: null
+      }],
       errors: {},
       orderId: null,
       showUserDetail: true,
       showOrderDetail: false,
-      showPayment: false,
+      finishPage: false,
       showFinish: false,
       isActive1: 'active',
       isActive2: '',
@@ -26258,45 +26216,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var photoArr, photos, formData, index, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this2.totalItem < 1)) {
-                  _context.next = 4;
-                  break;
+                photoArr = _this2.$refs.photo;
+                photos = photoArr.map(function (item) {
+                  return item.files[0];
+                });
+                formData = new FormData();
+                formData.append("name", _this2.form.name);
+                formData.append("phone_number", _this2.form.phone_number);
+                formData.append("address", _this2.form.address);
+                formData.append("save_data", _this2.form.save_data);
+                formData.append("order_item", JSON.stringify(_this2.orderItems));
+
+                for (index = 0; index < photos.length; index++) {
+                  formData.append("photo_" + index, photos[index]);
                 }
 
-                alert('Silakan pilih minimal 1 item!');
-                _context.next = 15;
-                break;
-
-              case 4:
-                _context.prev = 4;
-                _context.next = 7;
-                return axios.post("/order", _this2.form);
-
-              case 7:
-                response = _context.sent;
-
-                _this2.nextPagePayment();
-
-                _this2.orderId = response.data.order_id;
-                _context.next = 15;
-                break;
+                _context.prev = 9;
+                _context.next = 12;
+                return axios.post("/order", formData, {
+                  headers: {
+                    "Content-Type": "multipart/form-data"
+                  }
+                });
 
               case 12:
-                _context.prev = 12;
-                _context.t0 = _context["catch"](4);
+                response = _context.sent;
+                console.log(response);
+
+                _this2.nextPageFinish();
+
+                _context.next = 20;
+                break;
+
+              case 17:
+                _context.prev = 17;
+                _context.t0 = _context["catch"](9);
                 console.log(_context.t0.response);
 
-              case 15:
+              case 20:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[4, 12]]);
+        }, _callee, null, [[9, 17]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -26313,28 +26280,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return "";
     },
-    openNextForm: function openNextForm(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
+    getFileName: function getFileName(event, index) {
+      var _this3 = this;
 
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-
-      tablinks = document.getElementsByClassName("tablinks");
-
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    },
-    onMinusInput: function onMinusInput(dataVar) {
-      this[dataVar] === 0 ? 0 : this[dataVar] = this[dataVar] - 1;
-    },
-    onPlusInput: function onPlusInput(dataVar) {
-      this[dataVar] = this[dataVar] + 1;
+      var fileData = event.target.files[0];
+      this.orderItems[index].file_name = fileData.name;
+      this.addItem();
+      setTimeout(function () {
+        _this3.removeItem(index + 1);
+      }, 1);
     },
     backToUserDetail: function backToUserDetail() {
       this.isActive1 = 'active';
@@ -26342,7 +26296,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.isActive3 = '';
       this.isActive4 = '';
       this.showOrderDetail = false;
-      this.showPayment = false;
+      this.finishPage = false;
       this.showFinish = false;
       this.showUserDetail = true;
     },
@@ -26352,21 +26306,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.isActive3 = '';
       this.isActive4 = '';
       this.showUserDetail = false;
-      this.showPayment = false;
+      this.finishPage = false;
       this.showFinish = false;
       this.showOrderDetail = true;
     },
-    nextPagePayment: function nextPagePayment() {
+    nextPageFinish: function nextPageFinish() {
       this.isActive2 = 'done';
       this.isActive3 = 'active';
       this.isActive4 = '';
       this.showUserDetail = false;
       this.showOrderDetail = false;
       this.showFinish = false;
-      this.showPayment = true;
+      this.finishPage = true;
+    },
+    addItem: function addItem() {
+      this.orderItems.push({
+        package_id: null,
+        photo_path: null,
+        description: null
+      });
+    },
+    removeItem: function removeItem(index) {
+      this.orderItems.splice(index, 1);
     },
     uploadPayment: function uploadPayment() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var payment_photo, formData, response;
@@ -26374,12 +26338,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                payment_photo = _this3.$refs.payment_photo.files[0];
+                payment_photo = _this4.$refs.payment_photo.files[0];
                 formData = new FormData();
                 formData.append("payment_photo", payment_photo);
                 _context2.prev = 3;
                 _context2.next = 6;
-                return axios.post("/order/".concat(_this3.orderId, "/updatePayment"), formData, {
+                return axios.post("/order/".concat(_this4.orderId, "/updatePayment"), formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
@@ -59720,7 +59684,7 @@ var render = function () {
                 _vm._v("Isi detail pesanan"),
               ]),
               _vm._v(" "),
-              _c("li", { class: [_vm.isActive3] }, [_vm._v("Pembayaran")]),
+              _c("li", { class: [_vm.isActive3] }, [_vm._v("Selesai")]),
             ]),
           ]
         ),
@@ -59833,7 +59797,7 @@ var render = function () {
                           staticClass: "form-label",
                           attrs: { for: "address" },
                         },
-                        [_vm._v("Alamat")]
+                        [_vm._v("Alamat Pengiriman")]
                       ),
                       _vm._v(" "),
                       _c("textarea", {
@@ -59948,149 +59912,237 @@ var render = function () {
         _vm.showOrderDetail
           ? _c("div", { staticClass: "body-order-form" }, [
               _c("div", { staticClass: "px-2" }, [
-                _vm._m(2),
+                _c("div", { staticClass: "div-p-title" }, [
+                  _vm._v(
+                    "\n          Pilih layanan yang Anda inginkan\n        "
+                  ),
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "row mx-0" },
-                  _vm._l(_vm.packageList, function (item, index) {
-                    return _c(
-                      "div",
-                      {
-                        key: item.id,
-                        staticClass: "col-12 col-md-4 ps-0 pe-0 pe-md-4 mb-3",
-                      },
-                      [
-                        _c("div", { staticClass: "product-card" }, [
+                  [
+                    _vm._l(_vm.orderItems, function (item, index) {
+                      return _c("div", { staticClass: "px-0" }, [
+                        _c("div", { staticClass: "d-md-flex" }, [
                           _c(
                             "div",
-                            { staticClass: "wrap-each-package w-100" },
+                            {
+                              staticClass:
+                                "form-group my-2 me-3 col-12 col-md-3",
+                            },
                             [
-                              _c("p", { staticClass: "packet-name" }, [
-                                _vm._v("Paket " + _vm._s(index + 1)),
+                              _c("label", { attrs: { for: "reviewer_name" } }, [
+                                _vm._v("Jenis Layanan"),
                               ]),
                               _vm._v(" "),
-                              _c("h2", [_vm._v(_vm._s(item.name))]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "package-price mb-2" }, [
-                                _vm._v("Rp " + _vm._s(item.price)),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "form-group mt-3" }, [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "form-label",
-                                    attrs: { for: "package-" + item.id },
-                                  },
-                                  [_vm._v("Jumlah")]
-                                ),
-                                _vm._v(" "),
-                                _c("input", {
+                              _c(
+                                "select",
+                                {
                                   directives: [
                                     {
                                       name: "model",
                                       rawName: "v-model",
-                                      value: _vm.form.quantity[index],
-                                      expression: "form.quantity[index]",
+                                      value: _vm.orderItems[index].package_id,
+                                      expression:
+                                        "orderItems[index].package_id",
                                     },
                                   ],
-                                  staticClass: "form-control",
-                                  attrs: {
-                                    id: "package-" + item.id,
-                                    name: "quantity",
-                                    type: "number",
-                                    min: "0",
-                                    oninput:
-                                      "(validity.valid && value) || (value = 0)",
-                                  },
-                                  domProps: { value: _vm.form.quantity[index] },
+                                  staticClass: "form-select",
+                                  attrs: { name: "package_id" },
                                   on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
+                                    change: function ($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call(
+                                          $event.target.options,
+                                          function (o) {
+                                            return o.selected
+                                          }
+                                        )
+                                        .map(function (o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
                                       _vm.$set(
-                                        _vm.form.quantity,
-                                        index,
-                                        $event.target.value
+                                        _vm.orderItems[index],
+                                        "package_id",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
                                       )
                                     },
                                   },
-                                }),
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    {
+                                      attrs: { selected: "", disabled: "" },
+                                      domProps: { value: null },
+                                    },
+                                    [_vm._v("Pilih jenis layanan")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.packageList, function (item) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: item.id,
+                                        domProps: { value: item.id },
+                                      },
+                                      [_vm._v(_vm._s(item.name))]
+                                    )
+                                  }),
+                                ],
+                                2
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "form-group my-2 me-3 col-12 col-md-3",
+                            },
+                            [
+                              _c("label", { attrs: { for: "reviewer_name" } }, [
+                                _vm._v("Foto Pakaian"),
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "form-group mt-3" }, [
+                              _c("div", [
                                 _c(
                                   "label",
                                   {
-                                    staticClass: "form-label",
-                                    attrs: { for: "description-" + item.id },
+                                    staticClass:
+                                      "btn btn-primary w-100 mx-auto",
                                   },
                                   [
+                                    _c("input", {
+                                      ref: "photo",
+                                      refInFor: true,
+                                      staticClass: "form-control",
+                                      staticStyle: { display: "none" },
+                                      attrs: {
+                                        name: "photo_path",
+                                        accept: "image/*",
+                                        type: "file",
+                                      },
+                                      on: {
+                                        change: function ($event) {
+                                          return _vm.getFileName($event, index)
+                                        },
+                                      },
+                                    }),
                                     _vm._v(
-                                      "\n                    Catatan\n                    "
+                                      "\n                    Pilih File\n                  "
                                     ),
-                                    _c("br"),
-                                    _vm._v(" "),
-                                    _c("small", [
-                                      _vm._v(
-                                        "\n                      Warna, pola, atau keterangan lain untuk memudahkan pengerjaan.\n                    "
-                                      ),
-                                    ]),
                                   ]
                                 ),
-                                _vm._v(" "),
-                                _c("textarea", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.description[index],
-                                      expression: "form.description[index]",
-                                    },
-                                  ],
-                                  staticClass: "form-control",
-                                  attrs: {
-                                    id: "description-" + item.id,
-                                    name: "description",
-                                    type: "text",
-                                  },
-                                  domProps: {
-                                    value: _vm.form.description[index],
-                                  },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form.description,
-                                        index,
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(_vm.orderItems[index].file_name) +
+                                    "\n                "
+                                ),
                               ]),
                             ]
                           ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "form-group my-2 me-3 col-12 col-md-4",
+                            },
+                            [
+                              _c("label", { attrs: { for: "description" } }, [
+                                _vm._v("Keterangan"),
+                              ]),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.orderItems[index].description,
+                                    expression: "orderItems[index].description",
+                                  },
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  name: "description",
+                                  type: "text-area",
+                                },
+                                domProps: {
+                                  value: _vm.orderItems[index].description,
+                                },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.orderItems[index],
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          index
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "form-group my-2 col-12 col-md-2",
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-danger mt-4",
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.removeItem(index)
+                                        },
+                                      },
+                                    },
+                                    [_c("b", [_vm._v("X")])]
+                                  ),
+                                ]
+                              )
+                            : _vm._e(),
                         ]),
+                        _vm._v(" "),
+                        _c("hr"),
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group px-0 mt-2 text-end" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "button" },
+                            on: { click: _vm.addItem },
+                          },
+                          [_vm._v("Tambah barang")]
+                        ),
                       ]
-                    )
-                  }),
-                  0
+                    ),
+                  ],
+                  2
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 mt-3 package-price" }, [
-                  _vm._v(
-                    "\n          Total: Rp " +
-                      _vm._s(_vm.totalPrice) +
-                      "\n        "
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mt-3" }, [
+                _c("div", { staticClass: "col-12 mt-4" }, [
                   _c(
                     "button",
                     {
@@ -60121,60 +60173,8 @@ var render = function () {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.showPayment
-          ? _c("div", { staticClass: "body-payment-form" }, [
-              _c("div", { staticClass: "wrapper-payment-form px-2" }, [
-                _c("div", [
-                  _c("p", [_vm._v("Silahkan melakukan pembayaran sebesar")]),
-                  _vm._v(" "),
-                  _c(
-                    "h2",
-                    {
-                      staticClass: "package-price",
-                      staticStyle: { "font-size": "24px !important" },
-                    },
-                    [_vm._v("Rp " + _vm._s(_vm.totalPrice))]
-                  ),
-                ]),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 col-md-4 mt-4" }, [
-                  _c("div", { staticClass: "mb-3" }, [
-                    _c("label", { staticClass: "btn btn-primary w-100" }, [
-                      _c("input", {
-                        ref: "payment_photo",
-                        staticClass: "form-control",
-                        staticStyle: { display: "none" },
-                        attrs: {
-                          id: "payment_photo",
-                          name: "payment_photo",
-                          accept: "image/*",
-                          type: "file",
-                        },
-                        on: {
-                          change: function ($event) {
-                            return _vm.uploadPayment()
-                          },
-                        },
-                      }),
-                      _vm._v(
-                        "\n              Upload Bukti Bayar\n            "
-                      ),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-primary w-100",
-                      attrs: { onclick: "window.location.href = '/'" },
-                    },
-                    [_vm._v("\n            Kembali ke Beranda\n          ")]
-                  ),
-                ]),
-              ]),
-            ])
+        _vm.finishPage
+          ? _c("div", { staticClass: "body-payment-form" }, [_vm._m(2)])
           : _vm._e(),
       ]
     ),
@@ -60211,28 +60211,44 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "div-p-title" }, [
-      _c("p", [_vm._v("Pilih paket yang Anda inginkan")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-4" }, [
-      _c("div", [
+    return _c("div", { staticClass: "wrapper-payment-form px-2" }, [
+      _c("div", { staticClass: "mt-4" }, [
         _c("div", [
-          _c("img", {
-            staticClass: "img-bca",
-            attrs: { src: "images/bca.png", alt: "bca account" },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-2" }, [
-          _c("div", [_c("b", [_vm._v("103 949 4950")])]),
+          _c("div", { staticClass: "d-flex" }, [
+            _c("img", {
+              staticClass: "img-bca mx-auto",
+              attrs: { src: "images/success.png", alt: "success" },
+            }),
+          ]),
           _vm._v(" "),
-          _c("div", [_vm._v("an. PT. indigo Indonesia")]),
+          _c("div", { staticClass: "mt-2" }, [
+            _c(
+              "h2",
+              {
+                staticClass: "text-primary package-price text-center",
+                staticStyle: { "font-size": "24px !important" },
+              },
+              [_vm._v("Selamat!")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center" }, [
+              _vm._v(
+                "Pesanan Anda telah kami terima. Kami akan segera menghubungi Anda."
+              ),
+            ]),
+          ]),
         ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 col-md-4 mt-4 w-100 text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-primary",
+            attrs: { onclick: "window.location.href = '/'" },
+          },
+          [_vm._v("\n            Kembali ke Beranda\n          ")]
+        ),
       ]),
     ])
   },
