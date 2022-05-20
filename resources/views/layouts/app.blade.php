@@ -11,43 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Begin of Chaport Live Chat code -->
-    <script type="text/javascript">
-        (function(w,d,v3){
-            w.chaportConfig = {
-                appId : '62694b0225d16184296d3d8f',
-                appearance: {
-                    windowColor: '#a077bc',
-                    teamName: 'My test team',
-                    onlineWelcome: 'Hello, we are online!',
-                    offlineWelcome: 'We are not online.',
-                    position: ['left', 20, 20],
-                    textStatuses: true
-                }
-            };
-
-            if(w.chaport)return;
-            v3=w.chaport={};
-            v3._q=[];
-            v3._l={};
-            v3.q=function(){
-                v3._q.push(arguments)
-            };
-            v3.on=function(e,fn){
-                if(!v3._l[e])v3._l[e]=[];
-                v3._l[e].push(fn)
-            };
-            var s=d.createElement('script');
-            s.type='text/javascript';
-            s.async=true;
-            s.src='https://app.chaport.com/javascripts/insert.js';
-            var ss=d.getElementsByTagName('script')[0];
-            ss.parentNode.insertBefore(s,ss)
-        }
-        )(window, document);
-    </script>
-    <!-- End of Chaport Live Chat code -->
-
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet"> 
@@ -136,6 +100,9 @@
         <main>
             @yield('content')
         </main>
+            <a href="https://api.whatsapp.com/send?phone=6282242657857" class="float-action-btn" target="_blank">
+            <img class="icon-whatsapp" src="images/ic-whatsapp.svg" alt="ic-whatsapp">
+            </a>
     </div>
 </body>
 @include('layouts.footer')
