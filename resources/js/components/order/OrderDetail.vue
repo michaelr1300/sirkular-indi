@@ -80,6 +80,10 @@
                 v-if="!order.price && user.is_admin" 
                 :order="order"
               />
+              <OrderDetailInputReceipt
+                v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
+                :order="order"
+              />
               <button
                 v-if="order.price && order.status !== 'finish' && user.is_admin"
                 class="btn btn-primary"
@@ -87,10 +91,6 @@
               >
                 {{ nextStatus }} Pesanan
               </button>
-              <OrderDetailInputReceipt
-                v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
-                :order="order"
-              />
             </div>
           </div>
           <hr class="d-block d-sm-none">
@@ -203,9 +203,9 @@
 </template>
 
 <script>
+import { format } from 'date-fns'
 import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
-import { format } from 'date-fns'
 import OrderListImagePreviewModal from './OrderListImagePreviewModal.vue';
 import OrderDetailInputPrice from './OrderDetailInputPrice.vue';
 import OrderDetailInputReceipt from './OrderDetailInputReceipt.vue';

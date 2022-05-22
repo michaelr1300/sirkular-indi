@@ -29,11 +29,6 @@ class OrderController extends Controller
         return view('order.index')->with('orders',$orders);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $user = Auth::user();
@@ -44,12 +39,6 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -84,17 +73,8 @@ class OrderController extends Controller
                 'description' => $order_item[$index]->description,
             ]);
         }
-        // return response()->json([
-        //     'order_id' => $order_id,
-        // ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $user = Auth::user();

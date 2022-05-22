@@ -2,21 +2,68 @@
   <div class="container-order segment">
     <div class="d-none d-lg-block col-lg-4">
       <div class="wrap-left-order-1">
-        <h1 class="h1-indi text-uppercase">Buat</h1>
-        <h1 class="h1-text text-uppercase">Pesanan</h1>
+        <h1 class="text-uppercase" style="font-size: 9vw; font-weight: 900;">Buat</h1>
+        <h1 class="text-uppercase" style="font-size: 5vw; font-weight: 900;">Pesanan</h1>
       </div>
     </div>
     <div class="col-12 col-lg-8 px-0 px-md-2 container-order-form">
-      <h1 class="d-flex d-lg-none mx-1 px-4 mb-3 text-uppercase">Buat Pesanan</h1>
-      <div class="div-progress-bar d-none d-md-block" style="height: 50px">
+      <h1 class="d-flex d-lg-none mx-1 px-4 mb-3 text-header text-uppercase ">Buat Pesanan</h1>
+      <div v-if="!orderStepPage" class="div-progress-bar d-none d-md-block" style="height: 50px">
         <ul class="progress-bar-order">
           <li class="me-3" :class="[ isActive1 ]">Isi data diri</li>
           <li class="me-3" :class="[ isActive2 ]">Isi detail pesanan</li>
           <li class="me-3" :class="[ isActive3 ]">Selesai</li>
         </ul>
       </div>
-      <div id="personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
-        <form class="row div-form-order" @submit.prevent="submitUserDetail()">
+      <div id="order-step" aria-labelledby="order-step-tab" v-if="orderStepPage">
+        <div class="mx-1 px-4">
+          <table class="table-text">
+            <tbody>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>1</b>
+                </td>
+                <td class="px-3 py-2">
+                  Isi data diri, unggah foto pakaian yang akan direproduksi, pilih jasa reproduksi.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>2</b>
+                </td>
+                <td class="px-3 py-2">
+                  Admin Indi akan menghubungi Anda melalui WhatsApp untuk negosiasi harga.  
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>3</b>
+                </td>
+                <td class="px-3 py-2">
+                  Jika sudah tercapai kesepakatan harga, silakan melakukan pembayaran dan mengunggah bukti transfer melalui halaman riwayat transaksi.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>4</b>
+                </td>
+                <td class="px-3 py-2">
+                  Kirimkan pakaian Anda ke kantor Indi
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <div class="col-12 mt-4">
+            <button class="btn btn-primary" @click="nextPageOrder()">
+              Buat Pesanan
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Order Form 1 -->
+      <div id="personal-info" aria-labelledby="personal-info-tab" v-if="userDetailPage">
+        <form class="row w-100 div-form-order" @submit.prevent="submitUserDetail()">
           <div class="col-12 col-md-6 mb-3">
             <label for="name" class="form-label">Nama</label>
             <input 
@@ -79,82 +126,83 @@
         </form>
       </div>
       <!-- Order Form 2 -->
-      <div class="body-order-form" v-if="showOrderDetail">
+      <div class="body-order-section" v-if="orderDetailPage">
         <div class="px-2">
           <div class="div-p-title">
             Pilih layanan yang Anda inginkan
           </div>
-          <div class="row mx-0">
-            <div class="px-0" v-for="(item, index) in orderItems">
-              <div class="d-md-flex">
-                <div class="form-group my-2 me-3 col-12 col-md-3" >
-                  <label for="reviewer_name">Jenis Layanan</label>
-                  <select 
-                    name="package_id" 
-                    class="form-select" 
-                    v-model="orderItems[index].package_id"
+          <hr>
+          <div class="d-md-flex flex-row-reverse justify-content-between px-0" v-for="(item, index) in orderItems">
+            <div class="col-12 col-md-2 d-flex justify-content-end">
+              <div>
+                <button v-if="index" @click="removeItem(index)" type="button" class="btn btn-danger mt-md-4">
+                  <b>X</b>
+                </button>
+              </div>
+            </div>
+            <div class="col-12 col-md-10 d-md-flex">
+              <div class="form-group my-3 me-3 col-12 col-md-4" >
+                <label for="reviewer_name">Jenis Layanan</label>
+                <select 
+                  name="package_id" 
+                  class="form-select" 
+                  v-model="orderItems[index].package_id"
+                >
+                  <option selected :value='null' disabled>Pilih jenis layanan</option>
+                  <option 
+                    v-for="(item) in packageList"
+                    :key="item.id"
+                    :value="item.id"
+                  >{{ item.name }}</option>
+                </select>
+              </div>
+              <div class="form-group my-3 me-3 col-12 col-md-4" >
+                <label for="reviewer_name">Foto Pakaian</label>
+                <div>
+                  <label
+                    class="btn btn-outline-primary w-100 mx-auto"
                   >
-                    <option selected :value='null' disabled>Pilih jenis layanan</option>
-                    <option 
-                      v-for="(item) in packageList"
-                      :key="item.id"
-                      :value="item.id"
-                    >{{ item.name }}</option>
-                  </select>
-                </div>
-                <div class="form-group my-2 me-3 col-12 col-md-3" >
-                  <label for="reviewer_name">Foto Pakaian</label>
-                  <div>
-                    <label
-                      class="btn btn-primary w-100 mx-auto"
+                    <input
+                      ref="photo"
+                      name="photo_path"
+                      accept="image/*"
+                      class="form-control"
+                      style="display: none"
+                      type="file"
+                      @change="getFileName($event, index)"
                     >
-                      <input
-                        ref="photo"
-                        name="photo_path"
-                        accept="image/*"
-                        class="form-control"
-                        style="display: none"
-                        type="file"
-                        @change="getFileName($event, index)"
-                      >
-                      Pilih File
-                    </label>
-                    {{ orderItems[index].file_name }}
-                  </div>
-                </div>
-                <div class="form-group my-2 me-3 col-12 col-md-4" >
-                  <label for="description">Keterangan</label>
-                  <textarea 
-                    v-model="orderItems[index].description"
-                    name="description"
-                    class="form-control"
-                    type="text-area" 
-                  ></textarea>
-                </div>
-                <div v-if="index" class="form-group my-2 col-12 col-md-2" >
-                  <button @click="removeItem(index)" type="button" class="btn btn-danger mt-4">
-                    <b>X</b>
-                  </button>
+                    Pilih File
+                  </label>
+                  {{ orderItems[index].file_name }}
                 </div>
               </div>
-              <hr>
+              <div class="form-group my-3 me-3 col-12 col-md-4" >
+                <label for="description">Keterangan</label>
+                <textarea 
+                  v-model="orderItems[index].description"
+                  name="description"
+                  class="form-control"
+                  type="text-area" 
+                ></textarea>
+              </div>
             </div>
-            <div class="form-group px-0 mt-2 text-end">
-              <button @click="addItem" type="button" class="btn btn-primary">Tambah barang</button>
-            </div>
+            <hr>
           </div>
-          <div class="col-12 mt-4">
-            <button class="btn btn-primary" @click="backToUserDetail()">
-              Kembali
-            </button>
-            <button class="btn btn-primary" @click="createOrder()">
-              Buat Pesanan
-            </button>
+          <div class="form-group px-0 mt-2 text-end">
+            <button @click="addItem" type="button" class="btn btn-primary">Tambah barang</button>
           </div>
+        </div>
+        <div class="col-12 mt-4">
+          <button class="btn btn-primary" @click="backToUserDetail()">
+            Kembali
+          </button>
+          <button class="btn btn-primary" @click="createOrder()">
+            Buat Pesanan
+          </button>
         </div>
       </div>
       <!-- Finish Form -->
-      <div class="body-payment-form" v-if="finishPage">
+      <div class="body-order-section" v-if="finishPage">
         <div class="wrapper-payment-form px-2">
           <div class="mt-4">
             <div>
@@ -228,8 +276,9 @@ export default {
       }],
       errors: {},
       orderId: null,
-      showUserDetail: true,
-      showOrderDetail: false,
+      orderStepPage: true,
+      userDetailPage: false,
+      orderDetailPage: false,
       finishPage: false,
       showFinish: false,
       isActive1: 'active',
@@ -292,32 +341,39 @@ export default {
        this.removeItem(index + 1);
       }, 1);
     },
+    nextPageOrder(){
+      this.orderStepPage = false;
+      this.userDetailPage = true;
+      this.orderDetailPage = false;
+      this.showFinish = false;
+      this.finishPage = false;
+    },
     backToUserDetail(){
       this.isActive1 = 'active';
       this.isActive2 = '';
       this.isActive3 = '';
       this.isActive4 = '';
-      this.showOrderDetail = false;
+      this.orderDetailPage = false;
       this.finishPage = false;
       this.showFinish = false;
-      this.showUserDetail = true;
+      this.userDetailPage = true;
     },
     submitUserDetail(){
       this.isActive1 = 'done';
       this.isActive2 = 'active';
       this.isActive3 = '';
       this.isActive4 = '';
-      this.showUserDetail = false;
+      this.userDetailPage = false;
       this.finishPage = false;
       this.showFinish = false;
-      this.showOrderDetail = true;
+      this.orderDetailPage = true;
     },
     nextPageFinish(){
       this.isActive2 = 'done';
       this.isActive3 = 'active';
       this.isActive4 = '';
-      this.showUserDetail = false;
-      this.showOrderDetail = false;
+      this.userDetailPage = false;
+      this.orderDetailPage = false;
       this.showFinish = false;
       this.finishPage = true;
     },
@@ -378,17 +434,6 @@ export default {
     background-image: url("../../../assets/background-catalog.png");
     background-size: contain;
     box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
-  }
-
-  .h1-text {
-    font-size: 60px;
-    font-weight: 900;
-  }
-
-  .h1-indi{
-    font-size: 120px;
-    font-weight: 900;
-    line-height: 175px;
   }
 
   /* .div-progress-bar{
@@ -489,31 +534,10 @@ export default {
   }
 
   /* ORDER FORM 2 */
-
-  .body-order-form{
-    padding: 0 20px 20px 20px;
-}
   
   .div-p-title p{
     font-family: 'Mulish', sans-serif;
     font-size: 16px;
-  }
-
-  .wrap-each-package{
-    padding: 20px;
-  }
-
-  .packet-name{
-    font-size: 12px;
-    font-weight: 400;
-    font-family: 'Mulish', sans-serif;
-    margin-bottom: 5px;
-  }
-
-  .wrap-each-package h2{
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'Mulish', sans-serif;
   }
 
   .p-text-bold{
@@ -540,37 +564,10 @@ export default {
     flex-direction: row;
   }
 
-  input{
-    /* font-size: 18px; */
-    /* height: 4rem;
-    padding: 0 4rem;
-    border-radius: 2rem;
-    border: 0;
-    background: #fff;
-    color: #222;
-    box-shadow: 0 10px 65px -10px rgba(0,0,0,.25);
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box; */
-    /* font-weight: lighter; */
-  }
-
   .div-inc-1{
     display: flex;
     border: 2px solid #142362;
     border-radius: 12px;
-  }
-  
-  .wrap-minus-sign{
-  }
-  
-  .btn-minus{
-    /* color:#01E66F;
-    border: #01E66F 2px solid; */
-    border: none;
-    background-color: transparent;
-    width: 45px;
-    height: 48px;
   }
   
   .input-number{
@@ -584,18 +581,9 @@ export default {
     resize: none;
   }
   
-  .btn-plus{
-    /* color:#01E66F;
-    border: #01E66F 2px solid; */
-    border: none;
-    background-color: transparent;
-    width: 45px;
-    height: 48px;
-  }
-
   /* Payment Form */
 
-  .body-payment-form{
+  .body-order-section{
     padding: 0 20px 20px 20px;
   }
 </style>
