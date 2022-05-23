@@ -64,6 +64,12 @@ Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
     Route::post('/{order}/updateStatus', [OrderController::class, 'updateStatus'])->name('updateStatus');
     Route::post('/{order}/updatePayment', [OrderController::class, 'updatePayment'])->name('updatePayment');
     Route::post('/{order}/updateReceipt', [OrderController::class, 'updateReceipt'])->name('updateReceipt');
-    Route::post('/{order}/writeReview', [OrderController::class, 'writeReview'])->name('writeReview');
+    Route::post('/{order}/updatePrice', [OrderController::class, 'updatePrice'])->name('updatePrice');
     Route::delete('/{order}', [OrderController::class, 'destroy'])->name('delete');
 });
+
+Route::prefix('api')->name('api.')->middleware('auth')->group(function ()
+{
+    Route::get('/getAllPackages', [PackageController::class, 'getAllPackages'])->name('getAllPackages');
+});
+

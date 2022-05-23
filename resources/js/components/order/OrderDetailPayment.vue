@@ -1,10 +1,22 @@
 <template>
   <div>
-    
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" :data-bs-target="'#payment-proof-modal-' + id">
+    <button 
+      v-if="order.payment_photo"
+      type="button" 
+      class="btn btn-primary" 
+      data-bs-toggle="modal" 
+      :data-bs-target="'#payment-proof-modal-' + order.id"
+    >
       Lihat Bukti Bayar
     </button>
-    <div class="modal fade" :id="'payment-proof-modal-' + id" tabindex="-1" :aria-labelledby="'payment-proof-modal-'" aria-hidden="true">
+    <button
+      v-else-if="order.price"
+      class="btn btn-primary me-3"
+      disabled
+    >
+      Lihat Bukti Bayar
+    </button>
+    <div class="modal fade" :id="'payment-proof-modal-' + order.id" tabindex="-1" :aria-labelledby="'payment-proof-modal-' + order.id" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -14,7 +26,7 @@
           <div class="modal-body">
             <img
               class="img img-fluid"
-              :src="'/storage/' + photoPath"
+              :src="'/storage/' + order.payment_photo"
               alt="payment-proof"
             >
           </div>
@@ -27,13 +39,8 @@
 <script>
 export default {
   props: {
-    id: {
-      type: Number,
-      default: null
-    },
-    photoPath: {
-      type: String,
-      default: ''
+    order: {
+      type: Object,
     },
   },
 };

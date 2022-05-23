@@ -8,7 +8,6 @@ use App\Models\Package;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\Review;
 use Illuminate\Validation\Rule;
 
 class OrderController extends Controller
@@ -30,11 +29,6 @@ class OrderController extends Controller
         return view('order.index')->with('orders',$orders);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $user = Auth::user();
@@ -45,20 +39,12 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'address' => 'required',
             'phone_number' => 'required',
-            'package_id' => ['required', Rule::exists('packages', 'id')], //['required', Rule::exists('packages', 'id')]->where('isActive', 1)]
-            'quantity' => 'required',
         ]);
         if($request->save_data) {
             $user = User::find($request->user()->id);
@@ -75,33 +61,20 @@ class OrderController extends Controller
             'status' => 'waiting',
         ]);
         $order_id = $order->id;
+        $order_item = json_decode($request->order_item);
 
-        for ($index=0; $index < count($request->package_id); $index++) { 
-            if ($request->quantity[$index]) {
-                $price = Package::find($request->package_id[$index])->price;
-                $name = Package::find($request->package_id[$index])->name;
-
-                OrderDetail::create([
-                    'order_id' => $order_id,
-                    'package_id' => $request->package_id[$index],
-                    'package_name' => $name,
-                    'quantity' => $request->quantity[$index],
-                    'price' => $price,
-                    'description' => $request->description[$index],
-                ]);
-            }
+        for ($index=0; $index < count($order_item); $index++) { 
+            $package = Package::find($order_item[$index]->package_id);
+            
+            OrderDetail::create([
+                'order_id' => $order_id,
+                'package_id' => $package->id,
+                'photo_path' => $request->file('photo_' . $index)->store('order-photos'),
+                'description' => $order_item[$index]->description,
+            ]);
         }
-        return response()->json([
-            'order_id' => $order_id,
-        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $user = Auth::user();
@@ -115,20 +88,12 @@ class OrderController extends Controller
             $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description');
         }
 
-        // $order = json_encode($order, JSON_PRETTY_PRINT);
         return view('order.show')->with([
             'order' => $order, 
             'user' => $user,
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $order = Order::find($id);
@@ -170,30 +135,12 @@ class OrderController extends Controller
         $order->receipt_number = $request->receipt;
         $order->save();
     }
-
-    public function writeReview(Request $request, $id)
+    public function updatePrice(Request $request, $id)
     {
         $order = Order::find($id);
-        $this->authorize('updatePayment', $order);
+        $this->authorize('updateStatus', $order);
         
-        $request->validate([
-            'content' => 'required',
-            'photo' => 'nullable|image'
-        ]);
-
-        $photo_path = '';
-        if($request->file('photo')) {
-            $photo_path = $request->file('photo')->store('review-photos');
-        }
-
-        Review::create([
-            'photo_path' => $photo_path,
-            'content' => $request->content,
-            'reviewer_id' => $request->reviewer_id,
-            'order_id' => $request->order_id,
-        ]);
-
-        $order->is_reviewed = 1;
+        $order->price = $request->price;
         $order->save();
     }
 
@@ -222,11 +169,12 @@ class OrderController extends Controller
     public function dashboard()
     {
         $this->authorize('dashboard', Order::class);
+        $packages = Package::all();
         $orders = Order::latest()->get();
         foreach ($orders as $order) {
             $order->total = 0;
             $order->items = OrderDetail::where('order_id', $order->id)->get();
         }
-        return view('dashboard.order')->with('orders',$orders);
+        return view('dashboard.order')->with(['orders' => $orders, 'packages' => $packages]);
     }
 }

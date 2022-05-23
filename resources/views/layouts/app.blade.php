@@ -16,6 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet"> 
 
+    <!-- MDI Font -->    
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
@@ -42,7 +46,7 @@
                             <a class="menu-item {{ request()->is('/') ? 'active-menu' : ''}}" aria-current="page" href="/">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="menu-item {{ request()->is('catalog') ? 'active-menu' : ''}}" href="/catalog">Katalog</a>
+                            <a class="menu-item {{ request()->is('catalog') ? 'active-menu' : ''}}" href="/catalog">Layanan</a>
                         </li>
                         <li class="nav-item">
                             <a class="menu-item {{ request()->is('about') ? 'active-menu' : ''}}" href="/about">Tentang INDI</a>
@@ -100,9 +104,9 @@
         <main>
             @yield('content')
         </main>
-            <a href="https://api.whatsapp.com/send?phone=6282242657857" class="float-action-btn" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=6282242657857" class="float-action-btn" target="_blank">
             <img class="icon-whatsapp" src="images/ic-whatsapp.svg" alt="ic-whatsapp">
-            </a>
+        </a>
     </div>
 </body>
 @include('layouts.footer')

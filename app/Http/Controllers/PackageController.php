@@ -56,4 +56,9 @@ class PackageController extends Controller
         $packages = Package::all();
         return view('dashboard.product')->with('packages',$packages);
     }
+    public function getAllPackages()
+    {
+        $packages = Package::all();
+        return response()->json($packages);
+    }
 }

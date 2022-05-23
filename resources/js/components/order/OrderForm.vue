@@ -2,21 +2,68 @@
   <div class="container-order segment">
     <div class="d-none d-lg-block col-lg-4">
       <div class="wrap-left-order-1">
-        <h1 class="h1-indi text-uppercase">Buat</h1>
-        <h1 class="h1-text text-uppercase">Pesanan</h1>
+        <h1 class="text-uppercase" style="font-size: 9vw; font-weight: 900;">Buat</h1>
+        <h1 class="text-uppercase" style="font-size: 5vw; font-weight: 900;">Pesanan</h1>
       </div>
     </div>
     <div class="col-12 col-lg-8 px-0 px-md-2 container-order-form">
-      <h1 class="d-flex d-lg-none mx-1 px-4 mb-3 text-uppercase">Buat Pesanan</h1>
-      <div class="div-progress-bar d-none d-md-block" style="height: 50px">
+      <h1 class="d-flex d-lg-none mx-1 px-4 mb-3 text-header text-uppercase ">Buat Pesanan</h1>
+      <div v-if="!orderStepPage" class="div-progress-bar d-none d-md-block" style="height: 50px">
         <ul class="progress-bar-order">
-          <li :class="[ isActive1 ]">Isi data diri</li>
-          <li :class="[ isActive2 ]">Isi detail pesanan</li>
-          <li :class="[ isActive3 ]">Pembayaran</li>
+          <li class="me-3" :class="[ isActive1 ]">Isi data diri</li>
+          <li class="me-3" :class="[ isActive2 ]">Isi detail pesanan</li>
+          <li class="me-3" :class="[ isActive3 ]">Selesai</li>
         </ul>
       </div>
-      <div id="personal-info" aria-labelledby="personal-info-tab" v-if="showUserDetail">
-        <form class="row div-form-order" @submit.prevent="submitUserDetail()">
+      <div id="order-step" aria-labelledby="order-step-tab" v-if="orderStepPage">
+        <div class="mx-1 px-4">
+          <table class="table-text">
+            <tbody>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>1</b>
+                </td>
+                <td class="px-3 py-2">
+                  Isi data diri, unggah foto pakaian yang akan direproduksi, pilih jasa reproduksi.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>2</b>
+                </td>
+                <td class="px-3 py-2">
+                  Admin Indi akan menghubungi Anda melalui WhatsApp untuk negosiasi harga.  
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>3</b>
+                </td>
+                <td class="px-3 py-2">
+                  Jika sudah tercapai kesepakatan harga, silakan melakukan pembayaran dan mengunggah bukti transfer melalui halaman riwayat transaksi.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>4</b>
+                </td>
+                <td class="px-3 py-2">
+                  Kirimkan pakaian Anda ke kantor Indi
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <div class="col-12 mt-4">
+            <button class="btn btn-primary" @click="nextPageOrder()">
+              Buat Pesanan
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Order Form 1 -->
+      <div id="personal-info" aria-labelledby="personal-info-tab" v-if="userDetailPage">
+        <form class="row w-100 div-form-order" @submit.prevent="submitUserDetail()">
           <div class="col-12 col-md-6 mb-3">
             <label for="name" class="form-label">Nama</label>
             <input 
@@ -42,7 +89,7 @@
             >
           </div>
           <div class="col-12 mb-3">
-            <label for="address" class="form-label">Alamat</label>
+            <label for="address" class="form-label">Alamat Pengiriman</label>
             <textarea 
               id="address" 
               name="address" 
@@ -79,141 +126,105 @@
         </form>
       </div>
       <!-- Order Form 2 -->
-      <div class="body-order-form" v-if="showOrderDetail">
+      <div class="body-order-section" v-if="orderDetailPage">
         <div class="px-2">
           <div class="div-p-title">
-            <p>Pilih paket yang Anda inginkan</p>
+            Pilih layanan yang Anda inginkan
           </div>
-          <div class="row mx-0">
-            <div 
-              v-for="(item, index) in packageList" 
-              :key="item.id" 
-              class="col-12 col-md-4 ps-0 pe-0 pe-md-4 mb-3"
-            >
-              <div class="product-card">
-                <div class="wrap-each-package w-100">
-                  <p class="packet-name">Paket {{ index + 1 }}</p>
-                  <h2>{{ item.name }}</h2>
-                  <div class="package-price mb-2">Rp {{ item.price }}</div>
-                  <div class="form-group mt-3" >
-                    <label :for="'package-' + item.id" class="form-label">Jumlah</label>
-                    <input 
-                      :id="'package-' + item.id" 
-                      name="quantity" 
-                      type="number" 
-                      min="0" 
-                      class="form-control" 
-                      v-model="form.quantity[index]"
-                      oninput="(validity.valid && value) || (value = 0)"
-                    />
-                  </div>    
-                  <div class="form-group mt-3" >
-                    <label :for="'description-' + item.id" class="form-label">
-                      Catatan
-                      <br>
-                      <small>
-                        Warna, pola, atau keterangan lain untuk memudahkan pengerjaan.
-                      </small>
+          <hr>
+          <div 
+            v-for="(item, index) in orderItems"
+            class="d-md-flex flex-row-reverse justify-content-between px-0"
+          > 
+            <div class="col-12 col-md-2 d-flex justify-content-end">
+              <div>
+                <button v-if="index" @click="removeItem(index)" type="button" class="btn btn-danger mt-md-4">
+                  <b>X</b>
+                </button>
+              </div>
+            </div>
+            <div class="col-12 col-md-10">
+              <div v-if="orderItems[index].is_error" class="col-12 text-danger">
+                Silakan pilih jenis layanan dan unggah foto pakaian terlebih dahulu
+              </div>
+              <div class=" d-md-flex">
+                <div class="form-group my-3 me-3 col-12 col-md-4" >
+                  <label for="reviewer_name">Jenis Layanan</label>
+                  <select 
+                    name="package_id" 
+                    class="form-select" 
+                    v-model="orderItems[index].package_id"
+                  >
+                    <option selected :value='null' disabled>Pilih jenis layanan</option>
+                    <option 
+                      v-for="(item) in packageList"
+                      :key="item.id"
+                      :value="item.id"
+                    >{{ item.name }}</option>
+                  </select>
+                </div>
+                <div class="form-group my-3 me-3 col-12 col-md-4" >
+                  <label for="reviewer_name">Foto Pakaian</label>
+                  <div>
+                    <label
+                      class="btn btn-outline-primary w-100 mx-auto"
+                    >
+                      <input
+                        ref="photo"
+                        name="photo_path"
+                        accept="image/*"
+                        class="form-control"
+                        style="display: none"
+                        type="file"
+                        @change="getFileName($event, index)"
+                      >
+                      Pilih File
                     </label>
-                    <textarea :id="'description-' + item.id" name="description" type="text" class="form-control" v-model="form.description[index]"></textarea>
+                    {{ orderItems[index].file_name }}
                   </div>
-                  <!-- <p class="p-text-bold">Warna yang mau dibeli:</p>
-                  <div class="div-counter-color">
-                    <p>Merah</p>
-                    <div class="div-inc-1">
-                      <div class="wrap-minus-sign" @click="onMinusInput('qt1')">   
-                          <button class="btn-minus"><h1> - </h1></button>
-                      </div>
-                      <div class="wrap-input-number">   
-                          <input id="number" class="input-number" v-model="qt1" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                      </div>
-                      <div class="wrap-plus-sign" @click="onPlusInput('qt1')">
-                          <button class="btn-plus"><h1> + </h1></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="div-counter-color">
-                    <p>Kuning</p>
-                    <div class="div-inc-1">
-                      <div class="wrap-minus-sign" @click="onMinusInput('qt2')">   
-                          <button class="btn-minus"><h1> - </h1></button>
-                      </div>
-                      <div class="wrap-input-number">   
-                          <input id="number" class="input-number" v-model="qt2" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                      </div>
-                      <div class="wrap-plus-sign" @click="onPlusInput('qt2')">
-                          <button class="btn-plus"><h1> + </h1></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="div-counter-color">
-                    <p>Hijau</p>
-                    <div class="div-inc-1">
-                      <div class="wrap-minus-sign" @click="onMinusInput('qt3')">   
-                          <button class="btn-minus"><h1> - </h1></button>
-                      </div>
-                      <div class="wrap-input-number">   
-                          <input id="number" class="input-number" v-model="qt3" readonly onblur="(parseInt(this.value) > 20) ? 20 : this.value"/>
-                      </div>
-                      <div class="wrap-plus-sign" @click="onPlusInput('qt3')">
-                          <button class="btn-plus"><h1> + </h1></button>
-                      </div>
-                    </div>
-                  </div> -->
+                </div>
+                <div class="form-group my-3 me-3 col-12 col-md-4" >
+                  <label for="description">Keterangan</label>
+                  <textarea 
+                    v-model="orderItems[index].description"
+                    name="description"
+                    class="form-control"
+                    type="text-area" 
+                  ></textarea>
                 </div>
               </div>
             </div>
+            <hr>
           </div>
-          <div class="col-12 mt-3 package-price">
-            Total: Rp {{ totalPrice }}
-          </div>
-          <div class="col-12 mt-3">
-            <button class="btn btn-primary" @click="backToUserDetail()">
-              Kembali
-            </button>
-            <button class="btn btn-primary" @click="createOrder()">
-              Buat Pesanan
-            </button>
+          <div class="form-group px-0 mt-2 text-end">
+            <button @click="addItem" type="button" class="btn btn-primary">Tambah barang</button>
           </div>
         </div>
+        <div class="col-12 mt-4">
+          <button class="btn btn-primary" @click="backToUserDetail()">
+            Kembali
+          </button>
+          <button class="btn btn-primary" @click="createOrder()">
+            Buat Pesanan
+          </button>
+        </div>
       </div>
-      <!-- Payment Form -->
-      <div class="body-payment-form" v-if="showPayment">
+      <!-- Finish Form -->
+      <div class="body-order-section" v-if="finishPage">
         <div class="wrapper-payment-form px-2">
-          <div>
-            <p>Silahkan melakukan pembayaran sebesar</p>
-            <h2 class="package-price" style="font-size: 24px !important">Rp {{ totalPrice }}</h2>
-          </div>
           <div class="mt-4">
             <div>
-              <div>
-                <img class="img-bca" src="images/bca.png" alt="bca account">
+              <div class="d-flex">
+                <img class="img-bca mx-auto" src="images/success.png" alt="success">
               </div>
               <div class="mt-2">
-                <div><b>103 949 4950</b></div>
-                <div>an. PT. indigo Indonesia</div>
+                <h2 class="text-primary package-price text-center" style="font-size: 24px !important">Selamat!</h2>
+                <div class="text-center">Pesanan Anda telah kami terima. Kami akan segera menghubungi Anda.</div>
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-4 mt-4">
-            <div class="mb-3">
-              <label  
-                class="btn btn-primary w-100"
-              >
-                <input 
-                  id="payment_photo" 
-                  name="payment_photo"
-                  ref="payment_photo"
-                  accept="image/*"
-                  class="form-control" 
-                  style="display: none"
-                  type="file" 
-                  @change="uploadPayment()"
-                >
-                Upload Bukti Bayar
-              </label>
-            </div>
-            <button class="btn btn-outline-primary w-100" onclick="window.location.href = '/'">
+          <div class="col-12 col-md-4 mt-4 w-100 text-center">
+            <button class="btn btn-outline-primary" onclick="window.location.href = '/'">
               Kembali ke Beranda
             </button>
           </div>
@@ -255,6 +266,7 @@ export default {
       )
       return totalPrice; 
     }
+    
   },
   data() {
     return {
@@ -263,15 +275,18 @@ export default {
         phone_number: null,
         address: null,
         save_data: true,
-        package_id: [],
-        quantity: [],
-        description: [],
       },
-      errors: {},
+      orderItems: [{
+        package_id: null,
+        description: null,
+        file_name: null,
+        is_error: false,
+      }],
       orderId: null,
-      showUserDetail: true,
-      showOrderDetail: false,
-      showPayment: false,
+      orderStepPage: true,
+      userDetailPage: false,
+      orderDetailPage: false,
+      finishPage: false,
       showFinish: false,
       isActive1: 'active',
       isActive2: '',
@@ -281,78 +296,107 @@ export default {
   },
   methods: {
     async createOrder() {
-      if (this.totalItem < 1) {
-        alert('Silakan pilih minimal 1 item!')
-      }
-      else {
-        try {
-          let response = await axios.post("/order", this.form);
-          this.nextPagePayment();
-          this.orderId = response.data.order_id;
-        } catch (error) {
-          console.log(error.response);
+      // Validation
+      this.orderItems.forEach(
+        (item, index) => {
+          if(item.package_id == null || item.file_name == null) {
+            this.orderItems[index].is_error = true
+          } else {
+            this.orderItems[index].is_error = false
+          } 
         }
+      )
+      const invalidItems = this.orderItems.filter((item) => item.is_error == true)
+      if (invalidItems.length > 0) {
+        console.log('Invalid Order')        
+        return;
+      }
+
+      var photoArr = this.$refs.photo;
+      var photos = photoArr.map((item) => item.files[0])
+
+      let formData = new FormData();
+
+      formData.append("name", this.form.name);
+      formData.append("phone_number", this.form.phone_number);
+      formData.append("address", this.form.address);
+      formData.append("save_data", this.form.save_data);
+
+      formData.append("order_item", JSON.stringify(this.orderItems));
+
+      for (let index = 0; index < photos.length; index++) {
+        formData.append("photo_" + index, photos[index]);
+      }
+
+      try {
+        let response = await axios.post(
+          `/order`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        this.nextPageFinish();
+      } catch (error) {
+        console.log(error.response);
       }
     },
-    hasErrors(key) {
-      if (this.errors[key]) {
-        return true;
-      }
-      return false;
+    getFileName(event, index){
+      var fileData =  event.target.files[0];
+      this.orderItems[index].file_name = fileData.name;
+      this.addItem();
+      setTimeout(() => {
+       this.removeItem(this.orderItems.length - 1);
+      }, 1);
     },
-    getErrors(key) {
-      if (this.hasErrors(key)) {
-        return this.errors[key].join(", ");
-      }
-      return "";
-    },
-    openNextForm(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    },
-    onMinusInput(dataVar){
-      ( this[dataVar] === 0 ) ? 0 : this[dataVar] = this[dataVar] - 1;
-    },
-    onPlusInput(dataVar){
-      this[dataVar] = this[dataVar] + 1;
+    nextPageOrder(){
+      this.orderStepPage = false;
+      this.userDetailPage = true;
+      this.orderDetailPage = false;
+      this.showFinish = false;
+      this.finishPage = false;
     },
     backToUserDetail(){
       this.isActive1 = 'active';
       this.isActive2 = '';
       this.isActive3 = '';
       this.isActive4 = '';
-      this.showOrderDetail = false;
-      this.showPayment = false;
+      this.orderDetailPage = false;
+      this.finishPage = false;
       this.showFinish = false;
-      this.showUserDetail = true;
+      this.userDetailPage = true;
     },
     submitUserDetail(){
       this.isActive1 = 'done';
       this.isActive2 = 'active';
       this.isActive3 = '';
       this.isActive4 = '';
-      this.showUserDetail = false;
-      this.showPayment = false;
+      this.userDetailPage = false;
+      this.finishPage = false;
       this.showFinish = false;
-      this.showOrderDetail = true;
+      this.orderDetailPage = true;
     },
-    nextPagePayment(){
+    nextPageFinish(){
       this.isActive2 = 'done';
       this.isActive3 = 'active';
       this.isActive4 = '';
-      this.showUserDetail = false;
-      this.showOrderDetail = false;
+      this.userDetailPage = false;
+      this.orderDetailPage = false;
       this.showFinish = false;
-      this.showPayment = true;
+      this.finishPage = true;
+    },
+    addItem() {
+      this.orderItems.push({
+        package_id: null,
+        description: null,
+        file_name: null,
+        is_error: false,
+      })
+    },
+    removeItem(index) {
+      this.orderItems.splice(index, 1);
     },
     async uploadPayment() {
       var payment_photo = this.$refs.payment_photo.files[0];
@@ -401,17 +445,6 @@ export default {
     background-image: url("../../../assets/background-catalog.png");
     background-size: contain;
     box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);
-  }
-
-  .h1-text {
-    font-size: 60px;
-    font-weight: 900;
-  }
-
-  .h1-indi{
-    font-size: 120px;
-    font-weight: 900;
-    line-height: 175px;
   }
 
   /* .div-progress-bar{
@@ -512,31 +545,10 @@ export default {
   }
 
   /* ORDER FORM 2 */
-
-  .body-order-form{
-    padding: 0 20px 20px 20px;
-}
   
   .div-p-title p{
     font-family: 'Mulish', sans-serif;
     font-size: 16px;
-  }
-
-  .wrap-each-package{
-    padding: 20px;
-  }
-
-  .packet-name{
-    font-size: 12px;
-    font-weight: 400;
-    font-family: 'Mulish', sans-serif;
-    margin-bottom: 5px;
-  }
-
-  .wrap-each-package h2{
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'Mulish', sans-serif;
   }
 
   .p-text-bold{
@@ -563,37 +575,10 @@ export default {
     flex-direction: row;
   }
 
-  input{
-    /* font-size: 18px; */
-    /* height: 4rem;
-    padding: 0 4rem;
-    border-radius: 2rem;
-    border: 0;
-    background: #fff;
-    color: #222;
-    box-shadow: 0 10px 65px -10px rgba(0,0,0,.25);
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box; */
-    /* font-weight: lighter; */
-  }
-
   .div-inc-1{
     display: flex;
     border: 2px solid #142362;
     border-radius: 12px;
-  }
-  
-  .wrap-minus-sign{
-  }
-  
-  .btn-minus{
-    /* color:#01E66F;
-    border: #01E66F 2px solid; */
-    border: none;
-    background-color: transparent;
-    width: 45px;
-    height: 48px;
   }
   
   .input-number{
@@ -607,18 +592,9 @@ export default {
     resize: none;
   }
   
-  .btn-plus{
-    /* color:#01E66F;
-    border: #01E66F 2px solid; */
-    border: none;
-    background-color: transparent;
-    width: 45px;
-    height: 48px;
-  }
-
   /* Payment Form */
 
-  .body-payment-form{
+  .body-order-section{
     padding: 0 20px 20px 20px;
   }
 </style>

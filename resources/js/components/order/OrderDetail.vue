@@ -17,8 +17,8 @@
         <div class="col-4">
           <order-status-badge :status="order.status" />
         </div>
-        <div class="col-3">
-          Rp {{ totalPrice }}
+        <div v-if="order.price" class="col-3">
+          Rp {{ order.price }}
         </div>
       </button>
     </h2>
@@ -28,13 +28,14 @@
     >
       <div class="accordion-body px-2 px-md-3">
         <div
-          v-if="!order.payment_photo"
+          v-if="!order.payment_photo && order.price"
           class="mb-3 text-center"
         >
           <div>
             Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
             <br>
-            Silakan lakukan pembayaran ke rekening
+            Silahkan melakukan pembayaran sebesar
+            <h2 class="package-price" style="font-size: 24px !important">Rp {{ order.price }}</h2>
           </div>
           <div class="my-1">
             <div class="img img-fluid">
@@ -71,69 +72,25 @@
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
             <div class="d-flex justify-content-between justify-content-md-end">
-              <!-- <button
-                v-if="order.status == 'finish' && (user.id == order.user_id || user.is_admin)"
-                data-bs-toggle="modal" 
-                data-bs-target="#write-review"
-                class="btn btn-primary me-3"
-              >
-                Tulis Review
-              </button>
-              <order-review-add :selectedOrder="order"></order-review-add> -->
-              <order-detail-payment
-                v-if="order.payment_photo"
-                :id="order.id"
-                :photo-path="order.payment_photo"
+              <OrderDetailPayment
+                :order="order"
                 class="me-3"
               />
+              <OrderDetailInputPrice 
+                v-if="!order.price && user.is_admin" 
+                :order="order"
+              />
+              <OrderDetailInputReceipt
+                v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
+                :order="order"
+              />
               <button
-                v-else
-                class="btn btn-primary me-3"
-                disabled
-              >
-                Lihat Bukti Bayar
-              </button>
-              <button
-                v-if="order.status !== 'finish' && user.is_admin"
+                v-if="order.price && order.status !== 'finish' && user.is_admin"
                 class="btn btn-primary"
                 @click="updateStatus()"
               >
                 {{ nextStatus }} Pesanan
               </button>
-              <button
-                v-if="order.status == 'finish' && user.is_admin && !order.receipt_number"
-                data-bs-toggle="modal" 
-                data-bs-target="#input-receipt-modal"
-                class="btn btn-primary"
-              >
-                Masukkan Nomor Resi
-              </button>
-              <div class="modal fade" id="input-receipt-modal" tabindex="-1" aria-labelledby="input-receipt-modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Masukkan Nomor Resi</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-group mt-3" >
-                        <label for="receipt">Nomor Resi</label>
-                        <input 
-                          id="receipt"
-                          name="receipt"
-                          type="text" 
-                          required
-                          class="form-control"
-                          v-model="form.receipt"
-                        />
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" @click="inputReceipt()">Simpan</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <hr class="d-block d-sm-none">
@@ -196,22 +153,19 @@
           </div>
         </div>
         <h3 class="text-header mt-3 mb-2">
-          Detail Produk
+          Detail Pesanan
         </h3>
         <table class="table table-striped">
           <thead style="font-size: 18px">
             <tr>
               <th scope="col">
-                Produk
+                Layanan
               </th>
               <th scope="col">
-                Harga
+                Keterangan
               </th>
               <th scope="col">
-                Jumlah
-              </th>
-              <th scope="col">
-                Total
+                Foto
               </th>
             </tr>
           </thead>
@@ -221,27 +175,24 @@
               :key="index"
               style="height:2rem"
             >
+              <td>{{ getPackageName(item.package_id) }}</td>
+              <td>{{ item.description }}</td>
               <td>
-                <div style="font-size: 16px">
-                  <b>{{ item.package_name }}</b>
-                </div>
-                <div>
-                  {{ item.description }}
-                </div>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
+                  @click="$emit('select-order', item);">
+                  Lihat Foto
+                </button>
               </td>
-              <td>Rp {{ item.price }}</td>
-              <td>{{ item.quantity }}</td>
-              <td>Rp {{ item.price * item.quantity }}</td>
             </tr>
-            <tr>
+            <tr v-if="order.price">
               <td
-                colspan="3"
+                colspan="2"
                 class="text-end font-weight-bold"
               >
-                Total
+                <b>Total</b>
               </td>
               <td class="font-weight-bold">
-                Rp {{ totalPrice }}
+                <b>Rp {{ order.price }}</b>
               </td>
             </tr>
           </tbody>
@@ -252,13 +203,15 @@
 </template>
 
 <script>
+import { format } from 'date-fns'
 import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
-import { format } from 'date-fns'
-import OrderReviewAdd from './OrderReviewAdd.vue';
+import OrderListImagePreviewModal from './OrderListImagePreviewModal.vue';
+import OrderDetailInputPrice from './OrderDetailInputPrice.vue';
+import OrderDetailInputReceipt from './OrderDetailInputReceipt.vue';
 
 export default {
-  components: { OrderStatusBadge, OrderDetailPayment, OrderReviewAdd },
+  components: { OrderStatusBadge, OrderDetailPayment, OrderListImagePreviewModal, OrderDetailInputPrice, OrderDetailInputReceipt },
   props: {
     user: {
       type: Object,
@@ -268,12 +221,17 @@ export default {
       type: Object,
       default: null,
     },
+    packages: {
+      type: Array,
+    }
   },
   data() {
     return {
       form: {
         receipt: null,
+        price: null,
       },
+      selectedOrder: {},
     }
   },
   computed: {
@@ -321,23 +279,15 @@ export default {
           },
         );
         alert('Bukti Transfer Terupload');
-        this.location.reload();
       } catch (error) {
         alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
         console.log(error.response);
       }
     },
-    async inputReceipt() {
-      try {
-        let response = await axios.post(
-          `/order/${this.order.id}/updateReceipt`,
-          this.form,
-        );
-        return location.reload();
-      } catch (error) {
-        console.log(error.response);
-      }
-    },
+    getPackageName(id) {
+      const result = this.packages.filter((item) => item.id == id);
+      return result[0]?.name || '';
+    }
   },
 };
 </script>

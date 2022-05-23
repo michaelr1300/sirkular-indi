@@ -13,6 +13,16 @@
           </div>
           <div class="modal-body">
             <div class="form-group mt-3" >
+              <label for="reviewer_name">Nama Pelanggan</label>
+              <input 
+                id="reviewer_name"
+                name="reviewer_name"
+                type="text-area" 
+                class="form-control"
+                v-model="form.reviewer_name"
+              />
+            </div>
+            <div class="form-group mt-3" >
               <label for="content">Review</label>
               <textarea 
                 id="content"
@@ -48,6 +58,7 @@ export default {
   data() {
     return {
       form: {
+        reviewer_name: null,
         content: null,
       },
     }
@@ -56,10 +67,9 @@ export default {
     async doSubmit() {
       var photo = this.$refs.photo.files[0];
       let formData = new FormData();
-      if(photo) {
-        formData.append("photo", photo);
-      }
+      formData.append("photo", photo);
       formData.append("content", this.form.content);
+      formData.append("reviewer_name", this.form.reviewer_name);
       try {
         let response = await axios.post(
           `/reviews`,

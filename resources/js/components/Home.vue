@@ -18,27 +18,47 @@
           >
             Dengan pewarna alami
           </h1>
-          <h1
-            class="d-none d-md-block h1-indi text-uppercase"
-            style="font-size: 17vw; line-height: 14vw"
-          >
-            INDI
-          </h1>
-          <h1
-            class="d-block d-md-none h1-indi text-uppercase text-center mb-4"
-            style="font-size: 35vw; line-height: 24vw"
-          >
-            INDI
-          </h1>
-          <h3 class="h3-sub-text text-center text-md-start">
+          <div class="d-none d-md-block">
+            <h1
+              class="h1-indi text-uppercase"
+              style="font-size: 17vw; line-height: 14vw"
+            >
+              INDI
+            </h1>
+            <h1
+              class="h1-text text-uppercase text-center text-md-start"
+              style="font-size: 2vw"
+            >
+              (Indonesia Natural Dye Institute)
+            </h1>
+          </div>
+          <div class="d-block d-md-none">
+            <h1
+              class="d-block d-md-none h1-indi text-uppercase text-center mb-4"
+              style="font-size: 35vw; line-height: 24vw"
+            >
+              INDI
+            </h1>
+            <h1
+              class="h1-text text-uppercase text-center text-md-start"
+              style="font-size: 4vw"
+            >
+              (Indonesia Natural Dye Institute)
+            </h1>
+          </div>
+          <h3 class="h3-sub-text text-center text-md-start mt-3">
             Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI
           </h3>
-          <button class="btn-get-start mx-auto mx-md-0">
-            Pesan sekarang <font-awesome-icon
-              class="icon-arrow-right"
-              icon="fa-solid fa-arrow-right"
-            />
-          </button>
+            <a
+              class="btn-get-start mx-auto mx-md-0"
+              style="text-decoration: none"
+              href="/order"
+            >
+              Pesan sekarang <font-awesome-icon
+                class="icon-arrow-right"
+                icon="fa-solid fa-arrow-right"
+              />
+            </a>
         </div>
         <div class="col-lg-5 wrap-right-home-1 px-2">
           <div class="img-wrapper-1">
@@ -182,6 +202,9 @@
                       alt="review-image"
                       style="max-height: 200px; border-radius: 5px"
                     >
+                  </div>
+                  <div class="mt-2">
+                    {{ item.reviewer_name }}
                   </div>
                   <div class="text-area mt-2">
                     {{ item.content }}

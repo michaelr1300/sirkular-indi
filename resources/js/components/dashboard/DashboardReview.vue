@@ -16,17 +16,18 @@
                 @click="editReview(item)">
                 <span class="mdi mdi-pencil"></span>
               </button>
-            </div>
-            <div class="d-flex img-fluid" style="height:400px; overflow: hidden">
               <img 
                 v-if="item.photo_path" 
-                class="img img-fluid my-3 mx-auto" 
+                class="img img-fluid my-3" 
                 :src="'/storage/' + item.photo_path" 
                 alt="review-image"
               >
             </div>
             <div>
               <hr>
+              <div class="my-2">
+                {{ item.reviewer_name }}
+              </div>
               <p class="text-area">{{ item.content }}</p>
             </div>
           </div>
@@ -60,3 +61,7 @@ export default {
   },
 };
 </script>
+
+<style>
+
+</style>
