@@ -132,7 +132,10 @@
             Pilih layanan yang Anda inginkan
           </div>
           <hr>
-          <div class="d-md-flex flex-row-reverse justify-content-between px-0" v-for="(item, index) in orderItems">
+          <div 
+            v-for="(item, index) in orderItems"
+            class="d-md-flex flex-row-reverse justify-content-between px-0"
+          > 
             <div class="col-12 col-md-2 d-flex justify-content-end">
               <div>
                 <button v-if="index" @click="removeItem(index)" type="button" class="btn btn-danger mt-md-4">
@@ -140,50 +143,55 @@
                 </button>
               </div>
             </div>
-            <div class="col-12 col-md-10 d-md-flex">
-              <div class="form-group my-3 me-3 col-12 col-md-4" >
-                <label for="reviewer_name">Jenis Layanan</label>
-                <select 
-                  name="package_id" 
-                  class="form-select" 
-                  v-model="orderItems[index].package_id"
-                >
-                  <option selected :value='null' disabled>Pilih jenis layanan</option>
-                  <option 
-                    v-for="(item) in packageList"
-                    :key="item.id"
-                    :value="item.id"
-                  >{{ item.name }}</option>
-                </select>
+            <div class="col-12 col-md-10">
+              <div v-if="orderItems[index].is_error" class="col-12 text-danger">
+                Silakan pilih jenis layanan dan unggah foto pakaian terlebih dahulu
               </div>
-              <div class="form-group my-3 me-3 col-12 col-md-4" >
-                <label for="reviewer_name">Foto Pakaian</label>
-                <div>
-                  <label
-                    class="btn btn-outline-primary w-100 mx-auto"
+              <div class=" d-md-flex">
+                <div class="form-group my-3 me-3 col-12 col-md-4" >
+                  <label for="reviewer_name">Jenis Layanan</label>
+                  <select 
+                    name="package_id" 
+                    class="form-select" 
+                    v-model="orderItems[index].package_id"
                   >
-                    <input
-                      ref="photo"
-                      name="photo_path"
-                      accept="image/*"
-                      class="form-control"
-                      style="display: none"
-                      type="file"
-                      @change="getFileName($event, index)"
-                    >
-                    Pilih File
-                  </label>
-                  {{ orderItems[index].file_name }}
+                    <option selected :value='null' disabled>Pilih jenis layanan</option>
+                    <option 
+                      v-for="(item) in packageList"
+                      :key="item.id"
+                      :value="item.id"
+                    >{{ item.name }}</option>
+                  </select>
                 </div>
-              </div>
-              <div class="form-group my-3 me-3 col-12 col-md-4" >
-                <label for="description">Keterangan</label>
-                <textarea 
-                  v-model="orderItems[index].description"
-                  name="description"
-                  class="form-control"
-                  type="text-area" 
-                ></textarea>
+                <div class="form-group my-3 me-3 col-12 col-md-4" >
+                  <label for="reviewer_name">Foto Pakaian</label>
+                  <div>
+                    <label
+                      class="btn btn-outline-primary w-100 mx-auto"
+                    >
+                      <input
+                        ref="photo"
+                        name="photo_path"
+                        accept="image/*"
+                        class="form-control"
+                        style="display: none"
+                        type="file"
+                        @change="getFileName($event, index)"
+                      >
+                      Pilih File
+                    </label>
+                    {{ orderItems[index].file_name }}
+                  </div>
+                </div>
+                <div class="form-group my-3 me-3 col-12 col-md-4" >
+                  <label for="description">Keterangan</label>
+                  <textarea 
+                    v-model="orderItems[index].description"
+                    name="description"
+                    class="form-control"
+                    type="text-area" 
+                  ></textarea>
+                </div>
               </div>
             </div>
             <hr>
@@ -270,11 +278,10 @@ export default {
       },
       orderItems: [{
         package_id: null,
-        photo_path: null,
         description: null,
         file_name: null,
+        is_error: false,
       }],
-      errors: {},
       orderId: null,
       orderStepPage: true,
       userDetailPage: false,
@@ -289,6 +296,22 @@ export default {
   },
   methods: {
     async createOrder() {
+      // Validation
+      this.orderItems.forEach(
+        (item, index) => {
+          if(item.package_id == null || item.file_name == null) {
+            this.orderItems[index].is_error = true
+          } else {
+            this.orderItems[index].is_error = false
+          } 
+        }
+      )
+      const invalidItems = this.orderItems.filter((item) => item.is_error == true)
+      if (invalidItems.length > 0) {
+        console.log('Invalid Order')        
+        return;
+      }
+
       var photoArr = this.$refs.photo;
       var photos = photoArr.map((item) => item.files[0])
 
@@ -315,30 +338,17 @@ export default {
             },
           }
         );
-        console.log(response);
         this.nextPageFinish();
       } catch (error) {
         console.log(error.response);
       }
-    },
-    hasErrors(key) {
-      if (this.errors[key]) {
-        return true;
-      }
-      return false;
-    },
-    getErrors(key) {
-      if (this.hasErrors(key)) {
-        return this.errors[key].join(", ");
-      }
-      return "";
     },
     getFileName(event, index){
       var fileData =  event.target.files[0];
       this.orderItems[index].file_name = fileData.name;
       this.addItem();
       setTimeout(() => {
-       this.removeItem(index + 1);
+       this.removeItem(this.orderItems.length - 1);
       }, 1);
     },
     nextPageOrder(){
@@ -380,8 +390,9 @@ export default {
     addItem() {
       this.orderItems.push({
         package_id: null,
-        photo_path: null,
         description: null,
+        file_name: null,
+        is_error: false,
       })
     },
     removeItem(index) {

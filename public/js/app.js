@@ -24069,6 +24069,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reviews: {
@@ -26355,6 +26359,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packageList: {
@@ -26413,11 +26425,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       orderItems: [{
         package_id: null,
-        photo_path: null,
         description: null,
-        file_name: null
+        file_name: null,
+        is_error: false
       }],
-      errors: {},
       orderId: null,
       orderStepPage: true,
       userDetailPage: false,
@@ -26435,11 +26446,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var photoArr, photos, formData, index, response;
+        var invalidItems, photoArr, photos, formData, index, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                // Validation
+                _this2.orderItems.forEach(function (item, index) {
+                  if (item.package_id == null || item.file_name == null) {
+                    _this2.orderItems[index].is_error = true;
+                  } else {
+                    _this2.orderItems[index].is_error = false;
+                  }
+                });
+
+                invalidItems = _this2.orderItems.filter(function (item) {
+                  return item.is_error == true;
+                });
+
+                if (!(invalidItems.length > 0)) {
+                  _context.next = 5;
+                  break;
+                }
+
+                console.log('Invalid Order');
+                return _context.abrupt("return");
+
+              case 5:
                 photoArr = _this2.$refs.photo;
                 photos = photoArr.map(function (item) {
                   return item.files[0];
@@ -26455,49 +26488,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   formData.append("photo_" + index, photos[index]);
                 }
 
-                _context.prev = 9;
-                _context.next = 12;
+                _context.prev = 14;
+                _context.next = 17;
                 return axios.post("/order", formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 12:
+              case 17:
                 response = _context.sent;
-                console.log(response);
 
                 _this2.nextPageFinish();
 
-                _context.next = 20;
+                _context.next = 24;
                 break;
 
-              case 17:
-                _context.prev = 17;
-                _context.t0 = _context["catch"](9);
+              case 21:
+                _context.prev = 21;
+                _context.t0 = _context["catch"](14);
                 console.log(_context.t0.response);
 
-              case 20:
+              case 24:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[9, 17]]);
+        }, _callee, null, [[14, 21]]);
       }))();
-    },
-    hasErrors: function hasErrors(key) {
-      if (this.errors[key]) {
-        return true;
-      }
-
-      return false;
-    },
-    getErrors: function getErrors(key) {
-      if (this.hasErrors(key)) {
-        return this.errors[key].join(", ");
-      }
-
-      return "";
     },
     getFileName: function getFileName(event, index) {
       var _this3 = this;
@@ -26506,7 +26524,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.orderItems[index].file_name = fileData.name;
       this.addItem();
       setTimeout(function () {
-        _this3.removeItem(index + 1);
+        _this3.removeItem(_this3.orderItems.length - 1);
       }, 1);
     },
     nextPageOrder: function nextPageOrder() {
@@ -26548,8 +26566,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     addItem: function addItem() {
       this.orderItems.push({
         package_id: null,
-        photo_path: null,
-        description: null
+        description: null,
+        file_name: null,
+        is_error: false
       });
     },
     removeItem: function removeItem(index) {
@@ -57074,10 +57093,14 @@ var render = function () {
                 ),
                 _vm._v(" "),
                 _c(
-                  "button",
-                  { staticClass: "btn-get-start mx-auto mx-md-0" },
+                  "a",
+                  {
+                    staticClass: "btn-get-start mx-auto mx-md-0",
+                    staticStyle: { "text-decoration": "none" },
+                    attrs: { href: "/order" },
+                  },
                   [
-                    _vm._v("\n          Pesan sekarang "),
+                    _vm._v("\n            Pesan sekarang "),
                     _c("font-awesome-icon", {
                       staticClass: "icon-arrow-right",
                       attrs: { icon: "fa-solid fa-arrow-right" },
@@ -60701,10 +60724,16 @@ var render = function () {
                           ]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-12 col-md-10 d-md-flex" },
-                          [
+                        _c("div", { staticClass: "col-12 col-md-10" }, [
+                          _vm.orderItems[index].is_error
+                            ? _c("div", { staticClass: "col-12 text-danger" }, [
+                                _vm._v(
+                                  "\n              Silakan pilih jenis layanan dan unggah foto pakaian terlebih dahulu\n            "
+                                ),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("div", { staticClass: " d-md-flex" }, [
                             _c(
                               "div",
                               {
@@ -60826,14 +60855,14 @@ var render = function () {
                                         },
                                       }),
                                       _vm._v(
-                                        "\n                  Pilih File\n                "
+                                        "\n                    Pilih File\n                  "
                                       ),
                                     ]
                                   ),
                                   _vm._v(
-                                    "\n                " +
+                                    "\n                  " +
                                       _vm._s(_vm.orderItems[index].file_name) +
-                                      "\n              "
+                                      "\n                "
                                   ),
                                 ]),
                               ]
@@ -60883,8 +60912,8 @@ var render = function () {
                                 }),
                               ]
                             ),
-                          ]
-                        ),
+                          ]),
+                        ]),
                         _vm._v(" "),
                         _c("hr"),
                       ]
