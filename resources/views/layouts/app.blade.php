@@ -105,7 +105,7 @@
             @yield('content')
         </main>
         <a href="https://api.whatsapp.com/send?phone=6282242657857" class="float-action-btn" target="_blank">
-        <img class="icon-whatsapp" src="images/ic-whatsapp.svg" alt="ic-whatsapp">
+            <img class="icon-whatsapp" src="images/ic-whatsapp.svg" alt="ic-whatsapp">
         </a>
     </div>
 </body>
