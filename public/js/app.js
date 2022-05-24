@@ -25007,6 +25007,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -25269,13 +25272,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         id: null,
         content: null,
         reviewer_name: null,
-        photo_path: null
+        photo_path: null,
+        media_id: null
       }
     };
   },
+  computed: {
+    selectedImage: function selectedImage() {
+      var _this$selectedReview, _this$selectedReview$;
+
+      if ((_this$selectedReview = this.selectedReview) !== null && _this$selectedReview !== void 0 && (_this$selectedReview$ = _this$selectedReview.photo_path) !== null && _this$selectedReview$ !== void 0 && _this$selectedReview$.length) {
+        return this.selectedReview.photo_path[0].url;
+      }
+
+      return '';
+    }
+  },
   watch: {
     selectedReview: function selectedReview() {
-      this.form = _objectSpread({}, this.selectedReview);
+      var _this$selectedReview2, _this$selectedReview3;
+
+      this.form = _objectSpread(_objectSpread({}, this.selectedReview), {}, {
+        media_id: (_this$selectedReview2 = this.selectedReview) === null || _this$selectedReview2 === void 0 ? void 0 : (_this$selectedReview3 = _this$selectedReview2.media[0]) === null || _this$selectedReview3 === void 0 ? void 0 : _this$selectedReview3.id
+      });
     }
   },
   methods: {
@@ -25809,21 +25828,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 6:
                 response = _context2.sent;
                 alert('Bukti Transfer Terupload');
-                _context2.next = 14;
-                break;
+                return _context2.abrupt("return", location.reload());
 
-              case 10:
-                _context2.prev = 10;
+              case 11:
+                _context2.prev = 11;
                 _context2.t0 = _context2["catch"](3);
                 alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
                 console.log(_context2.t0.response);
 
-              case 14:
+              case 15:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[3, 10]]);
+        }, _callee2, null, [[3, 11]]);
       }))();
     },
     getPackageName: function getPackageName(id) {
@@ -26064,6 +26082,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -26632,6 +26651,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _OrderDetail_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderDetail.vue */ "./resources/js/components/order/OrderDetail.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -26710,7 +26735,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     updateSelectedItem: function updateSelectedItem(item) {
-      this.selectedOrder = item;
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var response, photo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios.get('/api/getOrderImage/' + item.id);
+
+              case 3:
+                response = _context2.sent;
+                photo = response.data;
+                _this2.selectedOrder = _objectSpread(_objectSpread({}, item), {}, {
+                  photo: photo
+                });
+                _context2.next = 11;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0.response);
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 8]]);
+      }))();
     }
   }
 });
@@ -26728,6 +26785,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -27097,23 +27156,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -27189,14 +27231,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 9:
                 _context2.prev = 9;
                 _context2.t0 = _context2["catch"](1);
-                alert(_context2.t0.response.data.message);
                 console.log(_context2.t0.response);
                 _this2.errors = _context2.t0.response.data.errors;
 
-              case 14:
+              case 13:
                 _this2.isLoading = false;
 
-              case 15:
+              case 14:
               case "end":
                 return _context2.stop();
             }
@@ -58880,46 +58921,58 @@ var render = function () {
                       "d-flex flex-column card-body w-100 justify-content-between",
                   },
                   [
-                    _c("div", { staticClass: "text-end mb-2" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: {
-                            type: "button",
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#edit-review-modal",
-                          },
-                          on: {
-                            click: function ($event) {
-                              return _vm.editReview(item)
+                    _c(
+                      "div",
+                      { staticClass: "d-flex flex-column text-end mb-2" },
+                      [
+                        _c("div", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "modal",
+                                "data-bs-target": "#edit-review-modal",
+                              },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.editReview(item)
+                                },
+                              },
                             },
-                          },
-                        },
-                        [_c("span", { staticClass: "mdi mdi-pencil" })]
-                      ),
-                      _vm._v(" "),
-                      item.photo_path
-                        ? _c("img", {
-                            staticClass: "img img-fluid my-3",
-                            attrs: {
-                              src: "/storage/" + item.photo_path,
-                              alt: "review-image",
-                            },
-                          })
-                        : _vm._e(),
-                    ]),
+                            [_c("span", { staticClass: "mdi mdi-pencil" })]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        item.media[0]
+                          ? _c("img", {
+                              staticClass: "img img-fluid my-3",
+                              staticStyle: {
+                                "max-height": "400px",
+                                "max-width": "400px",
+                                "object-fit": "contain",
+                              },
+                              attrs: {
+                                src: item.photo_path[0].url,
+                                alt: "review-image",
+                              },
+                            })
+                          : _vm._e(),
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", [
                       _c("hr"),
                       _vm._v(" "),
-                      _c("div", { staticClass: "my-2" }, [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(item.reviewer_name) +
-                            "\n            "
-                        ),
-                      ]),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "text-header my-2",
+                          staticStyle: { "font-size": "16px" },
+                        },
+                        [_c("b", [_vm._v(_vm._s(item.reviewer_name))])]
+                      ),
                       _vm._v(" "),
                       _c("p", { staticClass: "text-area" }, [
                         _vm._v(_vm._s(item.content)),
@@ -59215,42 +59268,6 @@ var render = function () {
                         return
                       }
                       _vm.$set(_vm.form, "content", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _vm.form.photo_path
-                  ? _c("img", {
-                      staticClass: "img img-fluid my-3",
-                      attrs: {
-                        src: "/storage/" + _vm.form.photo_path,
-                        alt: "review-image",
-                      },
-                    })
-                  : _vm._e(),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group mt-3" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.photo_path,
-                      expression: "form.photo_path",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "name", name: "name", type: "hidden" },
-                  domProps: { value: _vm.form.photo_path },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form, "photo_path", $event.target.value)
                     },
                   },
                 }),
@@ -59647,7 +59664,7 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "accordion-body px-2 px-md-3" }, [
-          !_vm.order.payment_photo && _vm.order.price
+          !_vm.order.payment_photo.length && _vm.order.price
             ? _c("div", { staticClass: "mb-3 text-center" }, [
                 _c("div", [
                   _vm._v(
@@ -60289,7 +60306,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.order.payment_photo
+    _vm.order.payment_photo.length
       ? _c(
           "button",
           {
@@ -60329,8 +60346,9 @@ var render = function () {
             _c("div", { staticClass: "modal-body" }, [
               _c("img", {
                 staticClass: "img img-fluid",
+                staticStyle: { "max-width": "100%" },
                 attrs: {
-                  src: "/storage/" + _vm.order.payment_photo,
+                  src: _vm.order.payment_photo[0].url,
                   alt: "payment-proof",
                 },
               }),
@@ -61228,20 +61246,22 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _vm.selectedItem.photo_path
+              _vm.selectedItem.photo
                 ? _c("div", { staticClass: "d-flex" }, [
-                    _c("img", {
-                      staticClass: "img img-fluid my-3 mx-auto",
-                      staticStyle: {
-                        "max-height": "800px",
-                        "max-width": "1200px",
-                        "object-fit": "contain",
-                      },
-                      attrs: {
-                        src: "/storage/" + _vm.selectedItem.photo_path,
-                        alt: "item-image",
-                      },
-                    }),
+                    _c("div", { staticClass: "img-fluid" }, [
+                      _c("img", {
+                        staticClass: "img my-3 mx-auto",
+                        staticStyle: {
+                          "max-height": "800px",
+                          "max-width": "100%",
+                          "object-fit": "contain",
+                        },
+                        attrs: {
+                          src: _vm.selectedItem.photo[0].url,
+                          alt: "item-image",
+                        },
+                      }),
+                    ]),
                   ])
                 : _vm._e(),
             ]),
@@ -61339,7 +61359,7 @@ var render = function () {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-9 mx-4 mt-3" }, [
+      _c("div", { staticClass: "col-12 col-md-9 px-4 mt-3" }, [
         _c(
           "h1",
           { staticClass: "text-uppercase font-weight-bold text-header" },
@@ -61354,7 +61374,7 @@ var render = function () {
               [_vm._v("\n            Nama\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61425,7 +61445,7 @@ var render = function () {
               [_vm._v("\n            Email\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61499,7 +61519,7 @@ var render = function () {
               [_vm._v("\n            Alamat\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61564,7 +61584,7 @@ var render = function () {
               [_vm._v("\n            Nomor Telepon\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61629,123 +61649,93 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "d-md-flex" }, [
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.isEdit,
-                    expression: "!isEdit",
-                  },
-                ],
-                staticClass: "btn btn-primary col-12 col-md-4 me-3",
-                on: {
-                  click: function ($event) {
-                    _vm.isEdit = true
-                  },
-                },
-              },
-              [_vm._v("\n            Ubah Profil\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && !_vm.isLoading,
-                    expression: "isEdit && !isLoading",
-                  },
-                ],
-                staticClass: "btn btn-success col-12 col-md-2 me-3",
-                on: {
-                  click: function ($event) {
-                    return _vm.doUpdate()
+            _c("div", { staticClass: "d-md-flex col-12 col-md-4 mb-3" }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isEdit,
+                      expression: "!isEdit",
+                    },
+                  ],
+                  staticClass: "btn btn-primary w-100",
+                  on: {
+                    click: function ($event) {
+                      _vm.isEdit = true
+                    },
                   },
                 },
-              },
-              [_vm._v("\n            Simpan\n        ")]
-            ),
+                [_vm._v("\n              Ubah Profil\n          ")]
+              ),
+              _vm._v(" "),
+              _vm.isEdit
+                ? _c("div", { staticClass: "col-12 col-md-6 pe-md-2 mb-3" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success w-100",
+                        attrs: { disabled: _vm.isLoading },
+                        on: {
+                          click: function ($event) {
+                            return _vm.doUpdate()
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.isLoading ? "Menyimpan" : "Simpan") +
+                            "\n            "
+                        ),
+                      ]
+                    ),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEdit
+                ? _c("div", { staticClass: "col-12 col-md-6 ps-md-2 mb-3" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-primary w-100",
+                        attrs: { disabled: _vm.isLoading },
+                        on: {
+                          click: function ($event) {
+                            return _vm.doResetEdit()
+                          },
+                        },
+                      },
+                      [_vm._v("\n                Batal\n            ")]
+                    ),
+                  ])
+                : _vm._e(),
+            ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && _vm.isLoading,
-                    expression: "isEdit && isLoading",
-                  },
-                ],
-                staticClass: "btn btn-success col-12 col-md-2 mx-3",
-                attrs: { disabled: "" },
-              },
-              [_vm._v("\n            Menyimpan\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && !_vm.isLoading,
-                    expression: "isEdit && !isLoading",
-                  },
-                ],
-                staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                on: {
-                  click: function ($event) {
-                    return _vm.doResetEdit()
+            _c("div", { staticClass: "col-12 col-md-4 ps-md-3" }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isUpdatePassword,
+                      expression: "!isUpdatePassword",
+                    },
+                  ],
+                  staticClass: "btn btn-primary w-100",
+                  on: {
+                    click: function ($event) {
+                      _vm.isUpdatePassword = true
+                    },
                   },
                 },
-              },
-              [_vm._v("\n            Batal\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && _vm.isLoading,
-                    expression: "isEdit && isLoading",
-                  },
-                ],
-                staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                attrs: { disabled: "" },
-              },
-              [_vm._v("\n            Batal\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.isUpdatePassword,
-                    expression: "!isUpdatePassword",
-                  },
-                ],
-                staticClass: "btn btn-primary col-12 col-md-4 mx-3",
-                on: {
-                  click: function ($event) {
-                    _vm.isUpdatePassword = true
-                  },
-                },
-              },
-              [_vm._v("\n            Ubah Password\n        ")]
-            ),
+                [_vm._v("\n              Ubah Password\n          ")]
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c(
@@ -61759,21 +61749,21 @@ var render = function () {
                   expression: "isUpdatePassword",
                 },
               ],
-              staticClass: "mt-4",
+              staticClass: "mt-md-4 mt-2",
             },
             [
               !_vm.user.has_no_password
-                ? _c("div", { staticClass: "d-flex my-3" }, [
+                ? _c("div", { staticClass: "d-md-flex my-3" }, [
                     _c(
                       "div",
                       {
                         staticClass:
-                          "col-3 my-auto text-secondary font-weight-bold",
+                          "col-12 col-md-3 my-auto text-secondary font-weight-bold",
                       },
                       [_vm._v("\n                Password Lama\n            ")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-md-6" }, [
                       _c("div", { staticClass: "form-group mb-0" }, [
                         _c("input", {
                           directives: [
@@ -61816,17 +61806,17 @@ var render = function () {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex my-3" }, [
+              _c("div", { staticClass: "d-md-flex my-3" }, [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "col-3 my-auto text-secondary font-weight-bold",
+                      "col-12 col-md-3 my-auto text-secondary font-weight-bold",
                   },
                   [_vm._v("\n                Password Baru\n            ")]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
+                _c("div", { staticClass: "col-12 col-md-6" }, [
                   _c("div", { staticClass: "form-group mb-0" }, [
                     _c("input", {
                       directives: [
@@ -61862,12 +61852,12 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex my-3" }, [
+              _c("div", { staticClass: "d-md-flex my-3" }, [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "col-3 my-auto text-secondary font-weight-bold",
+                      "col-12 col-md-3 my-auto text-secondary font-weight-bold",
                   },
                   [
                     _vm._v(
@@ -61876,7 +61866,7 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
+                _c("div", { staticClass: "col-12 col-md-6" }, [
                   _c("div", { staticClass: "form-group mb-0" }, [
                     _c("input", {
                       directives: [
@@ -61918,82 +61908,48 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-md-flex" }, [
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && !_vm.isLoading,
-                        expression: "isUpdatePassword && !isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-success col-12 col-md-2 me-3",
-                    on: {
-                      click: function ($event) {
-                        return _vm.doUpdatePassword()
-                      },
-                    },
-                  },
-                  [_vm._v("\n                Simpan\n            ")]
-                ),
+              _c("div", { staticClass: "d-md-flex col-md-4" }, [
+                _vm.isUpdatePassword
+                  ? _c("div", { staticClass: "col-12 col-md-6 pe-md-2 mb-3" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success w-100",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.doUpdatePassword()
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.isLoading ? "Menyimpan" : "Simpan") +
+                              "\n            "
+                          ),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && _vm.isLoading,
-                        expression: "isUpdatePassword && isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-success col-12 col-md-2 me-3",
-                    attrs: { disabled: "" },
-                  },
-                  [_vm._v("\n                Menyimpan\n            ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && !_vm.isLoading,
-                        expression: "isUpdatePassword && !isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                    on: {
-                      click: function ($event) {
-                        return _vm.doResetUpdatePassword()
-                      },
-                    },
-                  },
-                  [_vm._v("\n                Batal\n            ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && _vm.isLoading,
-                        expression: "isUpdatePassword && isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                    attrs: { disabled: "" },
-                  },
-                  [_vm._v("\n                Batal\n            ")]
-                ),
+                _vm.isUpdatePassword
+                  ? _c("div", { staticClass: "col-12 col-md-6 ps-md-2 mb-3" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-primary w-100",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.doResetUpdatePassword()
+                            },
+                          },
+                        },
+                        [_vm._v("\n                Batal\n            ")]
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
             ]
           ),

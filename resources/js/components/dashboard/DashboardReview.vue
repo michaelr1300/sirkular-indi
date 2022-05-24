@@ -11,22 +11,25 @@
       >
         <div class="card rounded h-100">
           <div class="d-flex flex-column card-body w-100 justify-content-between">
-            <div class="text-end mb-2">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-review-modal" 
-                @click="editReview(item)">
-                <span class="mdi mdi-pencil"></span>
-              </button>
+            <div class="d-flex flex-column text-end mb-2">
+              <div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-review-modal" 
+                  @click="editReview(item)">
+                  <span class="mdi mdi-pencil"></span>
+                </button>
+              </div>
               <img 
-                v-if="item.photo_path" 
+                v-if="item.media[0]" 
                 class="img img-fluid my-3" 
-                :src="'/storage/' + item.photo_path" 
+                :src="item.photo_path[0].url" 
                 alt="review-image"
+                style="max-height: 400px; max-width: 400px; object-fit: contain;"
               >
             </div>
             <div>
               <hr>
-              <div class="my-2">
-                {{ item.reviewer_name }}
+              <div class="text-header my-2" style="font-size:16px">
+                <b>{{ item.reviewer_name }}</b>
               </div>
               <p class="text-area">{{ item.content }}</p>
             </div>

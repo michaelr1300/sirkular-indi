@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Http\Resources\PhotoResource;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
 
@@ -14,12 +15,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', Auth::user()->id)->get();
-        
-        foreach ($orders as $order) {
-            $order->total = 0;
-        }
-        return view('profile')->with('orders',$orders);
+        return view('profile');
     }
 
     public function update(Request $request) {
@@ -67,7 +63,7 @@ class ProfileController extends Controller
         $orders = Order::where('user_id', Auth::user()->id)->latest()->get();
         
         foreach ($orders as $order) {
-            $order->total = 0;
+            $order->payment_photo = PhotoResource::collection($order->media);
             $order->items = OrderDetail::where('order_id', $order->id)->get();
         }
         return view('purchase_history')->with('orders',$orders);

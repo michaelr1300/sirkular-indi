@@ -28,15 +28,15 @@
                 v-model="form.content"
               ></textarea>
             </div>
-            <div>
+            <!-- <div>
               <img 
-                v-if="form.photo_path" 
+                v-if="selectedReview" 
                 class="img img-fluid my-3" 
-                :src="'/storage/' + form.photo_path" 
+                :src="selectedImage" 
                 alt="review-image"
               >
-            </div>
-            <div class="form-group mt-3">
+            </div> -->
+            <!-- <div class="form-group mt-3">
               <input 
                 id="name"
                 name="name"
@@ -44,7 +44,7 @@
                 class="form-control"
                 v-model="form.photo_path"
               >
-            </div>
+            </div> -->
             <div class="form-group mt-3">
               <label for="photo" class="form-label">Foto Review</label>
               <input 
@@ -82,12 +82,21 @@ export default {
         content: null,
         reviewer_name: null,
         photo_path: null,
+        media_id: null,
       },
+    }
+  },
+  computed: {
+    selectedImage() {
+      if (this.selectedReview?.photo_path?.length) {
+        return this.selectedReview.photo_path[0].url
+      }
+      return ''; 
     }
   },
   watch: {
     selectedReview() {
-      this.form = { ...this.selectedReview };  
+      this.form = { ...this.selectedReview, media_id: this.selectedReview?.media[0]?.id };  
     }
   },
   methods: {

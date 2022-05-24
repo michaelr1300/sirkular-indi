@@ -45,8 +45,14 @@ export default {
         console.log(error.response);
       }
     },
-    updateSelectedItem(item) {
-      this.selectedOrder = item;
+    async updateSelectedItem(item) {
+      try {
+        let response = await axios.get('/api/getOrderImage/' + item.id);
+        const photo = response.data;
+        this.selectedOrder = { ...item, photo: photo};
+      } catch (error) {
+        console.log(error.response);
+      } 
     }
   },
 };

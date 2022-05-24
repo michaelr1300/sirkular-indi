@@ -1,7 +1,7 @@
 <template>
   <div>
     <button 
-      v-if="order.payment_photo"
+      v-if="order.payment_photo.length"
       type="button" 
       class="btn btn-primary" 
       data-bs-toggle="modal" 
@@ -26,7 +26,8 @@
           <div class="modal-body">
             <img
               class="img img-fluid"
-              :src="'/storage/' + order.payment_photo"
+              style="max-width: 100%"
+              :src="order.payment_photo[0].url"
               alt="payment-proof"
             >
           </div>
