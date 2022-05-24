@@ -7,13 +7,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div v-if="selectedItem.photo_path" class="d-flex">
-              <img 
-                class="img img-fluid my-3 mx-auto"
-                style="max-height: 800px; max-width: 1200px; object-fit: contain;" 
-                :src="'/storage/' + selectedItem.photo_path" 
-                alt="item-image"
-              >
+            <div v-if="selectedItem.photo" class="d-flex">
+              <div class="img-fluid">
+                <img 
+                  class="img my-3 mx-auto"
+                  style="max-height: 800px; max-width: 100%; object-fit: contain;" 
+                  :src="selectedItem.photo[0].url" 
+                  alt="item-image"
+                >
+              </div>
             </div>
           </div>
         </div>

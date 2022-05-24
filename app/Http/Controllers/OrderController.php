@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PhotoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Package;
@@ -16,15 +17,9 @@ class OrderController extends Controller
     {
         if (Auth::user()->is_admin) {
             $orders = Order::latest()->get();
-            foreach ($orders as $order) {
-                $order->total = 0;
-            }
         }
         else {
             $orders = Order::where('user_id', Auth::user()->id)->get();
-            foreach ($orders as $order) {
-                $order->total = 0;
-            }
         }
         return view('order.index')->with('orders',$orders);
     }
@@ -66,12 +61,13 @@ class OrderController extends Controller
         for ($index=0; $index < count($order_item); $index++) { 
             $package = Package::find($order_item[$index]->package_id);
             
-            OrderDetail::create([
+            $order_detail = OrderDetail::create([
                 'order_id' => $order_id,
                 'package_id' => $package->id,
-                'photo_path' => $request->addMediaFromRequest('photo_' . $index)->toMediaCollection('order-photos'),
                 'description' => $order_item[$index]->description,
             ]);
+            $order_detail->addMediaFromRequest('photo_' . $index)->toMediaCollection('images');
+                
         }
     }
 
@@ -83,9 +79,11 @@ class OrderController extends Controller
         
         $order->user = User::find($order->user_id);
         $order->detail = OrderDetail::all()->where('order_id', $id);
+        $order->payment_photo = PhotoResource::collection($order->media);
 
         foreach ($order->detail as $order_detail) {
             $order_detail->package = Package::find($order_detail->package_id)->only('name', 'description');
+            $order_detail->photo = PhotoResource::collection($order_detail->media);
         }
 
         return view('order.show')->with([
@@ -119,12 +117,11 @@ class OrderController extends Controller
             'payment_photo' => 'required|image',
         ]);
 
-        $payment_photo = $request->file('payment_photo')->store('payment-photos');
-        
-        $order->payment_photo = $payment_photo;
-        $order->save();
+        $media = $order->addMediaFromRequest('payment_photo')->toMediaCollection('images');
+        return new PhotoResource($media);
 
-        // return redirect()->action([OrderController::class, 'index']);
+        $order->payment_photo = true;
+        $order->save();
     }
 
     public function updateReceipt(Request $request, $id)
@@ -172,9 +169,15 @@ class OrderController extends Controller
         $packages = Package::all();
         $orders = Order::latest()->get();
         foreach ($orders as $order) {
-            $order->total = 0;
+            $order->payment_photo = PhotoResource::collection($order->media);
             $order->items = OrderDetail::where('order_id', $order->id)->get();
         }
         return view('dashboard.order')->with(['orders' => $orders, 'packages' => $packages]);
+    }
+    public function getOrderImage($id)
+    {
+        $order_detail = OrderDetail::find($id);
+        $photo = PhotoResource::collection($order_detail->media);
+        return response()->json($photo);
     }
 }

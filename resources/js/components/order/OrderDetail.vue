@@ -28,7 +28,7 @@
     >
       <div class="accordion-body px-2 px-md-3">
         <div
-          v-if="!order.payment_photo && order.price"
+          v-if="!order.payment_photo.length && order.price"
           class="mb-3 text-center"
         >
           <div>
@@ -279,6 +279,7 @@ export default {
           },
         );
         alert('Bukti Transfer Terupload');
+        return location.reload()
       } catch (error) {
         alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
         console.log(error.response);

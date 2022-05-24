@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('reviewer_name')->nullable();
             $table->text('content')->nullable();
-            $table->string('photo_path')->nullable();
             $table->timestamps();
         });
     }

@@ -71,5 +71,6 @@ Route::prefix('order')->name('order.')->middleware('auth')->group(function ()
 Route::prefix('api')->name('api.')->middleware('auth')->group(function ()
 {
     Route::get('/getAllPackages', [PackageController::class, 'getAllPackages'])->name('getAllPackages');
+    Route::get('/getOrderImage/{id}', [OrderController::class, 'getOrderImage'])->name('getOrderImage');
 });
 
