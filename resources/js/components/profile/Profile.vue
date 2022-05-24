@@ -3,14 +3,14 @@
     <div class="d-none d-md-block col-md-3 profile-side" style="height: inherit">
       <h1 class="text-uppercase mt-4 ms-5" style="font-size: 5vw; font-weight: 900;">Profil</h1>
     </div>
-    <div class="col-12 col-md-9 mx-4 mt-3">
+    <div class="col-12 col-md-9 px-4 mt-3">
       <h1 class="text-uppercase font-weight-bold text-header">Informasi Akun</h1>
       <div class="d-flex flex-column my-3">
         <div class="d-flex mb-3">
           <div class="col-3 text-secondary my-auto font-weight-bold">
               Nama
           </div>
-          <div class="col-6">
+          <div class="col-9 col-md-6">
               <div v-show="!isEdit" class="my-auto">
                 {{ user.name }}
               </div>
@@ -32,7 +32,7 @@
           <div class="col-3 text-secondary my-auto font-weight-bold">
               Email
           </div>
-          <div class="col-6">
+          <div class="col-9 col-md-6">
               <div v-show="!isEdit" class="my-auto">
                 {{ user.email }}
               </div>
@@ -54,7 +54,7 @@
           <div class="col-3 text-secondary font-weight-bold" style="vertical-align: text-top;">
               Alamat
           </div>
-          <div class="col-6">
+          <div class="col-9 col-md-6">
               <div v-show="!isEdit" class="text-area my-auto">{{ user.address }}</div>
               <div class="form-group mb-0">
                 <textarea
@@ -74,7 +74,7 @@
           <div class="col-3 text-secondary my-auto font-weight-bold">
               Nomor Telepon
           </div>
-          <div class="col-6">
+          <div class="col-9 col-md-6">
               <div v-show="!isEdit" class="my-auto">
                 {{ user.phone_number }}
               </div>
@@ -93,57 +93,50 @@
           </div>
         </div>
         <div class="d-md-flex">
-          <button
-              v-show="!isEdit"
-              class="btn btn-primary col-12 col-md-4 me-3"
-              @click="isEdit = true"
-          >
-              Ubah Profil
-          </button>
-
-          <button
-              v-show="isEdit && !isLoading"
-              class="btn btn-success col-12 col-md-2 me-3"
-              @click="doUpdate()"
-          >
-              Simpan
-          </button>
-          <button
-              v-show="isEdit && isLoading"
-              disabled
-              class="btn btn-success col-12 col-md-2 mx-3"
-          >
-              Menyimpan
-          </button>
-          <button
-              v-show="isEdit && !isLoading"
-              class="btn btn-outline-primary col-12 col-md-2 mx-3"
-              @click="doResetEdit()"
-          >
-              Batal
-          </button>
-          <button
-              v-show="isEdit && isLoading"
-              disabled
-              class="btn btn-outline-primary col-12 col-md-2 mx-3"
-          >
-              Batal
-          </button>
-
-          <button
-              v-show="!isUpdatePassword"
-              class="btn btn-primary col-12 col-md-4 mx-3"
-              @click="isUpdatePassword = true"
-          >
-              Ubah Password
-          </button>
+          <div class="d-md-flex col-12 col-md-4 mb-3">
+            <button
+                v-show="!isEdit"
+                class="btn btn-primary w-100"
+                @click="isEdit = true"
+            >
+                Ubah Profil
+            </button>
+            
+            <div v-if="isEdit" class="col-12 col-md-6 pe-md-2 mb-3">
+              <button
+                  class="btn btn-success w-100"
+                  @click="doUpdate()"
+                  :disabled="isLoading"
+              >
+                  {{ isLoading ? 'Menyimpan' : 'Simpan' }}
+              </button>            
+            </div>
+            <div v-if="isEdit" class="col-12 col-md-6 ps-md-2 mb-3">
+              <button
+                  class="btn btn-outline-primary w-100"
+                  @click="doResetEdit()"
+                  :disabled="isLoading"
+              >
+                  Batal
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 ps-md-3">
+            <button
+                v-show="!isUpdatePassword"
+                class="btn btn-primary w-100"
+                @click="isUpdatePassword = true"
+            >
+                Ubah Password
+            </button>
+          </div>
         </div>
-        <div v-show="isUpdatePassword" class="mt-4">
-          <div v-if="!user.has_no_password" class="d-flex my-3">
-              <div class="col-3 my-auto text-secondary font-weight-bold">
+        <div v-show="isUpdatePassword" class="mt-md-4 mt-2">
+          <div v-if="!user.has_no_password" class="d-md-flex my-3">
+              <div class="col-12 col-md-3 my-auto text-secondary font-weight-bold">
                   Password Lama
               </div>
-              <div class="col-6">
+              <div class="col-12 col-md-6">
                   <div class="form-group mb-0">
                       <input
                       type="password"
@@ -157,11 +150,11 @@
                   </div>
               </div>
           </div>
-          <div class="d-flex my-3">
-              <div class="col-3 my-auto text-secondary font-weight-bold">
+          <div class="d-md-flex my-3">
+              <div class="col-12 col-md-3 my-auto text-secondary font-weight-bold">
                   Password Baru
               </div>
-              <div class="col-6">
+              <div class="col-12 col-md-6">
                   <div class="form-group mb-0">
                       <input
                       type="password"
@@ -175,11 +168,11 @@
                   </div>
               </div>
           </div>
-          <div class="d-flex my-3">
-              <div class="col-3 my-auto text-secondary font-weight-bold">
+          <div class="d-md-flex my-3">
+              <div class="col-12 col-md-3 my-auto text-secondary font-weight-bold">
                   Konfirmasi Password
               </div>
-              <div class="col-6">
+              <div class="col-12 col-md-6">
                   <div class="form-group mb-0">
                       <input
                       type="password"
@@ -194,35 +187,25 @@
               </div>
           </div>
 
-          <div class="d-md-flex">
+          <div class="d-md-flex col-md-4">
+            <div v-if="isUpdatePassword" class="col-12 col-md-6 pe-md-2 mb-3">
               <button
-                  v-show="isUpdatePassword && !isLoading"
-                  class="btn btn-success col-12 col-md-2 me-3"
+                  class="btn btn-success w-100"
                   @click="doUpdatePassword()"
+                  :disabled="isLoading"
               >
-                  Simpan
-              </button>
+                  {{ isLoading ? 'Menyimpan' : 'Simpan' }}
+              </button>            
+            </div>
+            <div v-if="isUpdatePassword" class="col-12 col-md-6 ps-md-2 mb-3">
               <button
-                  v-show="isUpdatePassword && isLoading"
-                  disabled
-                  class="btn btn-success col-12 col-md-2 me-3"
-              >
-                  Menyimpan
-              </button>
-              <button
-                  v-show="isUpdatePassword && !isLoading"
-                  class="btn btn-outline-primary col-12 col-md-2 mx-3"
+                  class="btn btn-outline-primary w-100"
                   @click="doResetUpdatePassword()"
+                  :disabled="isLoading"
               >
                   Batal
               </button>
-              <button
-                  v-show="isUpdatePassword && isLoading"
-                  disabled
-                  class="btn btn-outline-primary col-12 col-md-2 mx-3"
-              >
-                  Batal
-              </button>
+            </div>
           </div>
       </div>
       </div>
@@ -269,7 +252,6 @@ export default {
             let response = await axios.put(url, this.form);
             return location.reload();
         } catch (error) {
-            alert(error.response.data.message);
             console.log(error.response);
             this.errors = error.response.data.errors;
         }

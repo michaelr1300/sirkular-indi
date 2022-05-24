@@ -27156,23 +27156,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -27248,14 +27231,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 9:
                 _context2.prev = 9;
                 _context2.t0 = _context2["catch"](1);
-                alert(_context2.t0.response.data.message);
                 console.log(_context2.t0.response);
                 _this2.errors = _context2.t0.response.data.errors;
 
-              case 14:
+              case 13:
                 _this2.isLoading = false;
 
-              case 15:
+              case 14:
               case "end":
                 return _context2.stop();
             }
@@ -61377,7 +61359,7 @@ var render = function () {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-9 mx-4 mt-3" }, [
+      _c("div", { staticClass: "col-12 col-md-9 px-4 mt-3" }, [
         _c(
           "h1",
           { staticClass: "text-uppercase font-weight-bold text-header" },
@@ -61392,7 +61374,7 @@ var render = function () {
               [_vm._v("\n            Nama\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61463,7 +61445,7 @@ var render = function () {
               [_vm._v("\n            Email\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61537,7 +61519,7 @@ var render = function () {
               [_vm._v("\n            Alamat\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61602,7 +61584,7 @@ var render = function () {
               [_vm._v("\n            Nomor Telepon\n        ")]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
+            _c("div", { staticClass: "col-9 col-md-6" }, [
               _c(
                 "div",
                 {
@@ -61667,123 +61649,93 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "d-md-flex" }, [
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.isEdit,
-                    expression: "!isEdit",
-                  },
-                ],
-                staticClass: "btn btn-primary col-12 col-md-4 me-3",
-                on: {
-                  click: function ($event) {
-                    _vm.isEdit = true
-                  },
-                },
-              },
-              [_vm._v("\n            Ubah Profil\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && !_vm.isLoading,
-                    expression: "isEdit && !isLoading",
-                  },
-                ],
-                staticClass: "btn btn-success col-12 col-md-2 me-3",
-                on: {
-                  click: function ($event) {
-                    return _vm.doUpdate()
+            _c("div", { staticClass: "d-md-flex col-12 col-md-4 mb-3" }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isEdit,
+                      expression: "!isEdit",
+                    },
+                  ],
+                  staticClass: "btn btn-primary w-100",
+                  on: {
+                    click: function ($event) {
+                      _vm.isEdit = true
+                    },
                   },
                 },
-              },
-              [_vm._v("\n            Simpan\n        ")]
-            ),
+                [_vm._v("\n              Ubah Profil\n          ")]
+              ),
+              _vm._v(" "),
+              _vm.isEdit
+                ? _c("div", { staticClass: "col-12 col-md-6 pe-md-2 mb-3" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success w-100",
+                        attrs: { disabled: _vm.isLoading },
+                        on: {
+                          click: function ($event) {
+                            return _vm.doUpdate()
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.isLoading ? "Menyimpan" : "Simpan") +
+                            "\n            "
+                        ),
+                      ]
+                    ),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEdit
+                ? _c("div", { staticClass: "col-12 col-md-6 ps-md-2 mb-3" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-primary w-100",
+                        attrs: { disabled: _vm.isLoading },
+                        on: {
+                          click: function ($event) {
+                            return _vm.doResetEdit()
+                          },
+                        },
+                      },
+                      [_vm._v("\n                Batal\n            ")]
+                    ),
+                  ])
+                : _vm._e(),
+            ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && _vm.isLoading,
-                    expression: "isEdit && isLoading",
-                  },
-                ],
-                staticClass: "btn btn-success col-12 col-md-2 mx-3",
-                attrs: { disabled: "" },
-              },
-              [_vm._v("\n            Menyimpan\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && !_vm.isLoading,
-                    expression: "isEdit && !isLoading",
-                  },
-                ],
-                staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                on: {
-                  click: function ($event) {
-                    return _vm.doResetEdit()
+            _c("div", { staticClass: "col-12 col-md-4 ps-md-3" }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isUpdatePassword,
+                      expression: "!isUpdatePassword",
+                    },
+                  ],
+                  staticClass: "btn btn-primary w-100",
+                  on: {
+                    click: function ($event) {
+                      _vm.isUpdatePassword = true
+                    },
                   },
                 },
-              },
-              [_vm._v("\n            Batal\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isEdit && _vm.isLoading,
-                    expression: "isEdit && isLoading",
-                  },
-                ],
-                staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                attrs: { disabled: "" },
-              },
-              [_vm._v("\n            Batal\n        ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.isUpdatePassword,
-                    expression: "!isUpdatePassword",
-                  },
-                ],
-                staticClass: "btn btn-primary col-12 col-md-4 mx-3",
-                on: {
-                  click: function ($event) {
-                    _vm.isUpdatePassword = true
-                  },
-                },
-              },
-              [_vm._v("\n            Ubah Password\n        ")]
-            ),
+                [_vm._v("\n              Ubah Password\n          ")]
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c(
@@ -61797,21 +61749,21 @@ var render = function () {
                   expression: "isUpdatePassword",
                 },
               ],
-              staticClass: "mt-4",
+              staticClass: "mt-md-4 mt-2",
             },
             [
               !_vm.user.has_no_password
-                ? _c("div", { staticClass: "d-flex my-3" }, [
+                ? _c("div", { staticClass: "d-md-flex my-3" }, [
                     _c(
                       "div",
                       {
                         staticClass:
-                          "col-3 my-auto text-secondary font-weight-bold",
+                          "col-12 col-md-3 my-auto text-secondary font-weight-bold",
                       },
                       [_vm._v("\n                Password Lama\n            ")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-6" }, [
+                    _c("div", { staticClass: "col-12 col-md-6" }, [
                       _c("div", { staticClass: "form-group mb-0" }, [
                         _c("input", {
                           directives: [
@@ -61854,17 +61806,17 @@ var render = function () {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex my-3" }, [
+              _c("div", { staticClass: "d-md-flex my-3" }, [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "col-3 my-auto text-secondary font-weight-bold",
+                      "col-12 col-md-3 my-auto text-secondary font-weight-bold",
                   },
                   [_vm._v("\n                Password Baru\n            ")]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
+                _c("div", { staticClass: "col-12 col-md-6" }, [
                   _c("div", { staticClass: "form-group mb-0" }, [
                     _c("input", {
                       directives: [
@@ -61900,12 +61852,12 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex my-3" }, [
+              _c("div", { staticClass: "d-md-flex my-3" }, [
                 _c(
                   "div",
                   {
                     staticClass:
-                      "col-3 my-auto text-secondary font-weight-bold",
+                      "col-12 col-md-3 my-auto text-secondary font-weight-bold",
                   },
                   [
                     _vm._v(
@@ -61914,7 +61866,7 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
+                _c("div", { staticClass: "col-12 col-md-6" }, [
                   _c("div", { staticClass: "form-group mb-0" }, [
                     _c("input", {
                       directives: [
@@ -61956,82 +61908,48 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-md-flex" }, [
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && !_vm.isLoading,
-                        expression: "isUpdatePassword && !isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-success col-12 col-md-2 me-3",
-                    on: {
-                      click: function ($event) {
-                        return _vm.doUpdatePassword()
-                      },
-                    },
-                  },
-                  [_vm._v("\n                Simpan\n            ")]
-                ),
+              _c("div", { staticClass: "d-md-flex col-md-4" }, [
+                _vm.isUpdatePassword
+                  ? _c("div", { staticClass: "col-12 col-md-6 pe-md-2 mb-3" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success w-100",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.doUpdatePassword()
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.isLoading ? "Menyimpan" : "Simpan") +
+                              "\n            "
+                          ),
+                        ]
+                      ),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && _vm.isLoading,
-                        expression: "isUpdatePassword && isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-success col-12 col-md-2 me-3",
-                    attrs: { disabled: "" },
-                  },
-                  [_vm._v("\n                Menyimpan\n            ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && !_vm.isLoading,
-                        expression: "isUpdatePassword && !isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                    on: {
-                      click: function ($event) {
-                        return _vm.doResetUpdatePassword()
-                      },
-                    },
-                  },
-                  [_vm._v("\n                Batal\n            ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isUpdatePassword && _vm.isLoading,
-                        expression: "isUpdatePassword && isLoading",
-                      },
-                    ],
-                    staticClass: "btn btn-outline-primary col-12 col-md-2 mx-3",
-                    attrs: { disabled: "" },
-                  },
-                  [_vm._v("\n                Batal\n            ")]
-                ),
+                _vm.isUpdatePassword
+                  ? _c("div", { staticClass: "col-12 col-md-6 ps-md-2 mb-3" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-primary w-100",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.doResetUpdatePassword()
+                            },
+                          },
+                        },
+                        [_vm._v("\n                Batal\n            ")]
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
             ]
           ),
