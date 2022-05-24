@@ -25007,6 +25007,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -58899,15 +58900,20 @@ var render = function () {
                         [_c("span", { staticClass: "mdi mdi-pencil" })]
                       ),
                       _vm._v(" "),
-                      item.photo_path
+                      item.media[0]
                         ? _c("img", {
                             staticClass: "img img-fluid my-3",
                             attrs: {
-                              src: "/storage/" + item.photo_path,
+                              src: item.photo_path[0].url,
                               alt: "review-image",
                             },
                           })
                         : _vm._e(),
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(item.photo_path[0].url) +
+                          "\n          "
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", [

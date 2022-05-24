@@ -69,7 +69,7 @@ class OrderController extends Controller
             OrderDetail::create([
                 'order_id' => $order_id,
                 'package_id' => $package->id,
-                'photo_path' => $request->file('photo_' . $index)->store('order-photos'),
+                'photo_path' => $request->addMediaFromRequest('photo_' . $index)->toMediaCollection('order-photos'),
                 'description' => $order_item[$index]->description,
             ]);
         }

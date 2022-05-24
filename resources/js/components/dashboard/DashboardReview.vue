@@ -17,11 +17,12 @@
                 <span class="mdi mdi-pencil"></span>
               </button>
               <img 
-                v-if="item.photo_path" 
+                v-if="item.media[0]" 
                 class="img img-fluid my-3" 
-                :src="'/storage/' + item.photo_path" 
+                :src="item.photo_path[0].url" 
                 alt="review-image"
               >
+              {{item.photo_path[0].url}}
             </div>
             <div>
               <hr>
