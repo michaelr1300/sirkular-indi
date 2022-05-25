@@ -195,9 +195,11 @@
             <div class="d-md-flex row">
               <div v-for="item in reviews" :key="item.id" class="col-12 col-md-4 px-0 px-md-3 mb-3">
                 <div class="card-review flex-column px-3 pb-4 h-100">
-                  <div class="d-flex">
+                  <div
+                    v-if="item.media[0]" 
+                    class="d-flex"
+                  >
                     <img 
-                      v-if="item.media[0]" 
                       class="img img-fluid mx-auto my-3" 
                       :src="item.photo_path[0].url" 
                       alt="review-image"
@@ -205,12 +207,10 @@
                     >
                   </div>
                   <div class="card-body">
-                    <div class="text-header my-2" style="font-size:16px">
+                    <div v-if="item.reviewer_name" class="text-header my-2" style="font-size:16px">
                       <b>{{ item.reviewer_name }}</b>
                     </div>
-                    <p class="card-text text-area">
-                      {{ item.content }}
-                    </p>
+                    <p class="card-text text-area">{{ item.content }}</p>
                   </div>
                 </div>
               </div>

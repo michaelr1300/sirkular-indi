@@ -57329,9 +57329,9 @@ var render = function () {
                                   "card-review flex-column px-3 pb-4 h-100",
                               },
                               [
-                                _c("div", { staticClass: "d-flex" }, [
-                                  item.media[0]
-                                    ? _c("img", {
+                                item.media[0]
+                                  ? _c("div", { staticClass: "d-flex" }, [
+                                      _c("img", {
                                         staticClass:
                                           "img img-fluid mx-auto my-3",
                                         staticStyle: {
@@ -57343,34 +57343,30 @@ var render = function () {
                                           src: item.photo_path[0].url,
                                           alt: "review-image",
                                         },
-                                      })
-                                    : _vm._e(),
-                                ]),
+                                      }),
+                                    ])
+                                  : _vm._e(),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "text-header my-2",
-                                      staticStyle: { "font-size": "16px" },
-                                    },
-                                    [
-                                      _c("b", [
-                                        _vm._v(_vm._s(item.reviewer_name)),
-                                      ]),
-                                    ]
-                                  ),
+                                  item.reviewer_name
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "text-header my-2",
+                                          staticStyle: { "font-size": "16px" },
+                                        },
+                                        [
+                                          _c("b", [
+                                            _vm._v(_vm._s(item.reviewer_name)),
+                                          ]),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                   _vm._v(" "),
                                   _c(
                                     "p",
                                     { staticClass: "card-text text-area" },
-                                    [
-                                      _vm._v(
-                                        "\n                    " +
-                                          _vm._s(item.content) +
-                                          "\n                  "
-                                      ),
-                                    ]
+                                    [_vm._v(_vm._s(item.content))]
                                   ),
                                 ]),
                               ]
@@ -57721,9 +57717,9 @@ var render = function () {
                   "div",
                   { staticClass: "card product-card shadow border-0  p-3" },
                   [
-                    _c("div", { staticClass: "d-flex" }, [
-                      item.media[0]
-                        ? _c("img", {
+                    item.media[0]
+                      ? _c("div", { staticClass: "d-flex" }, [
+                          _c("img", {
                             staticClass: "img img-fluid mx-auto my-3",
                             staticStyle: {
                               "max-height": "400px",
@@ -57734,26 +57730,24 @@ var render = function () {
                               src: item.photo_path[0].url,
                               alt: "review-image",
                             },
-                          })
-                        : _vm._e(),
-                    ]),
+                          }),
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "text-header my-2",
-                          staticStyle: { "font-size": "16px" },
-                        },
-                        [_c("b", [_vm._v(_vm._s(item.reviewer_name))])]
-                      ),
+                      item.reviewer_name
+                        ? _c(
+                            "div",
+                            {
+                              staticClass: "text-header my-2",
+                              staticStyle: { "font-size": "16px" },
+                            },
+                            [_c("b", [_vm._v(_vm._s(item.reviewer_name))])]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("p", { staticClass: "card-text text-area" }, [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(item.content) +
-                            "\n            "
-                        ),
+                        _vm._v(_vm._s(item.content)),
                       ]),
                     ]),
                   ]
