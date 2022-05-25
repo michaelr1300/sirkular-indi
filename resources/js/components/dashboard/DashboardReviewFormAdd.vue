@@ -24,6 +24,9 @@
             </div>
             <div class="form-group mt-3" >
               <label for="content">Review</label>
+              <div v-show="isError" class="text-danger">
+                Isi review wajib diisi
+              </div>
               <textarea 
                 id="content"
                 name="content"
@@ -34,18 +37,28 @@
             </div>
             <div class="form-group mt-3">
               <label for="photo" class="form-label">Foto Review</label>
-              <input 
-                id="photo" 
-                name="photo"
-                ref="photo"
-                accept="image/*"
-                class="form-control" 
-                type="file" 
-              >
+              <div>
+                <label
+                  class="btn btn-outline-primary w-100 mx-auto"
+                >
+                  <input 
+                    id="photo" 
+                    name="photo"
+                    ref="photo"
+                    accept="image/*"
+                    class="form-control" 
+                    type="file" 
+                    style="display: none"
+                    @change="getFileName($event)"
+                  >
+                  Pilih File
+                </label>
+                {{ fileName }}
+              </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="doSubmit()">Simpan</button>
+            <button type="button" class="btn btn-primary" :disabled="isLoading" @click="doSubmit()">Simpan</button>
           </div>
         </div>
       </div>
@@ -58,13 +71,18 @@ export default {
   data() {
     return {
       form: {
-        reviewer_name: null,
-        content: null,
+        reviewer_name: '',
+        content: '',
       },
+      isError: false,
+      isLoading: false,
+      fileName: '',
     }
   },
   methods: {
     async doSubmit() {
+      this.isError = false;
+      this.isLoading = true;
       var photo = this.$refs.photo.files[0];
       let formData = new FormData();
       formData.append("photo", photo);
@@ -82,9 +100,16 @@ export default {
         );
         return location.reload();
       } catch (error) {
+        this.isError = true;
         console.log(error.response);
+      } finally {
+        this.isLoading = false;
       }
-    }
+    },
+    getFileName(event){
+      var fileData =  event.target.files[0];
+      this.fileName = fileData.name;
+    },
   },
 };
 </script>

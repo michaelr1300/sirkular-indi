@@ -29,7 +29,6 @@ class ReviewController extends Controller
     {
         $request->validate([
             'content' => 'required',
-            'photo' => 'image'
         ]);
 
         $review = Review::create([

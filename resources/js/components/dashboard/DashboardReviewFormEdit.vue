@@ -20,6 +20,9 @@
             </div>
             <div class="form-group mt-3" >
               <label for="content">Review</label>
+              <div v-show="isError" class="text-danger">
+                Isi review wajib diisi
+              </div>
               <textarea 
                 id="content"
                 name="content"
@@ -47,19 +50,29 @@
             </div> -->
             <div class="form-group mt-3">
               <label for="photo" class="form-label">Foto Review</label>
-              <input 
-                id="photo" 
-                name="photo"
-                ref="photo"
-                accept="image/*"
-                class="form-control" 
-                type="file" 
-              >
+              <div>
+                <label
+                  class="btn btn-outline-primary w-100 mx-auto"
+                >
+                  <input 
+                    id="photo" 
+                    name="photo"
+                    ref="photo"
+                    accept="image/*"
+                    class="form-control" 
+                    type="file" 
+                    style="display: none"
+                    @change="getFileName($event)"
+                  >
+                  Ubah Foto
+                </label>
+                {{ fileName }}
+              </div>
             </div>
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" @click="doDelete()">Hapus</button>
-            <button type="button" class="btn btn-primary" @click="doSubmit()">Simpan</button>
+            <button type="button" class="btn btn-danger" :disabled="isLoading" @click="doDelete()">Hapus</button>
+            <button type="button" class="btn btn-primary" :disabled="isLoading" @click="doSubmit()">Simpan</button>
           </div>
         </div>
       </div>
@@ -84,6 +97,9 @@ export default {
         photo_path: null,
         media_id: null,
       },
+      isError: false,
+      isLoading: false,
+      fileName: '',
     }
   },
   computed: {
@@ -96,11 +112,15 @@ export default {
   },
   watch: {
     selectedReview() {
-      this.form = { ...this.selectedReview, media_id: this.selectedReview?.media[0]?.id };  
+      this.form = { ...this.selectedReview, media_id: this.selectedReview?.media[0]?.id }; 
+      this.fileName = '';
+      this.$refs.photo.value = '';
     }
   },
   methods: {
     async doSubmit() {
+      this.isLoading = true;
+      this.isError = false;
       var photo = this.$refs.photo.files[0];
       let formData = new FormData();
       formData.append("id", this.form.id);
@@ -122,17 +142,28 @@ export default {
         );
         return location.reload();
       } catch (error) {
+        this.isError = true;
         console.log(error.response);
+      } finally {
+        this.isLoading = false;
       }
     },
     async doDelete() {
+      this.isLoading = true;
+      this.isError = false;
       try {
         let response = await axios.post(`/reviews/${this.form.id}`, {_method: 'delete'});
         return location.reload();
       } catch (error) {
         console.log(error.response);
+      } finally {
+        this.isLoading = false;
       }
-    }
+    },
+    getFileName(event){
+      var fileData =  event.target.files[0];
+      this.fileName = fileData.name;
+    },
   },
 };
 </script>

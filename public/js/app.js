@@ -25075,13 +25075,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       form: {
-        reviewer_name: null,
-        content: null
-      }
+        reviewer_name: '',
+        content: ''
+      },
+      isError: false,
+      isLoading: false,
+      fileName: ''
     };
   },
   methods: {
@@ -25094,35 +25110,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this.isError = false;
+                _this.isLoading = true;
                 photo = _this.$refs.photo.files[0];
                 formData = new FormData();
                 formData.append("photo", photo);
                 formData.append("content", _this.form.content);
                 formData.append("reviewer_name", _this.form.reviewer_name);
-                _context.prev = 5;
-                _context.next = 8;
+                _context.prev = 7;
+                _context.next = 10;
                 return axios.post("/reviews", formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 8:
+              case 10:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 12:
-                _context.prev = 12;
-                _context.t0 = _context["catch"](5);
+              case 14:
+                _context.prev = 14;
+                _context.t0 = _context["catch"](7);
+                _this.isError = true;
                 console.log(_context.t0.response);
 
-              case 15:
+              case 18:
+                _context.prev = 18;
+                _this.isLoading = false;
+                return _context.finish(18);
+
+              case 21:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[5, 12]]);
+        }, _callee, null, [[7, 14, 18, 21]]);
       }))();
+    },
+    getFileName: function getFileName(event) {
+      var fileData = event.target.files[0];
+      this.fileName = fileData.name;
     }
   }
 });
@@ -25223,6 +25251,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedReview: {
@@ -25238,7 +25279,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         reviewer_name: null,
         photo_path: null,
         media_id: null
-      }
+      },
+      isError: false,
+      isLoading: false,
+      fileName: ''
     };
   },
   computed: {
@@ -25259,6 +25303,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form = _objectSpread(_objectSpread({}, this.selectedReview), {}, {
         media_id: (_this$selectedReview2 = this.selectedReview) === null || _this$selectedReview2 === void 0 ? void 0 : (_this$selectedReview3 = _this$selectedReview2.media[0]) === null || _this$selectedReview3 === void 0 ? void 0 : _this$selectedReview3.id
       });
+      this.fileName = '';
+      this.$refs.photo.value = '';
     }
   },
   methods: {
@@ -25271,6 +25317,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this.isLoading = true;
+                _this.isError = false;
                 photo = _this.$refs.photo.files[0];
                 formData = new FormData();
                 formData.append("id", _this.form.id);
@@ -25282,29 +25330,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 formData.append("content", _this.form.content);
                 formData.append("reviewer_name", _this.form.reviewer_name);
                 formData.append("_method", "put");
-                _context.prev = 7;
-                _context.next = 10;
+                _context.prev = 9;
+                _context.next = 12;
                 return axios.post("/reviews/".concat(_this.form.id), formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 10:
+              case 12:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 14:
-                _context.prev = 14;
-                _context.t0 = _context["catch"](7);
+              case 16:
+                _context.prev = 16;
+                _context.t0 = _context["catch"](9);
+                _this.isError = true;
                 console.log(_context.t0.response);
 
-              case 17:
+              case 20:
+                _context.prev = 20;
+                _this.isLoading = false;
+                return _context.finish(20);
+
+              case 23:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[7, 14]]);
+        }, _callee, null, [[9, 16, 20, 23]]);
       }))();
     },
     doDelete: function doDelete() {
@@ -25316,28 +25370,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
+                _this2.isLoading = true;
+                _this2.isError = false;
+                _context2.prev = 2;
+                _context2.next = 5;
                 return axios.post("/reviews/".concat(_this2.form.id), {
                   _method: 'delete'
                 });
 
-              case 3:
+              case 5:
                 response = _context2.sent;
                 return _context2.abrupt("return", location.reload());
 
-              case 7:
-                _context2.prev = 7;
-                _context2.t0 = _context2["catch"](0);
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](2);
                 console.log(_context2.t0.response);
 
-              case 10:
+              case 12:
+                _context2.prev = 12;
+                _this2.isLoading = false;
+                return _context2.finish(12);
+
+              case 15:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 7]]);
+        }, _callee2, null, [[2, 9, 12, 15]]);
       }))();
+    },
+    getFileName: function getFileName(event) {
+      var fileData = event.target.files[0];
+      this.fileName = fileData.name;
     }
   }
 });
@@ -58980,6 +59045,26 @@ var render = function () {
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "content" } }, [_vm._v("Review")]),
                 _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.isError,
+                        expression: "isError",
+                      },
+                    ],
+                    staticClass: "text-danger",
+                  },
+                  [
+                    _vm._v(
+                      "\n              Isi review wajib diisi\n            "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
                 _c("textarea", {
                   directives: [
                     {
@@ -59010,16 +59095,34 @@ var render = function () {
                   [_vm._v("Foto Review")]
                 ),
                 _vm._v(" "),
-                _c("input", {
-                  ref: "photo",
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "photo",
-                    name: "photo",
-                    accept: "image/*",
-                    type: "file",
-                  },
-                }),
+                _c("div", [
+                  _c(
+                    "label",
+                    { staticClass: "btn btn-outline-primary w-100 mx-auto" },
+                    [
+                      _c("input", {
+                        ref: "photo",
+                        staticClass: "form-control",
+                        staticStyle: { display: "none" },
+                        attrs: {
+                          id: "photo",
+                          name: "photo",
+                          accept: "image/*",
+                          type: "file",
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.getFileName($event)
+                          },
+                        },
+                      }),
+                      _vm._v("\n                Pilih File\n              "),
+                    ]
+                  ),
+                  _vm._v(
+                    "\n              " + _vm._s(_vm.fileName) + "\n            "
+                  ),
+                ]),
               ]),
             ]),
             _vm._v(" "),
@@ -59028,7 +59131,7 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.doSubmit()
@@ -59158,6 +59261,26 @@ var render = function () {
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "content" } }, [_vm._v("Review")]),
                 _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.isError,
+                        expression: "isError",
+                      },
+                    ],
+                    staticClass: "text-danger",
+                  },
+                  [
+                    _vm._v(
+                      "\n              Isi review wajib diisi\n            "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
                 _c("textarea", {
                   directives: [
                     {
@@ -59188,16 +59311,34 @@ var render = function () {
                   [_vm._v("Foto Review")]
                 ),
                 _vm._v(" "),
-                _c("input", {
-                  ref: "photo",
-                  staticClass: "form-control",
-                  attrs: {
-                    id: "photo",
-                    name: "photo",
-                    accept: "image/*",
-                    type: "file",
-                  },
-                }),
+                _c("div", [
+                  _c(
+                    "label",
+                    { staticClass: "btn btn-outline-primary w-100 mx-auto" },
+                    [
+                      _c("input", {
+                        ref: "photo",
+                        staticClass: "form-control",
+                        staticStyle: { display: "none" },
+                        attrs: {
+                          id: "photo",
+                          name: "photo",
+                          accept: "image/*",
+                          type: "file",
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.getFileName($event)
+                          },
+                        },
+                      }),
+                      _vm._v("\n                Ubah Foto\n              "),
+                    ]
+                  ),
+                  _vm._v(
+                    "\n              " + _vm._s(_vm.fileName) + "\n            "
+                  ),
+                ]),
               ]),
             ]),
             _vm._v(" "),
@@ -59206,7 +59347,7 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-danger",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.doDelete()
@@ -59220,7 +59361,7 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.doSubmit()
