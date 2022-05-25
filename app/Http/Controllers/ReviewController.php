@@ -13,6 +13,9 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::take(15)->get();
+        foreach ($reviews as $review) {
+            $review->photo_path = PhotoResource::collection($review->media);
+        }
 
         return view('reviews.index')->with('reviews',$reviews);
     }

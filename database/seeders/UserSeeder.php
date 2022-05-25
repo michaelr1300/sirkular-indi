@@ -18,10 +18,10 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin Indi',
-            'email' => 'admin@mail.com',
-            'password' => Hash::make('superadmin'),
+            'email' => 'indi.sirkular@gmail.com',
+            'password' => Hash::make('gamaindigo2022'),
             'is_admin' => 1,
-            'phone_number' => '123',
+            'phone_number' => '081234567890',
             'address' => 'Jogja',
         ]);
         User::create([

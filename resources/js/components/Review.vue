@@ -44,46 +44,6 @@
       </div>
     </div>
     <div style="min-height: 100vh">
-      <div
-        id="review-carousel"
-        class="carousel slide col-12 w-md-75 mx-auto mt-5"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            v-for="(item, index) in carouselItems"
-            :key="item.id"
-            type="button"
-            class="bg-primary"
-            data-bs-target="#review-carousel"
-            :data-bs-slide-to="index"
-            :class="!index ? 'active' : ''"
-            :aria-current="!index ? true : false"
-            :aria-label="'Slide ' + index "
-          />
-        </div>
-        <div class="carousel-inner h-md-60-vh">
-          <div
-            v-for="(item, index) in carouselItems"
-            :key="item.id"
-            class="carousel-item text-center"
-            :class="!index ? 'active' : ' '"
-          >
-            <div class="d-flex align-items-start">
-              <img
-                :src="'/storage/' + item.photo_path"
-                class="col-md-8 img img-fluid"
-                alt=""
-                style="object-fit: contain;"
-              >
-              <div class="col-4 text-start d-none d-md-block ms-4">
-                <p class="text-area" style="font-size: 18px">{{ item.content }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-      </div>
       <div class="row my-4 mx-0 mx-md-5">
         <div id="product-indi-scroll" />
         <h1 class="text-center my-3" style="font-weight: 900;">
@@ -96,16 +56,17 @@
         >
           <div class="card product-card shadow border-0  p-3">
             <div class="d-flex">
-              <img
-                :src="'/storage/' + item.photo_path"
-                class="img img-fluid mx-auto"
-                alt=""
-                style="object-fit: contain; border-radius: 15px; max-height: 200px"
+              <img 
+                v-if="item.media[0]" 
+                class="img img-fluid mx-auto my-3" 
+                :src="item.photo_path[0].url" 
+                alt="review-image"
+                style="max-height: 400px; max-width: 400px; object-fit: contain;"
               >
             </div>
             <div class="card-body">
-              <div class="my-2">
-                {{ item.reviewer_name }}
+              <div class="text-header my-2" style="font-size:16px">
+                <b>{{ item.reviewer_name }}</b>
               </div>
               <p class="card-text text-area">
                 {{ item.content }}

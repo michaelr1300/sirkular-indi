@@ -18,7 +18,7 @@ class PackageSeeder extends Seeder
         Package::create([
             'name' => 'Celup',
             'price' => 50000,
-            'description' => 'Celup pakaian dengan pewarna alami dari Indi. Cocok untuk pakaian berwarna cerah. Warna yang tersedia: Biru, Merah, Hijau.',
+            'description' => 'Celup pakaian dengan pewarna alami dari Indi. Cocok untuk pakaian berwarna cerah.',
         ]);
         Package::create([
             'name' => 'Ikat',
