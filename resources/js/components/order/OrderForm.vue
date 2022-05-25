@@ -210,12 +210,12 @@
         </div>
       </div>
       <!-- Finish Form -->
-      <div class="body-order-section" v-if="finishPage">
+      <div class="body-order-section" v-if="finishPage"> 
         <div class="wrapper-payment-form px-2">
           <div class="mt-4">
             <div>
               <div class="d-flex">
-                <img class="img-bca mx-auto" src="images/success.png" alt="success">
+                <img class="mx-auto" style="max-width: 100%" src="images/success.png" alt="success">
               </div>
               <div class="mt-2">
                 <h2 class="text-primary package-price text-center" style="font-size: 24px !important">Selamat!</h2>
@@ -223,9 +223,14 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-4 mt-4 w-100 text-center">
-            <button class="btn btn-outline-primary" onclick="window.location.href = '/'">
+          <div class="col-12 col-md-4 mt-3 w-100 text-center">
+            <button class="btn btn-primary w-md-30" onclick="window.location.href = '/'">
               Kembali ke Beranda
+            </button>
+          </div>
+          <div class="col-12 col-md-4 mt-3 w-100 text-center">
+            <button class="btn btn-outline-primary w-md-30" onclick="window.location.href = '/purchase_history'">
+              Riwayat Transaksi
             </button>
           </div>
         </div>

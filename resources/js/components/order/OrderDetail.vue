@@ -69,6 +69,26 @@
           </div>
           <hr>
         </div>
+        <div
+          v-if="order.price && order.status == 'waiting'"
+          class="mb-3 text-center"
+        >
+          <div>
+            Silakan kirimkan pakaian Anda setelah melakukan pembayaran ke alamat
+            <div>
+              <b>
+                <span style="font-size: 20px">Indi Sirkular</span>
+                <br>
+                Jl. Pandega Marta 1 No. 6
+                <br>
+                Caturtunggal, Depok, Sleman
+                <br>
+                D.I. Yogyakarta 55281
+              </b>
+            </div>
+          </div>
+          <hr>
+        </div>
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
             <div class="d-flex justify-content-between justify-content-md-end">

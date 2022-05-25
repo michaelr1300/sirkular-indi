@@ -25742,6 +25742,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26179,6 +26199,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -59761,6 +59786,14 @@ var render = function () {
               ])
             : _vm._e(),
           _vm._v(" "),
+          _vm.order.price && _vm.order.status == "waiting"
+            ? _c("div", { staticClass: "mb-3 text-center" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("hr"),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("div", { staticClass: "d-md-flex flex-row-reverse" }, [
             _c("div", { staticClass: "col-12 col-md-6" }, [
               _c(
@@ -59826,9 +59859,9 @@ var render = function () {
                   _c("tbody", [
                     _vm.order.receipt_number
                       ? _c("tr", { staticStyle: { height: "2rem" } }, [
-                          _vm._m(1),
-                          _vm._v(" "),
                           _vm._m(2),
+                          _vm._v(" "),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c("td", { staticClass: "w-100 text-nowrap" }, [
                             _c("b", [_vm._v(_vm._s(_vm.order.receipt_number))]),
@@ -59843,7 +59876,7 @@ var render = function () {
                         [_vm._v("\n                  Nama\n                ")]
                       ),
                       _vm._v(" "),
-                      _vm._m(3),
+                      _vm._m(4),
                       _vm._v(" "),
                       _c("td", { staticClass: "w-100 text-nowrap" }, [
                         _vm._v(
@@ -59865,7 +59898,7 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(4),
+                      _vm._m(5),
                       _vm._v(" "),
                       _c("td", { staticClass: "w-100 text-nowrap" }, [
                         _vm._v(
@@ -59895,7 +59928,7 @@ var render = function () {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(5),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -59920,7 +59953,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(6),
+            _vm._m(7),
             _vm._v(" "),
             _c(
               "tbody",
@@ -59965,7 +59998,7 @@ var render = function () {
                 _vm._v(" "),
                 _vm.order.price
                   ? _c("tr", [
-                      _vm._m(7),
+                      _vm._m(8),
                       _vm._v(" "),
                       _c("td", { staticClass: "font-weight-bold" }, [
                         _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
@@ -59998,6 +60031,30 @@ var staticRenderFns = [
         _c("div", [_c("b", [_vm._v("103 949 4950")])]),
         _vm._v(" "),
         _c("div", [_vm._v("an. PT. indigo Indonesia")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _vm._v(
+        "\n          Silakan kirimkan pakaian Anda setelah melakukan pembayaran ke alamat\n          "
+      ),
+      _c("div", [
+        _c("b", [
+          _c("span", { staticStyle: { "font-size": "20px" } }, [
+            _vm._v("Indi Sirkular"),
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v("\n              Jl. Pandega Marta 1 No. 6\n              "),
+          _c("br"),
+          _vm._v("\n              Caturtunggal, Depok, Sleman\n              "),
+          _c("br"),
+          _vm._v("\n              D.I. Yogyakarta 55281\n            "),
+        ]),
       ]),
     ])
   },
@@ -61175,7 +61232,8 @@ var staticRenderFns = [
         _c("div", [
           _c("div", { staticClass: "d-flex" }, [
             _c("img", {
-              staticClass: "img-bca mx-auto",
+              staticClass: "mx-auto",
+              staticStyle: { "max-width": "100%" },
               attrs: { src: "images/success.png", alt: "success" },
             }),
           ]),
@@ -61199,14 +61257,25 @@ var staticRenderFns = [
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-4 mt-4 w-100 text-center" }, [
+      _c("div", { staticClass: "col-12 col-md-4 mt-3 w-100 text-center" }, [
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-primary",
+            staticClass: "btn btn-primary w-md-30",
             attrs: { onclick: "window.location.href = '/'" },
           },
           [_vm._v("\n            Kembali ke Beranda\n          ")]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 col-md-4 mt-3 w-100 text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-primary w-md-30",
+            attrs: { onclick: "window.location.href = '/purchase_history'" },
+          },
+          [_vm._v("\n            Riwayat Transaksi\n          ")]
         ),
       ]),
     ])
