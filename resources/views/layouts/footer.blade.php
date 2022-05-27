@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-lg-3 col-xs-12 links">
                     <h2 class="mt-lg-0 mt-sm-3">Kontak</h2>
-                    <p class="pr-5 pb-1 text-white-60 text-left">team@indiugm.com <br/> +62 813 2910 4928</p>
+                    <p class="pr-5 pb-1 text-white-60 text-left">indi.sirkular@gmail.com <br/> +62 822 6094 5766 (Trifena)</p>
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <h2 class="mt-lg-0 mt-sm-4">Social media</h2>
