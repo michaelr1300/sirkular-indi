@@ -56848,7 +56848,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-12 col-md-7 px-4 left-segment-3" }, [
           _c("p", [
             _vm._v(
-              "\n                  INDI-CIRCULAR merupakan sebuah konsep "
+              "\n                  INDI-Circular merupakan sebuah konsep "
             ),
             _c("i", [_vm._v("circular fashion")]),
             _vm._v(
@@ -57693,7 +57693,7 @@ var render = function () {
                   { staticClass: "h3-sub-text text-center text-md-start my-3" },
                   [
                     _vm._v(
-                      "\n          Bagaimana pendapat mereka tentang INDI-CIRCULAR?  \n        "
+                      "\n          Bagaimana pendapat mereka tentang INDI-Circular?  \n        "
                     ),
                   ]
                 ),

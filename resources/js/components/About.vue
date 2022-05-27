@@ -18,7 +18,7 @@
             <div class="d-block d-md-flex flex-row-reverse segment-3">
               <div class="col-12 col-md-7 px-4 left-segment-3">
                   <p>
-                      INDI-CIRCULAR merupakan sebuah konsep <i>circular fashion</i> 
+                      INDI-Circular merupakan sebuah konsep <i>circular fashion</i> 
                       yang berfokus pada perbaikan nilai dan sikap dalam produksi, aplikasi, dan re-produksi pakaian.
                       Bekerja sama dengan <b>GamaIndigo</b>, INDI-Circular menggunakan pewarna alami untuk tekstil dan bahan serat lainnya. 
                       <br/><br/>

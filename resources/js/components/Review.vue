@@ -10,7 +10,7 @@
             INDI-CIRCULAR
           </h1>
           <h3 class="h3-sub-text text-center text-md-start my-3">
-            Bagaimana pendapat mereka tentang INDI-CIRCULAR?  
+            Bagaimana pendapat mereka tentang INDI-Circular?  
           </h3>
           <button
             class="btn-get-start mx-auto mx-lg-0"
