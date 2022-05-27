@@ -56953,7 +56953,7 @@ var render = function () {
           _c("div", { staticClass: "div-section-3" }, [
             _c("div", { attrs: { id: "product-indi-scroll" } }),
             _vm._v(" "),
-            _c("h1", { staticClass: "px-0 px-md-3" }, [
+            _c("h1", { staticClass: "px-0 px-lg-3 mb-4" }, [
               _vm._v("Jasa Reproduksi"),
             ]),
             _vm._v(" "),
@@ -56970,11 +56970,11 @@ var render = function () {
                         "d-md-flex flex-row col-12 mb-3 div-products-info product-card",
                     },
                     [
-                      _c("div", { staticClass: "col-md-5 px-0" }, [
+                      _c("div", { staticClass: "d-flex col-md-5 px-0" }, [
                         _c("img", {
-                          staticClass: "w-100",
+                          staticClass: "my-auto w-100 h-100",
                           staticStyle: {
-                            "max-height": "500px",
+                            "max-height": "410px",
                             "object-fit": "cover",
                           },
                           attrs: {
@@ -56994,19 +56994,19 @@ var render = function () {
                           _c("div", { staticClass: "mb-2" }, [
                             _c(
                               "h2",
-                              { staticClass: "card-title text-header mb-2" },
-                              [
-                                _vm._v(
-                                  "\n                    " +
-                                    _vm._s(item.name) +
-                                    "\n                  "
-                                ),
-                              ]
+                              {
+                                staticClass: "card-title text-header mb-2",
+                                staticStyle: { "font-size": "36px" },
+                              },
+                              [_c("b", [_vm._v(_vm._s(item.name))])]
                             ),
                             _vm._v(" "),
                             _c(
                               "h4",
-                              { staticClass: "card-text package-price mb-3" },
+                              {
+                                staticClass: "card-text package-price mb-3",
+                                staticStyle: { "font-size": "20px" },
+                              },
                               [
                                 _vm._v(
                                   "\n                    Mulai dari Rp " +
@@ -57016,9 +57016,14 @@ var render = function () {
                               ]
                             ),
                             _vm._v(" "),
-                            _c("p", { staticClass: "card-text text-area" }, [
-                              _vm._v(_vm._s(item.description)),
-                            ]),
+                            _c(
+                              "p",
+                              {
+                                staticClass: "card-text text-area",
+                                staticStyle: { "font-size": "18px" },
+                              },
+                              [_vm._v(_vm._s(item.description))]
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("div", [

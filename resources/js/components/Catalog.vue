@@ -33,30 +33,30 @@
         <div class="col-12">
           <div class="div-section-3">
             <div id="product-indi-scroll" />
-            <h1 class="px-0 px-md-3">Jasa Reproduksi</h1>
+            <h1 class="px-0 px-lg-3 mb-4">Jasa Reproduksi</h1>
             <div class="d-flex flex-column px-3 w-100 mx-0">
               <div
                 v-for="(item, index) in packages"
                 :key="index"
                 class="d-md-flex flex-row col-12 mb-3 div-products-info product-card"
               >
-                <div class="col-md-5 px-0">
+                <div class="d-flex col-md-5 px-0">
                   <img
-                    class="w-100"
-                    style="max-height: 500px; object-fit: cover;"
+                    class="my-auto w-100 h-100"
+                    style="max-height: 410px; object-fit: cover;"
                     :src="'images/product-photo-' + index + '.png'"
                     alt="product image"
                   >
                 </div>
                 <div class="d-flex flex-column col-md-7 card-body justify-content-between">
                   <div class="mb-2">
-                    <h2 class="card-title text-header mb-2">
-                      {{ item.name }}
+                    <h2 class="card-title text-header mb-2" style="font-size: 36px">
+                      <b>{{ item.name }}</b>
                     </h2>
-                    <h4 class="card-text package-price mb-3">
+                    <h4 class="card-text package-price mb-3" style="font-size: 20px">
                       Mulai dari Rp {{ item.price }} per helai
                     </h4>
-                    <p class="card-text text-area">{{ item.description }}</p>
+                    <p class="card-text text-area" style="font-size: 18px">{{ item.description }}</p>
                   </div>
                   <div>
                     <div class="div-order-btn">
