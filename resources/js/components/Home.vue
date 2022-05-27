@@ -5,60 +5,36 @@
       style="background-color: #F3F9FE;"
     >
       <div class="d-md-flex segment-1 flex-row justify-content-center px-0">
-        <div class="col-lg-7 wrap-left-home-1 py-5 px-0 ps-md-5 pe-md-3">
-          <h1
-            class="h1-text text-uppercase text-center text-md-start"
-            style="font-size: 5vw"
-          >
-            Re-produksi Batikmu
+        <div class="col-lg-7 wrap-left-home-1 py-5 px-2 ps-md-5 pe-md-3">
+          <h1 class="h1-text text-uppercase text-center text-md-start header-top">
+            <div class="mb-2">
+              REPRO BAJU LAMA KESAYANGANMU
+            </div>
+            <div>
+              DENGAN PEWARNA ALAMI
+            </div>
           </h1>
-          <h1
-            class="h1-text text-uppercase text-center text-md-start"
-            style="font-size: 5vw"
-          >
-            Dengan pewarna alami
-          </h1>
-          <div class="d-none d-md-block">
-            <h1
-              class="h1-indi text-uppercase"
-              style="font-size: 17vw; line-height: 14vw"
-            >
-              INDI
+          <div class="text-center text-md-start text-uppercase">
+            <h1 class="h1-indi header-indi">
+              INDI-CIRCULAR
             </h1>
-            <h1
-              class="h1-text text-uppercase text-center text-md-start"
-              style="font-size: 2vw"
-            >
-              (Indonesia Natural Dye Institute)
-            </h1>
-          </div>
-          <div class="d-block d-md-none">
-            <h1
-              class="d-block d-md-none h1-indi text-uppercase text-center mb-4"
-              style="font-size: 35vw; line-height: 24vw"
-            >
-              INDI
-            </h1>
-            <h1
-              class="h1-text text-uppercase text-center text-md-start"
-              style="font-size: 4vw"
-            >
+            <h1 class="h1-text header-description">
               (Indonesia Natural Dye Institute)
             </h1>
           </div>
           <h3 class="h3-sub-text text-center text-md-start mt-3">
-            Mari jalani circular fashion dan re-produksi batikmu dengan pewarna alami INDI
+            Mari jalani <i>circular fashion</i> dan repro baju lama kesayanganmu dengan pewarna alami INDI
           </h3>
-            <a
-              class="btn-get-start mx-auto mx-md-0"
-              style="text-decoration: none"
-              href="/order"
-            >
-              Pesan sekarang <font-awesome-icon
-                class="icon-arrow-right"
-                icon="fa-solid fa-arrow-right"
-              />
-            </a>
+          <a
+            class="btn-get-start mx-auto mx-md-0 mt-4"
+            style="text-decoration: none"
+            href="/order"
+          >
+            Pesan sekarang <font-awesome-icon
+              class="icon-arrow-right"
+              icon="fa-solid fa-arrow-right"
+            />
+          </a>
         </div>
         <div class="col-lg-5 wrap-right-home-1 px-2">
           <div class="img-wrapper-1">
@@ -81,7 +57,7 @@
       <div class="d-md-flex justify-content-center">
         <div class="col-12 col-md-6">
           <img
-            class="img img-fluid "
+            class="img img-fluid w-100"
             src="images/image-home-section-2.png"
             alt="img-batik-2"
           >
@@ -96,11 +72,9 @@
                 class="text-justify"
                 style="font-size: 20px;"
               >
-                Indi merupakan sebuah konsep circular fashion
-                yang berfokus pada perbaikan nilai-nilai pakaian batik.
-                Kami bekerja sama dengan <b>GamaIndigo</b>, di mana kami menggunakan
-                pewarna alami untuk tekstil dan bahan serat lainnya dari tanaman
-                <i>Indigofera tinctoria</i>
+                INDI-CIRCULAR merupakan sebuah konsep <i>circular fashion</i> 
+                yang berfokus pada perbaikan nilai dan sikap dalam produksi, aplikasi, dan re-produksi pakaian.
+                Bekerja sama dengan <b>GamaIndigo</b>, INDI-Circular menggunakan pewarna alami untuk tekstil dan bahan serat lainnya. 
               </p>
               <a
                 href="/about"
@@ -122,7 +96,7 @@
               Keunggulan INDI
             </h1>
             <div class="d-md-flex mt-4">
-              <div class="div-point-indi px-3 col-12 col-md-4 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
                 <img
                   class="img img-fluid mx-auto icon-point-indi"
                   src="images/ic-points-1.png"
@@ -130,26 +104,40 @@
                 >
                 <h3>Lebih hemat</h3>
                 <p>
-                  Layanan reparasi INDI lebih terjangkau
+                  Layanan reparasi INDI-Circular lebih terjangkau 
                   dibandingkan dengan membeli pakaian baru
                 </p>
               </div>
-              <div class="div-point-indi px-3 col-12 col-md-4 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
                 <img
                   class="img img-fluid mx-auto icon-point-indi"
                   src="images/ic-points-2.png"
                   alt=""
                 >
-                <h3>Lebih nyaman</h3>
+                <h3>Lebih bernilai</h3>
                 <p>
-                  Pewarna yang kami gunakan adalah bahan alami,
-                  karenanya Anda tidak perlu khawatir dengan kemungkinan alergi
+                  INDI-Circular ikut berperan aktif dalam 
+                  mengurangi beban lingkungan karena limbah
+                  baju dan limbah pewarna sintetis
                 </p>
               </div>
-              <div class="div-point-indi px-3 col-12 col-md-4 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
                 <img
                   class="img img-fluid mx-auto icon-point-indi"
                   src="images/ic-points-3.png"
+                  alt=""
+                >
+                <h3>Lebih nyaman</h3>
+                <p>
+                  INDI-Circular menggunakan pewarna alami, 
+                  karenanya kita tidak perlu khawatir dengan 
+                  kemungkinan alergi dan penggunaan bahan berbahaya 
+                </p>
+              </div>
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
+                <img
+                  class="img img-fluid mx-auto icon-point-indi"
+                  src="images/ic-points-4.png"
                   alt=""
                 >
                 <h3>Lebih Artistik</h3>
@@ -308,10 +296,6 @@ export default {
         margin-left: 10px;
     }
 
-    .h3-sub-text{
-        color: #00042D;
-    }
-
     .btn-get-start{
         display: flex;
         align-items: center;
@@ -466,11 +450,6 @@ export default {
         font-size: 18px;
         padding-bottom: 0;
         margin-left: 10px;
-    }
-
-    .h3-sub-text{
-        color: #00042D;
-        font-size: 20px;
     }
 
     .btn-get-start{

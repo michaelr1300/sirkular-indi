@@ -2,10 +2,13 @@
     <div class="flex-column">
         <div class="d-flex flex-column justify-content-center">
             <div class="d-md-flex flex-row justify-content-center">
-                <div class="col col-md-7 wrap-left-about-1">
-                    <h1 class="h1-text text-uppercase">Tentang</h1>
-                    <h1 class="h1-indi text-uppercase">INDI</h1>
-                    <button class="btn-get-start" @click="scrollToElement">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button></div>
+                <div class="col-lg-7 wrap-left-about-1 text-center text-md-start py-5 px-2 ps-md-5 pe-md-3">
+                    <h1 class="h1-text text-uppercase header-indi">Tentang</h1>
+                    <h1 class="h1-indi text-uppercase header-indi">INDI-CIRCULAR</h1>
+                    <h3 class="h3-sub-text text-center text-md-start my-3">
+                      Sebuah konsep <i>circular fashion</i> berfokus pada perbaikan nilai dan sikap dalam produksi, aplikasi, dan re-produksi pakaian.
+                    </h3>
+                    <button class="btn-get-start mx-auto mx-md-0" @click="scrollToElement">Lihat selengkapnya <font-awesome-icon class="icon-arrow-down" icon="fa-solid fa-arrow-down"/></button></div>
                 <div class="col col-md-5 wrap-right-about-1">
                     <div class="img-wrapper-1">
                         <img class="w-100" src="images/image-front-about.png" alt="image front about">
@@ -15,15 +18,14 @@
             <div class="d-block d-md-flex flex-row-reverse segment-3">
               <div class="col-12 col-md-7 px-4 left-segment-3">
                   <p>
-                      INDI merupakan sebuah konsep <i>circular fashion</i> yang berfokus 
-                      pada perbaikan nilai-nilai pada pakaian batik. Bekerja sama dengan
-                      Gamaindigo, kami menggunakan pewarna alami untuk tekstil dan bahan
-                      serat lainnya dari tumbuhan <i>Indigofera tinctoria</i>.
+                      INDI-CIRCULAR merupakan sebuah konsep <i>circular fashion</i> 
+                      yang berfokus pada perbaikan nilai dan sikap dalam produksi, aplikasi, dan re-produksi pakaian.
+                      Bekerja sama dengan <b>GamaIndigo</b>, INDI-Circular menggunakan pewarna alami untuk tekstil dan bahan serat lainnya. 
                       <br/><br/>
-                      Bahan pewarna ini memiliki keunggulan berupa ramah lingkungan
-                      (karena tidak bersifat karsinogen), tersedia dalam jumlah besar,
-                      berstandar dan berkualitas tinggi namun tetap murah dan praktis
-                      ketika digunakan.
+                      Penggunaan pewarna alami dalam INDI-Circular memiliki keunggulan 
+                      karena ramah lingkungan (karena tidak bersifat karsinogen), 
+                      dari sumberdaya alam Indonesia yang tersedia melimpah, 
+                      terstandar dan berkualitas tinggi namun tetap murah dan praktis ketika digunakan.
                   </p>
               </div>
               <div class="col-12 col-md-5">
@@ -57,7 +59,7 @@ export default {
     methods: {
         scrollToElement() {
             let element = document.getElementsByClassName("segment-3")[0];
-            element.scrollIntoView({behavior: "smooth", block: "end"});
+            element.scrollIntoView({behavior: "smooth", block: "start"});
         }
     }
 }
@@ -68,7 +70,6 @@ export default {
 @media screen and (min-width: 780px) {
     .wrap-left-about-1{
         font-family: 'Mulish', sans-serif;
-        padding: 8% 3% 0 9%;
         display: flex;
         flex-direction: column;
         color: #142362;

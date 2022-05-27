@@ -2,15 +2,15 @@
   <div class="flex-column">
     <div class="d-flex justify-content-center flex-column">
       <div class="segment-1 flex-row justify-content-center">
-        <div class="col-lg-7 wrap-left-catalog-1">
-          <h1 class="h1-text text-uppercase">
+        <div class="col-lg-7 wrap-left-catalog-1 text-center text-md-start py-5 px-2 ps-md-5 pe-md-3">
+          <h1 class="h1-text text-uppercase header-indi">
             Layanan
           </h1>
-          <h1 class="h1-indi text-uppercase">
-            INDI
+          <h1 class="h1-indi text-uppercase header-indi">
+            INDI-CIRCULAR
           </h1>
           <button
-            class="btn-get-start"
+            class="btn-get-start mx-auto mx-md-0"
             @click="scrollToElement"
           >
             Lihat selengkapnya <font-awesome-icon
@@ -43,7 +43,7 @@
                 <div class="col-md-5 px-0">
                   <img
                     class="w-100"
-                    style="max-height: 300px; object-fit: cover;"
+                    style="max-height: 500px; object-fit: cover;"
                     :src="'images/product-photo-' + index + '.png'"
                     alt="product image"
                   >
@@ -134,7 +134,6 @@ export default {
 
     .wrap-left-catalog-1{
         font-family: 'Mulish', sans-serif;
-        padding: 8% 3% 0 9%;
         display: flex;
         flex-direction: column;
         color: #142362;

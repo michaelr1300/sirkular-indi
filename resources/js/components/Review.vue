@@ -1,45 +1,36 @@
 <template>
-  <div style="background-color: #F3F9FE;">
-    <div class="d-flex flex-row justify-content-center">
-      <div class="col-12 col-lg-7 wrap-left-review-1">
-        <h1
-          class="h1-text text-uppercase"
-          style="font-size: 6vw"
-        >
-          Testimoni Pelanggan
-        </h1>
-        <h1
-          class="d-none d-md-block h1-indi text-uppercase"
-          style="font-size: 17vw; line-height: 14vw"
-        >
-          INDI
-        </h1>
-        <h1
-          class="d-block d-md-none h1-indi text-uppercase mb-4"
-          style="font-size: 35vw; line-height: 24vw"
-        >
-          INDI
-        </h1>
-        <button
-          class="btn-get-start"
-          @click="scrollToElement"
-        >
-          Lihat selengkapnya <font-awesome-icon
-            class="icon-arrow-down"
-            icon="fa-solid fa-arrow-down"
-          />
-        </button>
-      </div>
-      <div
-        class="col-lg-5 wrap-right-review-1"
-      >
-        <div class="img-wrapper-1">
-          <img
-            class="d-none d-md-block img-front-review w-100 img img-fluid"
-            src="images/image-front-review.png"
-            alt="image front review"
-            style="object-fit: cover; height:inherit"
+  <div class="flex-column" style="background-color: #F3F9FE;">
+    <div class="d-flex justify-content-center flex-column">
+      <div class="segment-1 flex-row justify-content-center">
+        <div class="col-lg-7 wrap-left-review-1 text-center text-lg-start py-5 px-2 ps-md-5 pe-md-3">
+          <h1 class="h1-text text-uppercase header-top">
+            Testimoni Pelanggan
+          </h1>
+          <h1 class="h1-indi text-uppercase header-indi">
+            INDI-CIRCULAR
+          </h1>
+          <h3 class="h3-sub-text text-center text-md-start my-3">
+            Bagaimana pendapat mereka tentang INDI-CIRCULAR?  
+          </h3>
+          <button
+            class="btn-get-start mx-auto mx-lg-0"
+            @click="scrollToElement"
           >
+            Lihat selengkapnya <font-awesome-icon
+              class="icon-arrow-down"
+              icon="fa-solid fa-arrow-down"
+            />
+          </button>
+        </div>
+        <div class="d-none d-lg-block col-lg-5 p-0">
+          <div class="img-wrapper-1">
+            <img
+              class="img-front-review w-100 img img-fluid"
+              src="images/image-front-review.png"
+              alt="image front review"
+              style="object-fit: cover; height:inherit"
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -102,24 +93,18 @@ export default {
 </script>
 <style scoped>
 @media screen and (min-width: 780px) {
-    .div-content-review{
-        /* padding: 0 15%; */
-        flex-direction: column;
-    }
-
     .segment{
         min-height: 100vh;
     }
 
     .segment-1{
+        display: flex;
         flex-direction: row;
-        padding: 0 7%;
         background-color: #fff;
     }
 
     .wrap-left-review-1{
         font-family: 'Mulish', sans-serif;
-        padding: 8% 3% 0 9%;
         display: flex;
         flex-direction: column;
         color: #142362;
@@ -130,17 +115,6 @@ export default {
 
     .wrap-left-review-1 button {
         margin-top: 25px;
-    }
-
-    .h1-text {
-        font-size: 120px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 200px;
-        font-weight: 900;
-        line-height: 175px;
     }
 
     .btn-get-start{
@@ -218,11 +192,6 @@ export default {
 }
 
 @media screen and (max-width: 780px) {
-    .div-content-review{
-        /* padding: 0 15%; */
-        flex-direction: column;
-    }
-
     .segment-1{
         flex-direction: row;
         background-color: #fff;
@@ -241,17 +210,6 @@ export default {
 
     .wrap-left-review-1 button {
         margin-top: 25px;
-    }
-
-    .h1-text {
-        font-size: 44px;
-        font-weight: 900;
-    }
-
-    .h1-indi{
-        font-size: 130px;
-        font-weight: 900;
-        line-height: 115px;
     }
 
     .btn-get-start{
