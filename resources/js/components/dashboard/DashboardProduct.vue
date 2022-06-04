@@ -10,15 +10,17 @@
         class="col-12 col-md-4 px-2 my-2"
       >
         <div class="card rounded h-100">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div class="d-flex justify-content-between mb-2 w-100">
-              <h4 class="my-auto"><b>{{ item.name }}</b></h4>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-product-modal" 
-                @click="editProduct(item)">
-                <span class="mdi mdi-pencil"></span>
-              </button>
+          <div class="card-body d-flex flex-column">
+            <div>
+              <div class="d-flex justify-content-between mb-2 w-100">
+                <h4 class="my-auto"><b>{{ item.name }}</b></h4>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-product-modal" 
+                  @click="editProduct(item)">
+                  <span class="mdi mdi-pencil"></span>
+                </button>
+              </div>
+              <div class="package-price mb-3">Rp {{ item.price }}</div>
             </div>
-            <div class="product-price mb-3">Rp {{ item.price }}</div>
             <p class="text-area">{{ item.description }}</p>
           </div>
         </div>

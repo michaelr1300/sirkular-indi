@@ -24771,6 +24771,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -59179,13 +59181,8 @@ var render = function () {
             { key: item.id, staticClass: "col-12 col-md-4 px-2 my-2" },
             [
               _c("div", { staticClass: "card rounded h-100" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "card-body d-flex flex-column justify-content-between",
-                  },
-                  [
+                _c("div", { staticClass: "card-body d-flex flex-column" }, [
+                  _c("div", [
                     _c(
                       "div",
                       {
@@ -59217,15 +59214,15 @@ var render = function () {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "product-price mb-3" }, [
+                    _c("div", { staticClass: "package-price mb-3" }, [
                       _vm._v("Rp " + _vm._s(item.price)),
                     ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "text-area" }, [
-                      _vm._v(_vm._s(item.description)),
-                    ]),
-                  ]
-                ),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-area" }, [
+                    _vm._v(_vm._s(item.description)),
+                  ]),
+                ]),
               ]),
             ]
           )
