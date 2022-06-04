@@ -43,7 +43,7 @@
               src="images/img-person-home.png"
               alt="img person"
             >
-            <div class="div-subtext-right-1">
+            <div class="div-subtext-right-1 mb-3">
               <img
                 class="icon-recycle"
                 src="images/recycle-icon.png"
@@ -87,18 +87,17 @@
           </div>
         </div>
       </div>
-      <!-- <img class="img img-fluid ellipse-ornament" src="images/ellipse-half.png" alt="ellipse"/> -->
       <div class="justify-content-center mx-3 mt-4 mt-md-2 p-3">
         <hr>
         <div class="col-lg-12">
           <div class="div-section-3 px-3">
             <h1 class="mb-4">
-              Keunggulan INDI
+              Keunggulan INDI-Circular
             </h1>
             <div class="d-md-flex mt-4">
-              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-2">
                 <img
-                  class="img img-fluid mx-auto icon-point-indi"
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
                   src="images/ic-points-1.png"
                   alt=""
                 >
@@ -108,9 +107,9 @@
                   dibandingkan dengan membeli pakaian baru
                 </p>
               </div>
-              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-2">
                 <img
-                  class="img img-fluid mx-auto icon-point-indi"
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
                   src="images/ic-points-2.png"
                   alt=""
                 >
@@ -121,9 +120,9 @@
                   baju dan limbah pewarna sintetis
                 </p>
               </div>
-              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-2">
                 <img
-                  class="img img-fluid mx-auto icon-point-indi"
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
                   src="images/ic-points-3.png"
                   alt=""
                 >
@@ -134,9 +133,9 @@
                   kemungkinan alergi dan penggunaan bahan berbahaya 
                 </p>
               </div>
-              <div class="div-point-indi px-3 col-12 col-md-3 text-center mb-2">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-2">
                 <img
-                  class="img img-fluid mx-auto icon-point-indi"
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
                   src="images/ic-points-4.png"
                   alt=""
                 >
@@ -145,6 +144,90 @@
                   Layanan kami tidak hanya memperbaiki
                   pakaian, namun dikhususkan untuk mempercantik
                   pakaian Anda
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="justify-content-center mx-3 mt-2 p-3">
+        <div class="col-lg-12">
+          <div class="div-section-3 px-3">
+            <h1 class="mb-2 mb-md-4">
+              Alur Layanan INDI-Circular
+            </h1>
+            <div class="d-md-flex mt-4">
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>1</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-1.png"
+                  alt=""
+                >
+                <p>Daftar/masuk ke akun Anda lalu pilih halaman Order</p>
+              </div>
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>2</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-2.png"
+                  alt=""
+                >
+                <p>Lengkapi data nama, nomor whatsapp, dan alamat pengiriman</p>
+              </div>
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>3</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-3.png"
+                  alt=""
+                >
+                <p>Pilih jenis layanan lalu unggah foto pakaian yang akan direproduksi</p>
+              </div>
+              <div class="div-point-indi px-3 col-12 col-md-3 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>4</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-4.png"
+                  alt=""
+                >
+                <p>Admin akan menghubungi melalui Whatsapp untuk negosiasi harga</p>
+              </div>
+            </div>
+            <div class="d-md-flex mt-md-4 justify-content-center">
+              <div class="div-point-indi px-3 col-12 col-md-4 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>5</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-5.png"
+                  alt=""
+                >
+                <p>
+                  Setelah tercapai kesepakatan harga, 
+                  silakan melakukan pembayaran dan mengunggah bukti transfer melalui halaman riwayat transaksi
+                </p>
+              </div>
+              <div class="div-point-indi px-3 col-12 col-md-4 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>6</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-6.png"
+                  alt=""
+                >
+                <p>
+                  Kirimkan pakaian yang akan direproduksi ke kantor INDI-Circular
+                </p>
+              </div>
+              <div class="div-point-indi px-3 col-12 col-md-4 text-center my-3">
+                <div class="text-white mx-auto point-number mb-2"><b>7</b></div>
+                <img
+                  class="img img-fluid mx-auto icon-point-indi mb-2"
+                  src="images/step-7.png"
+                  alt=""
+                >
+                <p>
+                  Tim INDI-Circular akan segera mengerjakan pesanan Anda dan akan mengirimkan pakaian yang sudah direproduksi.
                 </p>
               </div>
             </div>
@@ -237,6 +320,10 @@ export default {
 </script>
 
 <style scoped>
+.div-point-indi h4{
+  font-weight: 500;
+  color: #345EC9;
+}
 
 @media screen and (min-width: 780px) {
     .segment-1{
@@ -358,7 +445,6 @@ export default {
     .icon-point-indi{
         width: 70px;
         height: auto;
-        margin-bottom: 20px;
     }
 
     .div-section-3 h1{
@@ -516,7 +602,6 @@ export default {
     .icon-point-indi{
         width: 70px;
         height: auto;
-        margin-bottom: 20px;
     }
 
     .div-section-3 h1{

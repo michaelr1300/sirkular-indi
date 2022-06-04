@@ -24066,6 +24066,89 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     reviews: {
@@ -32728,7 +32811,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_home_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_ornament_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-f2b6376c]{\r\n        flex-direction: row;\n}\r\n\r\n    /* .batik-cover-background{\r\n        background-image: url(\"../../assets/background-home.png\");\r\n    } */\n.wrap-left-home-1[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-home-1 button[data-v-f2b6376c] {\r\n        margin-top: 40px;\n}\n.wrap-right-home-1[data-v-f2b6376c]{\r\n        background: #001b34;\n}\n.img-wrapper-1[data-v-f2b6376c]{\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: contain;\r\n        display: flex;\r\n        align-items: center;\r\n        flex-direction: column;\n}\n.img-person-home[data-v-f2b6376c]{\r\n        border-radius: 0 0 200px 200px;\r\n        width: 70%;\n}\n.div-subtext-right-1[data-v-f2b6376c]{\r\n        display: flex;\r\n        margin-top: 30px;\r\n        align-items: center;\n}\n.icon-recycle[data-v-f2b6376c]{\r\n        width: 34px;\r\n        height: 35px;\n}\n.span-text-home-1[data-v-f2b6376c]{\r\n        color: #fff;\r\n        font-size: 18px;\r\n        padding-bottom: 0;\r\n        margin-left: 10px;\n}\n.btn-get-start[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 210px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-right[data-v-f2b6376c]{\r\n        margin-left: 25px;\r\n        width: 25px;\r\n        height: 25px;\n}\n.btn-read-cont[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 210px;\r\n        height: 60px;\r\n        font-weight: 600;\r\n        margin-top: 40px;\r\n        font-weight: 700;\n}\n.div-section-3[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\n}\n.wrapper-points[data-v-f2b6376c]{\r\n        display: flex;\r\n        justify-content: space-around;\n}\n.div-point-indi[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.div-point-indi h3[data-v-f2b6376c]{\r\n        font-size: 20;\r\n        font-weight: 700;\r\n        color: #345EC9;\n}\n.div-point-indi p[data-v-f2b6376c]{\r\n        font-size: 16;\r\n        font-weight: 600;\n}\n.icon-point-indi[data-v-f2b6376c]{\r\n        width: 70px;\r\n        height: auto;\r\n        margin-bottom: 20px;\n}\n.div-section-3 h1[data-v-f2b6376c]{\r\n        font-weight: 900;\n}\n.div-review-section[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.card-review[data-v-f2b6376c]{\r\n        position: relative;\r\n        display: flex;\r\n        background-color: #fff;\r\n        border: none;\r\n        border-radius: 0.75rem;\r\n        box-shadow: 0px 10px 20px rgba(137, 166, 239, 0.15), 0px 3px 6px rgba(137, 166, 239, 0.1);\r\n        border-radius: 20px;\n}\n.segment-5[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-5 h2[data-v-f2b6376c] {\r\n        font-weight: 800;\n}\n}\n@media screen and (max-width: 780px){\n.segment[data-v-f2b6376c]{\r\n        min-height: 100vh;\n}\n.segment-1[data-v-f2b6376c]{\r\n        flex-direction: row;\n}\r\n\r\n    /* .batik-cover-background{\r\n        background-image: url(\"../../assets/background-home.png\");\r\n    } */\n.wrap-left-home-1[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 0 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-home-1 button[data-v-f2b6376c] {\r\n        margin-top: 40px;\n}\n.wrap-right-home-1[data-v-f2b6376c]{\r\n        display: none;\r\n        background: #001b34;\n}\n.img-wrapper-1[data-v-f2b6376c]{\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: contain;\r\n        display: flex;\r\n        align-items: center;\r\n        flex-direction: column;\n}\n.img-person-home[data-v-f2b6376c]{\r\n        border-radius: 0 0 200px 200px;\r\n        width: 70%;\n}\n.div-subtext-right-1[data-v-f2b6376c]{\r\n        display: flex;\r\n        margin-top: 30px;\r\n        align-items: center;\n}\n.icon-recycle[data-v-f2b6376c]{\r\n        width: 34px;\r\n        height: 35px;\n}\n.span-text-home-1[data-v-f2b6376c]{\r\n        color: #fff;\r\n        font-size: 18px;\r\n        padding-bottom: 0;\r\n        margin-left: 10px;\n}\n.btn-get-start[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-right[data-v-f2b6376c]{\r\n        margin-left: 25px;\r\n        width: 25px;\r\n        height: 25px;\n}\n.btn-read-cont[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 210px;\r\n        height: 60px;\r\n        font-weight: 600;\r\n        margin-top: 40px;\r\n        font-weight: 700;\n}\n.div-section-3[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content:flex-start;\r\n        align-items: center;\n}\n.wrapper-points[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        /* justify-content: space-around; */\r\n        padding: 5% 10px;\n}\n.div-point-indi[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.div-point-indi h3[data-v-f2b6376c]{\r\n        font-size: 20;\r\n        font-weight: 700;\r\n        color: #345EC9;\n}\n.div-point-indi p[data-v-f2b6376c]{\r\n        font-size: 16;\r\n        font-weight: 600;\n}\n.icon-point-indi[data-v-f2b6376c]{\r\n        width: 70px;\r\n        height: auto;\r\n        margin-bottom: 20px;\n}\n.div-section-3 h1[data-v-f2b6376c]{\r\n        font-weight: 900;\n}\n.div-review-section[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.card-review[data-v-f2b6376c]{\r\n        position: relative;\r\n        background-color: #fff;\r\n        border: none;\r\n        border-radius: 0.75rem;\r\n        box-shadow: 0px 10px 20px rgba(137, 166, 239, 0.15), 0px 3px 6px rgba(137, 166, 239, 0.1);\r\n        border-radius: 20px;\n}\n.segment-5[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-5 h2[data-v-f2b6376c] {\r\n        font-weight: 800;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.div-point-indi h4[data-v-f2b6376c]{\r\n  font-weight: 500;\r\n  color: #345EC9;\n}\n@media screen and (min-width: 780px) {\n.segment-1[data-v-f2b6376c]{\r\n        flex-direction: row;\n}\r\n\r\n    /* .batik-cover-background{\r\n        background-image: url(\"../../assets/background-home.png\");\r\n    } */\n.wrap-left-home-1[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-home-1 button[data-v-f2b6376c] {\r\n        margin-top: 40px;\n}\n.wrap-right-home-1[data-v-f2b6376c]{\r\n        background: #001b34;\n}\n.img-wrapper-1[data-v-f2b6376c]{\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: contain;\r\n        display: flex;\r\n        align-items: center;\r\n        flex-direction: column;\n}\n.img-person-home[data-v-f2b6376c]{\r\n        border-radius: 0 0 200px 200px;\r\n        width: 70%;\n}\n.div-subtext-right-1[data-v-f2b6376c]{\r\n        display: flex;\r\n        margin-top: 30px;\r\n        align-items: center;\n}\n.icon-recycle[data-v-f2b6376c]{\r\n        width: 34px;\r\n        height: 35px;\n}\n.span-text-home-1[data-v-f2b6376c]{\r\n        color: #fff;\r\n        font-size: 18px;\r\n        padding-bottom: 0;\r\n        margin-left: 10px;\n}\n.btn-get-start[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 210px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-right[data-v-f2b6376c]{\r\n        margin-left: 25px;\r\n        width: 25px;\r\n        height: 25px;\n}\n.btn-read-cont[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 210px;\r\n        height: 60px;\r\n        font-weight: 600;\r\n        margin-top: 40px;\r\n        font-weight: 700;\n}\n.div-section-3[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\n}\n.wrapper-points[data-v-f2b6376c]{\r\n        display: flex;\r\n        justify-content: space-around;\n}\n.div-point-indi[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.div-point-indi h3[data-v-f2b6376c]{\r\n        font-size: 20;\r\n        font-weight: 700;\r\n        color: #345EC9;\n}\n.div-point-indi p[data-v-f2b6376c]{\r\n        font-size: 16;\r\n        font-weight: 600;\n}\n.icon-point-indi[data-v-f2b6376c]{\r\n        width: 70px;\r\n        height: auto;\n}\n.div-section-3 h1[data-v-f2b6376c]{\r\n        font-weight: 900;\n}\n.div-review-section[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.card-review[data-v-f2b6376c]{\r\n        position: relative;\r\n        display: flex;\r\n        background-color: #fff;\r\n        border: none;\r\n        border-radius: 0.75rem;\r\n        box-shadow: 0px 10px 20px rgba(137, 166, 239, 0.15), 0px 3px 6px rgba(137, 166, 239, 0.1);\r\n        border-radius: 20px;\n}\n.segment-5[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-5 h2[data-v-f2b6376c] {\r\n        font-weight: 800;\n}\n}\n@media screen and (max-width: 780px){\n.segment[data-v-f2b6376c]{\r\n        min-height: 100vh;\n}\n.segment-1[data-v-f2b6376c]{\r\n        flex-direction: row;\n}\r\n\r\n    /* .batik-cover-background{\r\n        background-image: url(\"../../assets/background-home.png\");\r\n    } */\n.wrap-left-home-1[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 0 3% 0 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-home-1 button[data-v-f2b6376c] {\r\n        margin-top: 40px;\n}\n.wrap-right-home-1[data-v-f2b6376c]{\r\n        display: none;\r\n        background: #001b34;\n}\n.img-wrapper-1[data-v-f2b6376c]{\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: contain;\r\n        display: flex;\r\n        align-items: center;\r\n        flex-direction: column;\n}\n.img-person-home[data-v-f2b6376c]{\r\n        border-radius: 0 0 200px 200px;\r\n        width: 70%;\n}\n.div-subtext-right-1[data-v-f2b6376c]{\r\n        display: flex;\r\n        margin-top: 30px;\r\n        align-items: center;\n}\n.icon-recycle[data-v-f2b6376c]{\r\n        width: 34px;\r\n        height: 35px;\n}\n.span-text-home-1[data-v-f2b6376c]{\r\n        color: #fff;\r\n        font-size: 18px;\r\n        padding-bottom: 0;\r\n        margin-left: 10px;\n}\n.btn-get-start[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-right[data-v-f2b6376c]{\r\n        margin-left: 25px;\r\n        width: 25px;\r\n        height: 25px;\n}\n.btn-read-cont[data-v-f2b6376c]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 210px;\r\n        height: 60px;\r\n        font-weight: 600;\r\n        margin-top: 40px;\r\n        font-weight: 700;\n}\n.div-section-3[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content:flex-start;\r\n        align-items: center;\n}\n.wrapper-points[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        /* justify-content: space-around; */\r\n        padding: 5% 10px;\n}\n.div-point-indi[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.div-point-indi h3[data-v-f2b6376c]{\r\n        font-size: 20;\r\n        font-weight: 700;\r\n        color: #345EC9;\n}\n.div-point-indi p[data-v-f2b6376c]{\r\n        font-size: 16;\r\n        font-weight: 600;\n}\n.icon-point-indi[data-v-f2b6376c]{\r\n        width: 70px;\r\n        height: auto;\n}\n.div-section-3 h1[data-v-f2b6376c]{\r\n        font-weight: 900;\n}\n.div-review-section[data-v-f2b6376c]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n.card-review[data-v-f2b6376c]{\r\n        position: relative;\r\n        background-color: #fff;\r\n        border: none;\r\n        border-radius: 0.75rem;\r\n        box-shadow: 0px 10px 20px rgba(137, 166, 239, 0.15), 0px 3px 6px rgba(137, 166, 239, 0.1);\r\n        border-radius: 20px;\n}\n.segment-5[data-v-f2b6376c]{\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-5 h2[data-v-f2b6376c] {\r\n        font-weight: 800;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -57565,6 +57648,8 @@ var render = function () {
         _vm._v(" "),
         _vm._m(6),
         _vm._v(" "),
+        _vm._m(7),
+        _vm._v(" "),
         _vm.reviews.length
           ? _c(
               "div",
@@ -57692,7 +57777,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(7),
+        _vm._m(8),
       ]
     ),
   ])
@@ -57762,7 +57847,7 @@ var staticRenderFns = [
           attrs: { src: "images/img-person-home.png", alt: "img person" },
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "div-subtext-right-1" }, [
+        _c("div", { staticClass: "div-subtext-right-1 mb-3" }, [
           _c("img", {
             staticClass: "icon-recycle",
             attrs: { src: "images/recycle-icon.png", alt: "icon-recycle" },
@@ -57821,7 +57906,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-lg-12" }, [
           _c("div", { staticClass: "div-section-3 px-3" }, [
             _c("h1", { staticClass: "mb-4" }, [
-              _vm._v("\n            Keunggulan INDI\n          "),
+              _vm._v("\n            Keunggulan INDI-Circular\n          "),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "d-md-flex mt-4" }, [
@@ -57829,11 +57914,11 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "div-point-indi px-3 col-12 col-md-3 text-center mb-2",
+                    "div-point-indi px-3 col-12 col-md-3 text-center my-2",
                 },
                 [
                   _c("img", {
-                    staticClass: "img img-fluid mx-auto icon-point-indi",
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
                     attrs: { src: "images/ic-points-1.png", alt: "" },
                   }),
                   _vm._v(" "),
@@ -57851,11 +57936,11 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "div-point-indi px-3 col-12 col-md-3 text-center mb-2",
+                    "div-point-indi px-3 col-12 col-md-3 text-center my-2",
                 },
                 [
                   _c("img", {
-                    staticClass: "img img-fluid mx-auto icon-point-indi",
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
                     attrs: { src: "images/ic-points-2.png", alt: "" },
                   }),
                   _vm._v(" "),
@@ -57873,11 +57958,11 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "div-point-indi px-3 col-12 col-md-3 text-center mb-2",
+                    "div-point-indi px-3 col-12 col-md-3 text-center my-2",
                 },
                 [
                   _c("img", {
-                    staticClass: "img img-fluid mx-auto icon-point-indi",
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
                     attrs: { src: "images/ic-points-3.png", alt: "" },
                   }),
                   _vm._v(" "),
@@ -57895,11 +57980,11 @@ var staticRenderFns = [
                 "div",
                 {
                   staticClass:
-                    "div-point-indi px-3 col-12 col-md-3 text-center mb-2",
+                    "div-point-indi px-3 col-12 col-md-3 text-center my-2",
                 },
                 [
                   _c("img", {
-                    staticClass: "img img-fluid mx-auto icon-point-indi",
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
                     attrs: { src: "images/ic-points-4.png", alt: "" },
                   }),
                   _vm._v(" "),
@@ -57919,6 +58004,210 @@ var staticRenderFns = [
         _c("hr"),
       ]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "justify-content-center mx-3 mt-2 p-3" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("div", { staticClass: "div-section-3 px-3" }, [
+          _c("h1", { staticClass: "mb-2 mb-md-4" }, [
+            _vm._v("\n            Alur Layanan INDI-Circular\n          "),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-md-flex mt-4" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "div-point-indi px-3 col-12 col-md-3 text-center my-3",
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "text-white mx-auto point-number mb-2" },
+                  [_c("b", [_vm._v("1")])]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                  attrs: { src: "images/step-1.png", alt: "" },
+                }),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("Daftar/masuk ke akun Anda lalu pilih halaman Order"),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "div-point-indi px-3 col-12 col-md-3 text-center my-3",
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "text-white mx-auto point-number mb-2" },
+                  [_c("b", [_vm._v("2")])]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                  attrs: { src: "images/step-2.png", alt: "" },
+                }),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Lengkapi data nama, nomor whatsapp, dan alamat pengiriman"
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "div-point-indi px-3 col-12 col-md-3 text-center my-3",
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "text-white mx-auto point-number mb-2" },
+                  [_c("b", [_vm._v("3")])]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                  attrs: { src: "images/step-3.png", alt: "" },
+                }),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Pilih jenis layanan lalu unggah foto pakaian yang akan direproduksi"
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "div-point-indi px-3 col-12 col-md-3 text-center my-3",
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "text-white mx-auto point-number mb-2" },
+                  [_c("b", [_vm._v("4")])]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                  attrs: { src: "images/step-4.png", alt: "" },
+                }),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Admin akan menghubungi melalui Whatsapp untuk negosiasi harga"
+                  ),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "d-md-flex mt-md-4 justify-content-center" },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "div-point-indi px-3 col-12 col-md-4 text-center my-3",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-white mx-auto point-number mb-2" },
+                    [_c("b", [_vm._v("5")])]
+                  ),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                    attrs: { src: "images/step-5.png", alt: "" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                Setelah tercapai kesepakatan harga, \n                silakan melakukan pembayaran dan mengunggah bukti transfer melalui halaman riwayat transaksi\n              "
+                    ),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "div-point-indi px-3 col-12 col-md-4 text-center my-3",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-white mx-auto point-number mb-2" },
+                    [_c("b", [_vm._v("6")])]
+                  ),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                    attrs: { src: "images/step-6.png", alt: "" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                Kirimkan pakaian yang akan direproduksi ke kantor INDI-Circular\n              "
+                    ),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "div-point-indi px-3 col-12 col-md-4 text-center my-3",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-white mx-auto point-number mb-2" },
+                    [_c("b", [_vm._v("7")])]
+                  ),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img img-fluid mx-auto icon-point-indi mb-2",
+                    attrs: { src: "images/step-7.png", alt: "" },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                Tim INDI-Circular akan segera mengerjakan pesanan Anda dan akan mengirimkan pakaian yang sudah direproduksi.\n              "
+                    ),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("hr"),
+    ])
   },
   function () {
     var _vm = this

@@ -63,7 +63,22 @@ body{
     border-radius: 20px;
     overflow: hidden;
   }
-  
+
+.point-number{
+    display: block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+
+    background-color: #142362;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+}  
+
 .text-header {
     font-weight: 700;
     color: #142362;
