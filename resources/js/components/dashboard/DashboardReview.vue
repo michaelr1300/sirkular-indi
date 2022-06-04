@@ -10,7 +10,7 @@
         class="col-12 col-md-4 px-2 my-2"
       >
         <div class="card rounded h-100">
-          <div class="d-flex flex-column card-body w-100 justify-content-between">
+          <div class="d-flex flex-column card-body w-100">
             <div class="d-flex flex-column text-end mb-2">
               <div>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-review-modal" 

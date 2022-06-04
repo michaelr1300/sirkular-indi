@@ -59649,10 +59649,7 @@ var render = function () {
               _c("div", { staticClass: "card rounded h-100" }, [
                 _c(
                   "div",
-                  {
-                    staticClass:
-                      "d-flex flex-column card-body w-100 justify-content-between",
-                  },
+                  { staticClass: "d-flex flex-column card-body w-100" },
                   [
                     _c(
                       "div",
