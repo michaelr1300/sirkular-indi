@@ -83,6 +83,26 @@
               </div>
             </div>
           </div>
+          <div class="div-section-3 mt-4">
+            <hr>
+            <h1 class="px-0 px-lg-3 mb-4">Galeri INDI-Circular</h1>
+            <div class="container">
+              <div class="row">
+                <div 
+                  v-for="(item, index) in galleryList"
+                  :key="index"
+                  class="col-md-4 col-12"
+                >
+                  <img 
+                    class="img img-fluid mx-auto my-3 px-2 px-md-0" 
+                    :src="'images/gallery-'+ index +'.png'"
+                    alt="gallery"
+                    style="max-height: 400px; object-fit: contain;"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="div-section-3">
             <div class="d-md-flex my-5 px-3">
               <div class="col-12 col-md-9 left-segment-4">
@@ -114,6 +134,18 @@ export default {
       type: Array,
       default: null,
     },
+  },
+  data() {
+    return {
+      galleryList: [
+        'gallery-0',
+        'gallery-1',
+        'gallery-2',
+        'gallery-3',
+        'gallery-4',
+        'gallery-5',
+      ]
+    }
   },
   methods: {
     scrollToElement() {

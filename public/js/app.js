@@ -23808,12 +23808,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packages: {
       type: Array,
       "default": null
     }
+  },
+  data: function data() {
+    return {
+      galleryList: ['gallery-0', 'gallery-1', 'gallery-2', 'gallery-3', 'gallery-4', 'gallery-5']
+    };
   },
   methods: {
     scrollToElement: function scrollToElement() {
@@ -57455,6 +57480,41 @@ var render = function () {
               ],
               2
             ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "div-section-3 mt-4" }, [
+            _c("hr"),
+            _vm._v(" "),
+            _c("h1", { staticClass: "px-0 px-lg-3 mb-4" }, [
+              _vm._v("Galeri INDI-Circular"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "container" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.galleryList, function (item, index) {
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "col-md-4 col-12" },
+                    [
+                      _c("img", {
+                        staticClass: "img img-fluid mx-auto my-3 px-2 px-md-0",
+                        staticStyle: {
+                          "max-height": "400px",
+                          "object-fit": "contain",
+                        },
+                        attrs: {
+                          src: "images/gallery-" + index + ".png",
+                          alt: "gallery",
+                        },
+                      }),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "div-section-3" }, [
