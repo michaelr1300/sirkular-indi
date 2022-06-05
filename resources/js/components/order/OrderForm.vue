@@ -197,14 +197,28 @@
             <hr>
           </div>
           <div class="form-group px-0 mt-2 text-end">
-            <button @click="addItem" type="button" class="btn btn-primary">Tambah barang</button>
+            <button 
+              @click="addItem" 
+              :disabled="isLoading" 
+              class="btn btn-primary"
+            >
+              Tambah barang
+            </button>
           </div>
         </div>
         <div class="col-12 mt-4">
-          <button class="btn btn-primary" @click="backToUserDetail()">
+          <button
+            class="btn btn-primary"
+            :disabled="isLoading"
+            @click="backToUserDetail()"
+          >
             Kembali
           </button>
-          <button class="btn btn-primary" @click="createOrder()">
+          <button 
+            class="btn btn-primary" 
+            :disabled="isLoading"
+            @click="createOrder()"
+          >
             Buat Pesanan
           </button>
         </div>
@@ -275,6 +289,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       form: {
         name: null,
         phone_number: null,
@@ -301,6 +316,7 @@ export default {
   },
   methods: {
     async createOrder() {
+      this.isLoading = true;
       // Validation
       this.orderItems.forEach(
         (item, index) => {
@@ -313,7 +329,7 @@ export default {
       )
       const invalidItems = this.orderItems.filter((item) => item.is_error == true)
       if (invalidItems.length > 0) {
-        console.log('Invalid Order')        
+        this.isLoading = false;     
         return;
       }
 
@@ -346,6 +362,8 @@ export default {
         this.nextPageFinish();
       } catch (error) {
         console.log(error.response);
+      } finally {
+        this.isLoading = false;
       }
     },
     getFileName(event, index){

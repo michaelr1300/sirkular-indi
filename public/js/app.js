@@ -26577,6 +26577,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packageList: {
@@ -26627,6 +26641,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      isLoading: false,
       form: {
         name: null,
         phone_number: null,
@@ -26661,7 +26676,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // Validation
+                _this2.isLoading = true; // Validation
+
                 _this2.orderItems.forEach(function (item, index) {
                   if (item.package_id == null || item.file_name == null) {
                     _this2.orderItems[index].is_error = true;
@@ -26675,14 +26691,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
                 if (!(invalidItems.length > 0)) {
-                  _context.next = 5;
+                  _context.next = 6;
                   break;
                 }
 
-                console.log('Invalid Order');
+                _this2.isLoading = false;
                 return _context.abrupt("return");
 
-              case 5:
+              case 6:
                 photoArr = _this2.$refs.photo;
                 photos = photoArr.map(function (item) {
                   return item.files[0];
@@ -26698,33 +26714,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   formData.append("photo_" + index, photos[index]);
                 }
 
-                _context.prev = 14;
-                _context.next = 17;
+                _context.prev = 15;
+                _context.next = 18;
                 return axios.post("/order", formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 17:
+              case 18:
                 response = _context.sent;
 
                 _this2.nextPageFinish();
 
-                _context.next = 24;
+                _context.next = 25;
                 break;
 
-              case 21:
-                _context.prev = 21;
-                _context.t0 = _context["catch"](14);
+              case 22:
+                _context.prev = 22;
+                _context.t0 = _context["catch"](15);
                 console.log(_context.t0.response);
 
-              case 24:
+              case 25:
+                _context.prev = 25;
+                _this2.isLoading = false;
+                return _context.finish(25);
+
+              case 28:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[14, 21]]);
+        }, _callee, null, [[15, 22, 25, 28]]);
       }))();
     },
     getFileName: function getFileName(event, index) {
@@ -61781,10 +61802,10 @@ var render = function () {
                       "button",
                       {
                         staticClass: "btn btn-primary",
-                        attrs: { type: "button" },
+                        attrs: { disabled: _vm.isLoading },
                         on: { click: _vm.addItem },
                       },
-                      [_vm._v("Tambah barang")]
+                      [_vm._v("\n            Tambah barang\n          ")]
                     ),
                   ]),
                 ],
@@ -61796,6 +61817,7 @@ var render = function () {
                   "button",
                   {
                     staticClass: "btn btn-primary",
+                    attrs: { disabled: _vm.isLoading },
                     on: {
                       click: function ($event) {
                         return _vm.backToUserDetail()
@@ -61809,6 +61831,7 @@ var render = function () {
                   "button",
                   {
                     staticClass: "btn btn-primary",
+                    attrs: { disabled: _vm.isLoading },
                     on: {
                       click: function ($event) {
                         return _vm.createOrder()
