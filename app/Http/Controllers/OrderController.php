@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Validation\Rule;
+use App\Mail\NewOrder;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -67,7 +69,11 @@ class OrderController extends Controller
                 'description' => $order_item[$index]->description,
             ]);
             $order_detail->addMediaFromRequest('photo_' . $index)->toMediaCollection('images');
-                
+        }
+        
+        $admin = User::where('is_admin', 1)->get();
+        foreach ($admin as $recipient) {
+            Mail::to($recipient->email)->send(new NewOrder());
         }
     }
 
