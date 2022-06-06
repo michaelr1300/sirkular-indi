@@ -24,7 +24,7 @@
                   <b>1</b>
                 </td>
                 <td class="px-3 py-2">
-                  Isi data diri, unggah foto pakaian yang akan direproduksi, pilih jasa reproduksi.
+                  Siapkan foto pakaian yang akan direproduksi.
                 </td>
               </tr>
               <tr>
@@ -32,7 +32,7 @@
                   <b>2</b>
                 </td>
                 <td class="px-3 py-2">
-                  Admin Indi akan menghubungi Anda melalui WhatsApp untuk negosiasi harga.  
+                  Isi data diri dengan lengkap, pastikan nomor telepon yang diisi dapat dihubungi lewat WhatsApp.  
                 </td>
               </tr>
               <tr>
@@ -40,7 +40,7 @@
                   <b>3</b>
                 </td>
                 <td class="px-3 py-2">
-                  Jika sudah tercapai kesepakatan harga, silakan melakukan pembayaran dan mengunggah bukti transfer melalui halaman riwayat transaksi.
+                  Pilih jasa reproduksi dan upload foto pakaian yang akan direproduksi.
                 </td>
               </tr>
               <tr>
@@ -48,7 +48,23 @@
                   <b>4</b>
                 </td>
                 <td class="px-3 py-2">
-                  Kirimkan pakaian Anda ke kantor Indi
+                  Admin INDI-Circular akan menghubungi Anda melalui WhatsApp untuk negosiasi harga.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>5</b>
+                </td>
+                <td class="px-3 py-2">
+                  Unggah bukti transfer melalu halaman <a href="/purchase_history">riwayat transaksi</a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-header" style="font-size: 24px; vertical-align: text-top;">
+                  <b>6</b>
+                </td>
+                <td class="px-3 py-2">
+                  Kirimkan pakaian yang akan direproduksi ke kantor INDI-Circular.
                 </td>
               </tr>
               

@@ -25410,23 +25410,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedReview: {
@@ -26362,6 +26345,22 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61930,7 +61929,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("td", { staticClass: "px-3 py-2" }, [
             _vm._v(
-              "\n                Isi data diri, unggah foto pakaian yang akan direproduksi, pilih jasa reproduksi.\n              "
+              "\n                Siapkan foto pakaian yang akan direproduksi.\n              "
             ),
           ]),
         ]),
@@ -61950,7 +61949,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("td", { staticClass: "px-3 py-2" }, [
             _vm._v(
-              "\n                Admin Indi akan menghubungi Anda melalui WhatsApp untuk negosiasi harga.  \n              "
+              "\n                Isi data diri dengan lengkap, pastikan nomor telepon yang diisi dapat dihubungi lewat WhatsApp.  \n              "
             ),
           ]),
         ]),
@@ -61970,7 +61969,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("td", { staticClass: "px-3 py-2" }, [
             _vm._v(
-              "\n                Jika sudah tercapai kesepakatan harga, silakan melakukan pembayaran dan mengunggah bukti transfer melalui halaman riwayat transaksi.\n              "
+              "\n                Pilih jasa reproduksi dan upload foto pakaian yang akan direproduksi.\n              "
             ),
           ]),
         ]),
@@ -61990,7 +61989,49 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("td", { staticClass: "px-3 py-2" }, [
             _vm._v(
-              "\n                Kirimkan pakaian Anda ke kantor Indi\n              "
+              "\n                Admin INDI-Circular akan menghubungi Anda melalui WhatsApp untuk negosiasi harga.\n              "
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c(
+            "td",
+            {
+              staticClass: "text-header",
+              staticStyle: {
+                "font-size": "24px",
+                "vertical-align": "text-top",
+              },
+            },
+            [_c("b", [_vm._v("5")])]
+          ),
+          _vm._v(" "),
+          _c("td", { staticClass: "px-3 py-2" }, [
+            _vm._v("\n                Unggah bukti transfer melalu halaman "),
+            _c("a", { attrs: { href: "/purchase_history" } }, [
+              _vm._v("riwayat transaksi"),
+            ]),
+            _vm._v(".\n              "),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c(
+            "td",
+            {
+              staticClass: "text-header",
+              staticStyle: {
+                "font-size": "24px",
+                "vertical-align": "text-top",
+              },
+            },
+            [_c("b", [_vm._v("6")])]
+          ),
+          _vm._v(" "),
+          _c("td", { staticClass: "px-3 py-2" }, [
+            _vm._v(
+              "\n                Kirimkan pakaian yang akan direproduksi ke kantor INDI-Circular.\n              "
             ),
           ]),
         ]),

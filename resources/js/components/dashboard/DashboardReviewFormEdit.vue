@@ -31,23 +31,6 @@
                 v-model="form.content"
               ></textarea>
             </div>
-            <!-- <div>
-              <img 
-                v-if="selectedReview" 
-                class="img img-fluid my-3" 
-                :src="selectedImage" 
-                alt="review-image"
-              >
-            </div> -->
-            <!-- <div class="form-group mt-3">
-              <input 
-                id="name"
-                name="name"
-                type="hidden" 
-                class="form-control"
-                v-model="form.photo_path"
-              >
-            </div> -->
             <div class="form-group mt-3">
               <label for="photo" class="form-label">Foto Review</label>
               <div>
