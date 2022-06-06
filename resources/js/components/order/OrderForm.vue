@@ -138,7 +138,12 @@
           > 
             <div class="col-12 col-md-2 d-flex justify-content-end">
               <div>
-                <button v-if="index" @click="removeItem(index)" type="button" class="btn btn-danger mt-md-4">
+                <button 
+                  v-if="index"
+                  class="btn btn-danger mt-md-4" 
+                  @click="removeItem(index)" 
+                  :disabled="isLoading"
+                >
                   <b>X</b>
                 </button>
               </div>

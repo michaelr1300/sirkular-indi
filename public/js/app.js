@@ -24874,9 +24874,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      isLoading: false,
       form: {
         name: null,
         price: null,
@@ -24894,25 +24901,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
                 return axios.post("/dashboard/product", _this.form);
 
-              case 3:
+              case 4:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
 
-              case 10:
+              case 11:
+                _context.prev = 11;
+                _this.isLoading = false;
+                return _context.finish(11);
+
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, null, [[1, 8, 11, 14]]);
       }))();
     }
   }
@@ -24996,6 +25009,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedProduct: {
@@ -25005,6 +25024,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      isLoading: false,
       form: {
         id: null,
         name: null,
@@ -25028,26 +25048,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
                 return axios.put("/dashboard/product/".concat(_this.form.id), _this.form);
 
-              case 3:
+              case 4:
                 response = _context.sent;
                 alert("Product Updated");
                 return _context.abrupt("return", location.reload());
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](0);
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
 
-              case 11:
+              case 12:
+                _context.prev = 12;
+                _this.isLoading = false;
+                return _context.finish(12);
+
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, null, [[1, 9, 12, 15]]);
       }))();
     }
   }
@@ -26336,6 +26362,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -59396,14 +59427,14 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.doSubmit()
                     },
                   },
                 },
-                [_vm._v("Simpan")]
+                [_vm._v("\n            Simpan\n          ")]
               ),
             ]),
           ]),
@@ -59586,14 +59617,14 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.doSubmit()
                     },
                   },
                 },
-                [_vm._v("Simpan")]
+                [_vm._v("\n            Simpan\n          ")]
               ),
             ]),
           ]),
@@ -61587,7 +61618,7 @@ var render = function () {
                                     "button",
                                     {
                                       staticClass: "btn btn-danger mt-md-4",
-                                      attrs: { type: "button" },
+                                      attrs: { disabled: _vm.isLoading },
                                       on: {
                                         click: function ($event) {
                                           return _vm.removeItem(index)

@@ -41,7 +41,13 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="doSubmit()">Simpan</button>
+            <button
+              class="btn btn-primary"
+              @click="doSubmit()"
+              :disabled="isLoading"
+            >
+              Simpan
+            </button>
           </div>
         </div>
       </div>
@@ -59,6 +65,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       form: {
         id: null,
         name: null,
@@ -74,12 +81,15 @@ export default {
   },
   methods: {
     async doSubmit() {
+      this.isLoading = true;
       try {
         let response = await axios.put(`/dashboard/product/${this.form.id}`, this.form);
         alert("Product Updated");
         return location.reload();
       } catch (error) {
         console.log(error.response);
+      } finally {
+        this.isLoading = false;
       }
     },
   },
