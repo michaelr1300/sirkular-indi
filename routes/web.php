@@ -51,7 +51,7 @@ Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
     Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('delete');
 });
 
-Route::get('/purchase_history', [ProfileController::class, 'purchaseHistory'])->name('purchase_history');
+Route::get('/purchase_history', [ProfileController::class, 'purchaseHistory'])->name('purchase_history')->middleware('auth');
 
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function ()
 {
