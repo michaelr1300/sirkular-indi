@@ -8,28 +8,57 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group mt-3" >
-              <label for="reviewer_name">Nama</label>
+            <div class="form-group required-field">
+              <label for="name">Nama</label>
               <input 
-                id="reviewer_name"
-                name="reviewer_name"
-                type="text-area" 
+                id="name"
+                name="name"
+                type="text"
                 class="form-control"
-                v-model="form.reviewer_name"
+                required
+                v-model="form.name"
               />
             </div>
-            <div class="form-group mt-3" >
-              <label for="content">Review</label>
-              <div v-show="isError" class="text-danger">
-                Isi review wajib diisi
-              </div>
+            <div class="form-group required-field mt-3">
+              <label for="email">Email</label>
+              <input 
+                id="email"
+                name="email"
+                type="email"
+                class="form-control"
+                v-model="form.email"
+                required
+              />
+            </div>
+            <div class="form-group mt-3">
+              <label for="phone_number">No Telepon</label>
+              <input 
+                id="phone_number"
+                name="phone_number"
+                class="form-control"
+                v-model="form.phone_number"
+              />
+            </div>
+            <div class="form-group mt-3">
+              <label for="address">Alamat</label>
               <textarea 
-                id="content"
-                name="content"
+                id="address"
+                name="address"
                 type="text-area" 
                 class="form-control"
-                v-model="form.content"
+                v-model="form.address"
               ></textarea>
+            </div>
+            <div class="form-check mt-3">
+              <input 
+                id="flexCheckChecked" 
+                class="form-check-input" 
+                type="checkbox" 
+                v-model="form.is_admin"
+                :checked="form.is_admin">
+              <label class="form-check-label" for="flexCheckChecked">
+                Jadikan user sebagai admin
+              </label>
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -70,29 +99,13 @@ export default {
   methods: {
     async doSubmit() {
       this.isLoading = true;
-      this.isError = false;
-      var photo = this.$refs.photo.files[0];
-      let formData = new FormData();
-      formData.append("id", this.form.id);
-      if (photo) {
-        formData.append("photo", photo);
-      }
-      formData.append("content", this.form.content);
-      formData.append("reviewer_name", this.form.reviewer_name);
-      formData.append("_method", "put");
       try {
-        let response = await axios.post(
-          `/reviews/${this.form.id}`,
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
+        let response = await axios.put(
+          `/user/${this.form.id}`,
+          this.form
         );
         return location.reload();
       } catch (error) {
-        this.isError = true;
         console.log(error.response);
       } finally {
         this.isLoading = false;

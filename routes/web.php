@@ -6,6 +6,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::get('/review', [DashboardController::class, 'review'])->name('review');
     Route::get('/user', [DashboardController::class, 'user'])->name('user');
 });
+
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
 Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()

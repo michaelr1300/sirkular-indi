@@ -25700,6 +25700,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedUser: {
@@ -25730,53 +25759,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var photo, formData, response;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this.isLoading = true;
-                _this.isError = false;
-                photo = _this.$refs.photo.files[0];
-                formData = new FormData();
-                formData.append("id", _this.form.id);
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.put("/user/".concat(_this.form.id), _this.form);
 
-                if (photo) {
-                  formData.append("photo", photo);
-                }
-
-                formData.append("content", _this.form.content);
-                formData.append("reviewer_name", _this.form.reviewer_name);
-                formData.append("_method", "put");
-                _context.prev = 9;
-                _context.next = 12;
-                return axios.post("/reviews/".concat(_this.form.id), formData, {
-                  headers: {
-                    "Content-Type": "multipart/form-data"
-                  }
-                });
-
-              case 12:
+              case 4:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 16:
-                _context.prev = 16;
-                _context.t0 = _context["catch"](9);
-                _this.isError = true;
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
 
-              case 20:
-                _context.prev = 20;
+              case 11:
+                _context.prev = 11;
                 _this.isLoading = false;
-                return _context.finish(20);
+                return _context.finish(11);
 
-              case 23:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[9, 16, 20, 23]]);
+        }, _callee, null, [[1, 8, 11, 14]]);
       }))();
     }
   }
@@ -60654,7 +60666,7 @@ var render = function () {
                             },
                             on: {
                               click: function ($event) {
-                                return _vm.editUser(_vm.item)
+                                return _vm.editUser(user)
                               },
                             },
                           },
@@ -60750,9 +60762,71 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group required-field" }, [
+                _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.name,
+                      expression: "form.name",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "name",
+                    name: "name",
+                    type: "text",
+                    required: "",
+                  },
+                  domProps: { value: _vm.form.name },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "name", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
+                _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.email,
+                      expression: "form.email",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "email",
+                    name: "email",
+                    type: "email",
+                    required: "",
+                  },
+                  domProps: { value: _vm.form.email },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "email", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "reviewer_name" } }, [
-                  _vm._v("Nama"),
+                _c("label", { attrs: { for: "phone_number" } }, [
+                  _vm._v("No Telepon"),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -60760,72 +60834,106 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.reviewer_name,
-                      expression: "form.reviewer_name",
+                      value: _vm.form.phone_number,
+                      expression: "form.phone_number",
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: {
-                    id: "reviewer_name",
-                    name: "reviewer_name",
-                    type: "text-area",
-                  },
-                  domProps: { value: _vm.form.reviewer_name },
+                  attrs: { id: "phone_number", name: "phone_number" },
+                  domProps: { value: _vm.form.phone_number },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "reviewer_name", $event.target.value)
+                      _vm.$set(_vm.form, "phone_number", $event.target.value)
                     },
                   },
                 }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "content" } }, [_vm._v("Review")]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isError,
-                        expression: "isError",
-                      },
-                    ],
-                    staticClass: "text-danger",
-                  },
-                  [
-                    _vm._v(
-                      "\n              Isi review wajib diisi\n            "
-                    ),
-                  ]
-                ),
+                _c("label", { attrs: { for: "address" } }, [_vm._v("Alamat")]),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.content,
-                      expression: "form.content",
+                      value: _vm.form.address,
+                      expression: "form.address",
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { id: "content", name: "content", type: "text-area" },
-                  domProps: { value: _vm.form.content },
+                  attrs: { id: "address", name: "address", type: "text-area" },
+                  domProps: { value: _vm.form.address },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "content", $event.target.value)
+                      _vm.$set(_vm.form, "address", $event.target.value)
                     },
                   },
                 }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-check mt-3" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.is_admin,
+                      expression: "form.is_admin",
+                    },
+                  ],
+                  staticClass: "form-check-input",
+                  attrs: { id: "flexCheckChecked", type: "checkbox" },
+                  domProps: {
+                    checked: _vm.form.is_admin,
+                    checked: Array.isArray(_vm.form.is_admin)
+                      ? _vm._i(_vm.form.is_admin, null) > -1
+                      : _vm.form.is_admin,
+                  },
+                  on: {
+                    change: function ($event) {
+                      var $$a = _vm.form.is_admin,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(_vm.form, "is_admin", $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              _vm.form,
+                              "is_admin",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(_vm.form, "is_admin", $$c)
+                      }
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-check-label",
+                    attrs: { for: "flexCheckChecked" },
+                  },
+                  [
+                    _vm._v(
+                      "\n              Jadikan user sebagai admin\n            "
+                    ),
+                  ]
+                ),
               ]),
             ]),
             _vm._v(" "),

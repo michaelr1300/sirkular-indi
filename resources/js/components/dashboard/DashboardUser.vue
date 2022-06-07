@@ -29,7 +29,7 @@
                 </td>
                 <td>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-user-modal" 
-                    @click="editUser(item)">
+                    @click="editUser(user)">
                     <span class="mdi mdi-pencil"></span>
                   </button>
                 </td>
