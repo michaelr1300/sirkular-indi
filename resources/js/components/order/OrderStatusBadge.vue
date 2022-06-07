@@ -36,7 +36,7 @@ export default {
     },
     statusText() {
       if (this.status == 'waiting') { return 'Menunggu Konfirmasi'; }
-      if (this.status == 'confirm') { return 'Dikonfirmasi'; }
+      if (this.status == 'confirm') { return 'Diterima'; }
       if (this.status == 'process') { return 'Diproses'; }
       if (this.status == 'finish') { return 'Selesai'; }
       return '';

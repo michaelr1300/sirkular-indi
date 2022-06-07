@@ -257,7 +257,7 @@ export default {
   computed: {
     nextStatus() {
       if (this.order.status == 'waiting') {
-        return 'Konfirmasi';
+        return 'Terima';
       }
       if (this.order.status == 'confirm') {
         return 'Proses';

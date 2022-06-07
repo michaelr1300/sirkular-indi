@@ -25729,6 +25729,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedUser: {
@@ -25745,13 +25753,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         photo_path: null,
         media_id: null
       },
-      isError: false,
+      errors: {},
       isLoading: false
     };
   },
   watch: {
     selectedUser: function selectedUser() {
       this.form = _objectSpread({}, this.selectedUser);
+      this.errors = {};
     }
   },
   methods: {
@@ -25776,7 +25785,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 8:
                 _context.prev = 8;
                 _context.t0 = _context["catch"](1);
-                console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
 
               case 11:
                 _context.prev = 11;
@@ -25790,6 +25799,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee, null, [[1, 8, 11, 14]]);
       }))();
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     }
   }
 });
@@ -26188,7 +26204,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: {
     nextStatus: function nextStatus() {
       if (this.order.status == 'waiting') {
-        return 'Konfirmasi';
+        return 'Terima';
       }
 
       if (this.order.status == 'confirm') {
@@ -27381,7 +27397,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.status == 'confirm') {
-        return 'Dikonfirmasi';
+        return 'Diterima';
       }
 
       if (this.status == 'process') {
@@ -60775,6 +60791,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("name") },
                   attrs: {
                     id: "name",
                     name: "name",
@@ -60791,6 +60808,12 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("name")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v("\n              Nama wajib diisi\n            "),
+                    ])
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group required-field mt-3" }, [
@@ -60806,6 +60829,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("email") },
                   attrs: {
                     id: "email",
                     name: "email",
@@ -60822,6 +60846,14 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("email")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Email wajib diisi dengan email yang valid\n            "
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [

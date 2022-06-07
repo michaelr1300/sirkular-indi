@@ -15,9 +15,13 @@
                 name="name"
                 type="text"
                 class="form-control"
+                :class="{ 'is-invalid': hasErrors('name') }"
                 required
                 v-model="form.name"
               />
+              <div v-if="hasErrors('name')" class="invalid-feedback">
+                Nama wajib diisi
+              </div>
             </div>
             <div class="form-group required-field mt-3">
               <label for="email">Email</label>
@@ -26,9 +30,13 @@
                 name="email"
                 type="email"
                 class="form-control"
+                :class="{ 'is-invalid': hasErrors('email') }"
                 v-model="form.email"
                 required
               />
+              <div v-if="hasErrors('email')" class="invalid-feedback">
+                Email wajib diisi dengan email yang valid
+              </div>
             </div>
             <div class="form-group mt-3">
               <label for="phone_number">No Telepon</label>
@@ -87,13 +95,14 @@ export default {
         photo_path: null,
         media_id: null,
       },
-      isError: false,
+      errors: {},
       isLoading: false,
     }
   },
   watch: {
     selectedUser() {
       this.form = { ...this.selectedUser }; 
+      this.errors = {};
     }
   },
   methods: {
@@ -106,10 +115,17 @@ export default {
         );
         return location.reload();
       } catch (error) {
-        console.log(error.response);
+        this.errors = error.response.data.errors;
       } finally {
         this.isLoading = false;
       }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     },
   },
 };
