@@ -15,27 +15,6 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
-        if (Auth::user()->is_admin) {
-            $orders = Order::latest()->get();
-        }
-        else {
-            $orders = Order::where('user_id', Auth::user()->id)->get();
-        }
-        return view('order.index')->with('orders',$orders);
-    }
-
-    public function create()
-    {
-        $user = Auth::user();
-        $order_options = Package::all();
-        return view('order.create')->with([
-            'order_options' => $order_options,
-            'user' => $user,
-        ]);
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -169,17 +148,6 @@ class OrderController extends Controller
         return redirect()->action([OrderController::class, 'show'], ['order' => $order->id]);
     }
 
-    public function dashboard()
-    {
-        $this->authorize('dashboard', Order::class);
-        $packages = Package::all();
-        $orders = Order::latest()->get();
-        foreach ($orders as $order) {
-            $order->payment_photo = PhotoResource::collection($order->media);
-            $order->items = OrderDetail::where('order_id', $order->id)->get();
-        }
-        return view('dashboard.order')->with(['orders' => $orders, 'packages' => $packages]);
-    }
     public function getOrderImage($id)
     {
         $order_detail = OrderDetail::find($id);

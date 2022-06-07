@@ -58,6 +58,15 @@
                                     <div class="ms-2 my-auto">Review</div>
                                 </a>
                             </li>
+                            <li class="nav-item text-start p-0">
+                                <a
+                                  class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.user') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
+                                  href="{{ route('dashboard.user') }}"
+                                >
+                                    <i class="mdi mdi-account-supervisor" style="font-size: 18px"></i>
+                                    <div class="ms-2 my-auto">User</div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

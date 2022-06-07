@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
@@ -30,11 +31,12 @@ Route::get('/catalog', [StaticPageController::class, 'catalog'])->name('catalog'
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function ()
 {
     Route::redirect('/', 'order');
-    Route::get('/order', [OrderController::class, 'dashboard'])->name('order');
-    Route::get('/product', [PackageController::class, 'dashboard'])->name('product');
+    Route::get('/order', [DashboardController::class, 'order'])->name('order');
+    Route::get('/product', [DashboardController::class, 'product'])->name('product');
     Route::post('/product', [PackageController::class, 'store'])->name('product.store');
     Route::put('/product/{product}', [PackageController::class, 'update'])->name('product.update');
-    Route::get('/review', [ReviewController::class, 'dashboard'])->name('review');
+    Route::get('/review', [DashboardController::class, 'review'])->name('review');
+    Route::get('/user', [DashboardController::class, 'user'])->name('user');
 });
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
