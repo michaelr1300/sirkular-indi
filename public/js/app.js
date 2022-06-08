@@ -25291,6 +25291,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedProduct: {
@@ -25306,12 +25314,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         name: null,
         price: null,
         description: null
-      }
+      },
+      errors: {}
     };
   },
   watch: {
     selectedProduct: function selectedProduct() {
       this.form = _objectSpread({}, this.selectedProduct);
+      this.errors = {};
     }
   },
   methods: {
@@ -25338,19 +25348,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.prev = 9;
                 _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
 
-              case 12:
-                _context.prev = 12;
+              case 13:
+                _context.prev = 13;
                 _this.isLoading = false;
-                return _context.finish(12);
+                return _context.finish(13);
 
-              case 15:
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 9, 12, 15]]);
+        }, _callee, null, [[1, 9, 13, 16]]);
       }))();
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     }
   }
 });
@@ -25459,6 +25477,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -25686,6 +25705,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedReview: {
@@ -25734,6 +25755,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _this$form$content, _this$form$reviewer_n;
+
         var photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
@@ -25749,8 +25772,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   formData.append("photo", photo);
                 }
 
-                formData.append("content", _this.form.content);
-                formData.append("reviewer_name", _this.form.reviewer_name);
+                formData.append("content", (_this$form$content = _this.form.content) !== null && _this$form$content !== void 0 ? _this$form$content : '');
+                formData.append("reviewer_name", (_this$form$reviewer_n = _this.form.reviewer_name) !== null && _this$form$reviewer_n !== void 0 ? _this$form$reviewer_n : '');
                 formData.append("_method", "put");
                 _context.prev = 9;
                 _context.next = 12;
@@ -26644,6 +26667,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     order: {
@@ -26660,33 +26694,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
                 return axios.post("/order/".concat(_this.order.id, "/updatePrice"), _this.form);
 
-              case 3:
+              case 4:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
 
-              case 10:
+              case 12:
+                _context.prev = 12;
+                _this.isLoading = false;
+                return _context.finish(12);
+
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, null, [[1, 8, 12, 15]]);
       }))();
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     }
   },
   data: function data() {
     return {
+      isLoading: false,
       form: {
         price: null
-      }
+      },
+      errors: {}
     };
   }
 });
@@ -26750,6 +26800,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     order: {
@@ -26766,33 +26827,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
                 return axios.post("/order/".concat(_this.order.id, "/updateReceipt"), _this.form);
 
-              case 3:
+              case 4:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
 
-              case 10:
+              case 12:
+                _context.prev = 12;
+                _this.isLoading = false;
+                return _context.finish(12);
+
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, null, [[1, 8, 12, 15]]);
       }))();
     }
   },
   data: function data() {
     return {
+      isLoading: false,
       form: {
         receipt: null
-      }
+      },
+      errors: {}
     };
   }
 });
@@ -60346,18 +60416,7 @@ var render = function () {
   return _c(
     "div",
     [
-      _c(
-        "div",
-        { staticClass: "d-md-flex justify-content-between mb-3" },
-        [
-          _c("h3", { staticClass: "text-header" }, [
-            _vm._v("Product Management"),
-          ]),
-          _vm._v(" "),
-          _c("DashboardProductFormAdd"),
-        ],
-        1
-      ),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
@@ -60424,7 +60483,18 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "d-md-flex justify-content-between mb-3" },
+      [_c("h3", { staticClass: "text-header" }, [_vm._v("Product Management")])]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -60657,8 +60727,10 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
+              _c("div", { staticClass: "form-group required-field" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v("Nama Layanan"),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -60670,6 +60742,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("name") },
                   attrs: { id: "name", name: "name", type: "text" },
                   domProps: { value: _vm.form.name },
                   on: {
@@ -60681,11 +60754,19 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("name")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Nama layanan wajib diisi\n            "
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Deskripsi"),
+                  _vm._v("Deskripsi Layanan"),
                 ]),
                 _vm._v(" "),
                 _c("textarea", {
@@ -60715,8 +60796,10 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "price" } }, [_vm._v("Harga")]),
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
+                _c("label", { attrs: { for: "price" } }, [
+                  _vm._v("Harga Layanan (per helai)"),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -60728,6 +60811,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("price") },
                   attrs: {
                     id: "price",
                     name: "price",
@@ -60744,6 +60828,14 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Harga wajib diisi dengan nilai minimal 0\n            "
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
             ]),
             _vm._v(" "),
@@ -61019,7 +61111,12 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { id: "content", name: "content", type: "text-area" },
+                  attrs: {
+                    id: "content",
+                    name: "content",
+                    required: "",
+                    type: "text-area",
+                  },
                   domProps: { value: _vm.form.content },
                   on: {
                     input: function ($event) {
@@ -61202,7 +61299,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group mt-3" }, [
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
                 _c("label", { attrs: { for: "content" } }, [_vm._v("Review")]),
                 _vm._v(" "),
                 _c(
@@ -61235,7 +61332,13 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { id: "content", name: "content", type: "text-area" },
+                  class: { "is-invalid": _vm.isError },
+                  attrs: {
+                    id: "content",
+                    name: "content",
+                    type: "text-area",
+                    required: "",
+                  },
                   domProps: { value: _vm.form.content },
                   on: {
                     input: function ($event) {
@@ -62510,7 +62613,7 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _c("div", { staticClass: "form-group mt-3" }, [
+              _c("div", { staticClass: "form-group required-field" }, [
                 _c("label", { attrs: { for: "price" } }, [
                   _vm._v("Harga (Rp)"),
                 ]),
@@ -62525,6 +62628,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("price") },
                   attrs: {
                     id: "price",
                     name: "price",
@@ -62543,6 +62647,12 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v("\n              Harga wajib diisi\n            "),
+                    ])
+                  : _vm._e(),
               ]),
             ]),
             _vm._v(" "),
@@ -62551,14 +62661,14 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.inputPrice()
                     },
                   },
                 },
-                [_vm._v("Simpan")]
+                [_vm._v("\n            Simpan\n          ")]
               ),
             ]),
           ]),
@@ -62640,8 +62750,10 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "receipt" } }, [_vm._v("Review")]),
+              _c("div", { staticClass: "form-group required-field" }, [
+                _c("label", { attrs: { for: "receipt" } }, [
+                  _vm._v("Nomor Resi - Ekspedisi"),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -62653,6 +62765,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("receipt") },
                   attrs: {
                     id: "receipt",
                     name: "receipt",
@@ -62669,6 +62782,14 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Nomor Resi wajib diisi\n            "
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
             ]),
             _vm._v(" "),
@@ -62677,14 +62798,14 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", disabled: _vm.isLoading },
                   on: {
                     click: function ($event) {
                       return _vm.inputReceipt()
                     },
                   },
                 },
-                [_vm._v("Simpan")]
+                [_vm._v("\n            Simpan\n          ")]
               ),
             ]),
           ]),

@@ -35,6 +35,10 @@ class PackageController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|min:0|integer'
+        ]);
         $package = Package::find($id);
         
         $package->name = $request->name;

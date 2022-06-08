@@ -114,6 +114,10 @@ class OrderController extends Controller
         $order = Order::find($id);
         $this->authorize('updateStatus', $order);
         
+        $request->validate([
+            'receipt' => 'required',
+        ]);
+        
         $order->receipt_number = $request->receipt;
         $order->save();
     }
@@ -121,6 +125,10 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $this->authorize('updateStatus', $order);
+        
+        $request->validate([
+            'price' => 'required',
+        ]);
         
         $order->price = $request->price;
         $order->save();
