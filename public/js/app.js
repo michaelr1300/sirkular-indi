@@ -62549,7 +62549,7 @@ var render = function () {
                         { staticClass: "font-weight-bold text-nowrap" },
                         [
                           _vm._v(
-                            "\n                  Bukti Transfer\n                "
+                            "\n                  Bukti Bayar\n                "
                           ),
                         ]
                       ),
@@ -63083,12 +63083,10 @@ var render = function () {
                 "data-bs-target": "#payment-proof-modal-" + _vm.order.id,
               },
             },
-            [_vm._v("\n      Klik untuk melihat bukti transfer\n    ")]
+            [_vm._v("\n      Klik untuk melihat bukti bayar\n    ")]
           ),
         ])
-      : _c("div", [
-          _vm._v("\n    Pembeli belum mengirimkan bukti transfer\n  "),
-        ]),
+      : _c("div", [_vm._v("\n    Pembeli belum mengirimkan bukti bayar\n  ")]),
     _vm._v(" "),
     _vm.order.payment_photo.length
       ? _c(

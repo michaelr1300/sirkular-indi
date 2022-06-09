@@ -167,7 +167,7 @@
                 </tr>
                 <tr style="height:2rem;">
                   <td class="font-weight-bold text-nowrap">
-                    Bukti Transfer
+                    Bukti Bayar
                   </td>
                   <td>
                     <div class="mx-2">

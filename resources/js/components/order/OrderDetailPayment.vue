@@ -7,11 +7,11 @@
         data-bs-toggle="modal" 
         :data-bs-target="'#payment-proof-modal-' + order.id"
       >
-        Klik untuk melihat bukti transfer
+        Klik untuk melihat bukti bayar
       </a>
     </div>
     <div v-else>
-      Pembeli belum mengirimkan bukti transfer
+      Pembeli belum mengirimkan bukti bayar
     </div>
     <div v-if="order.payment_photo.length" class="modal fade" :id="'payment-proof-modal-' + order.id" tabindex="-1" :aria-labelledby="'payment-proof-modal-' + order.id" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
