@@ -18,7 +18,7 @@
                 v-model="form.reviewer_name"
               />
             </div>
-            <div class="form-group mt-3" >
+            <div class="form-group required-field mt-3" >
               <label for="content">Review</label>
               <div v-show="isError" class="text-danger">
                 Isi review wajib diisi
@@ -28,7 +28,9 @@
                 name="content"
                 type="text-area" 
                 class="form-control"
-                v-model="form.content"
+                :class="{ 'is-invalid': isError }"
+                v-model="form.content" 
+                required
               ></textarea>
             </div>
             <div class="form-group mt-3">
@@ -110,8 +112,8 @@ export default {
       if (photo) {
         formData.append("photo", photo);
       }
-      formData.append("content", this.form.content);
-      formData.append("reviewer_name", this.form.reviewer_name);
+      formData.append("content", this.form.content ?? '');
+      formData.append("reviewer_name", this.form.reviewer_name ?? '');
       formData.append("_method", "put");
       try {
         let response = await axios.post(

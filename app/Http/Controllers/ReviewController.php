@@ -82,14 +82,4 @@ class ReviewController extends Controller
         $review->delete();
         $review->media()->delete();
     }
-    public function dashboard()
-    {
-        $this->authorize('dashboard', Review::class);
-        $reviews = Review::all();
-        foreach ($reviews as $review) {
-            $review->photo_path = PhotoResource::collection($review->media);
-        }
-
-        return view('dashboard.review')->with('reviews',$reviews);
-    }
 }

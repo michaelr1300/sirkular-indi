@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,12 +32,15 @@ Route::get('/catalog', [StaticPageController::class, 'catalog'])->name('catalog'
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function ()
 {
     Route::redirect('/', 'order');
-    Route::get('/order', [OrderController::class, 'dashboard'])->name('order');
-    Route::get('/product', [PackageController::class, 'dashboard'])->name('product');
+    Route::get('/order', [DashboardController::class, 'order'])->name('order');
+    Route::get('/product', [DashboardController::class, 'product'])->name('product');
     Route::post('/product', [PackageController::class, 'store'])->name('product.store');
     Route::put('/product/{product}', [PackageController::class, 'update'])->name('product.update');
-    Route::get('/review', [ReviewController::class, 'dashboard'])->name('review');
+    Route::get('/review', [DashboardController::class, 'review'])->name('review');
+    Route::get('/user', [DashboardController::class, 'user'])->name('user');
 });
+
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('review.index');
 Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
@@ -46,7 +51,7 @@ Route::prefix('reviews')->name('review.')->middleware('auth')->group(function ()
     Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('delete');
 });
 
-Route::get('/purchase_history', [ProfileController::class, 'purchaseHistory'])->name('purchase_history');
+Route::get('/purchase_history', [ProfileController::class, 'purchaseHistory'])->name('purchase_history')->middleware('auth');
 
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function ()
 {

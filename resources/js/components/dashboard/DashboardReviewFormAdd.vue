@@ -30,6 +30,7 @@
               <textarea 
                 id="content"
                 name="content"
+                required
                 type="text-area" 
                 class="form-control"
                 v-model="form.content"

@@ -15,7 +15,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group mt-3" >
+            <div class="form-group required-field" >
               <label for="price">Harga (Rp)</label>
               <input 
                 id="price"
@@ -25,12 +25,23 @@
                 step="1" 
                 required
                 class="form-control"
+                :class="{ 'is-invalid': hasErrors('price') }"
                 v-model="form.price"
               />
+              <div v-if="hasErrors('price')" class="invalid-feedback">
+                Harga wajib diisi
+              </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="inputPrice()">Simpan</button>
+            <button 
+              type="button" 
+              class="btn btn-primary" 
+              :disabled="isLoading" 
+              @click="inputPrice()"
+            >
+              Simpan
+            </button>
           </div>
         </div>
       </div>
@@ -47,6 +58,7 @@ export default {
   },
   methods: {
     async inputPrice() {
+      this.isLoading = true;
       try {
         let response = await axios.post(
           `/order/${this.order.id}/updatePrice`,
@@ -55,14 +67,26 @@ export default {
         return location.reload();
       } catch (error) {
         console.log(error.response);
+        this.errors = error.response.data.errors;
+      } finally {
+        this.isLoading = false;
       }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     },
   },
   data() {
     return {
+      isLoading: false,
       form: {
         price: null,
-      }
+      },
+      errors: {},
     }
   },
 };

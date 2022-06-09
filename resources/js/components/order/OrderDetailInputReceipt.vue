@@ -15,20 +15,31 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group mt-3" >
-              <label for="receipt">Review</label>
+            <div class="form-group required-field">
+              <label for="receipt">Nomor Resi - Ekspedisi</label>
               <input 
                 id="receipt"
                 name="receipt"
                 type="text" 
                 required
                 class="form-control"
+                :class="{ 'is-invalid': hasErrors('receipt') }"
                 v-model="form.receipt"
               />
+              <div v-if="hasErrors('receipt')" class="invalid-feedback">
+                Nomor Resi wajib diisi
+              </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" @click="inputReceipt()">Simpan</button>
+            <button 
+              type="button" 
+              class="btn btn-primary" 
+              :disabled="isLoading" 
+              @click="inputReceipt()"
+            >
+              Simpan
+            </button>
           </div>
         </div>
       </div>
@@ -45,6 +56,7 @@ export default {
   },
   methods: {
     async inputReceipt() {
+      this.isLoading = true;
       try {
         let response = await axios.post(
           `/order/${this.order.id}/updateReceipt`,
@@ -53,19 +65,27 @@ export default {
         return location.reload();
       } catch (error) {
         console.log(error.response);
+        this.errors = error.response.data.errors;
+      } finally {
+        this.isLoading = false;
       }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     },
   },
   data() {
     return {
+      isLoading: false,
       form: {
         receipt: null,
-      }
+      },
+      errors: {},
     }
   },
 };
 </script>
-
-<style>
-
-</style>

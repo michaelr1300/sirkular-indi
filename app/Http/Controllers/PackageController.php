@@ -26,22 +26,19 @@ class PackageController extends Controller
             'price' => 'required|min:0|integer'
         ]);
 
-        // $photo_path = '';
-        // if($request->file('image')) {
-        //     $photo_path = $request->file('image')->store('package-photos');
-        // }
-
         Package::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
         ]);
-
-        // return redirect()->action([PackageController::class, 'index']);
     }
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|min:0|integer'
+        ]);
         $package = Package::find($id);
         
         $package->name = $request->name;
@@ -49,13 +46,7 @@ class PackageController extends Controller
         $package->description = $request->description;
         $package->save();
     }
-
-    public function dashboard()
-    {
-        $this->authorize('dashboard', Package::class);
-        $packages = Package::all();
-        return view('dashboard.product')->with('packages',$packages);
-    }
+    
     public function getAllPackages()
     {
         $packages = Package::all();
