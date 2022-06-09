@@ -26460,10 +26460,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -26526,73 +26522,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    updateStatus: function updateStatus() {
+    uploadPayment: function uploadPayment() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var payment_photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return axios.post("/order/".concat(_this.order.id, "/updateStatus"));
-
-              case 3:
-                response = _context.sent;
-                return _context.abrupt("return", location.reload());
-
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
-                console.log(_context.t0.response);
-
-              case 10:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[0, 7]]);
-      }))();
-    },
-    uploadPayment: function uploadPayment() {
-      var _this2 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var payment_photo, formData, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                payment_photo = _this2.$refs.payment_photo.files[0];
+                payment_photo = _this.$refs.payment_photo.files[0];
                 formData = new FormData();
                 formData.append('payment_photo', payment_photo);
-                _context2.prev = 3;
-                _context2.next = 6;
-                return axios.post("/order/".concat(_this2.order.id, "/updatePayment"), formData, {
+                _context.prev = 3;
+                _context.next = 6;
+                return axios.post("/order/".concat(_this.order.id, "/updatePayment"), formData, {
                   headers: {
                     'Content-Type': 'multipart/form-data'
                   }
                 });
 
               case 6:
-                response = _context2.sent;
+                response = _context.sent;
                 alert('Bukti Transfer Terupload');
-                return _context2.abrupt("return", location.reload());
+                return _context.abrupt("return", location.reload());
 
               case 11:
-                _context2.prev = 11;
-                _context2.t0 = _context2["catch"](3);
+                _context.prev = 11;
+                _context.t0 = _context["catch"](3);
                 alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
-                console.log(_context2.t0.response);
+                console.log(_context.t0.response);
 
               case 15:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2, null, [[3, 11]]);
+        }, _callee, null, [[3, 11]]);
       }))();
     },
     getPackageName: function getPackageName(id) {
@@ -26854,6 +26820,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee, null, [[1, 8, 12, 15]]);
       }))();
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     }
   },
   data: function data() {
@@ -27524,6 +27497,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -27540,7 +27515,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       packages: [],
-      selectedOrder: {}
+      selectedOrder: {},
+      selectedOrderItem: {}
     };
   },
   mounted: function mounted() {
@@ -27595,7 +27571,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 response = _context2.sent;
                 photo = response.data;
-                _this2.selectedOrder = _objectSpread(_objectSpread({}, item), {}, {
+                _this2.selectedOrderItem = _objectSpread(_objectSpread({}, item), {}, {
                   photo: photo
                 });
                 _context2.next = 11;
@@ -27613,6 +27589,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2, null, [[0, 8]]);
       }))();
+    },
+    updateSelectedOrder: function updateSelectedOrder(item) {
+      this.selectedOrder = item;
     }
   }
 });
@@ -27661,6 +27640,123 @@ __webpack_require__.r(__webpack_exports__);
     selectedItem: {
       type: Object,
       "default": null
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListUpdateModal.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListUpdateModal.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    selectedItem: {
+      type: Object,
+      "default": null
+    }
+  },
+  data: function data() {
+    return {
+      isLoading: false
+    };
+  },
+  computed: {
+    nextStatus: function nextStatus() {
+      if (this.selectedItem.status == 'waiting') {
+        return 'diterima oleh tim INDI-Circular';
+      }
+
+      if (this.selectedItem.status == 'confirm') {
+        return 'diproses oleh tim INDI-Circular';
+      }
+
+      if (this.selectedItem.status == 'process') {
+        return 'selesai diproses dan dikirim kembali ke pembeli';
+      }
+    }
+  },
+  methods: {
+    updateStatus: function updateStatus() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.post("/order/".concat(_this.selectedItem.id, "/updateStatus"));
+
+              case 4:
+                response = _context.sent;
+                return _context.abrupt("return", location.reload());
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
+                console.log(_context.t0.response);
+
+              case 11:
+                _context.prev = 11;
+                _this.isLoading = false;
+                return _context.finish(11);
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 8, 11, 14]]);
+      }))();
     }
   }
 });
@@ -56853,6 +56949,45 @@ component.options.__file = "resources/js/components/order/OrderListImagePreviewM
 
 /***/ }),
 
+/***/ "./resources/js/components/order/OrderListUpdateModal.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/order/OrderListUpdateModal.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _OrderListUpdateModal_vue_vue_type_template_id_7b254d04___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderListUpdateModal.vue?vue&type=template&id=7b254d04& */ "./resources/js/components/order/OrderListUpdateModal.vue?vue&type=template&id=7b254d04&");
+/* harmony import */ var _OrderListUpdateModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderListUpdateModal.vue?vue&type=script&lang=js& */ "./resources/js/components/order/OrderListUpdateModal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OrderListUpdateModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OrderListUpdateModal_vue_vue_type_template_id_7b254d04___WEBPACK_IMPORTED_MODULE_0__.render,
+  _OrderListUpdateModal_vue_vue_type_template_id_7b254d04___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/order/OrderListUpdateModal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/order/OrderStatusBadge.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/order/OrderStatusBadge.vue ***!
@@ -57403,6 +57538,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListImagePreviewModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderListImagePreviewModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListImagePreviewModal.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListImagePreviewModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderListUpdateModal.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderListUpdateModal.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListUpdateModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderListUpdateModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListUpdateModal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListUpdateModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -58026,6 +58177,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListImagePreviewModal_vue_vue_type_template_id_d7a6fb40___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListImagePreviewModal_vue_vue_type_template_id_d7a6fb40___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderListImagePreviewModal.vue?vue&type=template&id=d7a6fb40& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListImagePreviewModal.vue?vue&type=template&id=d7a6fb40&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderListUpdateModal.vue?vue&type=template&id=7b254d04&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderListUpdateModal.vue?vue&type=template&id=7b254d04& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListUpdateModal_vue_vue_type_template_id_7b254d04___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListUpdateModal_vue_vue_type_template_id_7b254d04___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderListUpdateModal_vue_vue_type_template_id_7b254d04___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OrderListUpdateModal.vue?vue&type=template&id=7b254d04& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListUpdateModal.vue?vue&type=template&id=7b254d04&");
 
 
 /***/ }),
@@ -62255,9 +62423,13 @@ var render = function () {
                         "button",
                         {
                           staticClass: "btn btn-primary",
+                          attrs: {
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#update-order-modal",
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.updateStatus()
+                              return _vm.$emit("select-order", _vm.order)
                             },
                           },
                         },
@@ -62374,67 +62546,73 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("h3", { staticClass: "text-header mt-3 mb-2" }, [
+          _c("h4", { staticClass: "text-header mt-3 mb-2" }, [
             _vm._v("\n        Detail Pesanan\n      "),
           ]),
           _vm._v(" "),
-          _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(7),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              [
-                _vm._l(_vm.order.items, function (item, index) {
-                  return _c(
-                    "tr",
-                    { key: index, staticStyle: { height: "2rem" } },
-                    [
-                      _c("td", [
-                        _vm._v(_vm._s(_vm.getPackageName(item.package_id))),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(item.description))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-primary",
-                            attrs: {
-                              type: "button",
-                              "data-bs-toggle": "modal",
-                              "data-bs-target": "#preview-image-modal",
-                            },
-                            on: {
-                              click: function ($event) {
-                                return _vm.$emit("select-order", item)
+          _c(
+            "table",
+            {
+              staticClass: "table table-borderless table-responsive d-md-table",
+            },
+            [
+              _vm._m(7),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                [
+                  _vm._l(_vm.order.items, function (item, index) {
+                    return _c(
+                      "tr",
+                      { key: index, staticStyle: { height: "2rem" } },
+                      [
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.getPackageName(item.package_id))),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(item.description))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-outline-primary",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "modal",
+                                "data-bs-target": "#preview-image-modal",
+                              },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$emit("select-order-item", item)
+                                },
                               },
                             },
-                          },
-                          [
-                            _vm._v(
-                              "\n                Lihat Foto\n              "
-                            ),
-                          ]
-                        ),
-                      ]),
-                    ]
-                  )
-                }),
-                _vm._v(" "),
-                _vm.order.price
-                  ? _c("tr", [
-                      _vm._m(8),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "font-weight-bold" }, [
-                        _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
-                      ]),
-                    ])
-                  : _vm._e(),
-              ],
-              2
-            ),
-          ]),
+                            [
+                              _vm._v(
+                                "\n                Lihat Foto\n              "
+                              ),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _vm.order.price
+                    ? _c("tr", [
+                        _vm._m(8),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "font-weight-bold" }, [
+                          _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
+                        ]),
+                      ])
+                    : _vm._e(),
+                ],
+                2
+              ),
+            ]
+          ),
         ]),
       ]
     ),
@@ -62534,21 +62712,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", { staticStyle: { "font-size": "18px" } }, [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("\n              Layanan\n            "),
+    return _c(
+      "thead",
+      { staticStyle: { "border-bottom": "1px solid #c4c4c4" } },
+      [
+        _c("tr", [
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Layanan")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Keterangan")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Foto")]),
         ]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("\n              Keterangan\n            "),
-        ]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("\n              Foto\n            "),
-        ]),
-      ]),
-    ])
+      ]
+    )
   },
   function () {
     var _vm = this
@@ -62783,7 +62959,7 @@ var render = function () {
                   },
                 }),
                 _vm._v(" "),
-                _vm.hasErrors("price")
+                _vm.hasErrors("receipt")
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
                         "\n              Nomor Resi wajib diisi\n            "
@@ -63796,6 +63972,10 @@ var render = function () {
       "div",
       [
         _c("order-list-image-preview-modal", {
+          attrs: { selectedItem: _vm.selectedOrderItem },
+        }),
+        _vm._v(" "),
+        _c("order-list-update-modal", {
           attrs: { selectedItem: _vm.selectedOrder },
         }),
         _vm._v(" "),
@@ -63803,7 +63983,10 @@ var render = function () {
           return _c("order-detail", {
             key: item.id,
             attrs: { order: item, user: _vm.user, packages: _vm.packages },
-            on: { "select-order": _vm.updateSelectedItem },
+            on: {
+              "select-order": _vm.updateSelectedOrder,
+              "select-order-item": _vm.updateSelectedItem,
+            },
           })
         }),
       ],
@@ -63883,6 +64066,105 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListUpdateModal.vue?vue&type=template&id=7b254d04&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/order/OrderListUpdateModal.vue?vue&type=template&id=7b254d04& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "update-order-modal",
+          tabindex: "-1",
+          "aria-labelledby": "update-order-modal",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm._v(
+                "\n          Apakah Anda yakin akan update status pesanan menjadi "
+              ),
+              _c("b", [_vm._v(_vm._s(_vm.nextStatus))]),
+              _vm._v("?\n        "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary px-2",
+                  staticStyle: { "min-width": "60px" },
+                  attrs: { disabled: _vm.isLoading },
+                  on: {
+                    click: function ($event) {
+                      return _vm.updateStatus()
+                    },
+                  },
+                },
+                [_vm._v("\n            Ya\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-primary mx-2 shadow",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Tidak")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _vm._v("Konfirmasi Update Status Pesanan"),
+      ]),
+      _vm._v(" "),
       _c("button", {
         staticClass: "btn-close",
         attrs: {
@@ -76868,6 +77150,7 @@ var map = {
 	"./components/order/OrderForm.vue": "./resources/js/components/order/OrderForm.vue",
 	"./components/order/OrderList.vue": "./resources/js/components/order/OrderList.vue",
 	"./components/order/OrderListImagePreviewModal.vue": "./resources/js/components/order/OrderListImagePreviewModal.vue",
+	"./components/order/OrderListUpdateModal.vue": "./resources/js/components/order/OrderListUpdateModal.vue",
 	"./components/order/OrderStatusBadge.vue": "./resources/js/components/order/OrderStatusBadge.vue",
 	"./components/profile/Profile.vue": "./resources/js/components/profile/Profile.vue",
 	"./components/profile/PurchaseHistory.vue": "./resources/js/components/profile/PurchaseHistory.vue"

@@ -106,8 +106,10 @@
               />
               <button
                 v-if="order.price && order.status !== 'finish' && user.is_admin"
+                data-bs-toggle="modal" 
+                data-bs-target="#update-order-modal" 
                 class="btn btn-primary"
-                @click="updateStatus()"
+                @click="$emit('select-order', order);"
               >
                 {{ nextStatus }} Pesanan
               </button>
@@ -172,21 +174,15 @@
             </table>
           </div>
         </div>
-        <h3 class="text-header mt-3 mb-2">
+        <h4 class="text-header mt-3 mb-2">
           Detail Pesanan
-        </h3>
-        <table class="table table-striped">
-          <thead style="font-size: 18px">
-            <tr>
-              <th scope="col">
-                Layanan
-              </th>
-              <th scope="col">
-                Keterangan
-              </th>
-              <th scope="col">
-                Foto
-              </th>
+        </h4>
+        <table class="table table-borderless table-responsive d-md-table">
+          <thead style="border-bottom: 1px solid #c4c4c4;">
+             <tr>
+              <th scope="col">Layanan</th>
+              <th scope="col">Keterangan</th>
+              <th scope="col">Foto</th>
             </tr>
           </thead>
           <tbody>
@@ -199,7 +195,7 @@
               <td>{{ item.description }}</td>
               <td>
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
-                  @click="$emit('select-order', item);">
+                  @click="$emit('select-order-item', item);">
                   Lihat Foto
                 </button>
               </td>
@@ -215,7 +211,7 @@
                 <b>Rp {{ order.price }}</b>
               </td>
             </tr>
-          </tbody>
+          </tbody> 
         </table>
       </div>
     </div>
@@ -276,14 +272,6 @@ export default {
     },
   },
   methods: {
-    async updateStatus() {
-      try {
-        const response = await axios.post(`/order/${this.order.id}/updateStatus`);
-        return location.reload();
-      } catch (error) {
-        console.log(error.response);
-      }
-    },
     async uploadPayment() {
       const payment_photo = this.$refs.payment_photo.files[0];
       const formData = new FormData();

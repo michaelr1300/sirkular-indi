@@ -26,7 +26,7 @@
                 :class="{ 'is-invalid': hasErrors('receipt') }"
                 v-model="form.receipt"
               />
-              <div v-if="hasErrors('price')" class="invalid-feedback">
+              <div v-if="hasErrors('receipt')" class="invalid-feedback">
                 Nomor Resi wajib diisi
               </div>
             </div>
@@ -69,6 +69,13 @@ export default {
       } finally {
         this.isLoading = false;
       }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     },
   },
   data() {

@@ -14,7 +14,16 @@ use App\Mail\NewOrder;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
-{
+{    
+    public function create()
+    {
+        $user = Auth::user();
+        $order_options = Package::all();
+        return view('order.create')->with([
+            'order_options' => $order_options,
+            'user' => $user,
+        ]);
+    }
     public function store(Request $request)
     {
         $request->validate([

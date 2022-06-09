@@ -1,14 +1,16 @@
 <template>
   <div>
     <div>
-      <order-list-image-preview-modal :selectedItem="selectedOrder"/>
+      <order-list-image-preview-modal :selectedItem="selectedOrderItem"/>
+      <order-list-update-modal :selectedItem="selectedOrder"/>
       <order-detail 
         v-for="item in orders"
         :key="item.id"
         :order="item"
         :user="user"
         :packages="packages"
-        @select-order="updateSelectedItem"
+        @select-order="updateSelectedOrder"
+        @select-order-item="updateSelectedItem"
       />
     </div>
   </div>
@@ -30,7 +32,8 @@ export default {
   data() {
     return {
       packages: [],
-      selectedOrder: {}
+      selectedOrder: {},
+      selectedOrderItem: {}
     }
   },
   mounted () {
@@ -49,10 +52,13 @@ export default {
       try {
         let response = await axios.get('/api/getOrderImage/' + item.id);
         const photo = response.data;
-        this.selectedOrder = { ...item, photo: photo};
+        this.selectedOrderItem = { ...item, photo: photo};
       } catch (error) {
         console.log(error.response);
       } 
+    },
+    updateSelectedOrder(item) {
+      this.selectedOrder = item;
     }
   },
 };
