@@ -1,22 +1,19 @@
 <template>
   <div>
-    <button 
-      v-if="order.payment_photo.length"
-      type="button" 
-      class="btn btn-primary" 
-      data-bs-toggle="modal" 
-      :data-bs-target="'#payment-proof-modal-' + order.id"
-    >
-      Lihat Bukti Bayar
-    </button>
-    <button
-      v-else-if="order.price"
-      class="btn btn-primary me-3"
-      disabled
-    >
-      Lihat Bukti Bayar
-    </button>
-    <div class="modal fade" :id="'payment-proof-modal-' + order.id" tabindex="-1" :aria-labelledby="'payment-proof-modal-' + order.id" aria-hidden="true">
+    <div v-if="order.payment_photo.length">
+      <a 
+        type="button" 
+        class="text-underline"
+        data-bs-toggle="modal" 
+        :data-bs-target="'#payment-proof-modal-' + order.id"
+      >
+        Klik untuk melihat bukti transfer
+      </a>
+    </div>
+    <div v-else>
+      Pembeli belum mengirimkan bukti transfer
+    </div>
+    <div v-if="order.payment_photo.length" class="modal fade" :id="'payment-proof-modal-' + order.id" tabindex="-1" :aria-labelledby="'payment-proof-modal-' + order.id" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">

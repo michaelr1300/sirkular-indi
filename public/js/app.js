@@ -26460,6 +26460,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26853,9 +26865,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
 //
 //
 //
@@ -62397,11 +62406,6 @@ var render = function () {
                     "d-flex justify-content-between justify-content-md-end",
                 },
                 [
-                  _c("OrderDetailPayment", {
-                    staticClass: "me-3",
-                    attrs: { order: _vm.order },
-                  }),
-                  _vm._v(" "),
                   !_vm.order.price && _vm.user.is_admin
                     ? _c("OrderDetailInputPrice", {
                         attrs: { order: _vm.order },
@@ -62539,6 +62543,31 @@ var render = function () {
                       ]
                     ),
                     _vm._v(" "),
+                    _c("tr", { staticStyle: { height: "2rem" } }, [
+                      _c(
+                        "td",
+                        { staticClass: "font-weight-bold text-nowrap" },
+                        [
+                          _vm._v(
+                            "\n                  Bukti Transfer\n                "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          _c("OrderDetailPayment", {
+                            staticClass: "me-3",
+                            attrs: { order: _vm.order },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
                     _c("tr"),
                   ]),
                 ]),
@@ -62556,7 +62585,7 @@ var render = function () {
               staticClass: "table table-borderless table-responsive d-md-table",
             },
             [
-              _vm._m(7),
+              _vm._m(8),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -62601,7 +62630,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.order.price
                     ? _c("tr", [
-                        _vm._m(8),
+                        _vm._m(9),
                         _vm._v(" "),
                         _c("td", { staticClass: "font-weight-bold" }, [
                           _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
@@ -62676,6 +62705,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", [
       _c("div", { staticClass: "mx-2" }, [_c("b", [_vm._v(":")])]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("div", { staticClass: "mx-2" }, [
+        _vm._v("\n                    :\n                  "),
+      ]),
     ])
   },
   function () {
@@ -63033,56 +63072,56 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.order.payment_photo.length
+      ? _c("div", [
+          _c(
+            "a",
+            {
+              staticClass: "text-underline",
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "modal",
+                "data-bs-target": "#payment-proof-modal-" + _vm.order.id,
+              },
+            },
+            [_vm._v("\n      Klik untuk melihat bukti transfer\n    ")]
+          ),
+        ])
+      : _c("div", [
+          _vm._v("\n    Pembeli belum mengirimkan bukti transfer\n  "),
+        ]),
+    _vm._v(" "),
+    _vm.order.payment_photo.length
       ? _c(
-          "button",
+          "div",
           {
-            staticClass: "btn btn-primary",
+            staticClass: "modal fade",
             attrs: {
-              type: "button",
-              "data-bs-toggle": "modal",
-              "data-bs-target": "#payment-proof-modal-" + _vm.order.id,
+              id: "payment-proof-modal-" + _vm.order.id,
+              tabindex: "-1",
+              "aria-labelledby": "payment-proof-modal-" + _vm.order.id,
+              "aria-hidden": "true",
             },
           },
-          [_vm._v("\n    Lihat Bukti Bayar\n  ")]
-        )
-      : _vm.order.price
-      ? _c(
-          "button",
-          { staticClass: "btn btn-primary me-3", attrs: { disabled: "" } },
-          [_vm._v("\n    Lihat Bukti Bayar\n  ")]
+          [
+            _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("img", {
+                    staticClass: "img img-fluid",
+                    staticStyle: { "max-width": "100%" },
+                    attrs: {
+                      src: _vm.order.payment_photo[0].url,
+                      alt: "payment-proof",
+                    },
+                  }),
+                ]),
+              ]),
+            ]),
+          ]
         )
       : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "payment-proof-modal-" + _vm.order.id,
-          tabindex: "-1",
-          "aria-labelledby": "payment-proof-modal-" + _vm.order.id,
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("img", {
-                staticClass: "img img-fluid",
-                staticStyle: { "max-width": "100%" },
-                attrs: {
-                  src: _vm.order.payment_photo[0].url,
-                  alt: "payment-proof",
-                },
-              }),
-            ]),
-          ]),
-        ]),
-      ]
-    ),
   ])
 }
 var staticRenderFns = [

@@ -92,10 +92,6 @@
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
             <div class="d-flex justify-content-between justify-content-md-end">
-              <OrderDetailPayment
-                :order="order"
-                class="me-3"
-              />
               <OrderDetailInputPrice 
                 v-if="!order.price && user.is_admin" 
                 :order="order"
@@ -168,6 +164,22 @@
                     </div>
                   </td>
                   <td style="vertical-align: text-top;" class="w-100 text-area">{{ order.buyer_address }}</td>
+                </tr>
+                <tr style="height:2rem;">
+                  <td class="font-weight-bold text-nowrap">
+                    Bukti Transfer
+                  </td>
+                  <td>
+                    <div class="mx-2">
+                      :
+                    </div>
+                  </td>
+                  <td>      
+                    <OrderDetailPayment
+                      :order="order"
+                      class="me-3"
+                    />
+                  </td>
                 </tr>
                 <tr />
               </tbody>
