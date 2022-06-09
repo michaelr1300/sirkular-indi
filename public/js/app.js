@@ -62341,7 +62341,9 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "accordion-body px-2 px-md-3" }, [
-          !_vm.order.payment_photo.length && _vm.order.price
+          !_vm.order.payment_photo.length &&
+          _vm.order.price &&
+          _vm.order.user_id == _vm.user.id
             ? _c("div", { staticClass: "mb-3 text-center" }, [
                 _c("div", [
                   _vm._v(

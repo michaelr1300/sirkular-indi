@@ -28,7 +28,7 @@
     >
       <div class="accordion-body px-2 px-md-3">
         <div
-          v-if="!order.payment_photo.length && order.price"
+          v-if="!order.payment_photo.length && order.price && order.user_id == user.id"
           class="mb-3 text-center"
         >
           <div>
