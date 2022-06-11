@@ -26472,6 +26472,67 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26501,10 +26562,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      isEditPrice: false,
+      isLoading: false,
       form: {
         receipt: null,
-        price: null
+        deliveryFee: this.order.delivery_fee,
+        itemPrice: this.order.items.map(function (item) {
+          var _item$price;
+
+          return (_item$price = item.price) !== null && _item$price !== void 0 ? _item$price : 0;
+        })
       },
+      priceError: [],
       selectedOrder: {}
     };
   },
@@ -26526,9 +26595,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(this.order.created_at), 'dd MMM yyyy');
     },
     totalPrice: function totalPrice() {
-      var totalPrice = 0;
+      var totalPrice = this.order.delivery_fee;
       this.order.items.forEach(function (item) {
-        return totalPrice += item.price * item.quantity;
+        return totalPrice += item.price;
       });
       return totalPrice;
     }
@@ -26572,6 +26641,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee, null, [[3, 11]]);
       }))();
+    },
+    updatePrice: function updatePrice() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.isLoading = true;
+
+                _this2.form.itemPrice.forEach(function (item, index) {
+                  if (item == null || item < 0) {
+                    _this2.priceError[index] = true;
+                  }
+                });
+
+                _context2.prev = 2;
+                _context2.next = 5;
+                return axios.post("/order/".concat(_this2.order.id, "/updatePrice"), _this2.form);
+
+              case 5:
+                response = _context2.sent;
+                return _context2.abrupt("return", location.reload());
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](2);
+                console.log(_context2.t0.response);
+                _this2.errors = _context2.t0.response.data.errors;
+
+              case 13:
+                _context2.prev = 13;
+                _this2.isLoading = false;
+                return _context2.finish(13);
+
+              case 16:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[2, 9, 13, 16]]);
+      }))();
+    },
+    resetEdit: function resetEdit() {
+      this.isEditPrice = false;
+      this.form.itemPrice = this.order.items.map(function (item) {
+        var _item$price2;
+
+        return (_item$price2 = item.price) !== null && _item$price2 !== void 0 ? _item$price2 : 0;
+      });
     },
     getPackageName: function getPackageName(id) {
       var _result$;
@@ -62577,14 +62698,82 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-header mt-3 mb-2" }, [
-            _vm._v("\n        Detail Pesanan\n      "),
-          ]),
+          _c(
+            "div",
+            { staticClass: "d-flex justify-content-between mt-3 mb-2" },
+            [
+              _c("h4", { staticClass: "text-header my-auto" }, [
+                _vm._v("\n          Detail Pesanan\n        "),
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.isEditPrice,
+                        expression: "!isEditPrice",
+                      },
+                    ],
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function ($event) {
+                        _vm.isEditPrice = true
+                      },
+                    },
+                  },
+                  [_vm._v("\n            Ubah Harga\n          ")]
+                ),
+                _vm._v(" "),
+                _vm.isEditPrice
+                  ? _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.updatePrice()
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(_vm.isLoading ? "Menyimpan" : "Simpan") +
+                              "\n            "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-primary",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetEdit()
+                            },
+                          },
+                        },
+                        [_vm._v("\n              Batal\n            ")]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+            ]
+          ),
           _vm._v(" "),
           _c(
             "table",
             {
               staticClass: "table table-borderless table-responsive d-md-table",
+              staticStyle: { "table-layout": "fixed" },
             },
             [
               _vm._m(8),
@@ -62626,16 +62815,90 @@ var render = function () {
                             ]
                           ),
                         ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          !_vm.isEditPrice
+                            ? _c("span", [
+                                _vm._v(
+                                  "\n                Rp " +
+                                    _vm._s(item.price) +
+                                    "\n              "
+                                ),
+                              ])
+                            : _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.itemPrice[index],
+                                    expression: "form.itemPrice[index]",
+                                  },
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number", min: "0" },
+                                domProps: { value: _vm.form.itemPrice[index] },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form.itemPrice,
+                                      index,
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                        ]),
                       ]
                     )
                   }),
                   _vm._v(" "),
-                  _vm.order.price
+                  _c("tr", [
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _c("td", [
+                      !_vm.isEditPrice
+                        ? _c("span", [
+                            _c("b", [
+                              _vm._v("Rp " + _vm._s(_vm.order.delivery_fee)),
+                            ]),
+                          ])
+                        : _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.deliveryFee,
+                                expression: "form.deliveryFee",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "number", min: "0" },
+                            domProps: { value: _vm.form.deliveryFee },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "deliveryFee",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _vm.totalPrice
                     ? _c("tr", [
-                        _vm._m(9),
+                        _vm._m(10),
                         _vm._v(" "),
                         _c("td", { staticClass: "font-weight-bold" }, [
-                          _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
+                          _c("b", [_vm._v("Rp " + _vm._s(_vm.totalPrice))]),
                         ]),
                       ])
                     : _vm._e(),
@@ -62763,6 +63026,8 @@ var staticRenderFns = [
           _c("th", { attrs: { scope: "col" } }, [_vm._v("Keterangan")]),
           _vm._v(" "),
           _c("th", { attrs: { scope: "col" } }, [_vm._v("Foto")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Harga")]),
         ]),
       ]
     )
@@ -62773,7 +63038,21 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "td",
-      { staticClass: "text-end font-weight-bold", attrs: { colspan: "2" } },
+      {
+        staticClass: "text-end font-weight-bold",
+        staticStyle: { "vertical-align": "middle" },
+        attrs: { colspan: "3" },
+      },
+      [_c("b", [_vm._v("Ongkos kirim")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "td",
+      { staticClass: "text-end font-weight-bold", attrs: { colspan: "3" } },
       [_c("b", [_vm._v("Total")])]
     )
   },

@@ -186,15 +186,43 @@
             </table>
           </div>
         </div>
-        <h4 class="text-header mt-3 mb-2">
-          Detail Pesanan
-        </h4>
-        <table class="table table-borderless table-responsive d-md-table">
+        <div class="d-flex justify-content-between mt-3 mb-2">
+          <h4 class="text-header my-auto">
+            Detail Pesanan
+          </h4>
+          <div>
+            <button
+              v-show="!isEditPrice"
+              class="btn btn-primary"
+              @click="isEditPrice = true"
+            >
+              Ubah Harga
+            </button>
+            <div v-if="isEditPrice">
+              <button
+                class="btn btn-success"
+                @click="updatePrice()"
+                :disabled="isLoading"
+              >
+                {{ isLoading ? 'Menyimpan' : 'Simpan' }}
+              </button> 
+              <button
+                class="btn btn-outline-primary"
+                @click="resetEdit()"
+                :disabled="isLoading"
+              >
+                Batal
+              </button>
+            </div>
+          </div>
+        </div>
+        <table style="table-layout: fixed;" class="table table-borderless table-responsive d-md-table">
           <thead style="border-bottom: 1px solid #c4c4c4;">
              <tr>
               <th scope="col">Layanan</th>
               <th scope="col">Keterangan</th>
               <th scope="col">Foto</th>
+              <th scope="col">Harga</th>
             </tr>
           </thead>
           <tbody>
@@ -211,16 +239,49 @@
                   Lihat Foto
                 </button>
               </td>
+              <td>
+                <span v-if="!isEditPrice">
+                  Rp {{ item.price }}
+                </span>
+                <input
+                  v-else
+                  type="number"
+                  min="0"
+                  class="form-control"
+                  v-model="form.itemPrice[index]"
+                />
+              </td>
             </tr>
-            <tr v-if="order.price">
+            <tr>
               <td
-                colspan="2"
+                colspan="3"
+                class="text-end font-weight-bold"
+                style="vertical-align: middle;"
+              >
+                <b>Ongkos kirim</b>
+              </td>
+              <td>
+                <span v-if="!isEditPrice">
+                  <b>Rp {{ order.delivery_fee }}</b>
+                </span>
+                <input
+                  v-else
+                  type="number"
+                  min="0"
+                  class="form-control"
+                  v-model="form.deliveryFee"
+                />
+              </td>
+            </tr>
+            <tr v-if="totalPrice">
+              <td
+                colspan="3"
                 class="text-end font-weight-bold"
               >
                 <b>Total</b>
               </td>
               <td class="font-weight-bold">
-                <b>Rp {{ order.price }}</b>
+                <b>Rp {{ totalPrice }}</b>
               </td>
             </tr>
           </tbody> 
@@ -255,10 +316,14 @@ export default {
   },
   data() {
     return {
+      isEditPrice: false,
+      isLoading: false,
       form: {
         receipt: null,
-        price: null,
+        deliveryFee: this.order.delivery_fee,
+        itemPrice: this.order.items.map((item) => item.price ?? 0),
       },
+      priceError : [],
       selectedOrder: {},
     }
   },
@@ -278,8 +343,8 @@ export default {
       return format(new Date(this.order.created_at), 'dd MMM yyyy')
     },
     totalPrice() {
-      let totalPrice = 0;
-      this.order.items.forEach((item) => totalPrice += item.price * item.quantity);
+      let totalPrice = this.order.delivery_fee;
+      this.order.items.forEach((item) => totalPrice += item.price);
       return totalPrice;
     },
   },
@@ -304,6 +369,32 @@ export default {
         alert('Gagal Upload Bukti Transfer! Pastikan file yang dipilih adalah file gambar!');
         console.log(error.response);
       }
+    },
+    async updatePrice() {
+      this.isLoading = true;
+      this.form.itemPrice.forEach(
+        (item, index) => {
+          if(item == null || item < 0) {
+            this.priceError[index] = true
+          }
+        }
+      )
+      try {
+        let response = await axios.post(
+          `/order/${this.order.id}/updatePrice`,
+          this.form,
+        );
+        return location.reload();
+      } catch (error) {
+        console.log(error.response);
+        this.errors = error.response.data.errors;
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    resetEdit() {
+      this.isEditPrice = false;
+      this.form.itemPrice = this.order.items.map((item) => item.price ?? 0);
     },
     getPackageName(id) {
       const result = this.packages.filter((item) => item.id == id);

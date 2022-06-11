@@ -135,12 +135,16 @@ class OrderController extends Controller
         $order = Order::find($id);
         $this->authorize('updateStatus', $order);
         
-        $request->validate([
-            'price' => 'required',
-        ]);
-        
-        $order->price = $request->price;
+        $order->delivery_fee = $request->deliveryFee;
         $order->save();
+        
+        $order->detail = OrderDetail::where('order_id', $id)->get();
+
+        for ($index=0; $index < count($request->itemPrice); $index++) { 
+            $item = $order->detail[$index];
+            $item->price = $request->itemPrice[$index];
+            $item->save();
+        }
     }
 
     public function updateStatus($id)
