@@ -25299,6 +25299,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedProduct: {
@@ -25312,7 +25327,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form: {
         id: null,
         name: null,
-        price: null,
+        min_price: null,
+        max_price: null,
         description: null
       },
       errors: {}
@@ -26542,10 +26558,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -27389,29 +27401,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return '';
     });
   },
-  computed: {
-    totalItem: function totalItem() {
-      return this.form.quantity.reduce(function (sum, n) {
-        return sum + parseInt(n);
-      }, 0);
-    },
-    totalPrice: function totalPrice() {
-      var _this = this;
-
-      var totalPrice = 0;
-      var price = this.form.package_id.map(function (id) {
-        var _this$packageList$fil;
-
-        return (_this$packageList$fil = _this.packageList.filter(function (item) {
-          return item.id == id;
-        })[0].price) !== null && _this$packageList$fil !== void 0 ? _this$packageList$fil : 0;
-      });
-      this.form.quantity.forEach(function (qty, index) {
-        return totalPrice += qty * price[index];
-      });
-      return totalPrice;
-    }
-  },
   data: function data() {
     return {
       isLoading: false,
@@ -27441,7 +27430,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     createOrder: function createOrder() {
-      var _this2 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var invalidItems, photoArr, photos, formData, index, response;
@@ -27449,17 +27438,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this2.isLoading = true; // Validation
+                _this.isLoading = true; // Validation
 
-                _this2.orderItems.forEach(function (item, index) {
+                _this.orderItems.forEach(function (item, index) {
                   if (item.package_id == null || item.file_name == null) {
-                    _this2.orderItems[index].is_error = true;
+                    _this.orderItems[index].is_error = true;
                   } else {
-                    _this2.orderItems[index].is_error = false;
+                    _this.orderItems[index].is_error = false;
                   }
                 });
 
-                invalidItems = _this2.orderItems.filter(function (item) {
+                invalidItems = _this.orderItems.filter(function (item) {
                   return item.is_error == true;
                 });
 
@@ -27468,20 +27457,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                _this2.isLoading = false;
+                _this.isLoading = false;
                 return _context.abrupt("return");
 
               case 6:
-                photoArr = _this2.$refs.photo;
+                photoArr = _this.$refs.photo;
                 photos = photoArr.map(function (item) {
                   return item.files[0];
                 });
                 formData = new FormData();
-                formData.append("name", _this2.form.name);
-                formData.append("phone_number", _this2.form.phone_number);
-                formData.append("address", _this2.form.address);
-                formData.append("save_data", _this2.form.save_data);
-                formData.append("order_item", JSON.stringify(_this2.orderItems));
+                formData.append("name", _this.form.name);
+                formData.append("phone_number", _this.form.phone_number);
+                formData.append("address", _this.form.address);
+                formData.append("save_data", _this.form.save_data);
+                formData.append("order_item", JSON.stringify(_this.orderItems));
 
                 for (index = 0; index < photos.length; index++) {
                   formData.append("photo_" + index, photos[index]);
@@ -27498,7 +27487,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 18:
                 response = _context.sent;
 
-                _this2.nextPageFinish();
+                _this.nextPageFinish();
 
                 _context.next = 25;
                 break;
@@ -27510,7 +27499,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 25:
                 _context.prev = 25;
-                _this2.isLoading = false;
+                _this.isLoading = false;
                 return _context.finish(25);
 
               case 28:
@@ -27522,13 +27511,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getFileName: function getFileName(event, index) {
-      var _this3 = this;
+      var _this2 = this;
 
       var fileData = event.target.files[0];
       this.orderItems[index].file_name = fileData.name;
       this.addItem();
       setTimeout(function () {
-        _this3.removeItem(_this3.orderItems.length - 1);
+        _this2.removeItem(_this2.orderItems.length - 1);
       }, 1);
     },
     nextPageOrder: function nextPageOrder() {
@@ -27579,7 +27568,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.orderItems.splice(index, 1);
     },
     uploadPayment: function uploadPayment() {
-      var _this4 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var payment_photo, formData, response;
@@ -27587,12 +27576,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                payment_photo = _this4.$refs.payment_photo.files[0];
+                payment_photo = _this3.$refs.payment_photo.files[0];
                 formData = new FormData();
                 formData.append("payment_photo", payment_photo);
                 _context2.prev = 3;
                 _context2.next = 6;
-                return axios.post("/order/".concat(_this4.orderId, "/updatePayment"), formData, {
+                return axios.post("/order/".concat(_this3.orderId, "/updatePayment"), formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
@@ -58710,8 +58699,10 @@ var render = function () {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Mulai dari Rp " +
-                                    _vm._s(item.price) +
+                                  "\n                    Harga Rp " +
+                                    _vm._s(item.min_price) +
+                                    " - " +
+                                    _vm._s(item.max_price) +
                                     " per helai\n                  "
                                 ),
                               ]
@@ -60796,7 +60787,12 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "package-price mb-3" }, [
-                      _vm._v("Rp " + _vm._s(item.price)),
+                      _vm._v(
+                        "Rp " +
+                          _vm._s(item.min_price) +
+                          " - " +
+                          _vm._s(item.max_price)
+                      ),
                     ]),
                   ]),
                   _vm._v(" "),
@@ -61133,7 +61129,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "form-group required-field mt-3" }, [
                 _c("label", { attrs: { for: "price" } }, [
-                  _vm._v("Harga Layanan (per helai)"),
+                  _vm._v("Harga Minimal"),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -61141,33 +61137,75 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.price,
-                      expression: "form.price",
+                      value: _vm.form.min_price,
+                      expression: "form.min_price",
                     },
                   ],
                   staticClass: "form-control",
-                  class: { "is-invalid": _vm.hasErrors("price") },
+                  class: { "is-invalid": _vm.hasErrors("min_price") },
                   attrs: {
-                    id: "price",
-                    name: "price",
+                    id: "min-price",
+                    name: "min-price",
                     type: "number",
                     min: "0",
                   },
-                  domProps: { value: _vm.form.price },
+                  domProps: { value: _vm.form.min_price },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "price", $event.target.value)
+                      _vm.$set(_vm.form, "min_price", $event.target.value)
                     },
                   },
                 }),
                 _vm._v(" "),
-                _vm.hasErrors("price")
+                _vm.hasErrors("min_price")
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
-                        "\n              Harga wajib diisi dengan nilai minimal 0\n            "
+                        "\n              Harga minimal tidak valid\n            "
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
+                _c("label", { attrs: { for: "price" } }, [
+                  _vm._v("Harga Maksimal"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.max_price,
+                      expression: "form.max_price",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("max_price") },
+                  attrs: {
+                    id: "max-price",
+                    name: "max-price",
+                    type: "number",
+                    min: "0",
+                  },
+                  domProps: { value: _vm.form.max_price },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "max_price", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.hasErrors("max_price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Harga maksimal tidak valid\n            "
                       ),
                     ])
                   : _vm._e(),
@@ -62482,9 +62520,9 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _vm.order.price
+          _vm.totalPrice
             ? _c("div", { staticClass: "col-3" }, [
-                _vm._v("\n        Rp " + _vm._s(_vm.order.price) + "\n      "),
+                _vm._v("\n        Rp " + _vm._s(_vm.totalPrice) + "\n      "),
               ])
             : _vm._e(),
         ]
@@ -62549,7 +62587,7 @@ var render = function () {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.order.price && _vm.order.status == "waiting"
+          _vm.totalPrice && _vm.order.status == "waiting"
             ? _c("div", { staticClass: "mb-3 text-center" }, [
                 _vm._m(1),
                 _vm._v(" "),

@@ -37,12 +37,14 @@ class PackageController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'price' => 'required|min:0|integer'
+            'min_price' => 'required|min:0|integer',
+            'max_price' => 'required|min:0|integer'
         ]);
         $package = Package::find($id);
         
         $package->name = $request->name;
-        $package->price = $request->price;
+        $package->min_price = $request->min_price;
+        $package->max_price = $request->max_price;
         $package->description = $request->description;
         $package->save();
     }

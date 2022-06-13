@@ -17,8 +17,8 @@
         <div class="col-4">
           <order-status-badge :status="order.status" />
         </div>
-        <div v-if="order.price" class="col-3">
-          Rp {{ order.price }}
+        <div v-if="totalPrice" class="col-3">
+          Rp {{ totalPrice }}
         </div>
       </button>
     </h2>
@@ -70,7 +70,7 @@
           <hr>
         </div>
         <div
-          v-if="order.price && order.status == 'waiting'"
+          v-if="totalPrice && order.status == 'waiting'"
           class="mb-3 text-center"
         >
           <div>
@@ -92,10 +92,6 @@
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
             <div class="d-flex justify-content-end">
-              <!-- <OrderDetailInputPrice 
-                v-if="!order.price && user.is_admin" 
-                :order="order"
-              /> -->
               <OrderDetailInputReceipt
                 v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
                 :order="order"

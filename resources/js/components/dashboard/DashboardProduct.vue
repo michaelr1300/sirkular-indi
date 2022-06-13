@@ -19,7 +19,7 @@
                   <span class="mdi mdi-pencil"></span>
                 </button>
               </div>
-              <div class="package-price mb-3">Rp {{ item.price }}</div>
+              <div class="package-price mb-3">Rp {{ item.min_price }} - {{ item.max_price }}</div>
             </div>
             <p class="text-area">{{ item.description }}</p>
           </div>

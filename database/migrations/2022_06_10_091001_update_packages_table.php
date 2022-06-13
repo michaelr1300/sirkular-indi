@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::table('packages', function (Blueprint $table) {
             $table->string('type')->default('service');
+            $table->integer('min_price')->nullable();
+            $table->integer('max_price')->nullable();
         });
     }
 
@@ -27,6 +29,8 @@ return new class extends Migration
     {
         Schema::table('packages', function (Blueprint $table) {
             $table->dropColumn('type');
+            $table->dropColumn('min_price');
+            $table->dropColumn('max_price');
         });
     }
 };
