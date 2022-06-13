@@ -62982,15 +62982,15 @@ var staticRenderFns = [
     return _c("div", { staticClass: "my-1" }, [
       _c("div", { staticClass: "img img-fluid" }, [
         _c("img", {
-          staticClass: "img-bca",
-          attrs: { src: "/images/bca.png", alt: "bca account" },
+          staticClass: "img-mandiri",
+          attrs: { src: "/images/mandiri.png", alt: "mandiri logo" },
         }),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mt-2" }, [
-        _c("div", [_c("b", [_vm._v("103 949 4950")])]),
+        _c("div", [_c("b", [_vm._v("137.000.988.140.6")])]),
         _vm._v(" "),
-        _c("div", [_vm._v("an. PT. indigo Indonesia")]),
+        _c("div", [_vm._v("an. Edia Rahayuningsih")]),
       ]),
     ])
   },

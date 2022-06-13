@@ -40,14 +40,14 @@
           <div class="my-1">
             <div class="img img-fluid">
               <img
-                class="img-bca"
-                src="/images/bca.png"
-                alt="bca account"
+                class="img-mandiri"
+                src="/images/mandiri.png"
+                alt="mandiri logo"
               >
             </div>
             <div class="mt-2">
-              <div><b>103 949 4950</b></div>
-              <div>an. PT. indigo Indonesia</div>
+              <div><b>137.000.988.140.6</b></div>
+              <div>an. Edia Rahayuningsih</div>
             </div>
           </div>
           <div class="d-flex mt-2">
