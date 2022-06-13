@@ -26533,6 +26533,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26566,7 +26579,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isLoading: false,
       form: {
         receipt: null,
-        deliveryFee: this.order.delivery_fee,
+        delivery_fee: this.order.delivery_fee,
         itemPrice: this.order.items.map(function (item) {
           var _item$price;
 
@@ -26574,6 +26587,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         })
       },
       priceError: [],
+      errors: {},
       selectedOrder: {}
     };
   },
@@ -26646,7 +26660,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var response;
+        var invalidItems, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -26654,40 +26668,56 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this2.isLoading = true;
 
                 _this2.form.itemPrice.forEach(function (item, index) {
-                  if (item == null || item < 0) {
+                  if (item == '' || item < 0) {
                     _this2.priceError[index] = true;
+                  } else {
+                    _this2.priceError[index] = false;
                   }
                 });
 
-                _context2.prev = 2;
-                _context2.next = 5;
+                invalidItems = _this2.priceError.filter(function (item) {
+                  return item == true;
+                });
+
+                if (!(invalidItems.length > 0)) {
+                  _context2.next = 6;
+                  break;
+                }
+
+                _this2.isLoading = false;
+                return _context2.abrupt("return");
+
+              case 6:
+                _context2.prev = 6;
+                _context2.next = 9;
                 return axios.post("/order/".concat(_this2.order.id, "/updatePrice"), _this2.form);
 
-              case 5:
+              case 9:
                 response = _context2.sent;
                 return _context2.abrupt("return", location.reload());
 
-              case 9:
-                _context2.prev = 9;
-                _context2.t0 = _context2["catch"](2);
+              case 13:
+                _context2.prev = 13;
+                _context2.t0 = _context2["catch"](6);
                 console.log(_context2.t0.response);
                 _this2.errors = _context2.t0.response.data.errors;
 
-              case 13:
-                _context2.prev = 13;
+              case 17:
+                _context2.prev = 17;
                 _this2.isLoading = false;
-                return _context2.finish(13);
+                return _context2.finish(17);
 
-              case 16:
+              case 20:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[2, 9, 13, 16]]);
+        }, _callee2, null, [[6, 13, 17, 20]]);
       }))();
     },
     resetEdit: function resetEdit() {
       this.isEditPrice = false;
+      this.form.delivery_fee = this.order.delivery_fee;
       this.form.itemPrice = this.order.items.map(function (item) {
         var _item$price2;
 
@@ -26701,6 +26731,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return item.id == id;
       });
       return ((_result$ = result[0]) === null || _result$ === void 0 ? void 0 : _result$.name) || '';
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     }
   }
 });
@@ -62524,17 +62561,8 @@ var render = function () {
             _c("div", { staticClass: "col-12 col-md-6" }, [
               _c(
                 "div",
-                {
-                  staticClass:
-                    "d-flex justify-content-between justify-content-md-end",
-                },
+                { staticClass: "d-flex justify-content-end" },
                 [
-                  !_vm.order.price && _vm.user.is_admin
-                    ? _c("OrderDetailInputPrice", {
-                        attrs: { order: _vm.order },
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
                   _vm.order.status == "finish" &&
                   _vm.user.is_admin &&
                   !_vm.order.receipt_number
@@ -62733,7 +62761,7 @@ var render = function () {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-success",
+                          staticClass: "btn btn-success me-2",
                           attrs: { disabled: _vm.isLoading },
                           on: {
                             click: function ($event) {
@@ -62835,21 +62863,35 @@ var render = function () {
                                   },
                                 ],
                                 staticClass: "form-control",
+                                class: { "is-invalid": _vm.priceError[index] },
                                 attrs: { type: "number", min: "0" },
                                 domProps: { value: _vm.form.itemPrice[index] },
                                 on: {
-                                  input: function ($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form.itemPrice,
-                                      index,
-                                      $event.target.value
-                                    )
-                                  },
+                                  input: [
+                                    function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.form.itemPrice,
+                                        index,
+                                        $event.target.value
+                                      )
+                                    },
+                                    function ($event) {
+                                      _vm.priceError[index] = false
+                                    },
+                                  ],
                                 },
                               }),
+                          _vm._v(" "),
+                          _vm.priceError[index]
+                            ? _c("div", { staticClass: "text-danger" }, [
+                                _vm._v(
+                                  "\n                Harga tidak valid!\n              "
+                                ),
+                              ])
+                            : _vm._e(),
                         ]),
                       ]
                     )
@@ -62870,28 +62912,48 @@ var render = function () {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.form.deliveryFee,
-                                expression: "form.deliveryFee",
+                                value: _vm.form.delivery_fee,
+                                expression: "form.delivery_fee",
                               },
                             ],
                             staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.hasErrors("delivery_fee"),
+                            },
                             attrs: { type: "number", min: "0" },
-                            domProps: { value: _vm.form.deliveryFee },
+                            domProps: { value: _vm.form.delivery_fee },
                             on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "deliveryFee",
-                                  $event.target.value
-                                )
-                              },
+                              input: [
+                                function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "delivery_fee",
+                                    $event.target.value
+                                  )
+                                },
+                                function ($event) {
+                                  _vm.errors["delivery_fee"] = ""
+                                },
+                              ],
                             },
                           }),
                     ]),
                   ]),
+                  _vm._v(" "),
+                  _vm.hasErrors("delivery_fee")
+                    ? _c("tr", [
+                        _c("td", { attrs: { colspan: "3" } }),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-danger pt-0" }, [
+                          _vm._v(
+                            "\n              Ongkos kirim tidak valid!\n            "
+                          ),
+                        ]),
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm.totalPrice
                     ? _c("tr", [

@@ -134,8 +134,12 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $this->authorize('updateStatus', $order);
+
+        $request->validate([
+            'delivery_fee' => 'required',
+        ]);
         
-        $order->delivery_fee = $request->deliveryFee;
+        $order->delivery_fee = $request->delivery_fee;
         $order->save();
         
         $order->detail = OrderDetail::where('order_id', $id)->get();

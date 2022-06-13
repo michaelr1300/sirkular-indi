@@ -91,11 +91,11 @@
         </div>
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
-            <div class="d-flex justify-content-between justify-content-md-end">
-              <OrderDetailInputPrice 
+            <div class="d-flex justify-content-end">
+              <!-- <OrderDetailInputPrice 
                 v-if="!order.price && user.is_admin" 
                 :order="order"
-              />
+              /> -->
               <OrderDetailInputReceipt
                 v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
                 :order="order"
@@ -200,7 +200,7 @@
             </button>
             <div v-if="isEditPrice">
               <button
-                class="btn btn-success"
+                class="btn btn-success me-2"
                 @click="updatePrice()"
                 :disabled="isLoading"
               >
@@ -248,8 +248,13 @@
                   type="number"
                   min="0"
                   class="form-control"
+                  :class="{ 'is-invalid': priceError[index] }"
                   v-model="form.itemPrice[index]"
+                  @input="priceError[index] = false"
                 />
+                <div v-if="priceError[index]" class="text-danger">
+                  Harga tidak valid!
+                </div>
               </td>
             </tr>
             <tr>
@@ -269,8 +274,16 @@
                   type="number"
                   min="0"
                   class="form-control"
-                  v-model="form.deliveryFee"
+                  v-model="form.delivery_fee"
+                  :class="{ 'is-invalid': hasErrors('delivery_fee') }"
+                  @input="errors['delivery_fee'] = ''"
                 />
+              </td>
+            </tr>
+            <tr v-if="hasErrors('delivery_fee')">
+              <td colspan="3"/>
+              <td class="text-danger pt-0">
+                Ongkos kirim tidak valid!
               </td>
             </tr>
             <tr v-if="totalPrice">
@@ -320,10 +333,11 @@ export default {
       isLoading: false,
       form: {
         receipt: null,
-        deliveryFee: this.order.delivery_fee,
+        delivery_fee: this.order.delivery_fee,
         itemPrice: this.order.items.map((item) => item.price ?? 0),
       },
       priceError : [],
+      errors : {},
       selectedOrder: {},
     }
   },
@@ -374,11 +388,19 @@ export default {
       this.isLoading = true;
       this.form.itemPrice.forEach(
         (item, index) => {
-          if(item == null || item < 0) {
+          if(item == '' || item < 0) {
             this.priceError[index] = true
+          } else {
+            this.priceError[index] = false
           }
         }
       )
+      const invalidItems = this.priceError.filter((item) => item == true)
+      if (invalidItems.length > 0) {
+        this.isLoading = false;     
+        return;
+      }
+
       try {
         let response = await axios.post(
           `/order/${this.order.id}/updatePrice`,
@@ -394,12 +416,19 @@ export default {
     },
     resetEdit() {
       this.isEditPrice = false;
+      this.form.delivery_fee = this.order.delivery_fee;
       this.form.itemPrice = this.order.items.map((item) => item.price ?? 0);
     },
     getPackageName(id) {
       const result = this.packages.filter((item) => item.id == id);
       return result[0]?.name || '';
-    }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+      return false;
+    },
   },
 };
 </script>
