@@ -85,7 +85,7 @@
       </div>
     </div>
     <div class="col-12 col-sm-5 h-100">
-      <img class="img img-fluid" src="images/register-page.png" alt="img-register">
+      <img class="img img-fluid" src="images/auth-page.png" alt="img-register">
     </div>
   </div>
 </template>

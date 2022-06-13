@@ -298,7 +298,7 @@ export default {
     .img-wrapper-1{
         overflow: hidden;
         width: 100%;
-        height: 250px;
+        max-height: 250px;
         position: relative;
     }
 

@@ -28,14 +28,14 @@
     >
       <div class="accordion-body px-2 px-md-3">
         <div
-          v-if="!order.payment_photo.length && order.price && order.user_id == user.id"
+          v-if="!order.payment_photo.length && totalPrice && order.user_id == user.id"
           class="mb-3 text-center"
         >
           <div>
             Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
             <br>
             Silahkan melakukan pembayaran sebesar
-            <h2 class="package-price" style="font-size: 24px !important">Rp {{ order.price }}</h2>
+            <h2 class="package-price" style="font-size: 24px !important">Rp {{ totalPrice }}</h2>
           </div>
           <div class="my-1">
             <div class="img img-fluid">
@@ -192,13 +192,13 @@
           </h4>
           <div>
             <button
-              v-show="!isEditPrice"
+              v-show="!isEditPrice && user.is_admin"
               class="btn btn-primary"
               @click="isEditPrice = true"
             >
               Ubah Harga
             </button>
-            <div v-if="isEditPrice">
+            <div v-if="isEditPrice && user.is_admin">
               <button
                 class="btn btn-success me-2"
                 @click="updatePrice()"
