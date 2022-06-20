@@ -26558,6 +26558,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 
@@ -60713,7 +60715,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "d-flex justify-content-between mb-3" }, [
-      _c("h3", { staticClass: "text-header" }, [_vm._v("Order Management")]),
+      _c("h3", { staticClass: "text-header px-3" }, [
+        _vm._v("Order Management"),
+      ]),
     ])
   },
 ]
@@ -60822,7 +60826,11 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "d-md-flex justify-content-between mb-3" },
-      [_c("h3", { staticClass: "text-header" }, [_vm._v("Product Management")])]
+      [
+        _c("h3", { staticClass: "text-header px-3" }, [
+          _vm._v("Product Management"),
+        ]),
+      ]
     )
   },
 ]
@@ -61279,7 +61287,7 @@ var render = function () {
     [
       _c(
         "div",
-        { staticClass: "d-md-flex justify-content-between mb-3" },
+        { staticClass: "d-md-flex justify-content-between px-3 mb-3" },
         [
           _c("h3", { staticClass: "text-header" }, [
             _vm._v("Review Management"),
@@ -61925,7 +61933,11 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "d-md-flex justify-content-between mb-3" },
-      [_c("h3", { staticClass: "text-header" }, [_vm._v("User Management")])]
+      [
+        _c("h3", { staticClass: "text-header px-3" }, [
+          _vm._v("User Management"),
+        ]),
+      ]
     )
   },
   function () {
@@ -62587,7 +62599,9 @@ var render = function () {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.totalPrice && _vm.order.status == "waiting"
+          _vm.totalPrice &&
+          _vm.order.status == "waiting" &&
+          _vm.order.user_id == _vm.user.id
             ? _c("div", { staticClass: "mb-3 text-center" }, [
                 _vm._m(1),
                 _vm._v(" "),
@@ -62609,9 +62623,7 @@ var render = function () {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.order.price &&
-                  _vm.order.status !== "finish" &&
-                  _vm.user.is_admin
+                  _vm.order.status !== "finish" && _vm.user.is_admin
                     ? _c(
                         "button",
                         {
@@ -62646,7 +62658,7 @@ var render = function () {
               "div",
               { staticClass: "col-12 col-md-6 mb-3 table-responsive" },
               [
-                _c("table", { staticClass: "table-text" }, [
+                _c("table", { staticClass: "table table-borderless" }, [
                   _c("tbody", [
                     _vm.order.receipt_number
                       ? _c("tr", { staticStyle: { height: "2rem" } }, [
@@ -62835,178 +62847,184 @@ var render = function () {
             ]
           ),
           _vm._v(" "),
-          _c(
-            "table",
-            {
-              staticClass: "table table-borderless table-responsive d-md-table",
-              staticStyle: { "table-layout": "fixed" },
-            },
-            [
-              _vm._m(8),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(_vm.order.items, function (item, index) {
-                    return _c(
-                      "tr",
-                      { key: index, staticStyle: { height: "2rem" } },
-                      [
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.getPackageName(item.package_id))),
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.description))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-outline-primary",
-                              attrs: {
-                                type: "button",
-                                "data-bs-toggle": "modal",
-                                "data-bs-target": "#preview-image-modal",
-                              },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.$emit("select-order-item", item)
+          _c("div", { staticClass: "table-responsive" }, [
+            _c(
+              "table",
+              {
+                staticClass: "table table-borderless",
+                staticStyle: { "table-layout": "fixed", "min-width": "500px" },
+              },
+              [
+                _vm._m(8),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  [
+                    _vm._l(_vm.order.items, function (item, index) {
+                      return _c(
+                        "tr",
+                        { key: index, staticStyle: { height: "2rem" } },
+                        [
+                          _c("td", [
+                            _vm._v(_vm._s(_vm.getPackageName(item.package_id))),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(item.description))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-outline-primary",
+                                attrs: {
+                                  type: "button",
+                                  "data-bs-toggle": "modal",
+                                  "data-bs-target": "#preview-image-modal",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$emit("select-order-item", item)
+                                  },
                                 },
                               },
-                            },
-                            [
-                              _vm._v(
-                                "\n                Lihat Foto\n              "
-                              ),
-                            ]
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          !_vm.isEditPrice
-                            ? _c("span", [
+                              [
                                 _vm._v(
-                                  "\n                Rp " +
-                                    _vm._s(item.price) +
-                                    "\n              "
+                                  "\n                  Lihat Foto\n                "
                                 ),
-                              ])
-                            : _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.itemPrice[index],
-                                    expression: "form.itemPrice[index]",
-                                  },
-                                ],
-                                staticClass: "form-control",
-                                class: { "is-invalid": _vm.priceError[index] },
-                                attrs: { type: "number", min: "0" },
-                                domProps: { value: _vm.form.itemPrice[index] },
-                                on: {
-                                  input: [
-                                    function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form.itemPrice,
-                                        index,
-                                        $event.target.value
-                                      )
-                                    },
-                                    function ($event) {
-                                      _vm.priceError[index] = false
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            !_vm.isEditPrice
+                              ? _c("span", [
+                                  _vm._v(
+                                    "\n                  Rp " +
+                                      _vm._s(item.price) +
+                                      "\n                "
+                                  ),
+                                ])
+                              : _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.itemPrice[index],
+                                      expression: "form.itemPrice[index]",
                                     },
                                   ],
-                                },
-                              }),
-                          _vm._v(" "),
-                          _vm.priceError[index]
-                            ? _c("div", { staticClass: "text-danger" }, [
-                                _vm._v(
-                                  "\n                Harga tidak valid!\n              "
-                                ),
-                              ])
-                            : _vm._e(),
-                        ]),
-                      ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _vm._m(9),
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.priceError[index],
+                                  },
+                                  attrs: { type: "number", min: "0" },
+                                  domProps: {
+                                    value: _vm.form.itemPrice[index],
+                                  },
+                                  on: {
+                                    input: [
+                                      function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form.itemPrice,
+                                          index,
+                                          $event.target.value
+                                        )
+                                      },
+                                      function ($event) {
+                                        _vm.priceError[index] = false
+                                      },
+                                    ],
+                                  },
+                                }),
+                            _vm._v(" "),
+                            _vm.priceError[index]
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                  Harga tidak valid!\n                "
+                                  ),
+                                ])
+                              : _vm._e(),
+                          ]),
+                        ]
+                      )
+                    }),
                     _vm._v(" "),
-                    _c("td", [
-                      !_vm.isEditPrice
-                        ? _c("span", [
-                            _c("b", [
-                              _vm._v("Rp " + _vm._s(_vm.order.delivery_fee)),
-                            ]),
-                          ])
-                        : _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.delivery_fee,
-                                expression: "form.delivery_fee",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.hasErrors("delivery_fee"),
-                            },
-                            attrs: { type: "number", min: "0" },
-                            domProps: { value: _vm.form.delivery_fee },
-                            on: {
-                              input: [
-                                function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "delivery_fee",
-                                    $event.target.value
-                                  )
-                                },
-                                function ($event) {
-                                  _vm.errors["delivery_fee"] = ""
+                    _c("tr", [
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _c("td", [
+                        !_vm.isEditPrice
+                          ? _c("span", [
+                              _c("b", [
+                                _vm._v("Rp " + _vm._s(_vm.order.delivery_fee)),
+                              ]),
+                            ])
+                          : _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.delivery_fee,
+                                  expression: "form.delivery_fee",
                                 },
                               ],
-                            },
-                          }),
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.hasErrors("delivery_fee"),
+                              },
+                              attrs: { type: "number", min: "0" },
+                              domProps: { value: _vm.form.delivery_fee },
+                              on: {
+                                input: [
+                                  function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_fee",
+                                      $event.target.value
+                                    )
+                                  },
+                                  function ($event) {
+                                    _vm.errors["delivery_fee"] = ""
+                                  },
+                                ],
+                              },
+                            }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _vm.hasErrors("delivery_fee")
-                    ? _c("tr", [
-                        _c("td", { attrs: { colspan: "3" } }),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-danger pt-0" }, [
-                          _vm._v(
-                            "\n              Ongkos kirim tidak valid!\n            "
-                          ),
-                        ]),
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.totalPrice
-                    ? _c("tr", [
-                        _vm._m(10),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "font-weight-bold" }, [
-                          _c("b", [_vm._v("Rp " + _vm._s(_vm.totalPrice))]),
-                        ]),
-                      ])
-                    : _vm._e(),
-                ],
-                2
-              ),
-            ]
-          ),
+                    _vm._v(" "),
+                    _vm.hasErrors("delivery_fee")
+                      ? _c("tr", [
+                          _c("td", { attrs: { colspan: "3" } }),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-danger pt-0" }, [
+                            _vm._v(
+                              "\n                Ongkos kirim tidak valid!\n              "
+                            ),
+                          ]),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.totalPrice
+                      ? _c("tr", [
+                          _vm._m(10),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "font-weight-bold" }, [
+                            _c("b", [_vm._v("Rp " + _vm._s(_vm.totalPrice))]),
+                          ]),
+                        ])
+                      : _vm._e(),
+                  ],
+                  2
+                ),
+              ]
+            ),
+          ]),
         ]),
       ]
     ),
@@ -63121,13 +63139,21 @@ var staticRenderFns = [
       { staticStyle: { "border-bottom": "1px solid #c4c4c4" } },
       [
         _c("tr", [
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Layanan")]),
+          _c("th", { staticStyle: { width: "20%" }, attrs: { scope: "col" } }, [
+            _vm._v("Layanan"),
+          ]),
           _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Keterangan")]),
+          _c("th", { staticStyle: { width: "40%" }, attrs: { scope: "col" } }, [
+            _vm._v("Keterangan"),
+          ]),
           _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Foto")]),
+          _c("th", { staticStyle: { width: "25%" }, attrs: { scope: "col" } }, [
+            _vm._v("Foto"),
+          ]),
           _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Harga")]),
+          _c("th", { staticStyle: { width: "20%" }, attrs: { scope: "col" } }, [
+            _vm._v("Harga"),
+          ]),
         ]),
       ]
     )

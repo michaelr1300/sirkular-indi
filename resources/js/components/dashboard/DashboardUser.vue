@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-md-flex justify-content-between mb-3">
-      <h3 class="text-header">User Management</h3>
+      <h3 class="text-header px-3">User Management</h3>
     </div>
     <div class="card rounded h-100 background-white">
       <div class="d-flex flex-column card-body w-100">

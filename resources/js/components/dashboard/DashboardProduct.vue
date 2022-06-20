@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-md-flex justify-content-between mb-3">
-      <h3 class="text-header">Product Management</h3> 
+      <h3 class="text-header px-3">Product Management</h3> 
       <!-- <DashboardProductFormAdd/> -->
     </div>
     <div class="d-flex row">

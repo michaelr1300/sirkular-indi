@@ -70,7 +70,7 @@
           <hr>
         </div>
         <div
-          v-if="totalPrice && order.status == 'waiting'"
+          v-if="totalPrice && order.status == 'waiting' && order.user_id == user.id"
           class="mb-3 text-center"
         >
           <div>
@@ -97,7 +97,7 @@
                 :order="order"
               />
               <button
-                v-if="order.price && order.status !== 'finish' && user.is_admin"
+                v-if="order.status !== 'finish' && user.is_admin"
                 data-bs-toggle="modal" 
                 data-bs-target="#update-order-modal" 
                 class="btn btn-primary"
@@ -109,7 +109,7 @@
           </div>
           <hr class="d-block d-sm-none">
           <div class="col-12 col-md-6 mb-3 table-responsive">
-            <table class="table-text">
+            <table class="table table-borderless">
               <tbody>
                 <tr v-if="order.receipt_number" style="height:2rem">
                   <td class="font-weight-bold text-nowrap">
@@ -212,89 +212,91 @@
             </div>
           </div>
         </div>
-        <table style="table-layout: fixed;" class="table table-borderless table-responsive d-md-table">
-          <thead style="border-bottom: 1px solid #c4c4c4;">
-             <tr>
-              <th scope="col">Layanan</th>
-              <th scope="col">Keterangan</th>
-              <th scope="col">Foto</th>
-              <th scope="col">Harga</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(item, index) in order.items"
-              :key="index"
-              style="height:2rem"
-            >
-              <td>{{ getPackageName(item.package_id) }}</td>
-              <td>{{ item.description }}</td>
-              <td>
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
-                  @click="$emit('select-order-item', item);">
-                  Lihat Foto
-                </button>
-              </td>
-              <td>
-                <span v-if="!isEditPrice">
-                  Rp {{ item.price }}
-                </span>
-                <input
-                  v-else
-                  type="number"
-                  min="0"
-                  class="form-control"
-                  :class="{ 'is-invalid': priceError[index] }"
-                  v-model="form.itemPrice[index]"
-                  @input="priceError[index] = false"
-                />
-                <div v-if="priceError[index]" class="text-danger">
-                  Harga tidak valid!
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td
-                colspan="3"
-                class="text-end font-weight-bold"
-                style="vertical-align: middle;"
+        <div class="table-responsive">
+          <table style="table-layout: fixed; min-width: 500px" class="table table-borderless">
+            <thead style="border-bottom: 1px solid #c4c4c4;">
+              <tr>
+                <th scope="col" style="width: 20%">Layanan</th>
+                <th scope="col" style="width: 40%">Keterangan</th>
+                <th scope="col" style="width: 25%">Foto</th>
+                <th scope="col" style="width: 20%">Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(item, index) in order.items"
+                :key="index"
+                style="height:2rem"
               >
-                <b>Ongkos kirim</b>
-              </td>
-              <td>
-                <span v-if="!isEditPrice">
-                  <b>Rp {{ order.delivery_fee }}</b>
-                </span>
-                <input
-                  v-else
-                  type="number"
-                  min="0"
-                  class="form-control"
-                  v-model="form.delivery_fee"
-                  :class="{ 'is-invalid': hasErrors('delivery_fee') }"
-                  @input="errors['delivery_fee'] = ''"
-                />
-              </td>
-            </tr>
-            <tr v-if="hasErrors('delivery_fee')">
-              <td colspan="3"/>
-              <td class="text-danger pt-0">
-                Ongkos kirim tidak valid!
-              </td>
-            </tr>
-            <tr v-if="totalPrice">
-              <td
-                colspan="3"
-                class="text-end font-weight-bold"
-              >
-                <b>Total</b>
-              </td>
-              <td class="font-weight-bold">
-                <b>Rp {{ totalPrice }}</b>
-              </td>
-            </tr>
-          </tbody> 
-        </table>
+                <td>{{ getPackageName(item.package_id) }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
+                    @click="$emit('select-order-item', item);">
+                    Lihat Foto
+                  </button>
+                </td>
+                <td>
+                  <span v-if="!isEditPrice">
+                    Rp {{ item.price }}
+                  </span>
+                  <input
+                    v-else
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    :class="{ 'is-invalid': priceError[index] }"
+                    v-model="form.itemPrice[index]"
+                    @input="priceError[index] = false"
+                  />
+                  <div v-if="priceError[index]" class="text-danger">
+                    Harga tidak valid!
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colspan="3"
+                  class="text-end font-weight-bold"
+                  style="vertical-align: middle;"
+                >
+                  <b>Ongkos kirim</b>
+                </td>
+                <td>
+                  <span v-if="!isEditPrice">
+                    <b>Rp {{ order.delivery_fee }}</b>
+                  </span>
+                  <input
+                    v-else
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    v-model="form.delivery_fee"
+                    :class="{ 'is-invalid': hasErrors('delivery_fee') }"
+                    @input="errors['delivery_fee'] = ''"
+                  />
+                </td>
+              </tr>
+              <tr v-if="hasErrors('delivery_fee')">
+                <td colspan="3"/>
+                <td class="text-danger pt-0">
+                  Ongkos kirim tidak valid!
+                </td>
+              </tr>
+              <tr v-if="totalPrice">
+                <td
+                  colspan="3"
+                  class="text-end font-weight-bold"
+                >
+                  <b>Total</b>
+                </td>
+                <td class="font-weight-bold">
+                  <b>Rp {{ totalPrice }}</b>
+                </td>
+              </tr>
+            </tbody> 
+          </table>
+        </div>
       </div>
     </div>
   </div>
