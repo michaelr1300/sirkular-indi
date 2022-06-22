@@ -17,8 +17,8 @@
         <div class="col-4">
           <order-status-badge :status="order.status" />
         </div>
-        <div v-if="order.price" class="col-3">
-          Rp {{ order.price }}
+        <div v-if="totalPrice" class="col-3">
+          Rp {{ totalPrice }}
         </div>
       </button>
     </h2>
@@ -28,26 +28,26 @@
     >
       <div class="accordion-body px-2 px-md-3">
         <div
-          v-if="!order.payment_photo.length && order.price && order.user_id == user.id"
+          v-if="!order.payment_photo.length && totalPrice && order.user_id == user.id"
           class="mb-3 text-center"
         >
           <div>
             Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
             <br>
             Silahkan melakukan pembayaran sebesar
-            <h2 class="package-price" style="font-size: 24px !important">Rp {{ order.price }}</h2>
+            <h2 class="package-price" style="font-size: 24px !important">Rp {{ totalPrice }}</h2>
           </div>
           <div class="my-1">
             <div class="img img-fluid">
               <img
-                class="img-bca"
-                src="/images/bca.png"
-                alt="bca account"
+                class="img-mandiri"
+                src="/images/mandiri.png"
+                alt="mandiri logo"
               >
             </div>
             <div class="mt-2">
-              <div><b>103 949 4950</b></div>
-              <div>an. PT. indigo Indonesia</div>
+              <div><b>137.000.988.140.6</b></div>
+              <div>an. Edia Rahayuningsih</div>
             </div>
           </div>
           <div class="d-flex mt-2">
@@ -70,7 +70,7 @@
           <hr>
         </div>
         <div
-          v-if="order.price && order.status == 'waiting'"
+          v-if="totalPrice && order.status == 'waiting' && order.user_id == user.id"
           class="mb-3 text-center"
         >
           <div>
@@ -91,17 +91,13 @@
         </div>
         <div class="d-md-flex flex-row-reverse">
           <div class="col-12 col-md-6">
-            <div class="d-flex justify-content-between justify-content-md-end">
-              <OrderDetailInputPrice 
-                v-if="!order.price && user.is_admin" 
-                :order="order"
-              />
+            <div class="d-flex justify-content-end">
               <OrderDetailInputReceipt
                 v-if="order.status == 'finish' && user.is_admin && !order.receipt_number" 
                 :order="order"
               />
               <button
-                v-if="order.price && order.status !== 'finish' && user.is_admin"
+                v-if="order.status !== 'finish' && user.is_admin"
                 data-bs-toggle="modal" 
                 data-bs-target="#update-order-modal" 
                 class="btn btn-primary"
@@ -113,7 +109,7 @@
           </div>
           <hr class="d-block d-sm-none">
           <div class="col-12 col-md-6 mb-3 table-responsive">
-            <table class="table-text">
+            <table class="table table-borderless">
               <tbody>
                 <tr v-if="order.receipt_number" style="height:2rem">
                   <td class="font-weight-bold text-nowrap">
@@ -186,45 +182,121 @@
             </table>
           </div>
         </div>
-        <h4 class="text-header mt-3 mb-2">
-          Detail Pesanan
-        </h4>
-        <table class="table table-borderless table-responsive d-md-table">
-          <thead style="border-bottom: 1px solid #c4c4c4;">
-             <tr>
-              <th scope="col">Layanan</th>
-              <th scope="col">Keterangan</th>
-              <th scope="col">Foto</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(item, index) in order.items"
-              :key="index"
-              style="height:2rem"
+        <div class="d-flex justify-content-between mt-3 mb-2">
+          <h4 class="text-header my-auto">
+            Detail Pesanan
+          </h4>
+          <div>
+            <button
+              v-show="!isEditPrice && user.is_admin && order.status == 'waiting'"
+              class="btn btn-primary"
+              @click="isEditPrice = true"
             >
-              <td>{{ getPackageName(item.package_id) }}</td>
-              <td>{{ item.description }}</td>
-              <td>
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
-                  @click="$emit('select-order-item', item);">
-                  Lihat Foto
-                </button>
-              </td>
-            </tr>
-            <tr v-if="order.price">
-              <td
-                colspan="2"
-                class="text-end font-weight-bold"
+              Ubah Harga
+            </button>
+            <div v-if="isEditPrice && user.is_admin">
+              <button
+                class="btn btn-success me-2"
+                @click="updatePrice()"
+                :disabled="isLoading"
               >
-                <b>Total</b>
-              </td>
-              <td class="font-weight-bold">
-                <b>Rp {{ order.price }}</b>
-              </td>
-            </tr>
-          </tbody> 
-        </table>
+                {{ isLoading ? 'Menyimpan' : 'Simpan' }}
+              </button> 
+              <button
+                class="btn btn-outline-primary"
+                @click="resetEdit()"
+                :disabled="isLoading"
+              >
+                Batal
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table style="table-layout: fixed; min-width: 500px" class="table table-borderless">
+            <thead style="border-bottom: 1px solid #c4c4c4;">
+              <tr>
+                <th scope="col" style="width: 20%">Layanan</th>
+                <th scope="col" style="width: 40%">Keterangan</th>
+                <th scope="col" style="width: 25%">Foto</th>
+                <th scope="col" style="width: 20%">Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(item, index) in order.items"
+                :key="index"
+                style="height:2rem"
+              >
+                <td>{{ getPackageName(item.package_id) }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#preview-image-modal" 
+                    @click="$emit('select-order-item', item);">
+                    Lihat Foto
+                  </button>
+                </td>
+                <td>
+                  <span v-if="!isEditPrice">
+                    Rp {{ item.price }}
+                  </span>
+                  <input
+                    v-else
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    :class="{ 'is-invalid': priceError[index] }"
+                    v-model="form.itemPrice[index]"
+                    @input="priceError[index] = false"
+                  />
+                  <div v-if="priceError[index]" class="text-danger">
+                    Harga tidak valid!
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colspan="3"
+                  class="text-end font-weight-bold"
+                  style="vertical-align: middle;"
+                >
+                  <b>Ongkos kirim</b>
+                </td>
+                <td>
+                  <span v-if="!isEditPrice">
+                    <b>Rp {{ order.delivery_fee }}</b>
+                  </span>
+                  <input
+                    v-else
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    v-model="form.delivery_fee"
+                    :class="{ 'is-invalid': hasErrors('delivery_fee') }"
+                    @input="errors['delivery_fee'] = ''"
+                  />
+                </td>
+              </tr>
+              <tr v-if="hasErrors('delivery_fee')">
+                <td colspan="3"/>
+                <td class="text-danger pt-0">
+                  Ongkos kirim tidak valid!
+                </td>
+              </tr>
+              <tr v-if="totalPrice">
+                <td
+                  colspan="3"
+                  class="text-end font-weight-bold"
+                >
+                  <b>Total</b>
+                </td>
+                <td class="font-weight-bold">
+                  <b>Rp {{ totalPrice }}</b>
+                </td>
+              </tr>
+            </tbody> 
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -255,10 +327,15 @@ export default {
   },
   data() {
     return {
+      isEditPrice: false,
+      isLoading: false,
       form: {
         receipt: null,
-        price: null,
+        delivery_fee: this.order.delivery_fee ?? 0,
+        itemPrice: this.order.items.map((item) => item.price ?? 0),
       },
+      priceError : [],
+      errors : {},
       selectedOrder: {},
     }
   },
@@ -278,8 +355,8 @@ export default {
       return format(new Date(this.order.created_at), 'dd MMM yyyy')
     },
     totalPrice() {
-      let totalPrice = 0;
-      this.order.items.forEach((item) => totalPrice += item.price * item.quantity);
+      let totalPrice = this.order.delivery_fee;
+      this.order.items.forEach((item) => totalPrice += item.price);
       return totalPrice;
     },
   },
@@ -305,10 +382,51 @@ export default {
         console.log(error.response);
       }
     },
+    async updatePrice() {
+      this.isLoading = true;
+      this.form.itemPrice.forEach(
+        (item, index) => {
+          if(item == '' || item < 0) {
+            this.priceError[index] = true
+          } else {
+            this.priceError[index] = false
+          }
+        }
+      )
+      const invalidItems = this.priceError.filter((item) => item == true)
+      if (invalidItems.length > 0) {
+        this.isLoading = false;     
+        return;
+      }
+
+      try {
+        let response = await axios.post(
+          `/order/${this.order.id}/updatePrice`,
+          this.form,
+        );
+        return location.reload();
+      } catch (error) {
+        console.log(error.response);
+        this.errors = error.response.data.errors;
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    resetEdit() {
+      this.isEditPrice = false;
+      this.form.delivery_fee = this.order.delivery_fee;
+      this.form.itemPrice = this.order.items.map((item) => item.price ?? 0);
+    },
     getPackageName(id) {
       const result = this.packages.filter((item) => item.id == id);
       return result[0]?.name || '';
-    }
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+      return false;
+    },
   },
 };
 </script>

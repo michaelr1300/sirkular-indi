@@ -25299,6 +25299,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedProduct: {
@@ -25312,7 +25327,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form: {
         id: null,
         name: null,
-        price: null,
+        min_price: null,
+        max_price: null,
         description: null
       },
       errors: {}
@@ -26472,6 +26488,78 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26500,11 +26588,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   data: function data() {
+    var _this$order$delivery_;
+
     return {
+      isEditPrice: false,
+      isLoading: false,
       form: {
         receipt: null,
-        price: null
+        delivery_fee: (_this$order$delivery_ = this.order.delivery_fee) !== null && _this$order$delivery_ !== void 0 ? _this$order$delivery_ : 0,
+        itemPrice: this.order.items.map(function (item) {
+          var _item$price;
+
+          return (_item$price = item.price) !== null && _item$price !== void 0 ? _item$price : 0;
+        })
       },
+      priceError: [],
+      errors: {},
       selectedOrder: {}
     };
   },
@@ -26526,9 +26625,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(this.order.created_at), 'dd MMM yyyy');
     },
     totalPrice: function totalPrice() {
-      var totalPrice = 0;
+      var totalPrice = this.order.delivery_fee;
       this.order.items.forEach(function (item) {
-        return totalPrice += item.price * item.quantity;
+        return totalPrice += item.price;
       });
       return totalPrice;
     }
@@ -26573,6 +26672,74 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, null, [[3, 11]]);
       }))();
     },
+    updatePrice: function updatePrice() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var invalidItems, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.isLoading = true;
+
+                _this2.form.itemPrice.forEach(function (item, index) {
+                  if (item == '' || item < 0) {
+                    _this2.priceError[index] = true;
+                  } else {
+                    _this2.priceError[index] = false;
+                  }
+                });
+
+                invalidItems = _this2.priceError.filter(function (item) {
+                  return item == true;
+                });
+
+                if (!(invalidItems.length > 0)) {
+                  _context2.next = 6;
+                  break;
+                }
+
+                _this2.isLoading = false;
+                return _context2.abrupt("return");
+
+              case 6:
+                _context2.prev = 6;
+                _context2.next = 9;
+                return axios.post("/order/".concat(_this2.order.id, "/updatePrice"), _this2.form);
+
+              case 9:
+                response = _context2.sent;
+                return _context2.abrupt("return", location.reload());
+
+              case 13:
+                _context2.prev = 13;
+                _context2.t0 = _context2["catch"](6);
+                console.log(_context2.t0.response);
+                _this2.errors = _context2.t0.response.data.errors;
+
+              case 17:
+                _context2.prev = 17;
+                _this2.isLoading = false;
+                return _context2.finish(17);
+
+              case 20:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[6, 13, 17, 20]]);
+      }))();
+    },
+    resetEdit: function resetEdit() {
+      this.isEditPrice = false;
+      this.form.delivery_fee = this.order.delivery_fee;
+      this.form.itemPrice = this.order.items.map(function (item) {
+        var _item$price2;
+
+        return (_item$price2 = item.price) !== null && _item$price2 !== void 0 ? _item$price2 : 0;
+      });
+    },
     getPackageName: function getPackageName(id) {
       var _result$;
 
@@ -26580,6 +26747,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return item.id == id;
       });
       return ((_result$ = result[0]) === null || _result$ === void 0 ? void 0 : _result$.name) || '';
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
     }
   }
 });
@@ -27231,29 +27405,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return '';
     });
   },
-  computed: {
-    totalItem: function totalItem() {
-      return this.form.quantity.reduce(function (sum, n) {
-        return sum + parseInt(n);
-      }, 0);
-    },
-    totalPrice: function totalPrice() {
-      var _this = this;
-
-      var totalPrice = 0;
-      var price = this.form.package_id.map(function (id) {
-        var _this$packageList$fil;
-
-        return (_this$packageList$fil = _this.packageList.filter(function (item) {
-          return item.id == id;
-        })[0].price) !== null && _this$packageList$fil !== void 0 ? _this$packageList$fil : 0;
-      });
-      this.form.quantity.forEach(function (qty, index) {
-        return totalPrice += qty * price[index];
-      });
-      return totalPrice;
-    }
-  },
   data: function data() {
     return {
       isLoading: false,
@@ -27283,7 +27434,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     createOrder: function createOrder() {
-      var _this2 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var invalidItems, photoArr, photos, formData, index, response;
@@ -27291,17 +27442,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this2.isLoading = true; // Validation
+                _this.isLoading = true; // Validation
 
-                _this2.orderItems.forEach(function (item, index) {
+                _this.orderItems.forEach(function (item, index) {
                   if (item.package_id == null || item.file_name == null) {
-                    _this2.orderItems[index].is_error = true;
+                    _this.orderItems[index].is_error = true;
                   } else {
-                    _this2.orderItems[index].is_error = false;
+                    _this.orderItems[index].is_error = false;
                   }
                 });
 
-                invalidItems = _this2.orderItems.filter(function (item) {
+                invalidItems = _this.orderItems.filter(function (item) {
                   return item.is_error == true;
                 });
 
@@ -27310,20 +27461,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                _this2.isLoading = false;
+                _this.isLoading = false;
                 return _context.abrupt("return");
 
               case 6:
-                photoArr = _this2.$refs.photo;
+                photoArr = _this.$refs.photo;
                 photos = photoArr.map(function (item) {
                   return item.files[0];
                 });
                 formData = new FormData();
-                formData.append("name", _this2.form.name);
-                formData.append("phone_number", _this2.form.phone_number);
-                formData.append("address", _this2.form.address);
-                formData.append("save_data", _this2.form.save_data);
-                formData.append("order_item", JSON.stringify(_this2.orderItems));
+                formData.append("name", _this.form.name);
+                formData.append("phone_number", _this.form.phone_number);
+                formData.append("address", _this.form.address);
+                formData.append("save_data", _this.form.save_data);
+                formData.append("order_item", JSON.stringify(_this.orderItems));
 
                 for (index = 0; index < photos.length; index++) {
                   formData.append("photo_" + index, photos[index]);
@@ -27340,7 +27491,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 18:
                 response = _context.sent;
 
-                _this2.nextPageFinish();
+                _this.nextPageFinish();
 
                 _context.next = 25;
                 break;
@@ -27352,7 +27503,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 25:
                 _context.prev = 25;
-                _this2.isLoading = false;
+                _this.isLoading = false;
                 return _context.finish(25);
 
               case 28:
@@ -27364,13 +27515,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getFileName: function getFileName(event, index) {
-      var _this3 = this;
+      var _this2 = this;
 
       var fileData = event.target.files[0];
       this.orderItems[index].file_name = fileData.name;
       this.addItem();
       setTimeout(function () {
-        _this3.removeItem(_this3.orderItems.length - 1);
+        _this2.removeItem(_this2.orderItems.length - 1);
       }, 1);
     },
     nextPageOrder: function nextPageOrder() {
@@ -27421,7 +27572,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.orderItems.splice(index, 1);
     },
     uploadPayment: function uploadPayment() {
-      var _this4 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var payment_photo, formData, response;
@@ -27429,12 +27580,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                payment_photo = _this4.$refs.payment_photo.files[0];
+                payment_photo = _this3.$refs.payment_photo.files[0];
                 formData = new FormData();
                 formData.append("payment_photo", payment_photo);
                 _context2.prev = 3;
                 _context2.next = 6;
-                return axios.post("/order/".concat(_this4.orderId, "/updatePayment"), formData, {
+                return axios.post("/order/".concat(_this3.orderId, "/updatePayment"), formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
@@ -33564,7 +33715,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_background_catalog_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0 7.5%;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 15% 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-wrapper-1[data-v-c9165604]{\r\n        overflow: hidden;\r\n        width: 100%;\r\n        height: 250px;\r\n        position: relative;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        background-size: cover;\r\n        left: 0%;\r\n        position: absolute;\r\n        top: -60%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        margin-left: 20px;\r\n        margin-top: 40px;\r\n        font-size: 38px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        margin-bottom: 22px;\r\n        color: #142362;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@media screen and (min-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        display: flex;\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        width: 100%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 190px;\r\n        height: 60px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0 7.5%;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        margin-top: 40px;\r\n        font-size: 48px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px 100px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        color: #142362;\n}\n}\n@media screen and (max-width: 780px) {\n.segment-1[data-v-c9165604]{\r\n        flex-direction: row;\r\n        background-color: #fff;\n}\n.wrap-left-catalog-1[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        padding: 8% 3% 15% 9%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: #142362;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: contain;\r\n        box-shadow:inset 0 0 0 2000px rgba(255, 255, 255, 0.95);\n}\n.wrap-left-catalog-1 button[data-v-c9165604] {\r\n        margin-top: 25px;\n}\n.img-wrapper-1[data-v-c9165604]{\r\n        overflow: hidden;\r\n        width: 100%;\r\n        max-height: 250px;\r\n        position: relative;\n}\n.img-front-catalog[data-v-c9165604]{\r\n        background-size: cover;\r\n        left: 0%;\r\n        position: absolute;\r\n        top: -60%;\n}\n.btn-get-start[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        background: #000;\r\n        border: 3px solid #000;\r\n        width: 180px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.icon-arrow-down[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.icon-arrow-right[data-v-c9165604]{\r\n        font-size: 16px;\r\n        /* margin-left: 10px; */\n}\n.div-section-3[data-v-c9165604]{\r\n        padding: 0;\n}\n.div-section-3 h1[data-v-c9165604]{\r\n        margin-left: 20px;\r\n        margin-top: 40px;\r\n        font-size: 38px;\r\n        font-weight: 800;\n}\n.div-products-info[data-v-c9165604]{\r\n        font-family: 'Mulish', sans-serif;\r\n        font-weight: 400;\n}\n.div-products-info p[data-v-c9165604]{\r\n        font-size: 16px;\n}\n.div-products-info h3[data-v-c9165604]{\r\n        font-size: 24px;\r\n        margin-bottom: 25px;\r\n        font-weight: 700;\n}\n.div-order-btn[data-v-c9165604]{\r\n        display: flex;\r\n        justify-content: center;\r\n        margin-bottom: 20px;\n}\n.btn-order[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        font-family: 'Mulish', sans-serif;\r\n        border: none;\r\n        width: 170px;\r\n        height: 48px;\r\n        font-weight: 700;\r\n        color: #fff;\n}\n.btn-read-cont[data-v-c9165604]{\r\n        background: #fff;\r\n        border: 3px solid #000;\r\n        width: 150px;\r\n        height: 40px;\r\n        font-weight: 600;\n}\n.segment-3[data-v-c9165604]{\r\n        background-color: #fff;\r\n        padding: 50px;\r\n        height: 300px;\r\n        font-family: 'Mulish', sans-serif;\n}\n.segment-3 div[data-v-c9165604]{\r\n        display: flex;\r\n        align-items: center;\n}\n.segment-3 h2[data-v-c9165604] {\r\n        font-weight: 800;\r\n        font-size: 40px;\r\n        margin-bottom: 22px;\r\n        color: #142362;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -58552,8 +58703,10 @@ var render = function () {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Mulai dari Rp " +
-                                    _vm._s(item.price) +
+                                  "\n                    Harga Rp " +
+                                    _vm._s(item.min_price) +
+                                    " - " +
+                                    _vm._s(item.max_price) +
                                     " per helai\n                  "
                                 ),
                               ]
@@ -60041,7 +60194,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-12 col-sm-5 h-100" }, [
       _c("img", {
         staticClass: "img img-fluid",
-        attrs: { src: "images/login-page.png", alt: "img-login" },
+        attrs: { src: "images/auth-page.png", alt: "img-login" },
       }),
     ])
   },
@@ -60332,7 +60485,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-12 col-sm-5 h-100" }, [
       _c("img", {
         staticClass: "img img-fluid",
-        attrs: { src: "images/register-page.png", alt: "img-register" },
+        attrs: { src: "images/auth-page.png", alt: "img-register" },
       }),
     ])
   },
@@ -60564,7 +60717,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "d-flex justify-content-between mb-3" }, [
-      _c("h3", { staticClass: "text-header" }, [_vm._v("Order Management")]),
+      _c("h3", { staticClass: "text-header px-3" }, [
+        _vm._v("Order Management"),
+      ]),
     ])
   },
 ]
@@ -60638,7 +60793,12 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "package-price mb-3" }, [
-                      _vm._v("Rp " + _vm._s(item.price)),
+                      _vm._v(
+                        "Rp " +
+                          _vm._s(item.min_price) +
+                          " - " +
+                          _vm._s(item.max_price)
+                      ),
                     ]),
                   ]),
                   _vm._v(" "),
@@ -60668,7 +60828,11 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "d-md-flex justify-content-between mb-3" },
-      [_c("h3", { staticClass: "text-header" }, [_vm._v("Product Management")])]
+      [
+        _c("h3", { staticClass: "text-header px-3" }, [
+          _vm._v("Product Management"),
+        ]),
+      ]
     )
   },
 ]
@@ -60975,7 +61139,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "form-group required-field mt-3" }, [
                 _c("label", { attrs: { for: "price" } }, [
-                  _vm._v("Harga Layanan (per helai)"),
+                  _vm._v("Harga Minimal"),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -60983,33 +61147,75 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.price,
-                      expression: "form.price",
+                      value: _vm.form.min_price,
+                      expression: "form.min_price",
                     },
                   ],
                   staticClass: "form-control",
-                  class: { "is-invalid": _vm.hasErrors("price") },
+                  class: { "is-invalid": _vm.hasErrors("min_price") },
                   attrs: {
-                    id: "price",
-                    name: "price",
+                    id: "min-price",
+                    name: "min-price",
                     type: "number",
                     min: "0",
                   },
-                  domProps: { value: _vm.form.price },
+                  domProps: { value: _vm.form.min_price },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "price", $event.target.value)
+                      _vm.$set(_vm.form, "min_price", $event.target.value)
                     },
                   },
                 }),
                 _vm._v(" "),
-                _vm.hasErrors("price")
+                _vm.hasErrors("min_price")
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
-                        "\n              Harga wajib diisi dengan nilai minimal 0\n            "
+                        "\n              Harga minimal tidak valid\n            "
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
+                _c("label", { attrs: { for: "price" } }, [
+                  _vm._v("Harga Maksimal"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.max_price,
+                      expression: "form.max_price",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("max_price") },
+                  attrs: {
+                    id: "max-price",
+                    name: "max-price",
+                    type: "number",
+                    min: "0",
+                  },
+                  domProps: { value: _vm.form.max_price },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "max_price", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.hasErrors("max_price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Harga maksimal tidak valid\n            "
                       ),
                     ])
                   : _vm._e(),
@@ -61083,7 +61289,7 @@ var render = function () {
     [
       _c(
         "div",
-        { staticClass: "d-md-flex justify-content-between mb-3" },
+        { staticClass: "d-md-flex justify-content-between px-3 mb-3" },
         [
           _c("h3", { staticClass: "text-header" }, [
             _vm._v("Review Management"),
@@ -61729,7 +61935,11 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "d-md-flex justify-content-between mb-3" },
-      [_c("h3", { staticClass: "text-header" }, [_vm._v("User Management")])]
+      [
+        _c("h3", { staticClass: "text-header px-3" }, [
+          _vm._v("User Management"),
+        ]),
+      ]
     )
   },
   function () {
@@ -62324,9 +62534,9 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _vm.order.price
+          _vm.totalPrice
             ? _c("div", { staticClass: "col-3" }, [
-                _vm._v("\n        Rp " + _vm._s(_vm.order.price) + "\n      "),
+                _vm._v("\n        Rp " + _vm._s(_vm.totalPrice) + "\n      "),
               ])
             : _vm._e(),
         ]
@@ -62342,7 +62552,7 @@ var render = function () {
       [
         _c("div", { staticClass: "accordion-body px-2 px-md-3" }, [
           !_vm.order.payment_photo.length &&
-          _vm.order.price &&
+          _vm.totalPrice &&
           _vm.order.user_id == _vm.user.id
             ? _c("div", { staticClass: "mb-3 text-center" }, [
                 _c("div", [
@@ -62359,7 +62569,7 @@ var render = function () {
                       staticClass: "package-price",
                       staticStyle: { "font-size": "24px !important" },
                     },
-                    [_vm._v("Rp " + _vm._s(_vm.order.price))]
+                    [_vm._v("Rp " + _vm._s(_vm.totalPrice))]
                   ),
                 ]),
                 _vm._v(" "),
@@ -62391,7 +62601,9 @@ var render = function () {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.order.price && _vm.order.status == "waiting"
+          _vm.totalPrice &&
+          _vm.order.status == "waiting" &&
+          _vm.order.user_id == _vm.user.id
             ? _c("div", { staticClass: "mb-3 text-center" }, [
                 _vm._m(1),
                 _vm._v(" "),
@@ -62403,17 +62615,8 @@ var render = function () {
             _c("div", { staticClass: "col-12 col-md-6" }, [
               _c(
                 "div",
-                {
-                  staticClass:
-                    "d-flex justify-content-between justify-content-md-end",
-                },
+                { staticClass: "d-flex justify-content-end" },
                 [
-                  !_vm.order.price && _vm.user.is_admin
-                    ? _c("OrderDetailInputPrice", {
-                        attrs: { order: _vm.order },
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
                   _vm.order.status == "finish" &&
                   _vm.user.is_admin &&
                   !_vm.order.receipt_number
@@ -62422,9 +62625,7 @@ var render = function () {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.order.price &&
-                  _vm.order.status !== "finish" &&
-                  _vm.user.is_admin
+                  _vm.order.status !== "finish" && _vm.user.is_admin
                     ? _c(
                         "button",
                         {
@@ -62459,7 +62660,7 @@ var render = function () {
               "div",
               { staticClass: "col-12 col-md-6 mb-3 table-responsive" },
               [
-                _c("table", { staticClass: "table-text" }, [
+                _c("table", { staticClass: "table table-borderless" }, [
                   _c("tbody", [
                     _vm.order.receipt_number
                       ? _c("tr", { staticStyle: { height: "2rem" } }, [
@@ -62577,73 +62778,259 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("h4", { staticClass: "text-header mt-3 mb-2" }, [
-            _vm._v("\n        Detail Pesanan\n      "),
-          ]),
-          _vm._v(" "),
           _c(
-            "table",
-            {
-              staticClass: "table table-borderless table-responsive d-md-table",
-            },
+            "div",
+            { staticClass: "d-flex justify-content-between mt-3 mb-2" },
             [
-              _vm._m(8),
+              _c("h4", { staticClass: "text-header my-auto" }, [
+                _vm._v("\n          Detail Pesanan\n        "),
+              ]),
               _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(_vm.order.items, function (item, index) {
-                    return _c(
-                      "tr",
-                      { key: index, staticStyle: { height: "2rem" } },
-                      [
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.getPackageName(item.package_id))),
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.description))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-outline-primary",
-                              attrs: {
-                                type: "button",
-                                "data-bs-toggle": "modal",
-                                "data-bs-target": "#preview-image-modal",
-                              },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.$emit("select-order-item", item)
-                                },
-                              },
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value:
+                          !_vm.isEditPrice &&
+                          _vm.user.is_admin &&
+                          _vm.order.status == "waiting",
+                        expression:
+                          "!isEditPrice && user.is_admin && order.status == 'waiting'",
+                      },
+                    ],
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function ($event) {
+                        _vm.isEditPrice = true
+                      },
+                    },
+                  },
+                  [_vm._v("\n            Ubah Harga\n          ")]
+                ),
+                _vm._v(" "),
+                _vm.isEditPrice && _vm.user.is_admin
+                  ? _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success me-2",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.updatePrice()
                             },
-                            [
-                              _vm._v(
-                                "\n                Lihat Foto\n              "
-                              ),
-                            ]
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(_vm.isLoading ? "Menyimpan" : "Simpan") +
+                              "\n            "
                           ),
-                        ]),
-                      ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  _vm.order.price
-                    ? _c("tr", [
-                        _vm._m(9),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "font-weight-bold" }, [
-                          _c("b", [_vm._v("Rp " + _vm._s(_vm.order.price))]),
-                        ]),
-                      ])
-                    : _vm._e(),
-                ],
-                2
-              ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-primary",
+                          attrs: { disabled: _vm.isLoading },
+                          on: {
+                            click: function ($event) {
+                              return _vm.resetEdit()
+                            },
+                          },
+                        },
+                        [_vm._v("\n              Batal\n            ")]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
             ]
           ),
+          _vm._v(" "),
+          _c("div", { staticClass: "table-responsive" }, [
+            _c(
+              "table",
+              {
+                staticClass: "table table-borderless",
+                staticStyle: { "table-layout": "fixed", "min-width": "500px" },
+              },
+              [
+                _vm._m(8),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  [
+                    _vm._l(_vm.order.items, function (item, index) {
+                      return _c(
+                        "tr",
+                        { key: index, staticStyle: { height: "2rem" } },
+                        [
+                          _c("td", [
+                            _vm._v(_vm._s(_vm.getPackageName(item.package_id))),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(item.description))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-outline-primary",
+                                attrs: {
+                                  type: "button",
+                                  "data-bs-toggle": "modal",
+                                  "data-bs-target": "#preview-image-modal",
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$emit("select-order-item", item)
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                  Lihat Foto\n                "
+                                ),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            !_vm.isEditPrice
+                              ? _c("span", [
+                                  _vm._v(
+                                    "\n                  Rp " +
+                                      _vm._s(item.price) +
+                                      "\n                "
+                                  ),
+                                ])
+                              : _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.itemPrice[index],
+                                      expression: "form.itemPrice[index]",
+                                    },
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.priceError[index],
+                                  },
+                                  attrs: { type: "number", min: "0" },
+                                  domProps: {
+                                    value: _vm.form.itemPrice[index],
+                                  },
+                                  on: {
+                                    input: [
+                                      function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form.itemPrice,
+                                          index,
+                                          $event.target.value
+                                        )
+                                      },
+                                      function ($event) {
+                                        _vm.priceError[index] = false
+                                      },
+                                    ],
+                                  },
+                                }),
+                            _vm._v(" "),
+                            _vm.priceError[index]
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                  Harga tidak valid!\n                "
+                                  ),
+                                ])
+                              : _vm._e(),
+                          ]),
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _c("td", [
+                        !_vm.isEditPrice
+                          ? _c("span", [
+                              _c("b", [
+                                _vm._v("Rp " + _vm._s(_vm.order.delivery_fee)),
+                              ]),
+                            ])
+                          : _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.delivery_fee,
+                                  expression: "form.delivery_fee",
+                                },
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.hasErrors("delivery_fee"),
+                              },
+                              attrs: { type: "number", min: "0" },
+                              domProps: { value: _vm.form.delivery_fee },
+                              on: {
+                                input: [
+                                  function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "delivery_fee",
+                                      $event.target.value
+                                    )
+                                  },
+                                  function ($event) {
+                                    _vm.errors["delivery_fee"] = ""
+                                  },
+                                ],
+                              },
+                            }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm.hasErrors("delivery_fee")
+                      ? _c("tr", [
+                          _c("td", { attrs: { colspan: "3" } }),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-danger pt-0" }, [
+                            _vm._v(
+                              "\n                Ongkos kirim tidak valid!\n              "
+                            ),
+                          ]),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.totalPrice
+                      ? _c("tr", [
+                          _vm._m(10),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "font-weight-bold" }, [
+                            _c("b", [_vm._v("Rp " + _vm._s(_vm.totalPrice))]),
+                          ]),
+                        ])
+                      : _vm._e(),
+                  ],
+                  2
+                ),
+              ]
+            ),
+          ]),
         ]),
       ]
     ),
@@ -62657,15 +63044,15 @@ var staticRenderFns = [
     return _c("div", { staticClass: "my-1" }, [
       _c("div", { staticClass: "img img-fluid" }, [
         _c("img", {
-          staticClass: "img-bca",
-          attrs: { src: "/images/bca.png", alt: "bca account" },
+          staticClass: "img-mandiri",
+          attrs: { src: "/images/mandiri.png", alt: "mandiri logo" },
         }),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mt-2" }, [
-        _c("div", [_c("b", [_vm._v("103 949 4950")])]),
+        _c("div", [_c("b", [_vm._v("137.000.988.140.6")])]),
         _vm._v(" "),
-        _c("div", [_vm._v("an. PT. indigo Indonesia")]),
+        _c("div", [_vm._v("an. Edia Rahayuningsih")]),
       ]),
     ])
   },
@@ -62758,11 +63145,21 @@ var staticRenderFns = [
       { staticStyle: { "border-bottom": "1px solid #c4c4c4" } },
       [
         _c("tr", [
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Layanan")]),
+          _c("th", { staticStyle: { width: "20%" }, attrs: { scope: "col" } }, [
+            _vm._v("Layanan"),
+          ]),
           _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Keterangan")]),
+          _c("th", { staticStyle: { width: "40%" }, attrs: { scope: "col" } }, [
+            _vm._v("Keterangan"),
+          ]),
           _vm._v(" "),
-          _c("th", { attrs: { scope: "col" } }, [_vm._v("Foto")]),
+          _c("th", { staticStyle: { width: "25%" }, attrs: { scope: "col" } }, [
+            _vm._v("Foto"),
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "20%" }, attrs: { scope: "col" } }, [
+            _vm._v("Harga"),
+          ]),
         ]),
       ]
     )
@@ -62773,7 +63170,21 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "td",
-      { staticClass: "text-end font-weight-bold", attrs: { colspan: "2" } },
+      {
+        staticClass: "text-end font-weight-bold",
+        staticStyle: { "vertical-align": "middle" },
+        attrs: { colspan: "3" },
+      },
+      [_c("b", [_vm._v("Ongkos kirim")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "td",
+      { staticClass: "text-end font-weight-bold", attrs: { colspan: "3" } },
       [_c("b", [_vm._v("Total")])]
     )
   },

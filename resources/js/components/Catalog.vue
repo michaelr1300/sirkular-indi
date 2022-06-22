@@ -54,7 +54,7 @@
                       <b>{{ item.name }}</b>
                     </h2>
                     <h4 class="card-text package-price mb-3" style="font-size: 20px">
-                      Mulai dari Rp {{ item.price }} per helai
+                      Harga Rp {{ item.min_price }} - {{ item.max_price }} per helai
                     </h4>
                     <p class="card-text text-area" style="font-size: 18px">{{ item.description }}</p>
                   </div>
@@ -298,7 +298,7 @@ export default {
     .img-wrapper-1{
         overflow: hidden;
         width: 100%;
-        height: 250px;
+        max-height: 250px;
         position: relative;
     }
 

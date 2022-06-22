@@ -33,18 +33,33 @@
               ></textarea>
             </div>
             <div class="form-group required-field mt-3">
-              <label for="price">Harga Layanan (per helai)</label>
+              <label for="price">Harga Minimal</label>
               <input 
-                id="price"
-                name="price"
+                id="min-price"
+                name="min-price"
                 type="number"
                 min=0 
                 class="form-control"
-                :class="{ 'is-invalid': hasErrors('price') }"
-                v-model="form.price"
+                :class="{ 'is-invalid': hasErrors('min_price') }"
+                v-model="form.min_price"
               >
-              <div v-if="hasErrors('price')" class="invalid-feedback">
-                Harga wajib diisi dengan nilai minimal 0
+              <div v-if="hasErrors('min_price')" class="invalid-feedback">
+                Harga minimal tidak valid
+              </div>
+            </div>
+            <div class="form-group required-field mt-3">
+              <label for="price">Harga Maksimal</label>
+              <input 
+                id="max-price"
+                name="max-price"
+                type="number"
+                min=0 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('max_price') }"
+                v-model="form.max_price"
+              >
+              <div v-if="hasErrors('max_price')" class="invalid-feedback">
+                Harga maksimal tidak valid
               </div>
             </div>
           </div>
@@ -77,7 +92,8 @@ export default {
       form: {
         id: null,
         name: null,
-        price: null,
+        min_price: null,
+        max_price: null,
         description: null,
       },
       errors: {},

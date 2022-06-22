@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="col-12 col-sm-5 h-100">
-      <img class="img img-fluid" src="images/login-page.png" alt="img-login">
+      <img class="img img-fluid" src="images/auth-page.png" alt="img-login">
     </div>
   </div>
 </template>

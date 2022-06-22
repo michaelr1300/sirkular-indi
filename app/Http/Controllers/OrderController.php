@@ -11,6 +11,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Validation\Rule;
 use App\Mail\NewOrder;
+use App\Mail\PaymentNotification;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
@@ -111,11 +112,16 @@ class OrderController extends Controller
             'payment_photo' => 'required|image',
         ]);
 
-        $media = $order->addMediaFromRequest('payment_photo')->toMediaCollection('images');
-        return new PhotoResource($media);
-
         $order->payment_photo = true;
         $order->save();
+        
+        $admin = User::where('is_admin', 1)->get();
+        foreach ($admin as $recipient) {
+            Mail::to($recipient->email)->send(new PaymentNotification($order));
+        }
+
+        $media = $order->addMediaFromRequest('payment_photo')->toMediaCollection('images');
+        return new PhotoResource($media);
     }
 
     public function updateReceipt(Request $request, $id)
@@ -134,13 +140,21 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $this->authorize('updateStatus', $order);
-        
+
         $request->validate([
-            'price' => 'required',
+            'delivery_fee' => 'required',
         ]);
         
-        $order->price = $request->price;
+        $order->delivery_fee = $request->delivery_fee;
         $order->save();
+        
+        $order->detail = OrderDetail::where('order_id', $id)->get();
+
+        for ($index=0; $index < count($request->itemPrice); $index++) { 
+            $item = $order->detail[$index];
+            $item->price = $request->itemPrice[$index];
+            $item->save();
+        }
     }
 
     public function updateStatus($id)

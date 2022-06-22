@@ -294,20 +294,6 @@ export default {
     this.form.quantity = this.packageList.map(val => 0);
     this.form.description = this.packageList.map(val => '');
   },
-  computed: {
-    totalItem() {
-      return this.form.quantity.reduce((sum, n) => sum + parseInt(n), 0);
-    },
-    totalPrice() {
-      let totalPrice = 0;
-      const price = this.form.package_id.map((id) => this.packageList.filter((item) => item.id == id)[0].price ?? 0);
-      this.form.quantity
-        .forEach((qty, index) => totalPrice += qty * price[index]
-      )
-      return totalPrice; 
-    }
-    
-  },
   data() {
     return {
       isLoading: false,
