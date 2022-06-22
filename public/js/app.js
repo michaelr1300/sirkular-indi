@@ -26588,12 +26588,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   data: function data() {
+    var _this$order$delivery_;
+
     return {
       isEditPrice: false,
       isLoading: false,
       form: {
         receipt: null,
-        delivery_fee: this.order.delivery_fee,
+        delivery_fee: (_this$order$delivery_ = this.order.delivery_fee) !== null && _this$order$delivery_ !== void 0 ? _this$order$delivery_ : 0,
         itemPrice: this.order.items.map(function (item) {
           var _item$price;
 

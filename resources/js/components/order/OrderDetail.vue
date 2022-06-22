@@ -331,7 +331,7 @@ export default {
       isLoading: false,
       form: {
         receipt: null,
-        delivery_fee: this.order.delivery_fee,
+        delivery_fee: this.order.delivery_fee ?? 0,
         itemPrice: this.order.items.map((item) => item.price ?? 0),
       },
       priceError : [],
