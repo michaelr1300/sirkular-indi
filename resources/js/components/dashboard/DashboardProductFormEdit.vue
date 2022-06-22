@@ -69,7 +69,15 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer justify-content-between">
+            <button 
+              type="button" 
+              class="btn btn-danger" 
+              :disabled="isLoading" 
+              @click="doDelete()"
+            >
+              Hapus
+            </button>
             <button
               class="btn btn-primary"
               @click="doSubmit()"
@@ -161,6 +169,18 @@ export default {
     getFileName(event){
       var fileData =  event.target.files[0];
       this.fileName = fileData.name;
+    },
+    async doDelete() {
+      this.isLoading = true;
+      this.isError = false;
+      try {
+        let response = await axios.post(`/product/${this.form.id}`, {_method: 'delete'});
+        return location.reload();
+      } catch (error) {
+        console.log(error.response);
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
 };
