@@ -26624,7 +26624,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(this.order.created_at), 'dd MMM yyyy');
     },
     totalPrice: function totalPrice() {
-      var totalPrice = this.order.delivery_fee;
+      var _this$order$delivery_2;
+
+      var totalPrice = (_this$order$delivery_2 = this.order.delivery_fee) !== null && _this$order$delivery_2 !== void 0 ? _this$order$delivery_2 : 0;
       this.order.items.forEach(function (item) {
         return totalPrice += item.price;
       });
@@ -26731,8 +26733,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     resetEdit: function resetEdit() {
+      var _this$order$delivery_3;
+
       this.isEditPrice = false;
-      this.form.delivery_fee = this.order.delivery_fee;
+      this.form.delivery_fee = (_this$order$delivery_3 = this.order.delivery_fee) !== null && _this$order$delivery_3 !== void 0 ? _this$order$delivery_3 : 0;
       this.form.itemPrice = this.order.items.map(function (item) {
         var _item$price2;
 
@@ -62945,7 +62949,7 @@ var render = function () {
                                   },
                                 }),
                             _vm._v(" "),
-                            _vm.priceError[index]
+                            _vm.priceError[index] && _vm.isEditPrice
                               ? _c("div", { staticClass: "text-danger" }, [
                                   _vm._v(
                                     "\n                  Harga tidak valid!\n                "
@@ -63003,7 +63007,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _vm.hasErrors("delivery_fee")
+                    _vm.hasErrors("delivery_fee") && _vm.isEditPrice
                       ? _c("tr", [
                           _c("td", { attrs: { colspan: "3" } }),
                           _vm._v(" "),

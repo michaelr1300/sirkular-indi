@@ -249,7 +249,7 @@
                     v-model="form.itemPrice[index]"
                     @input="priceError[index] = false"
                   />
-                  <div v-if="priceError[index]" class="text-danger">
+                  <div v-if="priceError[index] && isEditPrice" class="text-danger">
                     Harga tidak valid!
                   </div>
                 </td>
@@ -277,7 +277,7 @@
                   />
                 </td>
               </tr>
-              <tr v-if="hasErrors('delivery_fee')">
+              <tr v-if="hasErrors('delivery_fee') && isEditPrice">
                 <td colspan="3"/>
                 <td class="text-danger pt-0">
                   Ongkos kirim tidak valid!
@@ -355,7 +355,7 @@ export default {
       return format(new Date(this.order.created_at), 'dd MMM yyyy')
     },
     totalPrice() {
-      let totalPrice = this.order.delivery_fee;
+      let totalPrice = this.order.delivery_fee ?? 0;
       this.order.items.forEach((item) => totalPrice += item.price);
       return totalPrice;
     },
@@ -414,7 +414,7 @@ export default {
     },
     resetEdit() {
       this.isEditPrice = false;
-      this.form.delivery_fee = this.order.delivery_fee;
+      this.form.delivery_fee = this.order.delivery_fee ?? 0;
       this.form.itemPrice = this.order.items.map((item) => item.price ?? 0);
     },
     getPackageName(id) {
