@@ -25357,26 +25357,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 4:
                 response = _context.sent;
-                alert("Product Updated");
                 return _context.abrupt("return", location.reload());
 
-              case 9:
-                _context.prev = 9;
+              case 8:
+                _context.prev = 8;
                 _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
 
-              case 13:
-                _context.prev = 13;
+              case 12:
+                _context.prev = 12;
                 _this.isLoading = false;
-                return _context.finish(13);
+                return _context.finish(12);
 
-              case 16:
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 9, 13, 16]]);
+        }, _callee, null, [[1, 8, 12, 15]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -62797,9 +62796,9 @@ var render = function () {
                         value:
                           !_vm.isEditPrice &&
                           _vm.user.is_admin &&
-                          _vm.order.status == "waiting",
+                          _vm.order.status != "finish",
                         expression:
-                          "!isEditPrice && user.is_admin && order.status == 'waiting'",
+                          "!isEditPrice && user.is_admin && order.status != 'finish'",
                       },
                     ],
                     staticClass: "btn btn-primary",

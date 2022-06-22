@@ -188,7 +188,7 @@
           </h4>
           <div>
             <button
-              v-show="!isEditPrice && user.is_admin && order.status == 'waiting'"
+              v-show="!isEditPrice && user.is_admin && order.status != 'finish'"
               class="btn btn-primary"
               @click="isEditPrice = true"
             >

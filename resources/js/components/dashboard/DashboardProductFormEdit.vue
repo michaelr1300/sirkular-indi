@@ -110,7 +110,6 @@ export default {
       this.isLoading = true;
       try {
         let response = await axios.put(`/dashboard/product/${this.form.id}`, this.form);
-        alert("Product Updated");
         return location.reload();
       } catch (error) {
         console.log(error.response);
