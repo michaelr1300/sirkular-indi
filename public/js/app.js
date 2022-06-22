@@ -62794,8 +62794,12 @@ var render = function () {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: !_vm.isEditPrice && _vm.user.is_admin,
-                        expression: "!isEditPrice && user.is_admin",
+                        value:
+                          !_vm.isEditPrice &&
+                          _vm.user.is_admin &&
+                          _vm.order.status == "waiting",
+                        expression:
+                          "!isEditPrice && user.is_admin && order.status == 'waiting'",
                       },
                     ],
                     staticClass: "btn btn-primary",
