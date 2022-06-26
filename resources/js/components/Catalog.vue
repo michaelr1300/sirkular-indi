@@ -41,10 +41,18 @@
                 class="d-md-flex flex-row col-12 mb-3 div-products-info product-card"
               >
                 <div class="d-flex col-md-5 px-0">
+                  <img 
+                    v-if="item.media[0]" 
+                    class="my-auto w-100 h-100"
+                    :src="item.photo_path[0].url" 
+                    alt="product image"
+                    style="max-height: 410px; object-fit: cover;"
+                  >
                   <img
+                    v-else
                     class="my-auto w-100 h-100"
                     style="max-height: 410px; object-fit: cover;"
-                    :src="'images/product-photo-' + index + '.png'"
+                    src="images/default-placeholder.png"
                     alt="product image"
                   >
                 </div>

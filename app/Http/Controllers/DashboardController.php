@@ -11,8 +11,6 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Review;
 use Illuminate\Validation\Rule;
-use App\Mail\NewOrder;
-use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -33,7 +31,10 @@ class DashboardController extends Controller
     {
         $this->authorize('dashboard', Package::class);
         $packages = Package::all();
-        return view('dashboard.product')->with('packages',$packages);
+        foreach ($packages as $package) {
+            $package->photo_path = PhotoResource::collection($package->media);
+        }
+        return view('dashboard.product')->with('packages', $packages);
     }
 
     public function review()
@@ -44,13 +45,13 @@ class DashboardController extends Controller
             $review->photo_path = PhotoResource::collection($review->media);
         }
 
-        return view('dashboard.review')->with('reviews',$reviews);
+        return view('dashboard.review')->with('reviews', $reviews);
     }
 
     public function user()
     {
         $this->authorize('dashboard', Package::class);
         $users = User::all();
-        return view('dashboard.user')->with('users',$users);
+        return view('dashboard.user')->with('users', $users);
     }
 }

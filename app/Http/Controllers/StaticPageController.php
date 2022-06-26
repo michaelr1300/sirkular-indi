@@ -21,6 +21,9 @@ class StaticPageController extends Controller
     public function catalog()
     {
         $packages = Package::all();
+        foreach ($packages as $package) {
+            $package->photo_path = PhotoResource::collection($package->media);
+        }
 
         return view('catalog.index')->with('packages',$packages);
     }

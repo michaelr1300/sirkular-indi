@@ -47,14 +47,17 @@ class ReviewController extends Controller
         $review = Review::find($request->id);
         if($request->hasFile('photo')){
             $old_photos = PhotoResource::collection($review->media);
-            foreach($old_photos as $old_photo) {
-                $old_photo->delete();
-            };
+            
+            if (count($old_photos)) {
+                foreach($old_photos as $old_photo) {
+                    $old_photo->delete();
+                };
+            }
             $media = $review->addMediaFromRequest('photo')->toMediaCollection('images');
             
             new PhotoResource($media);
         }
-        
+
         $review->content = $request->content;
         $review->reviewer_name = $request->reviewer_name;
         $review->save();

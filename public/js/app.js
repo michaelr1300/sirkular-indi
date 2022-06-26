@@ -23828,6 +23828,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     packages: {
@@ -25049,6 +25057,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -25314,6 +25333,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedProduct: {
@@ -25331,13 +25371,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         max_price: null,
         description: null
       },
-      errors: {}
+      errors: {},
+      fileName: ''
     };
+  },
+  computed: {
+    selectedImage: function selectedImage() {
+      var _this$selectedReview, _this$selectedReview$;
+
+      if ((_this$selectedReview = this.selectedReview) !== null && _this$selectedReview !== void 0 && (_this$selectedReview$ = _this$selectedReview.photo_path) !== null && _this$selectedReview$ !== void 0 && _this$selectedReview$.length) {
+        return this.selectedReview.photo_path[0].url;
+      }
+
+      return '';
+    }
   },
   watch: {
     selectedProduct: function selectedProduct() {
-      this.form = _objectSpread({}, this.selectedProduct);
+      var _this$selectedReview2, _this$selectedReview3;
+
+      this.form = _objectSpread(_objectSpread({}, this.selectedProduct), {}, {
+        media_id: (_this$selectedReview2 = this.selectedReview) === null || _this$selectedReview2 === void 0 ? void 0 : (_this$selectedReview3 = _this$selectedReview2.media[0]) === null || _this$selectedReview3 === void 0 ? void 0 : _this$selectedReview3.id
+      });
       this.errors = {};
+      this.fileName = '';
+      this.$refs.photo.value = '';
     }
   },
   methods: {
@@ -25345,37 +25403,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var _this$form$name, _this$form$min_price, _this$form$max_price, _this$form$descriptio;
+
+        var photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this.isLoading = true;
-                _context.prev = 1;
-                _context.next = 4;
-                return axios.put("/dashboard/product/".concat(_this.form.id), _this.form);
+                photo = _this.$refs.photo.files[0];
+                formData = new FormData();
+                formData.append("id", _this.form.id);
 
-              case 4:
+                if (photo) {
+                  formData.append("photo", photo);
+                }
+
+                formData.append("name", (_this$form$name = _this.form.name) !== null && _this$form$name !== void 0 ? _this$form$name : '');
+                formData.append("min_price", (_this$form$min_price = _this.form.min_price) !== null && _this$form$min_price !== void 0 ? _this$form$min_price : '');
+                formData.append("max_price", (_this$form$max_price = _this.form.max_price) !== null && _this$form$max_price !== void 0 ? _this$form$max_price : '');
+                formData.append("description", (_this$form$descriptio = _this.form.description) !== null && _this$form$descriptio !== void 0 ? _this$form$descriptio : '');
+                formData.append("_method", "put");
+                _context.prev = 10;
+                _context.next = 13;
+                return axios.post("/dashboard/product/".concat(_this.form.id), formData, {
+                  headers: {
+                    "Content-Type": "multipart/form-data"
+                  }
+                });
+
+              case 13:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](1);
+              case 17:
+                _context.prev = 17;
+                _context.t0 = _context["catch"](10);
                 console.log(_context.t0.response);
-                _this.errors = _context.t0.response.data.errors;
 
-              case 12:
-                _context.prev = 12;
+              case 20:
+                _context.prev = 20;
                 _this.isLoading = false;
-                return _context.finish(12);
+                return _context.finish(20);
 
-              case 15:
+              case 23:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 8, 12, 15]]);
+        }, _callee, null, [[10, 17, 20, 23]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -25384,6 +25460,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return false;
+    },
+    getFileName: function getFileName(event) {
+      var fileData = event.target.files[0];
+      this.fileName = fileData.name;
     }
   }
 });
@@ -58668,17 +58748,29 @@ var render = function () {
                     },
                     [
                       _c("div", { staticClass: "d-flex col-md-5 px-0" }, [
-                        _c("img", {
-                          staticClass: "my-auto w-100 h-100",
-                          staticStyle: {
-                            "max-height": "410px",
-                            "object-fit": "cover",
-                          },
-                          attrs: {
-                            src: "images/product-photo-" + index + ".png",
-                            alt: "product image",
-                          },
-                        }),
+                        item.media[0]
+                          ? _c("img", {
+                              staticClass: "my-auto w-100 h-100",
+                              staticStyle: {
+                                "max-height": "410px",
+                                "object-fit": "cover",
+                              },
+                              attrs: {
+                                src: item.photo_path[0].url,
+                                alt: "product image",
+                              },
+                            })
+                          : _c("img", {
+                              staticClass: "my-auto w-100 h-100",
+                              staticStyle: {
+                                "max-height": "410px",
+                                "object-fit": "cover",
+                              },
+                              attrs: {
+                                src: "images/default-placeholder.png",
+                                alt: "product image",
+                              },
+                            }),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -60763,13 +60855,10 @@ var render = function () {
             [
               _c("div", { staticClass: "card rounded h-100" }, [
                 _c("div", { staticClass: "card-body d-flex flex-column" }, [
-                  _c("div", [
+                  _c("div", { staticClass: "mb-2 w-100" }, [
                     _c(
                       "div",
-                      {
-                        staticClass:
-                          "d-flex justify-content-between mb-2 w-100",
-                      },
+                      { staticClass: "d-flex justify-content-between " },
                       [
                         _c("h4", { staticClass: "my-auto" }, [
                           _c("b", [_vm._v(_vm._s(item.name))]),
@@ -60795,14 +60884,31 @@ var render = function () {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "package-price mb-3" }, [
-                      _vm._v(
-                        "Rp " +
-                          _vm._s(item.min_price) +
-                          " - " +
-                          _vm._s(item.max_price)
-                      ),
-                    ]),
+                    item.media[0]
+                      ? _c("div", { staticClass: "d-flex flex-column my-3" }, [
+                          _c("img", {
+                            staticClass: "img img-fluid",
+                            staticStyle: {
+                              "max-height": "400px",
+                              "max-width": "400px",
+                              "object-fit": "contain",
+                            },
+                            attrs: {
+                              src: item.photo_path[0].url,
+                              alt: "review-image",
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "package-price mb-3" }, [
+                    _vm._v(
+                      "Rp " +
+                        _vm._s(item.min_price) +
+                        " - " +
+                        _vm._s(item.max_price)
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "text-area" }, [
@@ -61073,7 +61179,7 @@ var render = function () {
             _c("div", { staticClass: "modal-body" }, [
               _c("div", { staticClass: "form-group required-field" }, [
                 _c("label", { attrs: { for: "name" } }, [
-                  _vm._v("Nama Layanan"),
+                  _vm._v("Nama Produk"),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -61102,7 +61208,7 @@ var render = function () {
                 _vm.hasErrors("name")
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
-                        "\n              Nama layanan wajib diisi\n            "
+                        "\n              Nama produk wajib diisi\n            "
                       ),
                     ])
                   : _vm._e(),
@@ -61110,7 +61216,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Deskripsi Layanan"),
+                  _vm._v("Deskripsi Produk"),
                 ]),
                 _vm._v(" "),
                 _c("textarea", {
@@ -61222,6 +61328,43 @@ var render = function () {
                       ),
                     ])
                   : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mt-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "photo" } },
+                  [_vm._v("Foto Produk")]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "label",
+                    { staticClass: "btn btn-outline-primary w-100 mx-auto" },
+                    [
+                      _c("input", {
+                        ref: "photo",
+                        staticClass: "form-control",
+                        staticStyle: { display: "none" },
+                        attrs: {
+                          id: "photo",
+                          name: "photo",
+                          accept: "image/*",
+                          type: "file",
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.getFileName($event)
+                          },
+                        },
+                      }),
+                      _vm._v("\n                Ubah Foto\n              "),
+                    ]
+                  ),
+                  _vm._v(
+                    "\n              " + _vm._s(_vm.fileName) + "\n            "
+                  ),
+                ]),
               ]),
             ]),
             _vm._v(" "),
