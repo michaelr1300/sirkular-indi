@@ -46,6 +46,9 @@ class ReviewController extends Controller
     {
         $review = Review::find($request->id);
         if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'required|image',
+            ]);
             $old_photos = PhotoResource::collection($review->media);
             
             if (count($old_photos)) {

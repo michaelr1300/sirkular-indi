@@ -14,16 +14,22 @@ class PackageController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'price' => 'required|min:0|integer'
+            'min_price' => 'required|min:0|integer',
+            'max_price' => 'required|min:0|integer'
         ]);
 
         $package = Package::create([
             'name' => $request->name,
-            'price' => $request->price,
+            'price' => 0,
+            'min_price' => $request->min_price,
+            'max_price' => $request->max_price,
             'description' => $request->description,
         ]);
 
         if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'required|image',
+            ]);
             $media = $package->addMediaFromRequest('photo')->toMediaCollection('images');
             return new PhotoResource($media);
         }
@@ -38,6 +44,9 @@ class PackageController extends Controller
         ]);
         $package = Package::find($request->id);
         if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'required|image',
+            ]);
             $old_photos = PhotoResource::collection($package->media);
             if (count($old_photos)) {
                 foreach($old_photos as $old_photo) {

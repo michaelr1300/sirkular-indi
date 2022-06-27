@@ -25175,15 +25175,62 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       isLoading: false,
       form: {
         name: null,
-        price: null,
+        min_price: null,
+        max_price: null,
         description: null
-      }
+      },
+      errors: {},
+      fileName: ''
     };
   },
   methods: {
@@ -25191,37 +25238,65 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var _this$form$name, _this$form$min_price, _this$form$max_price, _this$form$descriptio;
+
+        var photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this.isLoading = true;
-                _context.prev = 1;
-                _context.next = 4;
-                return axios.post("/dashboard/product", _this.form);
+                photo = _this.$refs.photo.files[0];
+                formData = new FormData();
 
-              case 4:
+                if (photo) {
+                  formData.append("photo", photo);
+                }
+
+                formData.append("name", (_this$form$name = _this.form.name) !== null && _this$form$name !== void 0 ? _this$form$name : '');
+                formData.append("min_price", (_this$form$min_price = _this.form.min_price) !== null && _this$form$min_price !== void 0 ? _this$form$min_price : '');
+                formData.append("max_price", (_this$form$max_price = _this.form.max_price) !== null && _this$form$max_price !== void 0 ? _this$form$max_price : '');
+                formData.append("description", (_this$form$descriptio = _this.form.description) !== null && _this$form$descriptio !== void 0 ? _this$form$descriptio : '');
+                _context.prev = 8;
+                _context.next = 11;
+                return axios.post("/dashboard/product", formData, {
+                  headers: {
+                    "Content-Type": "multipart/form-data"
+                  }
+                });
+
+              case 11:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](1);
+              case 15:
+                _context.prev = 15;
+                _context.t0 = _context["catch"](8);
                 console.log(_context.t0.response);
 
-              case 11:
-                _context.prev = 11;
+              case 18:
+                _context.prev = 18;
                 _this.isLoading = false;
-                return _context.finish(11);
+                return _context.finish(18);
 
-              case 14:
+              case 21:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 8, 11, 14]]);
+        }, _callee, null, [[8, 15, 18, 21]]);
       }))();
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
+    },
+    getFileName: function getFileName(event) {
+      var fileData = event.target.files[0];
+      this.fileName = fileData.name;
     }
   }
 });
@@ -60843,7 +60918,18 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "d-md-flex justify-content-between mb-3" },
+        [
+          _c("h3", { staticClass: "text-header px-3" }, [
+            _vm._v("Product Management"),
+          ]),
+          _vm._v(" "),
+          _c("DashboardProductFormAdd"),
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -60929,22 +61015,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-md-flex justify-content-between mb-3" },
-      [
-        _c("h3", { staticClass: "text-header px-3" }, [
-          _vm._v("Product Management"),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -60987,8 +61058,10 @@ var render = function () {
             _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
+              _c("div", { staticClass: "form-group required-field" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v("Nama Produk"),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -61000,6 +61073,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("name") },
                   attrs: { id: "name", name: "name", type: "text" },
                   domProps: { value: _vm.form.name },
                   on: {
@@ -61011,11 +61085,19 @@ var render = function () {
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("name")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Nama produk wajib diisi\n            "
+                      ),
+                    ])
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group mt-3" }, [
                 _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Deskripsi"),
+                  _vm._v("Deskripsi Produk"),
                 ]),
                 _vm._v(" "),
                 _c("textarea", {
@@ -61045,35 +61127,125 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group mt-3" }, [
-                _c("label", { attrs: { for: "price" } }, [_vm._v("Harga")]),
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
+                _c("label", { attrs: { for: "price" } }, [
+                  _vm._v("Harga Minimal"),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.price,
-                      expression: "form.price",
+                      value: _vm.form.min_price,
+                      expression: "form.min_price",
                     },
                   ],
                   staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("min_price") },
                   attrs: {
-                    id: "price",
-                    name: "price",
+                    id: "min-price",
+                    name: "min-price",
                     type: "number",
                     min: "0",
                   },
-                  domProps: { value: _vm.form.price },
+                  domProps: { value: _vm.form.min_price },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "price", $event.target.value)
+                      _vm.$set(_vm.form, "min_price", $event.target.value)
                     },
                   },
                 }),
+                _vm._v(" "),
+                _vm.hasErrors("min_price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Harga minimal tidak valid\n            "
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group required-field mt-3" }, [
+                _c("label", { attrs: { for: "price" } }, [
+                  _vm._v("Harga Maksimal"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.max_price,
+                      expression: "form.max_price",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  class: { "is-invalid": _vm.hasErrors("max_price") },
+                  attrs: {
+                    id: "max-price",
+                    name: "max-price",
+                    type: "number",
+                    min: "0",
+                  },
+                  domProps: { value: _vm.form.max_price },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "max_price", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.hasErrors("max_price")
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n              Harga maksimal tidak valid\n            "
+                      ),
+                    ])
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group mt-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "photo" } },
+                  [_vm._v("Foto Produk")]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "label",
+                    { staticClass: "btn btn-outline-primary w-100 mx-auto" },
+                    [
+                      _c("input", {
+                        ref: "photo",
+                        staticClass: "form-control",
+                        staticStyle: { display: "none" },
+                        attrs: {
+                          id: "photo",
+                          name: "photo",
+                          accept: "image/*",
+                          type: "file",
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.getFileName($event)
+                          },
+                        },
+                      }),
+                      _vm._v("\n                Pilih Foto\n              "),
+                    ]
+                  ),
+                  _vm._v(
+                    "\n              " + _vm._s(_vm.fileName) + "\n            "
+                  ),
+                ]),
               ]),
             ]),
             _vm._v(" "),
