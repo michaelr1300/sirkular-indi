@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StaticPageController;
@@ -33,9 +34,13 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
 {
     Route::redirect('/', 'order');
     Route::get('/order', [DashboardController::class, 'order'])->name('order');
+    Route::get('/package', [DashboardController::class, 'package'])->name('package');
+    // Route::post('/package', [PackageController::class, 'store'])->name('package.store');
+    Route::put('/package/{package}', [PackageController::class, 'update'])->name('package.update');
     Route::get('/product', [DashboardController::class, 'product'])->name('product');
-    Route::post('/product', [PackageController::class, 'store'])->name('product.store');
-    Route::put('/product/{product}', [PackageController::class, 'update'])->name('product.update');
+    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+    Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.delete');
     Route::get('/review', [DashboardController::class, 'review'])->name('review');
     Route::get('/user', [DashboardController::class, 'user'])->name('user');
 });

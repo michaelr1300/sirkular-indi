@@ -20,7 +20,6 @@ class PackageController extends Controller
 
         $package = Package::create([
             'name' => $request->name,
-            'price' => 0,
             'min_price' => $request->min_price,
             'max_price' => $request->max_price,
             'description' => $request->description,
