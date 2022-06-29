@@ -307,11 +307,10 @@ import { format } from 'date-fns'
 import OrderDetailPayment from './OrderDetailPayment.vue';
 import OrderStatusBadge from './OrderStatusBadge.vue';
 import OrderListImagePreviewModal from './OrderListImagePreviewModal.vue';
-import OrderDetailInputPrice from './OrderDetailInputPrice.vue';
 import OrderDetailInputReceipt from './OrderDetailInputReceipt.vue';
 
 export default {
-  components: { OrderStatusBadge, OrderDetailPayment, OrderListImagePreviewModal, OrderDetailInputPrice, OrderDetailInputReceipt },
+  components: { OrderStatusBadge, OrderDetailPayment, OrderListImagePreviewModal, OrderDetailInputReceipt },
   props: {
     user: {
       type: Object,
