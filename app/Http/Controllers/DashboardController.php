@@ -27,6 +27,16 @@ class DashboardController extends Controller
         return view('dashboard.order')->with(['orders' => $orders, 'packages' => $packages]);
     }
 
+    public function package()
+    {
+        $this->authorize('dashboard', Package::class);
+        $packages = Package::all();
+        foreach ($packages as $package) {
+            $package->photo_path = PhotoResource::collection($package->media);
+        }
+        return view('dashboard.package')->with('packages', $packages);
+    }
+
     public function product()
     {
         $this->authorize('dashboard', Package::class);
