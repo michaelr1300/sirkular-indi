@@ -142,6 +142,10 @@ export default {
       type: Array,
       default: null,
     },
+    products: {
+      type: Array,
+      default: null,
+    },
   },
   data() {
     return {
