@@ -25,7 +25,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/', [StaticPageController::class, 'home'])->name('home');
+Route::get('/', [StaticPageController::class, 'home'])->name('landing');
 Route::get('/home', [StaticPageController::class, 'home'])->name('home');
 Route::get('/catalog', [StaticPageController::class, 'catalog'])->name('catalog');
 
