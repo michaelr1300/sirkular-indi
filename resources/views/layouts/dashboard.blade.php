@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Indi Sirkular</title>
+    @env('production')
+        <meta name="google-site-verification" content="Cezo8IpquBNVz7gF_bDtW5O-8WBzhAFcg2nLkgDCE5c" />
+    @endenv
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
