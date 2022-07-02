@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PhotoResource;
 use Illuminate\Http\Request;
 use App\Models\Package;
+use App\Models\Product;
 use App\Models\Review;
 
 class StaticPageController extends Controller
@@ -21,7 +22,17 @@ class StaticPageController extends Controller
     public function catalog()
     {
         $packages = Package::all();
+        foreach ($packages as $package) {
+            $package->photo_path = PhotoResource::collection($package->media);
+        }
+        $products = Product::all();
+        foreach ($products as $product) {
+            $product->photo_path = PhotoResource::collection($product->media);
+        }
 
-        return view('catalog.index')->with('packages',$packages);
+        return view('catalog.index')->with([
+            'packages' => $packages,
+            'products' => $products
+        ]);
     }
 }

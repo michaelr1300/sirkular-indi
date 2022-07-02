@@ -2,45 +2,60 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PhotoResource;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Package;
+use App\Models\Media;
 
 class PackageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $packages = Package::all();
-
-        return view('catalog.index')->with('packages',$packages);
-    }
-
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|min:0|integer'
-        ]);
-
-        Package::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description,
-        ]);
-    }
-
-    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
             'min_price' => 'required|min:0|integer',
             'max_price' => 'required|min:0|integer'
         ]);
-        $package = Package::find($id);
+
+        $package = Package::create([
+            'name' => $request->name,
+            'min_price' => $request->min_price,
+            'max_price' => $request->max_price,
+            'description' => $request->description,
+        ]);
+
+        if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'required|image',
+            ]);
+            $media = $package->addMediaFromRequest('photo')->toMediaCollection('images');
+            return new PhotoResource($media);
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'min_price' => 'required|min:0|integer',
+            'max_price' => 'required|min:0|integer'
+        ]);
+        $package = Package::find($request->id);
+        if($request->hasFile('photo')){
+            $request->validate([
+                'photo' => 'required|image',
+            ]);
+            $old_photos = PhotoResource::collection($package->media);
+            if (count($old_photos)) {
+                foreach($old_photos as $old_photo) {
+                    $old_photo->delete();
+                };
+            }
+            $media = $package->addMediaFromRequest('photo')->toMediaCollection('images');
+            
+            new PhotoResource($media);
+        }
         
         $package->name = $request->name;
         $package->min_price = $request->min_price;

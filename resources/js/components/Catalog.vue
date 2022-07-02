@@ -29,22 +29,30 @@
           </div>
         </div>
       </div>
-      <div class="bg-white justify-content-center">
+      <div class="justify-content-center">
         <div class="col-12">
           <div class="div-section-3">
             <div id="product-indi-scroll" />
             <h1 class="px-0 px-lg-3 mb-4">Jasa Reproduksi</h1>
-            <div class="d-flex flex-column px-3 w-100 mx-0">
+            <div class="d-flex flex-column px-3 px-md-0 w-100 mx-0">
               <div
                 v-for="(item, index) in packages"
                 :key="index"
-                class="d-md-flex flex-row col-12 mb-3 div-products-info product-card"
+                class="d-md-flex flex-row col-12 mb-3 div-products-info product-card bg-white shadow-sm"
               >
                 <div class="d-flex col-md-5 px-0">
+                  <img 
+                    v-if="item.media[0]" 
+                    class="my-auto w-100 h-100"
+                    :src="item.photo_path[0].url" 
+                    alt="product image"
+                    style="max-height: 410px; object-fit: cover;"
+                  >
                   <img
+                    v-else
                     class="my-auto w-100 h-100"
                     style="max-height: 410px; object-fit: cover;"
-                    :src="'images/product-photo-' + index + '.png'"
+                    src="/images/default-placeholder.png"
                     alt="product image"
                   >
                 </div>
@@ -80,6 +88,61 @@
                 Pewarna alami Indi akan terlihat bagus pada pakaian yang berwarna cerah khususnya pakaian putih.
                 <br>
                 Silakan menghubungi admin jika memiliki pertanyaan seputar produk Indi. 
+              </div>
+            </div>
+          </div>
+          <div v-if="products.length" class="div-section-3 mt-4">
+            <hr>
+            <h1 class="px-0 px-lg-3 mb-4">Produk Siap Pakai</h1>
+            <div class="row mx-0 px-3 px-md-0 w-100">
+              <div
+                v-for="(item, index) in products"
+                :key="index"
+                class="col-12 col-md-4 px-2 mb-3"
+              >
+                <div class="div-products-info product-card bg-white shadow-sm h-100">
+                  <div class="d-flex px-0">
+                    <img 
+                      v-if="item.media[0]" 
+                      class="my-auto w-100 h-100"
+                      :src="item.photo_path[0].url" 
+                      alt="product image"
+                      style="max-height: 300px; object-fit: cover;"
+                    >
+                    <img
+                      v-else
+                      class="my-auto w-100 h-100"
+                      style="max-height: 300px; object-fit: cover;"
+                      src="/images/default-placeholder.png"
+                      alt="product image"
+                    >
+                  </div>
+                  <div class="d-flex flex-column card-body justify-content-between">
+                    <div class="mb-3">
+                      <h3 class="card-title text-header mb-2" style="font-size: 28px">
+                        <b>{{ item.name }}</b>
+                      </h3>
+                      <h4 class="card-text package-price mb-2" style="font-size: 18px">
+                        Rp {{ item.price }}
+                      </h4>
+                      <p class="card-text text-area" style="font-size: 14px">{{ item.description }}</p>
+                    </div>
+                    <div>
+                      <div class="div-order-btn">
+                        <a
+                          class="btn btn-order"
+                          style="background: #345EC9;"
+                          :href="'https://api.whatsapp.com/send?phone=6282260945766&text=' + 'Halo, saya tertarik untuk memesan ' + item.name"
+                        >
+                          Pesan sekarang <font-awesome-icon
+                            class="icon-arrow-right"
+                            icon="fa-solid fa-arrow-right"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -131,6 +194,10 @@
 export default {
   props: {
     packages: {
+      type: Array,
+      default: null,
+    },
+    products: {
       type: Array,
       default: null,
     },
@@ -232,7 +299,6 @@ export default {
     .div-order-btn{
         display: flex;
         justify-content: center;
-        margin-bottom: 20px;
     }
 
     .btn-order{
@@ -360,7 +426,6 @@ export default {
     .div-order-btn{
         display: flex;
         justify-content: center;
-        margin-bottom: 20px;
     }
 
     .btn-order{

@@ -8,7 +8,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group mt-3" >
+            <div class="form-group">
               <label for="reviewer_name">Nama Pelanggan</label>
               <input 
                 id="reviewer_name"
@@ -56,8 +56,21 @@
             </div>
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" :disabled="isLoading" @click="doDelete()">Hapus</button>
-            <button type="button" class="btn btn-primary" :disabled="isLoading" @click="doSubmit()">Simpan</button>
+            <button 
+              class="btn btn-danger"
+              :disabled="isLoading"
+              data-bs-toggle="modal" 
+              data-bs-target="#delete-modal"
+            >
+              Hapus
+            </button>
+            <button 
+              class="btn btn-primary"
+              :disabled="isLoading"
+              @click="doSubmit()"
+            >
+              Simpan
+            </button>
           </div>
         </div>
       </div>

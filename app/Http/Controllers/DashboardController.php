@@ -6,13 +6,12 @@ use App\Http\Resources\PhotoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Package;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Review;
 use Illuminate\Validation\Rule;
-use App\Mail\NewOrder;
-use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -29,11 +28,24 @@ class DashboardController extends Controller
         return view('dashboard.order')->with(['orders' => $orders, 'packages' => $packages]);
     }
 
-    public function product()
+    public function package()
     {
         $this->authorize('dashboard', Package::class);
         $packages = Package::all();
-        return view('dashboard.product')->with('packages',$packages);
+        foreach ($packages as $package) {
+            $package->photo_path = PhotoResource::collection($package->media);
+        }
+        return view('dashboard.package')->with('packages', $packages);
+    }
+
+    public function product()
+    {
+        $this->authorize('dashboard', Package::class);
+        $products = Product::all();
+        foreach ($products as $product) {
+            $product->photo_path = PhotoResource::collection($product->media);
+        }
+        return view('dashboard.product')->with('products', $products);
     }
 
     public function review()
@@ -44,13 +56,13 @@ class DashboardController extends Controller
             $review->photo_path = PhotoResource::collection($review->media);
         }
 
-        return view('dashboard.review')->with('reviews',$reviews);
+        return view('dashboard.review')->with('reviews', $reviews);
     }
 
     public function user()
     {
         $this->authorize('dashboard', Package::class);
         $users = User::all();
-        return view('dashboard.user')->with('users',$users);
+        return view('dashboard.user')->with('users', $users);
     }
 }

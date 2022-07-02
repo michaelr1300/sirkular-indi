@@ -46,28 +46,20 @@ class ReviewController extends Controller
     {
         $review = Review::find($request->id);
         if($request->hasFile('photo')){
-            // $old_media = PhotoResource::collection($review->media);
-            // $test = $old_media[0]->id;
+            $request->validate([
+                'photo' => 'required|image',
+            ]);
+            $old_photos = PhotoResource::collection($review->media);
             
-            // $out = $old_media[0]->getPath(); //Media::find($test)->delete();
-            // // $out = pathinfo($old_media[0]->getPath(), PATHINFO_DIRNAME);
-            // Storage::delete($test);
-            // return response()->json($out);
-            // $old_photo = $old_media[0]->getPath();
-            
-
-            $review->media()->delete();
-            // Media::where('id', $request->media_id)->each()->delete();
+            if (count($old_photos)) {
+                foreach($old_photos as $old_photo) {
+                    $old_photo->delete();
+                };
+            }
             $media = $review->addMediaFromRequest('photo')->toMediaCollection('images');
             
             new PhotoResource($media);
         }
-        // if($request->file('photo')) {
-        //     $photo_path = $request->file('photo')->store('review-photos');
-        //     $review->photo_path = $photo_path;
-
-        //     Storage::delete($old_photo);
-        // }
 
         $review->content = $request->content;
         $review->reviewer_name = $request->reviewer_name;

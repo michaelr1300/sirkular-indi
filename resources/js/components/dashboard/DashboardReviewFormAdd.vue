@@ -12,7 +12,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="form-group mt-3" >
+            <div class="form-group">
               <label for="reviewer_name">Nama Pelanggan</label>
               <input 
                 id="reviewer_name"
@@ -22,7 +22,7 @@
                 v-model="form.reviewer_name"
               />
             </div>
-            <div class="form-group mt-3" >
+            <div class="form-group mt-3">
               <label for="content">Review</label>
               <div v-show="isError" class="text-danger">
                 Isi review wajib diisi

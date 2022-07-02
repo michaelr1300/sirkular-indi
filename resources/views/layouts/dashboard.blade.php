@@ -45,11 +45,20 @@
                             </li>
                             <li class="nav-item  text-start p-0">
                                 <a
-                                  class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.product') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
-                                  href="{{ route('dashboard.product') }}"
+                                    class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.package') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
+                                    href="{{ route('dashboard.package') }}"
                                 >
                                     <i class="mdi mdi-view-dashboard" style="font-size: 18px"></i>
-                                    <div class="ms-2 my-auto">Produk</div>
+                                    <div class="ms-2 my-auto">Jasa Reproduksi</div>
+                                </a>
+                            </li>
+                            <li class="nav-item  text-start p-0">
+                                <a
+                                    class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.product') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
+                                    href="{{ route('dashboard.product') }}"
+                                >
+                                    <i class="mdi mdi-tshirt-crew" style="font-size: 18px"></i>
+                                    <div class="ms-2 my-auto">Produk Siap Pakai</div>
                                 </a>
                             </li>
                             <li class="nav-item text-start p-0">
@@ -126,11 +135,20 @@
                         </li>
                         <li class="nav-item  text-start p-0">
                             <a
+                                class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.package') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
+                                href="{{ route('dashboard.package') }}"
+                            >
+                                <i class="mdi mdi-view-dashboard" style="font-size: 18px"></i>
+                                <div class="ms-2 my-auto">Jasa Reproduksi</div>
+                            </a>
+                        </li>
+                        <li class="nav-item  text-start p-0">
+                            <a
                                 class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.product') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
                                 href="{{ route('dashboard.product') }}"
                             >
-                                <i class="mdi mdi-view-dashboard" style="font-size: 18px"></i>
-                                <div class="ms-2 my-auto">Produk</div>
+                                <i class="mdi mdi-tshirt-crew" style="font-size: 18px"></i>
+                                <div class="ms-2 my-auto">Produk Siap Pakai</div>
                             </a>
                         </li>
                         <li class="nav-item text-start p-0">
