@@ -91,7 +91,7 @@
               </div>
             </div>
           </div>
-          <div class="div-section-3 mt-4">
+          <div v-if="products.length" class="div-section-3 mt-4">
             <hr>
             <h1 class="px-0 px-lg-3 mb-4">Produk Siap Pakai</h1>
             <div class="row mx-0 px-3 px-md-0 w-100">
