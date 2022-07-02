@@ -174,7 +174,7 @@ export default {
       this.isLoading = true;
       this.isError = false;
       try {
-        let response = await axios.post(`/product/${this.form.id}`, {_method: 'delete'});
+        let response = await axios.post(`/dashboard/product/${this.form.id}`, {_method: 'delete'});
         return location.reload();
       } catch (error) {
         console.log(error.response);
