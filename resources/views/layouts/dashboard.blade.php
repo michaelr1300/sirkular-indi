@@ -54,7 +54,7 @@
                                     class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.product') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
                                     href="{{ route('dashboard.product') }}"
                                 >
-                                    <i class="mdi mdi-view-dashboard" style="font-size: 18px"></i>
+                                    <i class="mdi mdi-tshirt-crew" style="font-size: 18px"></i>
                                     <div class="ms-2 my-auto">Produk Jadi</div>
                                 </a>
                             </li>
@@ -144,7 +144,7 @@
                                 class="d-flex nav-link ps-3 pe-2  {{ Route::is('dashboard.product') ? 'active-sidebar' : 'sidebar-item text-secondary' }}"
                                 href="{{ route('dashboard.product') }}"
                             >
-                                <i class="mdi mdi-view-dashboard" style="font-size: 18px"></i>
+                                <i class="mdi mdi-tshirt-crew" style="font-size: 18px"></i>
                                 <div class="ms-2 my-auto">Produk Jadi</div>
                             </a>
                         </li>

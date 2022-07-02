@@ -25401,7 +25401,7 @@ __webpack_require__.r(__webpack_exports__);
     DashboardProductFormAdd: _DashboardProductFormAdd_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    packages: {
+    products: {
       type: Array,
       "default": null
     }
@@ -25529,29 +25529,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       isLoading: false,
       form: {
         name: null,
-        min_price: null,
-        max_price: null,
+        price: null,
         description: null
       },
       errors: {},
@@ -25563,7 +25547,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _this$form$name, _this$form$min_price, _this$form$max_price, _this$form$descriptio;
+        var _this$form$name, _this$form$price, _this$form$descriptio;
 
         var photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -25579,37 +25563,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
 
                 formData.append("name", (_this$form$name = _this.form.name) !== null && _this$form$name !== void 0 ? _this$form$name : '');
-                formData.append("min_price", (_this$form$min_price = _this.form.min_price) !== null && _this$form$min_price !== void 0 ? _this$form$min_price : '');
-                formData.append("max_price", (_this$form$max_price = _this.form.max_price) !== null && _this$form$max_price !== void 0 ? _this$form$max_price : '');
+                formData.append("price", (_this$form$price = _this.form.price) !== null && _this$form$price !== void 0 ? _this$form$price : '');
                 formData.append("description", (_this$form$descriptio = _this.form.description) !== null && _this$form$descriptio !== void 0 ? _this$form$descriptio : '');
-                _context.prev = 8;
-                _context.next = 11;
+                _context.prev = 7;
+                _context.next = 10;
                 return axios.post("/dashboard/product", formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 11:
+              case 10:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 15:
-                _context.prev = 15;
-                _context.t0 = _context["catch"](8);
+              case 14:
+                _context.prev = 14;
+                _context.t0 = _context["catch"](7);
                 console.log(_context.t0.response);
 
-              case 18:
-                _context.prev = 18;
+              case 17:
+                _context.prev = 17;
                 _this.isLoading = false;
-                return _context.finish(18);
+                return _context.finish(17);
 
-              case 21:
+              case 20:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[8, 15, 18, 21]]);
+        }, _callee, null, [[7, 14, 17, 20]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -25739,21 +25722,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selectedProduct: {
@@ -25767,8 +25735,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       form: {
         id: null,
         name: null,
-        min_price: null,
-        max_price: null,
+        price: null,
         description: null
       },
       errors: {},
@@ -25803,7 +25770,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _this$form$name, _this$form$min_price, _this$form$max_price, _this$form$descriptio;
+        var _this$form$name, _this$form$price, _this$form$descriptio;
 
         var photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -25820,38 +25787,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 }
 
                 formData.append("name", (_this$form$name = _this.form.name) !== null && _this$form$name !== void 0 ? _this$form$name : '');
-                formData.append("min_price", (_this$form$min_price = _this.form.min_price) !== null && _this$form$min_price !== void 0 ? _this$form$min_price : '');
-                formData.append("max_price", (_this$form$max_price = _this.form.max_price) !== null && _this$form$max_price !== void 0 ? _this$form$max_price : '');
+                formData.append("price", (_this$form$price = _this.form.price) !== null && _this$form$price !== void 0 ? _this$form$price : '');
                 formData.append("description", (_this$form$descriptio = _this.form.description) !== null && _this$form$descriptio !== void 0 ? _this$form$descriptio : '');
                 formData.append("_method", "put");
-                _context.prev = 10;
-                _context.next = 13;
+                _context.prev = 9;
+                _context.next = 12;
                 return axios.post("/dashboard/product/".concat(_this.form.id), formData, {
                   headers: {
                     "Content-Type": "multipart/form-data"
                   }
                 });
 
-              case 13:
+              case 12:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 17:
-                _context.prev = 17;
-                _context.t0 = _context["catch"](10);
+              case 16:
+                _context.prev = 16;
+                _context.t0 = _context["catch"](9);
                 console.log(_context.t0.response);
 
-              case 20:
-                _context.prev = 20;
+              case 19:
+                _context.prev = 19;
                 _this.isLoading = false;
-                return _context.finish(20);
+                return _context.finish(19);
 
-              case 23:
+              case 22:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[10, 17, 20, 23]]);
+        }, _callee, null, [[9, 16, 19, 22]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -61181,7 +61147,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "d-flex row" },
+        { staticClass: "row mx-0" },
         _vm._l(_vm.packages, function (item) {
           return _c(
             "div",
@@ -61583,15 +61549,15 @@ var render = function () {
             _vm._v("Product Management"),
           ]),
           _vm._v(" "),
-          _c("DashboardProductFormAdd"),
+          _c("DashboardProductFormAdd", { staticClass: "px-3" }),
         ],
         1
       ),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "d-flex row" },
-        _vm._l(_vm.packages, function (item) {
+        { staticClass: "row mx-0" },
+        _vm._l(_vm.products, function (item) {
           return _c(
             "div",
             { key: item.id, staticClass: "col-12 col-md-4 px-2 my-2" },
@@ -61646,12 +61612,7 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "package-price mb-3" }, [
-                    _vm._v(
-                      "Rp " +
-                        _vm._s(item.min_price) +
-                        " - " +
-                        _vm._s(item.max_price)
-                    ),
+                    _vm._v("Rp " + _vm._s(item.price)),
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "text-area" }, [
@@ -61785,85 +61746,39 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group required-field mt-3" }, [
-                _c("label", { attrs: { for: "price" } }, [
-                  _vm._v("Harga Minimal"),
-                ]),
+                _c("label", { attrs: { for: "price" } }, [_vm._v("Harga")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.min_price,
-                      expression: "form.min_price",
+                      value: _vm.form.price,
+                      expression: "form.price",
                     },
                   ],
                   staticClass: "form-control",
-                  class: { "is-invalid": _vm.hasErrors("min_price") },
+                  class: { "is-invalid": _vm.hasErrors("price") },
                   attrs: {
-                    id: "min-price",
-                    name: "min-price",
+                    id: "price",
+                    name: "price",
                     type: "number",
                     min: "0",
                   },
-                  domProps: { value: _vm.form.min_price },
+                  domProps: { value: _vm.form.price },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "min_price", $event.target.value)
+                      _vm.$set(_vm.form, "price", $event.target.value)
                     },
                   },
                 }),
                 _vm._v(" "),
-                _vm.hasErrors("min_price")
+                _vm.hasErrors("price")
                   ? _c("div", { staticClass: "invalid-feedback" }, [
-                      _vm._v(
-                        "\n              Harga minimal tidak valid\n            "
-                      ),
-                    ])
-                  : _vm._e(),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group required-field mt-3" }, [
-                _c("label", { attrs: { for: "price" } }, [
-                  _vm._v("Harga Maksimal"),
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.max_price,
-                      expression: "form.max_price",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  class: { "is-invalid": _vm.hasErrors("max_price") },
-                  attrs: {
-                    id: "max-price",
-                    name: "max-price",
-                    type: "number",
-                    min: "0",
-                  },
-                  domProps: { value: _vm.form.max_price },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form, "max_price", $event.target.value)
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _vm.hasErrors("max_price")
-                  ? _c("div", { staticClass: "invalid-feedback" }, [
-                      _vm._v(
-                        "\n              Harga maksimal tidak valid\n            "
-                      ),
+                      _vm._v("\n              Harga tidak valid\n            "),
                     ])
                   : _vm._e(),
               ]),
@@ -62076,85 +61991,39 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group required-field mt-3" }, [
-                _c("label", { attrs: { for: "price" } }, [
-                  _vm._v("Harga Minimal"),
-                ]),
+                _c("label", { attrs: { for: "price" } }, [_vm._v("Harga")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.form.min_price,
-                      expression: "form.min_price",
+                      value: _vm.form.price,
+                      expression: "form.price",
                     },
                   ],
                   staticClass: "form-control",
-                  class: { "is-invalid": _vm.hasErrors("min_price") },
+                  class: { "is-invalid": _vm.hasErrors("price") },
                   attrs: {
-                    id: "min-price",
-                    name: "min-price",
+                    id: "price",
+                    name: "price",
                     type: "number",
                     min: "0",
                   },
-                  domProps: { value: _vm.form.min_price },
+                  domProps: { value: _vm.form.price },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.form, "min_price", $event.target.value)
+                      _vm.$set(_vm.form, "price", $event.target.value)
                     },
                   },
                 }),
                 _vm._v(" "),
-                _vm.hasErrors("min_price")
+                _vm.hasErrors("price")
                   ? _c("div", { staticClass: "invalid-feedback" }, [
-                      _vm._v(
-                        "\n              Harga minimal tidak valid\n            "
-                      ),
-                    ])
-                  : _vm._e(),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group required-field mt-3" }, [
-                _c("label", { attrs: { for: "price" } }, [
-                  _vm._v("Harga Maksimal"),
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.max_price,
-                      expression: "form.max_price",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  class: { "is-invalid": _vm.hasErrors("max_price") },
-                  attrs: {
-                    id: "max-price",
-                    name: "max-price",
-                    type: "number",
-                    min: "0",
-                  },
-                  domProps: { value: _vm.form.max_price },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form, "max_price", $event.target.value)
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _vm.hasErrors("max_price")
-                  ? _c("div", { staticClass: "invalid-feedback" }, [
-                      _vm._v(
-                        "\n              Harga maksimal tidak valid\n            "
-                      ),
+                      _vm._v("\n              Harga tidak valid\n            "),
                     ])
                   : _vm._e(),
               ]),

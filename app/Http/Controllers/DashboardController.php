@@ -6,6 +6,7 @@ use App\Http\Resources\PhotoResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Package;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -40,11 +41,11 @@ class DashboardController extends Controller
     public function product()
     {
         $this->authorize('dashboard', Package::class);
-        $packages = Package::all();
-        foreach ($packages as $package) {
-            $package->photo_path = PhotoResource::collection($package->media);
+        $products = Product::all();
+        foreach ($products as $product) {
+            $product->photo_path = PhotoResource::collection($product->media);
         }
-        return view('dashboard.product')->with('packages', $packages);
+        return view('dashboard.product')->with('products', $products);
     }
 
     public function review()

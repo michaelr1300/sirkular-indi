@@ -2,11 +2,11 @@
   <div>
     <div class="d-md-flex justify-content-between mb-3">
       <h3 class="text-header px-3">Product Management</h3> 
-      <DashboardProductFormAdd/>
+      <DashboardProductFormAdd class="px-3"/>
     </div>
-    <div class="d-flex row">
+    <div class="row mx-0">
       <div 
-        v-for="item in packages" :key="item.id" 
+        v-for="item in products" :key="item.id" 
         class="col-12 col-md-4 px-2 my-2"
       >
         <div class="card rounded h-100">
@@ -31,7 +31,7 @@
                 >
               </div>
             </div>
-            <div class="package-price mb-3">Rp {{ item.min_price }} - {{ item.max_price }}</div>
+            <div class="package-price mb-3">Rp {{ item.price }}</div>
             <p class="text-area">{{ item.description }}</p>
           </div>
         </div>
@@ -47,7 +47,7 @@ import DashboardProductFormEdit from './DashboardProductFormEdit.vue';
 export default {
   components: { DashboardProductFormEdit, DashboardProductFormAdd },
   props: {
-    packages: {
+    products: {
       type: Array,
       default: null
     },

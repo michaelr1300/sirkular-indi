@@ -3,7 +3,7 @@
     <div class="d-md-flex justify-content-between mb-3">
       <h3 class="text-header px-3">Package Management</h3>
     </div>
-    <div class="d-flex row">
+    <div class="row mx-0">
       <div 
         v-for="item in packages" :key="item.id" 
         class="col-12 col-md-4 px-2 my-2"

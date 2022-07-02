@@ -33,33 +33,18 @@
               ></textarea>
             </div>
             <div class="form-group required-field mt-3">
-              <label for="price">Harga Minimal</label>
+              <label for="price">Harga</label>
               <input 
-                id="min-price"
-                name="min-price"
+                id="price"
+                name="price"
                 type="number"
                 min=0 
                 class="form-control"
-                :class="{ 'is-invalid': hasErrors('min_price') }"
-                v-model="form.min_price"
+                :class="{ 'is-invalid': hasErrors('price') }"
+                v-model="form.price"
               >
-              <div v-if="hasErrors('min_price')" class="invalid-feedback">
-                Harga minimal tidak valid
-              </div>
-            </div>
-            <div class="form-group required-field mt-3">
-              <label for="price">Harga Maksimal</label>
-              <input 
-                id="max-price"
-                name="max-price"
-                type="number"
-                min=0 
-                class="form-control"
-                :class="{ 'is-invalid': hasErrors('max_price') }"
-                v-model="form.max_price"
-              >
-              <div v-if="hasErrors('max_price')" class="invalid-feedback">
-                Harga maksimal tidak valid
+              <div v-if="hasErrors('price')" class="invalid-feedback">
+                Harga tidak valid
               </div>
             </div>
             <div class="form-group mt-3">
@@ -113,8 +98,7 @@ export default {
       form: {
         id: null,
         name: null,
-        min_price: null,
-        max_price: null,
+        price: null,
         description: null,
       },
       errors: {},
@@ -147,8 +131,7 @@ export default {
         formData.append("photo", photo);
       }
       formData.append("name", this.form.name ?? '');
-      formData.append("min_price", this.form.min_price ?? '');
-      formData.append("max_price", this.form.max_price ?? '');
+      formData.append("price", this.form.price ?? '');
       formData.append("description", this.form.description ?? '');
       formData.append("_method", "put");
       try {

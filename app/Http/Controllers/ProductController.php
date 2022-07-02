@@ -19,7 +19,7 @@ class ProductController extends Controller
 
         $product = Product::create([
             'name' => $request->name,
-            'price' => $request->min_price,
+            'price' => $request->price,
             'description' => $request->description,
         ]);
 
