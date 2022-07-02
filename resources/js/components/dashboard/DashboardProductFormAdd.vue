@@ -125,7 +125,7 @@ export default {
         );
         return location.reload();
       } catch (error) {
-        console.log(error.response);
+        this.errors = error.response.data.errors;
       } finally {
         this.isLoading = false;
       }
@@ -134,7 +134,6 @@ export default {
       if (this.errors[key]) {
         return true;
       }
-
       return false;
     },
     getFileName(event){

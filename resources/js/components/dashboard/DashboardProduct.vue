@@ -45,6 +45,7 @@
       </div>
     </div>
     <DashboardProductFormEdit :selectedProduct="selectedProduct"></DashboardProductFormEdit>
+    <DeleteModal :url="'/dashboard/product/'" :item="selectedProduct" :type="'produk ' + selectedProduct.name"/>
   </div>
 </template>
 

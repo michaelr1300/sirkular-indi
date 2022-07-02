@@ -38,6 +38,7 @@
       </div>
     </div>
     <DashboardReviewFormEdit :selectedReview="selectedReview"></DashboardReviewFormEdit>
+    <DeleteModal :url="'/reviews/'" :item="selectedReview" :type="'review ini'"/>
   </div>
 </template>
 

@@ -73,8 +73,9 @@
             <button 
               type="button" 
               class="btn btn-danger" 
-              :disabled="isLoading" 
-              @click="doDelete()"
+              :disabled="isLoading"
+              data-bs-toggle="modal" 
+              data-bs-target="#delete-modal"
             >
               Hapus
             </button>
@@ -154,7 +155,7 @@ export default {
         );
         return location.reload();
       } catch (error) {
-        console.log(error.response);
+        this.errors = error.response.data.errors;
       } finally {
         this.isLoading = false;
       }
@@ -163,24 +164,11 @@ export default {
       if (this.errors[key]) {
         return true;
       }
-
       return false;
     },
     getFileName(event){
       var fileData =  event.target.files[0];
       this.fileName = fileData.name;
-    },
-    async doDelete() {
-      this.isLoading = true;
-      this.isError = false;
-      try {
-        let response = await axios.post(`/dashboard/product/${this.form.id}`, {_method: 'delete'});
-        return location.reload();
-      } catch (error) {
-        console.log(error.response);
-      } finally {
-        this.isLoading = false;
-      }
     },
   },
 };
