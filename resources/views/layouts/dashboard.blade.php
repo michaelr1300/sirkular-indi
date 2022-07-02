@@ -55,7 +55,7 @@
                                     href="{{ route('dashboard.product') }}"
                                 >
                                     <i class="mdi mdi-tshirt-crew" style="font-size: 18px"></i>
-                                    <div class="ms-2 my-auto">Produk Jadi</div>
+                                    <div class="ms-2 my-auto">Produk Siap Pakai</div>
                                 </a>
                             </li>
                             <li class="nav-item text-start p-0">
@@ -145,7 +145,7 @@
                                 href="{{ route('dashboard.product') }}"
                             >
                                 <i class="mdi mdi-tshirt-crew" style="font-size: 18px"></i>
-                                <div class="ms-2 my-auto">Produk Jadi</div>
+                                <div class="ms-2 my-auto">Produk Siap Pakai</div>
                             </a>
                         </li>
                         <li class="nav-item text-start p-0">

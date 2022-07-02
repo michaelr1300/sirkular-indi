@@ -20,14 +20,21 @@
                 </button>
               </div>
               <div 
-                v-if="item.media[0]" 
                 class="d-flex flex-column my-3"
               >
                 <img 
+                  v-if="item.media[0]" 
                   class="img img-fluid" 
                   :src="item.photo_path[0].url" 
-                  alt="review-image"
-                  style="max-height: 400px; max-width: 400px; object-fit: contain;"
+                  alt="product-image"
+                  style="max-height: 300px; max-width: 300px; object-fit: contain;"
+                >
+                <img
+                  v-else
+                  class="my-auto w-100 h-100"
+                  style="max-height: 300px; object-fit: cover;"
+                  src="/images/default-placeholder.png"
+                  alt="product image"
                 >
               </div>
             </div>
