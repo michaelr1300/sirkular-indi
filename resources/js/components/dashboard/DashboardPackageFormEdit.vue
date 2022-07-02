@@ -4,12 +4,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Edit Produk</h5>
+            <h5 class="modal-title">Edit Jasa Reproduksi</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-group required-field">
-              <label for="name">Nama Produk</label>
+              <label for="name">Nama</label>
               <input 
                 id="name"
                 name="name"
@@ -19,11 +19,11 @@
                 v-model="form.name"
               >
               <div v-if="hasErrors('name')" class="invalid-feedback">
-                Nama produk wajib diisi
+                Nama wajib diisi
               </div>
             </div>
             <div class="form-group mt-3">
-              <label for="description">Deskripsi Produk</label>
+              <label for="description">Deskripsi</label>
               <textarea 
                 id="description"
                 name="description"
