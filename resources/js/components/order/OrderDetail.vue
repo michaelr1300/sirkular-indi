@@ -18,7 +18,7 @@
           <order-status-badge :status="order.status" />
         </div>
         <div v-if="totalPrice" class="col-3">
-          Rp {{ totalPrice }}
+          Rp {{ formatPrice(totalPrice) }}
         </div>
       </button>
     </h2>
@@ -35,7 +35,7 @@
             Anda belum mengirimkan bukti pembayaran untuk transaksi ini.
             <br>
             Silahkan melakukan pembayaran sebesar
-            <h2 class="package-price" style="font-size: 24px !important">Rp {{ totalPrice }}</h2>
+            <h2 class="package-price" style="font-size: 24px !important">Rp {{ formatPrice(totalPrice) }}</h2>
           </div>
           <div class="my-1">
             <div class="img img-fluid">
@@ -238,7 +238,7 @@
                 </td>
                 <td>
                   <span v-if="!isEditPrice">
-                    Rp {{ item.price }}
+                    Rp {{ formatPrice(item.price) }}
                   </span>
                   <input
                     v-else
@@ -264,7 +264,7 @@
                 </td>
                 <td>
                   <span v-if="!isEditPrice">
-                    <b>Rp {{ order.delivery_fee }}</b>
+                    <b>Rp {{ formatPrice(order.delivery_fee) }}</b>
                   </span>
                   <input
                     v-else
@@ -291,7 +291,7 @@
                   <b>Total</b>
                 </td>
                 <td class="font-weight-bold">
-                  <b>Rp {{ totalPrice }}</b>
+                  <b>Rp {{ formatPrice(totalPrice) }}</b>
                 </td>
               </tr>
             </tbody> 

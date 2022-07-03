@@ -62,7 +62,7 @@
                       <b>{{ item.name }}</b>
                     </h2>
                     <h4 class="card-text package-price mb-3" style="font-size: 20px">
-                      Harga Rp {{ item.min_price }} - {{ item.max_price }} per helai
+                      Harga Rp {{ formatPrice(item.min_price) }} - {{ formatPrice(item.max_price) }} per helai
                     </h4>
                     <p class="card-text text-area" style="font-size: 18px">{{ item.description }}</p>
                   </div>
@@ -123,7 +123,7 @@
                         <b>{{ item.name }}</b>
                       </h3>
                       <h4 class="card-text package-price mb-2" style="font-size: 18px">
-                        Rp {{ item.price }}
+                        Rp {{ formatPrice(item.price) }}
                       </h4>
                       <p class="card-text text-area" style="font-size: 14px">{{ item.description }}</p>
                     </div>

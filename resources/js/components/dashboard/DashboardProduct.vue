@@ -38,7 +38,7 @@
                 >
               </div>
             </div>
-            <div class="package-price mb-3">Rp {{ item.price }}</div>
+            <div class="package-price mb-3">Rp {{ formatPrice(item.price) }}</div>
             <p class="text-area">{{ item.description }}</p>
           </div>
         </div>

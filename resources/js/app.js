@@ -33,6 +33,21 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+ Vue.mixin({
+    methods: {
+        formatPrice(value) {
+            // format number to thousand and decimal
+            // e.g. 1.234
+            if (!(value instanceof Float32Array)) {
+              value = parseFloat(value);
+            }
+            if (value.toString() === 'NaN') {
+              return '-';
+            }
+            return value.toLocaleString('id-ID');
+          }
+    }
+  })
 
 const app = new Vue({
     el: '#app',

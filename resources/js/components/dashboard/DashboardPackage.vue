@@ -30,7 +30,7 @@
                 >
               </div>
             </div>
-            <div class="package-price mb-3">Rp {{ item.min_price }} - {{ item.max_price }}</div>
+            <div class="package-price mb-3">Rp {{ formatPrice(item.min_price) }} - {{ formatPrice(item.max_price) }}</div>
             <p class="text-area">{{ item.description }}</p>
           </div>
         </div>
