@@ -119,13 +119,13 @@
                   </div>
                   <div class="d-flex flex-column card-body justify-content-between">
                     <div class="mb-3">
-                      <h3 class="card-title text-header mb-2" style="font-size: 28px">
-                        <b>{{ item.name }}</b>
-                      </h3>
                       <h4 class="card-text package-price mb-2" style="font-size: 18px">
                         Rp {{ formatPrice(item.price) }}
                       </h4>
-                      <p class="card-text text-area" style="font-size: 14px">{{ item.description }}</p>
+                      <div style="font-size: 16px">
+                        <b>{{ item.name }}</b>
+                        <p class="card-text text-area">{{ item.description }}</p>
+                      </div>
                     </div>
                     <div>
                       <div class="div-order-btn">

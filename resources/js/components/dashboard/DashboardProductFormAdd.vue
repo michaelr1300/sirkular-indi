@@ -13,6 +13,23 @@
           </div>
           <div class="modal-body">
             <div class="form-group required-field">
+              <label for="code">Kode Produk</label>
+              <div>
+                <small>Kode harus unik untuk setiap produk</small>
+              </div>
+              <input 
+                id="code"
+                name="code"
+                type="text" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('code') }"
+                v-model="form.code"
+              >
+              <div v-if="hasErrors('code')" class="invalid-feedback">
+                Kode tidak valid
+              </div>
+            </div>
+            <div class="form-group required-field mt-3">
               <label for="name">Nama Produk</label>
               <input 
                 id="name"
@@ -94,6 +111,7 @@ export default {
     return {
       isLoading: false,
       form: {
+        code: null,
         name: null,
         price: null,
         description: null,
@@ -110,6 +128,7 @@ export default {
       if (photo) {
         formData.append("photo", photo);
       }
+      formData.append("code", this.form.code ?? '');
       formData.append("name", this.form.name ?? '');
       formData.append("price", this.form.price ?? '');
       formData.append("description", this.form.description ?? '');
@@ -125,6 +144,7 @@ export default {
         );
         return location.reload();
       } catch (error) {
+        console.log(error.response)
         this.errors = error.response.data.errors;
       } finally {
         this.isLoading = false;

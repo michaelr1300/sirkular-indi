@@ -13,7 +13,7 @@
           <div class="card-body d-flex flex-column">
             <div class="mb-2 w-100">
               <div class="d-flex justify-content-between ">
-                <h4 class="my-auto"><b>{{ item.name }}</b></h4>
+                <h4 class="my-auto"><b>{{ item.code }}</b></h4>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-product-modal" 
                   @click="editProduct(item)">
                   <span class="mdi mdi-pencil"></span>
@@ -39,13 +39,14 @@
               </div>
             </div>
             <div class="package-price mb-3">Rp {{ formatPrice(item.price) }}</div>
+            <b>{{ item.name }}</b>
             <p class="text-area">{{ item.description }}</p>
           </div>
         </div>
       </div>
     </div>
     <DashboardProductFormEdit :selectedProduct="selectedProduct"></DashboardProductFormEdit>
-    <DeleteModal :url="'/dashboard/product/'" :item="selectedProduct" :type="'produk ' + selectedProduct.name"/>
+    <DeleteModal :url="'/dashboard/product/'" :item="selectedProduct" :type="'produk ' + selectedProduct.code"/>
   </div>
 </template>
 

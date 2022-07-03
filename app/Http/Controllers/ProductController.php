@@ -13,11 +13,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'code' => 'required|unique:products',
             'name' => 'required',
             'price' => 'required|min:0|integer',
         ]);
 
         $product = Product::create([
+            'code' => $request->code,
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
@@ -35,6 +37,7 @@ class ProductController extends Controller
     public function update(Request $request)
     {
         $request->validate([
+            'code' => 'required|unique:products',
             'name' => 'required',
             'price' => 'required|min:0|integer',
         ]);
@@ -54,7 +57,8 @@ class ProductController extends Controller
             
             new PhotoResource($media);
         }
-        
+
+        $product->code = $request->code;       
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
