@@ -37,11 +37,11 @@ class ProductController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'code' => 'required|unique:products',
+            'code' => 'required|unique:products,code,'.$request->id,
             'name' => 'required',
             'price' => 'required|min:0|integer',
         ]);
-
+        
         $product = Product::find($request->id);
         if($request->hasFile('photo')){
             $request->validate([
