@@ -12,6 +12,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Review;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Collection;
 
 class DashboardController extends Controller
 {
@@ -41,10 +42,13 @@ class DashboardController extends Controller
     public function product()
     {
         $this->authorize('dashboard', Package::class);
-        $products = Product::all();
-        foreach ($products as $product) {
+        $items = Product::all();
+        foreach ($items as $product) {
             $product->photo_path = PhotoResource::collection($product->media);
         }
+        $collection = collect($items);
+        $sorted = $collection->sortBy('name');
+        $products = $sorted->values()->all();
         return view('dashboard.product')->with('products', $products);
     }
 
