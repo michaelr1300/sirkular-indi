@@ -132,7 +132,7 @@
                         <a
                           class="btn btn-order"
                           style="background: #345EC9;"
-                          :href="'https://api.whatsapp.com/send?phone=6282260945766&text=' + 'Halo, saya tertarik untuk memesan ' + item.name"
+                          :href="'https://api.whatsapp.com/send?phone=6282260945766&text=' + 'Halo, saya tertarik untuk memesan ' + item.name + ' (' + item.code + ')' "
                         >
                           Pesan sekarang <font-awesome-icon
                             class="icon-arrow-right"
