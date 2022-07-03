@@ -47,7 +47,7 @@ class DashboardController extends Controller
             $product->photo_path = PhotoResource::collection($product->media);
         }
         $collection = collect($items);
-        $sorted = $collection->sortBy('name');
+        $sorted = $collection->sortBy('code');
         $products = $sorted->values()->all();
         return view('dashboard.product')->with('products', $products);
     }
